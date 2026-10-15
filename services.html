@@ -188,14 +188,16 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="services-container">
         <!-- Card 1: Pruning -->
         <div class="service-card flex flex-col bg-surface-container-low rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-surface-container" data-category="pruning">
-          <div class="relative h-52 w-full overflow-hidden">
+          <a href="service-detail.html?id=crown-reduction" class="relative h-52 w-full overflow-hidden block">
             <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAWYgwX53N30LF4NX36bLPwMqTgcxkSS02lsoL3tZMlKIbf0hHnJg509ezoajtSjUM-MKStmhlRUd_IApDf7lF9eOjxkIKu1HjKFIf6KIXf6qrFCJACD7zo8hU5bNBzhtefCz-o1HNcqW_BOKjNuXnLogxVMo8NCxJaVPoBiXrVlVbSp4ssOoyvxBcjHoFXuSPuhxxlJ20-aTbUGThvRIfKXX1dN-p_fWKTuZSQId9B-HGy1cdTjCxq')"></div>
             <div class="absolute top-3 left-3 bg-primary text-on-primary px-3 py-1 rounded-full text-xs font-semibold">Pruning &amp; Care</div>
             <div class="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-md px-2.5 py-1 rounded text-xs font-medium text-on-surface">$$ Tier</div>
-          </div>
+          </a>
           <div class="p-6 flex flex-col flex-grow justify-between gap-4">
             <div class="flex flex-col gap-1.5">
-              <h3 class="text-xl font-bold font-headline text-on-surface">Crown Reduction &amp; Thinning</h3>
+              <a href="service-detail.html?id=crown-reduction" class="hover:text-primary transition-colors">
+                <h3 class="text-xl font-bold font-headline text-on-surface">Crown Reduction &amp; Thinning</h3>
+              </a>
               <p class="text-xs text-on-surface-variant leading-relaxed">Selective branch removal to reduce weight, increase light penetration, and maintain structural integrity of mature trees.</p>
             </div>
             <div class="flex flex-col gap-1 bg-surface p-3 rounded-xl border border-surface-container">
@@ -206,26 +208,33 @@
                 <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[14px]">check</span>Full debris chipping &amp; site cleanup</li>
               </ul>
             </div>
-            <div class="flex items-center justify-between pt-2 border-t border-surface-container">
+            <div class="flex items-center justify-between pt-2 border-t border-surface-container gap-2">
               <span class="text-xs text-secondary font-bold">Est. $450 - $1,200</span>
-              <button class="px-4 py-2 bg-primary text-on-primary rounded-lg text-xs font-semibold hover:bg-primary/90 transition-colors flex items-center gap-1.5" onclick="openBookingModal('Crown Reduction & Thinning', 450)">
-                <span>Book Consult</span>
-                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-              </button>
+              <div class="flex items-center gap-1.5">
+                <a href="service-detail.html?id=crown-reduction" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-primary hover:bg-surface-container transition-colors flex items-center gap-1">
+                  <span>Details</span>
+                  <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+                </a>
+                <button class="px-3 py-1.5 bg-primary text-on-primary rounded-lg text-xs font-semibold hover:bg-primary/90 transition-colors flex items-center gap-1" onclick="openBookingModal('Crown Reduction & Thinning', 450)">
+                  <span>Book</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Card 2: Removal -->
         <div class="service-card flex flex-col bg-surface-container-low rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-surface-container" data-category="removal">
-          <div class="relative h-52 w-full overflow-hidden">
+          <a href="service-detail.html?id=tree-removal" class="relative h-52 w-full overflow-hidden block">
             <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDcQoko-mDZKVsMyfKTsRoZ5PVLWjLIjZC6yjb5QDd0jeCQA6wxsoskdEmH07ZS6xrom5CjCakHfsdzgKkdPuw3o5skAWC82Fli6LyDK6LXXRqlG9_ZKL1JuAxEL-YuPuSR92WIR4egjFlg3fklxqBVVa5_FZSC3DkXEBgxac7ve69FQM2zmszc_AykWlo6b3aNryF_6dBjYC534oZ6AKqvscXMI445qpDYbSuM5rwcCQVQicUty4Eb')"></div>
             <div class="absolute top-3 left-3 bg-error text-on-error px-3 py-1 rounded-full text-xs font-semibold">Removal &amp; Safety</div>
             <div class="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-md px-2.5 py-1 rounded text-xs font-medium text-on-surface">$$$ Tier</div>
-          </div>
+          </a>
           <div class="p-6 flex flex-col flex-grow justify-between gap-4">
             <div class="flex flex-col gap-1.5">
-              <h3 class="text-xl font-bold font-headline text-on-surface">Emergency Hazard Tree Removal</h3>
+              <a href="service-detail.html?id=tree-removal" class="hover:text-primary transition-colors">
+                <h3 class="text-xl font-bold font-headline text-on-surface">Emergency Hazard Tree Removal</h3>
+              </a>
               <p class="text-xs text-on-surface-variant leading-relaxed">Safe dismantling and extraction of storm-damaged, diseased, or structurally compromised trees near structures.</p>
             </div>
             <div class="flex flex-col gap-1 bg-surface p-3 rounded-xl border border-surface-container">
@@ -236,26 +245,33 @@
                 <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[14px]">check</span>24/7 Rapid response availability</li>
               </ul>
             </div>
-            <div class="flex items-center justify-between pt-2 border-t border-surface-container">
+            <div class="flex items-center justify-between pt-2 border-t border-surface-container gap-2">
               <span class="text-xs text-secondary font-bold">Est. $800 - $3,500+</span>
-              <button class="px-4 py-2 bg-primary text-on-primary rounded-lg text-xs font-semibold hover:bg-primary/90 transition-colors flex items-center gap-1.5" onclick="openBookingModal('Emergency Hazard Tree Removal', 950)">
-                <span>Book Consult</span>
-                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-              </button>
+              <div class="flex items-center gap-1.5">
+                <a href="service-detail.html?id=tree-removal" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-primary hover:bg-surface-container transition-colors flex items-center gap-1">
+                  <span>Details</span>
+                  <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+                </a>
+                <button class="px-3 py-1.5 bg-primary text-on-primary rounded-lg text-xs font-semibold hover:bg-primary/90 transition-colors flex items-center gap-1" onclick="openBookingModal('Emergency Hazard Tree Removal', 950)">
+                  <span>Book</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Card 3: Health & Soil -->
         <div class="service-card flex flex-col bg-surface-container-low rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-surface-container" data-category="health">
-          <div class="relative h-52 w-full overflow-hidden">
+          <a href="service-detail.html?id=deep-root-fertilization" class="relative h-52 w-full overflow-hidden block">
             <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA3_1x38OSQQgN8Qgv6ceirs9wrSql78UulE18k-hznDIR042GMNlqJqupbZ0v1XT7gE1OGGIesoa328f_xC_RSVCKN_o6uXb9N-0gnzv0Aio3p8FJG28BRQC1pEZrHmH9u1wzEAiODdBPLiSDmZRfFTjp7waBw3vi4snVf3o6h6Ouxr-sZhUorDmCN4AgELex062no6IsoFScqFLeMVAlnlOpZVKKS8XYtd8xyNvQuO0lZfmHijzhZ')"></div>
             <div class="absolute top-3 left-3 bg-secondary text-on-secondary px-3 py-1 rounded-full text-xs font-semibold">Health &amp; Soil</div>
             <div class="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-md px-2.5 py-1 rounded text-xs font-medium text-on-surface">$ Tier</div>
-          </div>
+          </a>
           <div class="p-6 flex flex-col flex-grow justify-between gap-4">
             <div class="flex flex-col gap-1.5">
-              <h3 class="text-xl font-bold font-headline text-on-surface">Deep Root Fertilization &amp; Aeration</h3>
+              <a href="service-detail.html?id=deep-root-fertilization" class="hover:text-primary transition-colors">
+                <h3 class="text-xl font-bold font-headline text-on-surface">Deep Root Fertilization &amp; Aeration</h3>
+              </a>
               <p class="text-xs text-on-surface-variant leading-relaxed">Targeted nutrient injection and pneumatic soil decompaction to revitalize stressed urban and suburban trees.</p>
             </div>
             <div class="flex flex-col gap-1 bg-surface p-3 rounded-xl border border-surface-container">
@@ -266,26 +282,33 @@
                 <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[14px]">check</span>Organic mycorrhizal inoculants</li>
               </ul>
             </div>
-            <div class="flex items-center justify-between pt-2 border-t border-surface-container">
+            <div class="flex items-center justify-between pt-2 border-t border-surface-container gap-2">
               <span class="text-xs text-secondary font-bold">Est. $300 - $750</span>
-              <button class="px-4 py-2 bg-primary text-on-primary rounded-lg text-xs font-semibold hover:bg-primary/90 transition-colors flex items-center gap-1.5" onclick="openBookingModal('Deep Root Fertilization & Aeration', 350)">
-                <span>Book Consult</span>
-                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-              </button>
+              <div class="flex items-center gap-1.5">
+                <a href="service-detail.html?id=deep-root-fertilization" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-primary hover:bg-surface-container transition-colors flex items-center gap-1">
+                  <span>Details</span>
+                  <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+                </a>
+                <button class="px-3 py-1.5 bg-primary text-on-primary rounded-lg text-xs font-semibold hover:bg-primary/90 transition-colors flex items-center gap-1" onclick="openBookingModal('Deep Root Fertilization & Aeration', 350)">
+                  <span>Book</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Card 4: Precision Stump Grinding -->
         <div class="service-card flex flex-col bg-surface-container-low rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-surface-container" data-category="removal">
-          <div class="relative h-52 w-full overflow-hidden">
+          <a href="service-detail.html?id=stump-grinding" class="relative h-52 w-full overflow-hidden block">
             <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDaThnyifLrdKizoed4OaBfwVbU-Sz9Y5kh_sEmbU3BNoihm_yoD_vrL5b-hW3wtb-vVF6qpJcnTI2OZCL4RIdwuVQEMqb3WK8TRGXgHn9fzJNL96kdl4i47LQ6Bv0gaxXY74u4h7QF-jrIHvWezZS9gk2U8MOSZ1P0JjyCgjp28pqJH90JEQLZUhRWmRl2GHzuZyDPbTNprSyoO3-TBzt_MAtDN8iEkhiDub3dgMrMLyb8zHdZdaDL')"></div>
             <div class="absolute top-3 left-3 bg-error text-on-error px-3 py-1 rounded-full text-xs font-semibold">Removal &amp; Safety</div>
             <div class="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-md px-2.5 py-1 rounded text-xs font-medium text-on-surface">$ Tier</div>
-          </div>
+          </a>
           <div class="p-6 flex flex-col flex-grow justify-between gap-4">
             <div class="flex flex-col gap-1.5">
-              <h3 class="text-xl font-bold font-headline text-on-surface">Precision Stump Grinding</h3>
+              <a href="service-detail.html?id=stump-grinding" class="hover:text-primary transition-colors">
+                <h3 class="text-xl font-bold font-headline text-on-surface">Precision Stump Grinding</h3>
+              </a>
               <p class="text-xs text-on-surface-variant leading-relaxed">Complete grinding of remaining tree stumps 8-12 inches below grade to prepare the area for replanting or turf.</p>
             </div>
             <div class="flex flex-col gap-1 bg-surface p-3 rounded-xl border border-surface-container">
@@ -296,26 +319,33 @@
                 <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[14px]">check</span>Surface raking and site leveling</li>
               </ul>
             </div>
-            <div class="flex items-center justify-between pt-2 border-t border-surface-container">
+            <div class="flex items-center justify-between pt-2 border-t border-surface-container gap-2">
               <span class="text-xs text-secondary font-bold">Est. $200 - $600</span>
-              <button class="px-4 py-2 bg-primary text-on-primary rounded-lg text-xs font-semibold hover:bg-primary/90 transition-colors flex items-center gap-1.5" onclick="openBookingModal('Precision Stump Grinding', 250)">
-                <span>Book Consult</span>
-                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-              </button>
+              <div class="flex items-center gap-1.5">
+                <a href="service-detail.html?id=stump-grinding" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-primary hover:bg-surface-container transition-colors flex items-center gap-1">
+                  <span>Details</span>
+                  <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+                </a>
+                <button class="px-3 py-1.5 bg-primary text-on-primary rounded-lg text-xs font-semibold hover:bg-primary/90 transition-colors flex items-center gap-1" onclick="openBookingModal('Precision Stump Grinding', 250)">
+                  <span>Book</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Card 5: Commercial Grounds -->
         <div class="service-card flex flex-col bg-surface-container-low rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-surface-container" data-category="commercial">
-          <div class="relative h-52 w-full overflow-hidden">
+          <a href="service-detail.html?id=commercial-fleet" class="relative h-52 w-full overflow-hidden block">
             <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDDoQgaTaC4c-CcoW0M0CZCm8PoB2Gj3prcwar2npLUFl7tFMXjQcoDv_AlBSL738TI17L5aXU4k1YoauxqYZIrxdXQtH6G_Za_wOA2JK0nOa-9O_3KoP0Qpvw0gFitlb3u-RSFXEio7EuhFSwPnM3jgmnpdlHJXdZ017sLLpHR5Oi8tJRxJYnDN_bDiqawp8H8NVLDhOYYphl8kOF4DS6Ck_evOnW2BGcCI0toMZzbC6d53nP6FOor')"></div>
             <div class="absolute top-3 left-3 bg-primary-container text-on-primary-container px-3 py-1 rounded-full text-xs font-semibold">Commercial Grounds</div>
             <div class="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-md px-2.5 py-1 rounded text-xs font-medium text-on-surface">$$$ Tier</div>
-          </div>
+          </a>
           <div class="p-6 flex flex-col flex-grow justify-between gap-4">
             <div class="flex flex-col gap-1.5">
-              <h3 class="text-xl font-bold font-headline text-on-surface">Commercial Fleet &amp; Campus Care</h3>
+              <a href="service-detail.html?id=commercial-fleet" class="hover:text-primary transition-colors">
+                <h3 class="text-xl font-bold font-headline text-on-surface">Commercial Fleet &amp; Campus Care</h3>
+              </a>
               <p class="text-xs text-on-surface-variant leading-relaxed">Scheduled multi-property arboriculture maintenance, clearance pruning for signage/lighting, and liability mitigation.</p>
             </div>
             <div class="flex flex-col gap-1 bg-surface p-3 rounded-xl border border-surface-container">
@@ -326,26 +356,33 @@
                 <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[14px]">check</span>Priority emergency storm response SLAs</li>
               </ul>
             </div>
-            <div class="flex items-center justify-between pt-2 border-t border-surface-container">
+            <div class="flex items-center justify-between pt-2 border-t border-surface-container gap-2">
               <span class="text-xs text-secondary font-bold">Custom Contract Rates</span>
-              <button class="px-4 py-2 bg-primary text-on-primary rounded-lg text-xs font-semibold hover:bg-primary/90 transition-colors flex items-center gap-1.5" onclick="openBookingModal('Commercial Fleet & Campus Care', 1500)">
-                <span>Book Consult</span>
-                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-              </button>
+              <div class="flex items-center gap-1.5">
+                <a href="service-detail.html?id=commercial-fleet" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-primary hover:bg-surface-container transition-colors flex items-center gap-1">
+                  <span>Details</span>
+                  <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+                </a>
+                <button class="px-3 py-1.5 bg-primary text-on-primary rounded-lg text-xs font-semibold hover:bg-primary/90 transition-colors flex items-center gap-1" onclick="openBookingModal('Commercial Fleet & Campus Care', 1500)">
+                  <span>Book</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Card 6: Health Diagnostics -->
         <div class="service-card flex flex-col bg-surface-container-low rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-surface-container" data-category="health">
-          <div class="relative h-52 w-full overflow-hidden">
+          <a href="service-detail.html?id=health-assessment" class="relative h-52 w-full overflow-hidden block">
             <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC3n4zUzbSCdJ0ExwUeafU9by2tIr2FTruwDrePF68ywfL9ySBi561pieRG4_ZSKqg2_0ep9bcTz4Hm0eeKvhc4bpDB4EWH9KcXMDzjPEY0_H6ZmwqJJjS254dst1kjIPhc6Snymw8FYv_ik188nZCAhWMlHZeKxDkmcWPHIjx7NgNi3KoKSiRankFll646ynLOIlBihZVd59Vok5bzX7zbq7ufX48RhlIccS4W2MCeBwdLOo5tyzQN')"></div>
             <div class="absolute top-3 left-3 bg-secondary text-on-secondary px-3 py-1 rounded-full text-xs font-semibold">Health &amp; Soil</div>
             <div class="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-md px-2.5 py-1 rounded text-xs font-medium text-on-surface">$ Tier</div>
-          </div>
+          </a>
           <div class="p-6 flex flex-col flex-grow justify-between gap-4">
             <div class="flex flex-col gap-1.5">
-              <h3 class="text-xl font-bold font-headline text-on-surface">Arborist Health Assessment</h3>
+              <a href="service-detail.html?id=health-assessment" class="hover:text-primary transition-colors">
+                <h3 class="text-xl font-bold font-headline text-on-surface">Arborist Health Assessment</h3>
+              </a>
               <p class="text-xs text-on-surface-variant leading-relaxed">Detailed diagnostic report by certified arborists covering pest infestations, fungal decay, and root integrity.</p>
             </div>
             <div class="flex flex-col gap-1 bg-surface p-3 rounded-xl border border-surface-container">
@@ -356,26 +393,33 @@
                 <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[14px]">check</span>Written preservation &amp; treatment plan</li>
               </ul>
             </div>
-            <div class="flex items-center justify-between pt-2 border-t border-surface-container">
+            <div class="flex items-center justify-between pt-2 border-t border-surface-container gap-2">
               <span class="text-xs text-secondary font-bold">Est. $150 - $350</span>
-              <button class="px-4 py-2 bg-primary text-on-primary rounded-lg text-xs font-semibold hover:bg-primary/90 transition-colors flex items-center gap-1.5" onclick="openBookingModal('Arborist Health Assessment', 200)">
-                <span>Book Consult</span>
-                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-              </button>
+              <div class="flex items-center gap-1.5">
+                <a href="service-detail.html?id=health-assessment" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-primary hover:bg-surface-container transition-colors flex items-center gap-1">
+                  <span>Details</span>
+                  <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+                </a>
+                <button class="px-4 py-2 bg-primary text-on-primary rounded-lg text-xs font-semibold hover:bg-primary/90 transition-colors flex items-center gap-1" onclick="openBookingModal('Arborist Health Assessment', 200)">
+                  <span>Book</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Card 7: Sonic Tomography Acoustic Decay Mapping -->
         <div class="service-card flex flex-col bg-surface-container-low rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-surface-container" data-category="health">
-          <div class="relative h-52 w-full overflow-hidden">
+          <a href="service-detail.html?id=sonic-tomography" class="relative h-52 w-full overflow-hidden block">
             <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB2g-3xiWXQU8DWR3oUyce5tAR_uZI-MjhRvMnGqiBPsY2wGRMHwGoAwtdays0uVBIHhdnAHRywoSN3G4L1iTISvjUlBlyQ-20krvG8t2IheD02IfCBwBP-RPHrcVcwtm5CxfO2xaZLJEP1NUfcsW0BUbc1sjPtun6t70oBmP11L4KJnB1IJgYwtcyQNTrVc12vAbDgQXtCvfbtyV9nXAw_KkFVAnGUESfpY0SmMLO6_ggkKor0dzmJ')"></div>
             <div class="absolute top-3 left-3 bg-secondary text-on-secondary px-3 py-1 rounded-full text-xs font-semibold">Health &amp; Soil</div>
             <div class="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-md px-2.5 py-1 rounded text-xs font-medium text-on-surface">$$ Tier</div>
-          </div>
+          </a>
           <div class="p-6 flex flex-col flex-grow justify-between gap-4">
             <div class="flex flex-col gap-1.5">
-              <h3 class="text-xl font-bold font-headline text-on-surface">Sonic Tomography Acoustic Mapping</h3>
+              <a href="service-detail.html?id=sonic-tomography" class="hover:text-primary transition-colors">
+                <h3 class="text-xl font-bold font-headline text-on-surface">Sonic Tomography Acoustic Mapping</h3>
+              </a>
               <p class="text-xs text-on-surface-variant leading-relaxed">Non-destructive ultrasound matrix measuring internal trunk wood density and hidden hollow decay zones.</p>
             </div>
             <div class="flex flex-col gap-1 bg-surface p-3 rounded-xl border border-surface-container">
@@ -386,26 +430,33 @@
                 <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[14px]">check</span>Insurance-compliant TRAQ risk report</li>
               </ul>
             </div>
-            <div class="flex items-center justify-between pt-2 border-t border-surface-container">
+            <div class="flex items-center justify-between pt-2 border-t border-surface-container gap-2">
               <span class="text-xs text-secondary font-bold">Est. $550 - $1,100</span>
-              <button class="px-4 py-2 bg-primary text-on-primary rounded-lg text-xs font-semibold hover:bg-primary/90 transition-colors flex items-center gap-1.5" onclick="openBookingModal('Sonic Tomography Acoustic Mapping', 550)">
-                <span>Book Consult</span>
-                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-              </button>
+              <div class="flex items-center gap-1.5">
+                <a href="service-detail.html?id=sonic-tomography" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-primary hover:bg-surface-container transition-colors flex items-center gap-1">
+                  <span>Details</span>
+                  <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+                </a>
+                <button class="px-3 py-1.5 bg-primary text-on-primary rounded-lg text-xs font-semibold hover:bg-primary/90 transition-colors flex items-center gap-1" onclick="openBookingModal('Sonic Tomography Acoustic Mapping', 550)">
+                  <span>Book</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Card 8: Dynamic Cobra Canopy Cabling & Structural Bracing -->
         <div class="service-card flex flex-col bg-surface-container-low rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-surface-container" data-category="pruning">
-          <div class="relative h-52 w-full overflow-hidden">
+          <a href="service-detail.html?id=canopy-bracing" class="relative h-52 w-full overflow-hidden block">
             <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCKAHOcfy3kOKW7hcwjuf6ghDkRO2Kz-y7FjPTfP-wxk1_8THKJNGIAKrF9FxzcsnrJShYgUO-XgRCTzkK1HCBsfjrAkPYiVaQD_QOHwm6of4SQOcOGVlAEXyQ5erCZtNU8KpHy0kZCKu9hsrhC07mp5Kbr22J1h63cWul9P57-zzQijHUnYKPY5UujQQVQwIAl99OH7v-ynIUIOyVXLBzccN-3sA9vs2rm8KL_OvKHSMFsqbmAI_ad')"></div>
             <div class="absolute top-3 left-3 bg-primary text-on-primary px-3 py-1 rounded-full text-xs font-semibold">Pruning &amp; Care</div>
             <div class="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-md px-2.5 py-1 rounded text-xs font-medium text-on-surface">$$ Tier</div>
-          </div>
+          </a>
           <div class="p-6 flex flex-col flex-grow justify-between gap-4">
             <div class="flex flex-col gap-1.5">
-              <h3 class="text-xl font-bold font-headline text-on-surface">Dynamic Cobra Canopy Bracing</h3>
+              <a href="service-detail.html?id=canopy-bracing" class="hover:text-primary transition-colors">
+                <h3 class="text-xl font-bold font-headline text-on-surface">Dynamic Cobra Canopy Bracing</h3>
+              </a>
               <p class="text-xs text-on-surface-variant leading-relaxed">Flexible synthetic shock-absorbing support system for codominant trunks to prevent storm blow-outs.</p>
             </div>
             <div class="flex flex-col gap-1 bg-surface p-3 rounded-xl border border-surface-container">
@@ -416,12 +467,17 @@
                 <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[14px]">check</span>Expansion damper allows natural trunk sway</li>
               </ul>
             </div>
-            <div class="flex items-center justify-between pt-2 border-t border-surface-container">
+            <div class="flex items-center justify-between pt-2 border-t border-surface-container gap-2">
               <span class="text-xs text-secondary font-bold">Est. $650 - $1,800</span>
-              <button class="px-4 py-2 bg-primary text-on-primary rounded-lg text-xs font-semibold hover:bg-primary/90 transition-colors flex items-center gap-1.5" onclick="openBookingModal('Dynamic Cobra Canopy Bracing', 650)">
-                <span>Book Consult</span>
-                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-              </button>
+              <div class="flex items-center gap-1.5">
+                <a href="service-detail.html?id=canopy-bracing" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-primary hover:bg-surface-container transition-colors flex items-center gap-1">
+                  <span>Details</span>
+                  <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+                </a>
+                <button class="px-3 py-1.5 bg-primary text-on-primary rounded-lg text-xs font-semibold hover:bg-primary/90 transition-colors flex items-center gap-1" onclick="openBookingModal('Dynamic Cobra Canopy Bracing', 650)">
+                  <span>Book</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>

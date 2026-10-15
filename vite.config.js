@@ -12,7 +12,9 @@ export default defineConfig({
         blog: resolve(__dirname, 'blog.html'),
         pricing: resolve(__dirname, 'pricing.html'),
         contact: resolve(__dirname, 'contact.html'),
-        admin: resolve(__dirname, 'admin.html')
+        admin: resolve(__dirname, 'admin.html'),
+        serviceDetail: resolve(__dirname, 'service-detail.html'),
+        blogDetail: resolve(__dirname, 'blog-detail.html')
       }
     }
   }
