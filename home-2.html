@@ -74,8 +74,41 @@
       </a>
       
       <nav class="hidden lg:flex items-center gap-2">
-        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="home" href="index.html">Home</a>
-        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="home-2" href="home-2.html">Home 2</a>
+        <!-- Home Dropdown -->
+        <div class="relative group" id="home-dropdown-group">
+          <button type="button" class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors flex items-center gap-1 text-on-surface-variant hover:text-on-surface" id="home-dropdown-btn">
+            <span>Home</span>
+            <span class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover:rotate-180">expand_more</span>
+          </button>
+          <div class="absolute left-0 top-full pt-1.5 hidden group-hover:block z-50 min-w-[260px]">
+            <div class="bg-surface rounded-2xl shadow-xl border border-surface-container-high p-2 flex flex-col gap-1 backdrop-blur-xl">
+              <a href="index.html" data-path="home" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-surface-container transition-all group/item">
+                <div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-[18px]">home</span>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-on-surface flex items-center gap-1.5">
+                    <span>Home 1</span>
+                    <span class="text-[9px] px-1.5 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-bold">Residential</span>
+                  </div>
+                  <p class="text-[11px] text-on-surface-variant">Instant Quote &amp; Tree Care</p>
+                </div>
+              </a>
+              <a href="home-2.html" data-path="home-2" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-surface-container transition-all group/item">
+                <div class="w-9 h-9 rounded-lg bg-secondary/15 text-secondary flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-[18px]">precision_manufacturing</span>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-on-surface flex items-center gap-1.5">
+                    <span>Home 2</span>
+                    <span class="text-[9px] px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-container font-bold">Commercial</span>
+                  </div>
+                  <p class="text-[11px] text-on-surface-variant">Heavy Rigging &amp; Fleet Ops</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
         <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="about" href="about.html">About</a>
         <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="services" href="services.html">Services</a>
         <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="blog" href="blog.html">Blog</a>
@@ -96,8 +129,17 @@
 
     <!-- Mobile Drawer -->
     <div id="mobile-menu-drawer" class="hidden lg:hidden border-t border-surface-container-high bg-surface px-6 py-4 flex flex-col gap-2 shadow-lg">
-      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="home" href="index.html">Home</a>
-      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="home-2" href="home-2.html">Home 2</a>
+      <div class="flex flex-col gap-1 bg-surface-container-low p-2 rounded-xl border border-surface-container">
+        <span class="text-[10px] font-bold text-surface-tint uppercase tracking-wider px-2">Home Pages</span>
+        <a class="px-3 py-2 rounded-lg text-xs font-medium flex items-center gap-2 hover:bg-surface-container" data-path="home" href="index.html">
+          <span class="material-symbols-outlined text-[16px] text-primary">home</span>
+          <span>Home 1 <span class="text-[10px] text-on-surface-variant">(Residential &amp; Quote)</span></span>
+        </a>
+        <a class="px-3 py-2 rounded-lg text-xs font-medium flex items-center gap-2 hover:bg-surface-container" data-path="home-2" href="home-2.html">
+          <span class="material-symbols-outlined text-[16px] text-secondary">precision_manufacturing</span>
+          <span>Home 2 <span class="text-[10px] text-on-surface-variant">(Commercial &amp; Fleet)</span></span>
+        </a>
+      </div>
       <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="about" href="about.html">About</a>
       <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="services" href="services.html">Services</a>
       <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="blog" href="blog.html">Blog</a>
@@ -174,16 +216,56 @@
         </div>
 
         <div class="lg:col-span-5 relative">
-          <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-surface group">
-            <div class="h-[460px] bg-cover bg-center group-hover:scale-105 transition-transform duration-700" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDWjZ-4pgS9bFdpCH9nBVaw6CfY9Kr2MBF_saAv-5AsYpa9O8A2s75GHH2J4ycBLMsoQzLg46XA6O-c8oTZhxV5G1NiN_nWdVDAbZqKPzM5dvT5vSGMXrd6QRQ4YhuDBvclRKuHEmADKR6ci4g9bUDc7P65ezh28EjuL8HE8nIjdwiQXlgV92Xw-gkVIGRf-6EI946kLa3kSOkedbDcyh-o76nsPdvX9y5dRDomqD54ySSq818bufWa')"></div>
-            
-            <div class="absolute bottom-4 left-4 right-4 bg-surface/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-surface-container">
-              <div class="flex items-center justify-between">
-                <div>
-                  <p class="text-xs font-bold text-on-surface">Emergency Crane Extraction</p>
-                  <p class="text-[11px] text-on-surface-variant">Mercer Island Waterfront Estate • 82ft Cedar</p>
+          <div class="grid grid-cols-2 gap-3.5">
+            <div class="space-y-3.5">
+              <!-- Top Left: Crane Rigging (Taller) -->
+              <div class="h-56 sm:h-64 rounded-2xl overflow-hidden shadow-xl border-2 border-surface group relative">
+                <div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDWjZ-4pgS9bFdpCH9nBVaw6CfY9Kr2MBF_saAv-5AsYpa9O8A2s75GHH2J4ycBLMsoQzLg46XA6O-c8oTZhxV5G1NiN_nWdVDAbZqKPzM5dvT5vSGMXrd6QRQ4YhuDBvclRKuHEmADKR6ci4g9bUDc7P65ezh28EjuL8HE8nIjdwiQXlgV92Xw-gkVIGRf-6EI946kLa3kSOkedbDcyh-o76nsPdvX9y5dRDomqD54ySSq818bufWa')"></div>
+                <div class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/90 backdrop-blur-md text-primary-fixed text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-md">
+                  <span class="material-symbols-outlined text-[13px]">crane</span> Heavy Rigging
                 </div>
-                <span class="px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed text-[10px] font-bold">100% Zero Damage</span>
+                <div class="absolute bottom-2.5 left-2.5 right-2.5 bg-surface/90 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md border border-surface-container">
+                  <p class="text-[11px] font-bold text-on-surface leading-tight">60-Ton Crane Pick</p>
+                  <p class="text-[9px] text-on-surface-variant">Zero turf compaction</p>
+                </div>
+              </div>
+
+              <!-- Bottom Left: Arborist Diagnostic / Core Sample -->
+              <div class="h-36 sm:h-44 rounded-2xl overflow-hidden shadow-xl border-2 border-surface group relative">
+                <div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAmfcIE4BM3ZC5Z6VVA9g_aaT5CT_8JBb8RvAsGIgYDGZw1ajSsc9VrNHmnPkXGcd3BIH4YUSzU-knmfji5cTyO2jHDYC2OYQuuY_emzCYIAA-PI7fYKK1jSwJ4H28avti-kBg_x1jeJRmf3gS46sKH_OZ_3cGT1hmrJaQf_qPBAUSDrLeYwFsnmphse8b-4NQqpv8ayA7eERThDhiwk5cB4dUlvRe6qNlZ1CT8nHCIZ2os1S1N4y7L')"></div>
+                <div class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-secondary/90 backdrop-blur-md text-on-secondary text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-md">
+                  <span class="material-symbols-outlined text-[13px]">biotech</span> Pathology Lab
+                </div>
+                <div class="absolute bottom-2.5 left-2.5 right-2.5 bg-surface/90 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md border border-surface-container">
+                  <p class="text-[11px] font-bold text-on-surface leading-tight">ISA Core Testing</p>
+                  <p class="text-[9px] text-on-surface-variant">Internal sonic diagnostics</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-3.5 pt-4 sm:pt-6">
+              <!-- Top Right: Organic Mulch Piles & Bobcat -->
+              <div class="h-36 sm:h-44 rounded-2xl overflow-hidden shadow-xl border-2 border-surface group relative">
+                <div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCBpD5sqjacgUuxoUJTF4YWRphcRBogyFBBoGt7Qbpw5mc8bMROoO5nLdVWrgxCqMDGzZ03KzXrlaCYv_pT1VJ0iC7MHTdumpFumnYMMhPx574PjPgLv2QDn3iJa3V1uWt_78fxIshWsSoXrgExFblAykLIgPWzp_JqgcTRjU9fmPSjKiVmSJImokcfgjcMQ1GJmSmelKCBDEztl9OUw6W3ePj6trm-9mC3QrXileHZve2e8fCabjjm')"></div>
+                <div class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary-container/90 backdrop-blur-md text-on-primary-container text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-md">
+                  <span class="material-symbols-outlined text-[13px]">recycling</span> 100% Recycled
+                </div>
+                <div class="absolute bottom-2.5 left-2.5 right-2.5 bg-surface/90 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md border border-surface-container">
+                  <p class="text-[11px] font-bold text-on-surface leading-tight">Biomass Processing</p>
+                  <p class="text-[9px] text-on-surface-variant">Zero landfill footprint</p>
+                </div>
+              </div>
+
+              <!-- Bottom Right: Team of 5 Uniformed Arborists (Taller) -->
+              <div class="h-56 sm:h-64 rounded-2xl overflow-hidden shadow-xl border-2 border-surface group relative">
+                <div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCKAHOcfy3kOKW7hcwjuf6ghDkRO2Kz-y7FjPTfP-wxk1_8THKJNGIAKrF9FxzcsnrJShYgUO-XgRCTzkK1HCBsfjrAkPYiVaQD_QOHwm6of4SQOcOGVlAEXyQ5erCZtNU8KpHy0kZCKu9hsrhC07mp5Kbr22J1h63cWul9P57-zzQijHUnYKPY5UujQQVQwIAl99OH7v-ynIUIOyVXLBzccN-3sA9vs2rm8KL_OvKHSMFsqbmAI_ad')"></div>
+                <div class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary text-on-primary text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-md">
+                  <span class="material-symbols-outlined text-[13px]">groups</span> Certified Field Crew
+                </div>
+                <div class="absolute bottom-2.5 left-2.5 right-2.5 bg-surface/90 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md border border-surface-container">
+                  <p class="text-[11px] font-bold text-on-surface leading-tight">Elite Crew Dispatch</p>
+                  <p class="text-[9px] text-on-surface-variant">Fully bonded &amp; insured</p>
+                </div>
               </div>
             </div>
           </div>
@@ -357,6 +439,93 @@
       </div>
     </section>
 
+    <!-- Commercial Crane & Equipment Rate Calculator -->
+    <section class="w-full py-16 bg-primary text-on-primary relative overflow-hidden" id="equipment-quote">
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#c1ecd4_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      <div class="max-w-7xl mx-auto px-gutter relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-6 flex flex-col gap-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 bg-surface/10 rounded-full w-max text-primary-fixed text-xs font-semibold">
+            <span class="material-symbols-outlined text-[16px]">bolt</span>
+            Instant Fleet Dispatch Estimator
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold font-headline text-on-primary tracking-tight">
+            Calculate Heavy Machinery &amp; Crew Rates
+          </h2>
+          <p class="text-sm text-primary-fixed-dim leading-relaxed">
+            Need specialized access machinery or heavy crane dismantling? Select your equipment package, site terrain complexity, and shift duration for a transparent real-time estimate.
+          </p>
+          <div class="grid grid-cols-2 gap-4 pt-2">
+            <div class="bg-primary-container/60 p-4 rounded-xl border border-primary-fixed/20">
+              <span class="text-primary-fixed font-bold text-base font-headline">Certified Operator</span>
+              <p class="text-xs text-primary-fixed-dim mt-1">Every machine deployed with licensed NCCCO operator &amp; certified ground crew</p>
+            </div>
+            <div class="bg-primary-container/60 p-4 rounded-xl border border-primary-fixed/20">
+              <span class="text-primary-fixed font-bold text-base font-headline">Rapid Mobilization</span>
+              <p class="text-xs text-primary-fixed-dim mt-1">Priority emergency clearing crews ready for immediate regional deployment</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6">
+          <div class="bg-surface text-on-surface p-7 sm:p-8 rounded-3xl shadow-2xl border border-surface-container-high flex flex-col gap-4">
+            <div class="flex items-center justify-between border-b border-surface-container pb-4">
+              <div>
+                <h3 class="text-xl font-bold font-headline text-on-surface">Commercial Rate Calculator</h3>
+                <p class="text-xs text-on-surface-variant mt-0.5">Instant equipment &amp; operator deployment pricing</p>
+              </div>
+              <div class="w-10 h-10 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center">
+                <span class="material-symbols-outlined">calculate</span>
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-4 pt-1">
+              <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-semibold uppercase tracking-wider text-on-surface" for="comm-machine">Select Equipment Package</label>
+                <select class="w-full px-3.5 py-2.5 bg-surface-container rounded-xl text-sm text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer" id="comm-machine">
+                  <option value="1200" data-name="Liebherr 60-Ton Crane Dismantling" selected>Liebherr 60-Ton Knuckle Boom Crane ($1,200/day)</option>
+                  <option value="650" data-name="Altec 75-Ft Aerial Bucket Pruning">Altec 75-Ft High-Voltage Bucket Truck ($650/day)</option>
+                  <option value="350" data-name="Vermeer SC852 Track Root Milling">Vermeer SC852 Track Root Grinder ($350/day)</option>
+                  <option value="450" data-name="Supersonic Air-Spade Excavation">Supersonic Air-Spade Excavator ($450/day)</option>
+                  <option value="1850" data-name="Full Heavy Rigging Fleet Combo">Full Heavy Rigging Fleet Combo ($1,850/day)</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-semibold uppercase tracking-wider text-on-surface" for="comm-duration">Deployment Duration / Scope</label>
+                <select class="w-full px-3.5 py-2.5 bg-surface-container rounded-xl text-sm text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer" id="comm-duration">
+                  <option value="0.65">Half-Day Shift (4 Hours)</option>
+                  <option value="1" selected>Full-Day Standard Shift (8 Hours)</option>
+                  <option value="2.6">3-Day Major Commercial Contract</option>
+                  <option value="4.2">Full Week Site Clearance (5 Days)</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-semibold uppercase tracking-wider text-on-surface" for="comm-urgency">Site Complexity &amp; Urgency</label>
+                <select class="w-full px-3.5 py-2.5 bg-surface-container rounded-xl text-sm text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer" id="comm-urgency">
+                  <option value="1" selected>Standard Industrial Site (Level Terrain, Scheduled)</option>
+                  <option value="1.35">Priority Access / Slope (48-Hour Dispatch)</option>
+                  <option value="1.8">Critical Storm Emergency (Immediate Mobilization)</option>
+                </select>
+              </div>
+
+              <div class="bg-surface-container-low p-4 rounded-2xl flex items-center justify-between mt-2 border border-surface-container">
+                <div>
+                  <p class="text-xs text-on-surface-variant font-medium">Estimated Investment</p>
+                  <p class="text-3xl font-extrabold text-primary font-headline" id="comm-calc-result">$1,200</p>
+                </div>
+                <button id="comm-calc-book-btn" class="px-5 py-2.5 bg-primary text-on-primary rounded-xl text-sm font-semibold hover:bg-primary-container transition-colors shadow-md flex items-center gap-1.5">
+                  <span>Reserve Equipment</span>
+                  <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                </button>
+              </div>
+              <p class="text-[11px] text-on-surface-variant text-center">Includes licensed rigging operator, ground spotters &amp; fuel allowance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- NEW SECTION: Municipal & Commercial Contract Frameworks -->
     <section class="w-full py-16 bg-surface-container-low border-y border-surface-container">
       <div class="max-w-7xl mx-auto px-gutter flex flex-col gap-10">
@@ -523,6 +692,37 @@
     defectSelect?.addEventListener('change', calculateRisk);
     proxSelect?.addEventListener('change', calculateRisk);
     calculateRisk();
+
+    // Commercial Rate Calculator Logic
+    const commMachine = document.getElementById('comm-machine');
+    const commDuration = document.getElementById('comm-duration');
+    const commUrgency = document.getElementById('comm-urgency');
+    const commResult = document.getElementById('comm-calc-result');
+    const commBookBtn = document.getElementById('comm-calc-book-btn');
+
+    function updateCommEstimate() {
+      if (!commMachine || !commDuration || !commUrgency || !commResult) return;
+      const baseRate = parseFloat(commMachine.value) || 1200;
+      const durationMul = parseFloat(commDuration.value) || 1;
+      const urgencyMul = parseFloat(commUrgency.value) || 1;
+      const total = Math.round(baseRate * durationMul * urgencyMul);
+      commResult.textContent = '$' + total.toLocaleString();
+    }
+
+    commMachine?.addEventListener('change', updateCommEstimate);
+    commDuration?.addEventListener('change', updateCommEstimate);
+    commUrgency?.addEventListener('change', updateCommEstimate);
+    updateCommEstimate();
+
+    commBookBtn?.addEventListener('click', () => {
+      const selectedOption = commMachine.options[commMachine.selectedIndex];
+      const serviceName = selectedOption.getAttribute('data-name') || selectedOption.text;
+      const baseRate = parseFloat(commMachine.value) || 1200;
+      const durationMul = parseFloat(commDuration.value) || 1;
+      const urgencyMul = parseFloat(commUrgency.value) || 1;
+      const total = Math.round(baseRate * durationMul * urgencyMul);
+      openBookingModal(serviceName, total);
+    });
   </script>
 </body>
 </html>

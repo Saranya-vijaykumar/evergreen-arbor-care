@@ -3,13 +3,28 @@ import { ArborStore } from './store.js';
 
 export function setupNavigation() {
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  const isHome1 = currentPath === '' || currentPath === 'index.html';
+  const isHome2 = currentPath.includes('home-2');
+  const isAnyHome = isHome1 || isHome2;
+
+  // Highlight Home Dropdown Parent Button if on any Home page
+  const homeDropdownBtn = document.getElementById('home-dropdown-btn');
+  if (homeDropdownBtn) {
+    if (isAnyHome) {
+      homeDropdownBtn.classList.add('bg-primary-container', 'text-on-primary-container', 'font-bold');
+      homeDropdownBtn.classList.remove('text-on-surface-variant');
+    } else {
+      homeDropdownBtn.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-bold');
+      homeDropdownBtn.classList.add('text-on-surface-variant');
+    }
+  }
 
   // Highlight active link in desktop and mobile navs
-  document.querySelectorAll('nav a[data-path]').forEach(link => {
+  document.querySelectorAll('nav a[data-path], #mobile-menu-drawer a[data-path]').forEach(link => {
     const path = link.getAttribute('data-path');
     const isCurrent = 
-      (path === 'home' && (currentPath === '' || currentPath === 'index.html')) ||
-      (path === 'home-2' && currentPath.includes('home-2')) ||
+      (path === 'home' && isHome1) ||
+      (path === 'home-2' && isHome2) ||
       (path === 'about' && currentPath.includes('about')) ||
       (path === 'services' && currentPath.includes('services')) ||
       (path === 'blog' && currentPath.includes('blog')) ||
@@ -23,7 +38,7 @@ export function setupNavigation() {
       link.setAttribute('aria-current', 'page');
     } else {
       link.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-bold');
-      if (!link.classList.contains('bg-secondary')) {
+      if (!link.classList.contains('bg-secondary') && !link.classList.contains('bg-primary')) {
         link.classList.add('text-on-surface-variant');
       }
       link.removeAttribute('aria-current');
@@ -37,6 +52,23 @@ export function setupNavigation() {
     mobileToggle.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
+  }
+
+  // Click & hover toggle for Home dropdown
+  if (homeDropdownBtn) {
+    const dropdownMenu = homeDropdownBtn.nextElementSibling;
+    if (dropdownMenu) {
+      homeDropdownBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdownMenu.classList.toggle('hidden');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!homeDropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+          dropdownMenu.classList.add('hidden');
+        }
+      });
+    }
   }
 
   // Inject modal container if not present

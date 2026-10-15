@@ -67,8 +67,41 @@
       </a>
       
       <nav class="hidden lg:flex items-center gap-2">
-        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="home" href="index.html">Home</a>
-        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="home-2" href="home-2.html">Home 2</a>
+        <!-- Home Dropdown -->
+        <div class="relative group" id="home-dropdown-group">
+          <button type="button" class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors flex items-center gap-1 text-on-surface-variant hover:text-on-surface" id="home-dropdown-btn">
+            <span>Home</span>
+            <span class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover:rotate-180">expand_more</span>
+          </button>
+          <div class="absolute left-0 top-full pt-1.5 hidden group-hover:block z-50 min-w-[260px]">
+            <div class="bg-surface rounded-2xl shadow-xl border border-surface-container-high p-2 flex flex-col gap-1 backdrop-blur-xl">
+              <a href="index.html" data-path="home" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-surface-container transition-all group/item">
+                <div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-[18px]">home</span>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-on-surface flex items-center gap-1.5">
+                    <span>Home 1</span>
+                    <span class="text-[9px] px-1.5 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-bold">Residential</span>
+                  </div>
+                  <p class="text-[11px] text-on-surface-variant">Instant Quote &amp; Tree Care</p>
+                </div>
+              </a>
+              <a href="home-2.html" data-path="home-2" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-surface-container transition-all group/item">
+                <div class="w-8 h-8 rounded-lg bg-secondary/15 text-secondary flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-[18px]">precision_manufacturing</span>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-on-surface flex items-center gap-1.5">
+                    <span>Home 2</span>
+                    <span class="text-[9px] px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-container font-bold">Commercial</span>
+                  </div>
+                  <p class="text-[11px] text-on-surface-variant">Heavy Rigging &amp; Fleet Ops</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
         <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="about" href="about.html">About</a>
         <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="services" href="services.html">Services</a>
         <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="blog" href="blog.html">Blog</a>
@@ -89,8 +122,17 @@
 
     <!-- Mobile Drawer -->
     <div id="mobile-menu-drawer" class="hidden lg:hidden border-t border-surface-container-high bg-surface px-6 py-4 flex flex-col gap-2 shadow-lg">
-      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="home" href="index.html">Home</a>
-      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="home-2" href="home-2.html">Home 2</a>
+      <div class="flex flex-col gap-1 bg-surface-container-low p-2 rounded-xl border border-surface-container">
+        <span class="text-[10px] font-bold text-surface-tint uppercase tracking-wider px-2">Home Pages</span>
+        <a class="px-3 py-2 rounded-lg text-xs font-medium flex items-center gap-2 hover:bg-surface-container" data-path="home" href="index.html">
+          <span class="material-symbols-outlined text-[16px] text-primary">home</span>
+          <span>Home 1 <span class="text-[10px] text-on-surface-variant">(Residential &amp; Quote)</span></span>
+        </a>
+        <a class="px-3 py-2 rounded-lg text-xs font-medium flex items-center gap-2 hover:bg-surface-container" data-path="home-2" href="home-2.html">
+          <span class="material-symbols-outlined text-[16px] text-secondary">precision_manufacturing</span>
+          <span>Home 2 <span class="text-[10px] text-on-surface-variant">(Commercial &amp; Fleet)</span></span>
+        </a>
+      </div>
       <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="about" href="about.html">About</a>
       <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="services" href="services.html">Services</a>
       <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="blog" href="blog.html">Blog</a>
