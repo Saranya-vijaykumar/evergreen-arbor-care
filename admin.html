@@ -199,9 +199,69 @@
           <span class="material-symbols-outlined text-[16px]">add</span>
           New Order
         </button>
-        <span class="material-symbols-outlined text-on-surface-variant cursor-pointer text-[20px] hover:text-on-surface">notifications</span>
-        <div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center">
-          <span class="material-symbols-outlined text-[16px]">person</span>
+
+        <!-- Notifications Dropdown -->
+        <div class="relative" id="admin-notif-dropdown">
+          <button id="admin-notif-btn" type="button" class="relative p-1.5 text-on-surface-variant hover:text-on-surface rounded-lg hover:bg-surface-container transition-colors" aria-label="Operations Alerts">
+            <span class="material-symbols-outlined text-[20px]">notifications</span>
+            <span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error animate-ping" id="notif-ping"></span>
+            <span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error" id="notif-dot"></span>
+          </button>
+          
+          <div id="admin-notif-menu" class="absolute right-0 top-full mt-2 hidden z-50 w-80 p-4 bg-surface rounded-2xl shadow-2xl border border-surface-container-high backdrop-blur-xl animate-scaleUp">
+            <div class="flex items-center justify-between mb-3 border-b border-surface-container pb-2">
+              <h4 class="font-headline text-xs font-bold uppercase tracking-wider text-on-surface flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-[16px] text-error">notifications_active</span>
+                Live Ops Alerts (<span id="notif-count">3</span>)
+              </h4>
+              <button type="button" onclick="dismissAllAlerts()" class="text-[10px] text-primary hover:underline font-bold">Clear All</button>
+            </div>
+            <div class="space-y-2 text-xs" id="admin-alerts-list">
+              <div class="p-2.5 rounded-xl bg-error-container/20 border border-error/20 text-on-surface">
+                <span class="font-bold text-error block text-[11px] mb-0.5">High Windthrow Hazard • WO-1042</span>
+                <p class="text-[11px] text-on-surface-variant">80ft leaning Douglas fir threatening garage. Rigging line set.</p>
+              </div>
+              <div class="p-2.5 rounded-xl bg-surface-container border border-surface-container text-on-surface">
+                <span class="font-bold text-primary block text-[11px] mb-0.5">Crew Bravo En Route</span>
+                <p class="text-[11px] text-on-surface-variant">Altec 75ft Bucket Lift dispatched to Magnolia Bluff (ETA 12m).</p>
+              </div>
+              <div class="p-2.5 rounded-xl bg-surface-container border border-surface-container text-on-surface">
+                <span class="font-bold text-secondary block text-[11px] mb-0.5">License Renewal Alert</span>
+                <p class="text-[11px] text-on-surface-variant">J. Miller ISA certification expires in 14 days.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dispatcher Profile Dropdown -->
+        <div class="relative" id="admin-profile-dropdown">
+          <button id="admin-profile-btn" type="button" class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center hover:ring-2 hover:ring-primary/40 transition-all shadow-sm" aria-label="Dispatcher Profile">
+            <span class="material-symbols-outlined text-[16px]">person</span>
+          </button>
+          
+          <div id="admin-profile-menu" class="absolute right-0 top-full mt-2 hidden z-50 w-64 p-4 bg-surface rounded-2xl shadow-2xl border border-surface-container-high backdrop-blur-xl animate-scaleUp">
+            <div class="flex items-center gap-3 mb-3 border-b border-surface-container pb-3">
+              <div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">TV</div>
+              <div>
+                <p class="text-xs font-bold text-on-surface">Tyler Vance</p>
+                <p class="text-[10px] text-on-surface-variant">Lead Operations Dispatcher</p>
+                <span class="text-[9px] px-1.5 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-semibold">Active Shift</span>
+              </div>
+            </div>
+            <div class="flex flex-col gap-1.5 text-xs">
+              <a href="index.html" class="px-2.5 py-1.5 rounded-lg hover:bg-surface-container flex items-center gap-2 text-on-surface transition-colors">
+                <span class="material-symbols-outlined text-[16px] text-primary">home</span> Go to Public Site
+              </a>
+              <button type="button" onclick="resetToSampleData()" class="px-2.5 py-1.5 rounded-lg hover:bg-surface-container flex items-center gap-2 text-on-surface transition-colors text-left w-full">
+                <span class="material-symbols-outlined text-[16px] text-secondary">restart_alt</span> Reset Work Order Data
+              </button>
+              <hr class="border-surface-container-high my-1" />
+              <button type="button" id="logout-btn" class="px-2.5 py-1.5 rounded-lg hover:bg-error/10 flex items-center gap-2 text-error transition-colors text-left w-full">
+                <span class="material-symbols-outlined text-[16px]">logout</span> Sign Out
+              </button>
+            </div>
+          </div>
+
         </div>
       </div>
     </header>
@@ -348,7 +408,7 @@
             </div>
 
             <div class="space-y-3 my-2">
-              <div class="flex items-center justify-between p-3 bg-surface-container rounded-xl border border-surface-container-high">
+              <div onclick="showToast('Renewal Notice Dispatched', 'Automated reminder email sent to J. Miller with ISA CEU renewal portal link.', 'success')" class="flex items-center justify-between p-3 bg-surface-container rounded-xl border border-surface-container-high cursor-pointer hover:bg-surface-container-highest transition-colors">
                 <div class="flex items-center gap-3">
                   <div class="w-8 h-8 rounded-full bg-error-container text-on-error-container flex items-center justify-center font-bold text-xs">
                     14d
@@ -361,7 +421,7 @@
                 <span class="text-error font-bold text-xs px-2 py-0.5 rounded-full bg-error-container/40">Urgent</span>
               </div>
 
-              <div class="flex items-center justify-between p-3 bg-surface-container rounded-xl border border-surface-container-high">
+              <div onclick="showToast('OSHA Exam Scheduled', 'Tyler Vance exam confirmation sent to state safety verification unit.', 'success')" class="flex items-center justify-between p-3 bg-surface-container rounded-xl border border-surface-container-high cursor-pointer hover:bg-surface-container-highest transition-colors">
                 <div class="flex items-center gap-3">
                   <div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-xs">
                     45d
@@ -995,6 +1055,67 @@
     sidebarToggle?.addEventListener('click', () => toggleAdminSidebar(true));
     sidebarClose?.addEventListener('click', () => toggleAdminSidebar(false));
     adminBackdrop?.addEventListener('click', () => toggleAdminSidebar(false));
+
+    // Notification dropdown toggle
+    const notifBtn = document.getElementById('admin-notif-btn');
+    const notifMenu = document.getElementById('admin-notif-menu');
+    const profileBtn = document.getElementById('admin-profile-btn');
+    const profileMenu = document.getElementById('admin-profile-menu');
+
+    notifBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      notifMenu?.classList.toggle('hidden');
+      profileMenu?.classList.add('hidden');
+    });
+
+    profileBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      notifMenu?.classList.add('hidden');
+      profileMenu?.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', () => {
+      notifMenu?.classList.add('hidden');
+      profileMenu?.classList.add('hidden');
+    });
+
+    window.dismissAllAlerts = function() {
+      const list = document.getElementById('admin-alerts-list');
+      const count = document.getElementById('notif-count');
+      const ping = document.getElementById('notif-ping');
+      const dot = document.getElementById('notif-dot');
+      if (list) list.innerHTML = '<p class="text-xs text-on-surface-variant text-center py-3">No active alerts.</p>';
+      if (count) count.textContent = '0';
+      if (ping) ping.classList.add('hidden');
+      if (dot) dot.classList.add('hidden');
+      notifMenu?.classList.add('hidden');
+      showToast('Alerts Cleared', 'All operations alerts dismissed.', 'success');
+    };
+
+    // Auth guard
+    if (!localStorage.getItem('arborpro_auth')) {
+      window.location.href = 'login.html';
+    }
+
+    // Display logged-in user info
+    try {
+      const authData = JSON.parse(localStorage.getItem('arborpro_auth') || '{}');
+      if (authData.name) {
+        const nameEl = document.querySelector('#admin-profile-menu .font-bold');
+        if (nameEl) nameEl.textContent = authData.name;
+        const initEl = document.querySelector('#admin-profile-menu .rounded-full.font-bold');
+        if (initEl) {
+          const parts = authData.name.split(' ');
+          initEl.textContent = parts.map(p => p[0]).join('').toUpperCase().slice(0,2);
+        }
+      }
+    } catch(e) {}
+
+    // Logout handler
+    document.getElementById('logout-btn')?.addEventListener('click', () => {
+      localStorage.removeItem('arborpro_auth');
+      window.location.href = 'login.html';
+    });
 
     // Initial render
     renderDashboard();

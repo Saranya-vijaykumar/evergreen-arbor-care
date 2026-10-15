@@ -30,7 +30,7 @@ export function setupNavigation() {
       (path === 'blog' && currentPath.includes('blog')) ||
       (path === 'pricing' && currentPath.includes('pricing')) ||
       (path === 'contact' && currentPath.includes('contact')) ||
-      (path === 'admin-dashboard' && currentPath.includes('admin'));
+      ((path === 'admin' || path === 'admin-dashboard') && currentPath.includes('admin'));
 
     if (isCurrent) {
       link.classList.add('bg-primary-container', 'text-on-primary-container', 'font-bold');
