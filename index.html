@@ -928,23 +928,216 @@
     </div>
   </main>
 
-  <footer class="w-full bg-surface-container-low py-8 border-t border-surface-container-high">
-    <div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-4 text-on-surface-variant text-xs">
-      <div class="flex items-center gap-3">
-        <div class="w-6 h-6 rounded bg-primary text-primary-fixed flex items-center justify-center">
-          <span class="material-symbols-outlined text-[14px]">forest</span>
+  <!-- Detailed Global Footer -->
+  <footer class="w-full bg-surface-container-low border-t border-surface-container-high text-on-surface-variant text-xs">
+    <!-- Newsletter & Storm Alert Banner -->
+    <div class="border-b border-surface-container-high bg-surface-container/60">
+      <div class="max-w-7xl mx-auto px-gutter py-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4 text-left">
+          <div class="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-[28px]">notifications_active</span>
+          </div>
+          <div>
+            <h4 class="text-base font-bold font-headline text-on-surface">Regional Canopy Health &amp; Storm Alert Dispatch</h4>
+            <p class="text-xs text-on-surface-variant mt-0.5">Subscribe to receive immediate storm hazard advisories, seasonal pest warnings, and municipal rebate alerts.</p>
+          </div>
         </div>
-        <p>© 2026 ArborPro Operations Inc. All rights reserved. ISA Certified Master Arborists.</p>
+        <form class="flex w-full md:w-auto items-center gap-2 max-w-md" onsubmit="event.preventDefault(); const email = this.querySelector('input').value; if(email){ alert('Thank you for subscribing to Evergreen Arbor Care Regional Storm &amp; Pest Alerts: ' + email); this.reset(); }">
+          <input type="email" required placeholder="Enter your email address..." class="w-full md:w-72 px-4 py-2.5 rounded-xl bg-surface border border-outline/20 text-on-surface text-xs focus:outline-none focus:border-primary transition-colors">
+          <button type="submit" class="px-5 py-2.5 rounded-xl bg-primary text-on-primary font-bold text-xs hover:bg-primary/90 transition-all shadow-sm shrink-0 flex items-center gap-1.5">
+            <span>Subscribe</span>
+            <span class="material-symbols-outlined text-[16px]">send</span>
+          </button>
+        </form>
       </div>
-      <div class="flex items-center gap-6">
-        <a class="hover:text-on-surface transition-colors" href="index.html">Home</a>
-        <a class="hover:text-on-surface transition-colors" href="home-2.html">Home 2</a>
-        <a class="hover:text-on-surface transition-colors" href="about.html">About</a>
-        <a class="hover:text-on-surface transition-colors" href="services.html">Services</a>
-        <a class="hover:text-on-surface transition-colors" href="blog.html">Blog</a>
-        <a class="hover:text-on-surface transition-colors" href="pricing.html">Pricing</a>
-        <a class="hover:text-on-surface transition-colors" href="contact.html">Contact</a>
-        <a class="hover:text-on-surface transition-colors font-medium text-primary" href="admin.html">Staff Portal</a>
+    </div>
+
+    <!-- Main Footer Content Grid -->
+    <div class="max-w-7xl mx-auto px-gutter py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+      
+      <!-- Col 1: Brand & Credentials -->
+      <div class="lg:col-span-2 flex flex-col gap-4">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-primary text-on-primary flex items-center justify-center font-bold text-xl shadow-sm">
+            <span class="material-symbols-outlined text-[22px]">forest</span>
+          </div>
+          <span class="font-headline font-bold text-lg text-on-surface tracking-tight">Evergreen Arbor Care</span>
+        </div>
+        <p class="text-xs text-on-surface-variant leading-relaxed max-w-sm">
+          Setting the regional benchmark for scientific arboriculture, tree risk engineering, and zero-impact canopy preservation since 2008. Dedicated to protecting property assets and urban ecology.
+        </p>
+
+        <!-- Trust Badges & Accreditations -->
+        <div class="grid grid-cols-2 gap-2 max-w-sm pt-1">
+          <div class="flex items-center gap-2 p-2 rounded-lg bg-surface border border-surface-container text-[11px] font-semibold text-on-surface">
+            <span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+            <span>ISA Certified Arborists</span>
+          </div>
+          <div class="flex items-center gap-2 p-2 rounded-lg bg-surface border border-surface-container text-[11px] font-semibold text-on-surface">
+            <span class="material-symbols-outlined text-secondary text-[18px]">shield</span>
+            <span>$5M Commercial Coverage</span>
+          </div>
+          <div class="flex items-center gap-2 p-2 rounded-lg bg-surface border border-surface-container text-[11px] font-semibold text-on-surface">
+            <span class="material-symbols-outlined text-primary text-[18px]">workspace_premium</span>
+            <span>TCIA Accredited Co.</span>
+          </div>
+          <div class="flex items-center gap-2 p-2 rounded-lg bg-surface border border-surface-container text-[11px] font-semibold text-on-surface">
+            <span class="material-symbols-outlined text-secondary text-[18px]">recycling</span>
+            <span>100% Biomass Recycled</span>
+          </div>
+        </div>
+
+        <!-- Social Media Row -->
+        <div class="pt-2">
+          <span class="text-[11px] font-bold text-on-surface uppercase tracking-wider block mb-2.5">Connect With Us</span>
+          <div class="flex items-center gap-2.5">
+            <!-- Facebook -->
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-9 h-9 rounded-xl bg-surface border border-surface-container-high hover:border-primary/40 hover:bg-[#1877F2]/10 hover:text-[#1877F2] text-on-surface-variant flex items-center justify-center transition-all hover:scale-105 shadow-xs">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-9 h-9 rounded-xl bg-surface border border-surface-container-high hover:border-pink-500/40 hover:bg-pink-500/10 hover:text-pink-600 text-on-surface-variant flex items-center justify-center transition-all hover:scale-105 shadow-xs">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-9 h-9 rounded-xl bg-surface border border-surface-container-high hover:border-[#0A66C2]/40 hover:bg-[#0A66C2]/10 hover:text-[#0A66C2] text-on-surface-variant flex items-center justify-center transition-all hover:scale-105 shadow-xs">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <!-- X / Twitter -->
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" class="w-9 h-9 rounded-xl bg-surface border border-surface-container-high hover:border-black/40 hover:bg-black/10 hover:text-black dark:hover:text-white text-on-surface-variant flex items-center justify-center transition-all hover:scale-105 shadow-xs">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <!-- YouTube -->
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="w-9 h-9 rounded-xl bg-surface border border-surface-container-high hover:border-[#FF0000]/40 hover:bg-[#FF0000]/10 hover:text-[#FF0000] text-on-surface-variant flex items-center justify-center transition-all hover:scale-105 shadow-xs">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 2: Specialized Arbor Services -->
+      <div class="flex flex-col gap-2.5">
+        <span class="font-bold font-headline text-on-surface uppercase text-[11px] tracking-wider mb-1">Specialized Services</span>
+        <a href="service-detail.html?id=crown-reduction" class="hover:text-primary transition-colors flex items-center gap-1.5 py-0.5">
+          <span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+          <span>Crown Reduction &amp; Thinning</span>
+        </a>
+        <a href="service-detail.html?id=tree-removal" class="hover:text-primary transition-colors flex items-center gap-1.5 py-0.5">
+          <span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+          <span>Emergency Crane Tree Removal</span>
+        </a>
+        <a href="service-detail.html?id=deep-root-fertilization" class="hover:text-primary transition-colors flex items-center gap-1.5 py-0.5">
+          <span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+          <span>Deep Root Pneumatic Injection</span>
+        </a>
+        <a href="service-detail.html?id=stump-grinding" class="hover:text-primary transition-colors flex items-center gap-1.5 py-0.5">
+          <span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+          <span>Precision Stump Grinding</span>
+        </a>
+        <a href="service-detail.html?id=sonic-tomography" class="hover:text-primary transition-colors flex items-center gap-1.5 py-0.5">
+          <span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+          <span>Sonic Acoustic Tomography</span>
+        </a>
+        <a href="service-detail.html?id=canopy-bracing" class="hover:text-primary transition-colors flex items-center gap-1.5 py-0.5">
+          <span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+          <span>Dynamic Cobra Bracing</span>
+        </a>
+        <a href="service-detail.html?id=commercial-fleet" class="hover:text-primary transition-colors flex items-center gap-1.5 py-0.5">
+          <span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+          <span>Municipal &amp; Fleet Operations</span>
+        </a>
+        <a href="service-detail.html?id=health-assessment" class="hover:text-primary transition-colors flex items-center gap-1.5 py-0.5">
+          <span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+          <span>Plant Health Care (PHC) Audit</span>
+        </a>
+      </div>
+
+      <!-- Col 3: Navigation & Platform -->
+      <div class="flex flex-col gap-2.5">
+        <span class="font-bold font-headline text-on-surface uppercase text-[11px] tracking-wider mb-1">Navigation</span>
+        <a href="index.html" class="hover:text-primary transition-colors flex items-center gap-1.5 py-0.5">
+          <span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+          <span>Home 1 (Residential)</span>
+        </a>
+        <a href="home-2.html" class="hover:text-primary transition-colors flex items-center gap-1.5 py-0.5">
+          <span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+          <span>Home 2 (Commercial)</span>
+        </a>
+        <a href="about.html" class="hover:text-primary transition-colors flex items-center gap-1.5 py-0.5">
+          <span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+          <span>About Our Team</span>
+        </a>
+        <a href="services.html" class="hover:text-primary transition-colors flex items-center gap-1.5 py-0.5">
+          <span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+          <span>All Services Directory</span>
+        </a>
+        <a href="blog.html" class="hover:text-primary transition-colors flex items-center gap-1.5 py-0.5">
+          <span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+          <span>Arbor Journal &amp; Guides</span>
+        </a>
+        <a href="pricing.html" class="hover:text-primary transition-colors flex items-center gap-1.5 py-0.5">
+          <span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+          <span>Pricing Calculator</span>
+        </a>
+        <a href="contact.html" class="hover:text-primary transition-colors flex items-center gap-1.5 py-0.5">
+          <span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+          <span>Contact &amp; Free Quote</span>
+        </a>
+        <a href="admin.html" class="text-primary font-semibold hover:underline flex items-center gap-1.5 py-0.5">
+          <span class="material-symbols-outlined text-[14px]">lock</span>
+          <span>Admin Portal</span>
+        </a>
+      </div>
+
+      <!-- Col 4: Regional Dispatch & Emergency Hotline -->
+      <div class="flex flex-col gap-4">
+        <span class="font-bold font-headline text-on-surface uppercase text-[11px] tracking-wider">24/7 Rapid Dispatch</span>
+        <div class="p-4 rounded-2xl bg-surface border border-surface-container flex flex-col gap-3 shadow-xs">
+          <div class="flex items-center gap-2 text-primary font-bold">
+            <span class="material-symbols-outlined text-[20px] animate-pulse text-error">fmd_bad</span>
+            <span class="text-on-surface text-xs">Emergency Hotline</span>
+          </div>
+          <p class="text-[11px] text-on-surface-variant leading-relaxed">
+            Immediate dispatch for storm damage, fallen limbs on structures, or live wire entanglements.
+          </p>
+          <a href="tel:5550192834" class="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-error/10 text-error font-bold text-xs hover:bg-error hover:text-white transition-all">
+            <span class="material-symbols-outlined text-[16px]">call</span>
+            <span>(555) 019-2834</span>
+          </a>
+        </div>
+
+        <div class="space-y-1.5 text-[11px]">
+          <div class="flex items-start gap-2">
+            <span class="material-symbols-outlined text-[16px] text-primary shrink-0 mt-0.5">location_on</span>
+            <span>4500 Timberline Pkwy, Suite 200, Metro Arbor District</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-[16px] text-primary shrink-0">mail</span>
+            <a href="mailto:dispatch@evergreenarborcare.com" class="hover:underline">dispatch@evergreenarborcare.com</a>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-[16px] text-primary shrink-0">schedule</span>
+            <span>Mon–Sat: 7:00 AM – 6:30 PM (24/7 Emergency)</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright & Legal Strip -->
+    <div class="border-t border-surface-container-high py-6 bg-surface-container-lowest">
+      <div class="max-w-7xl mx-auto px-gutter flex flex-col sm:flex-row items-center justify-between text-[11px] text-outline gap-4">
+        <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+          <span>&copy; 2026 Evergreen Arbor Care LLC. All rights reserved.</span>
+          <span class="hidden sm:inline">•</span>
+          <span>CCB #239481 | ISA #ISA-94821 | ANSI A300 &amp; Z133 Compliant</span>
+        </div>
+        <div class="flex flex-wrap items-center justify-center gap-5">
+          <a href="contact.html" class="hover:text-primary transition-colors">Privacy Policy</a>
+          <a href="contact.html" class="hover:text-primary transition-colors">Terms of Service</a>
+          <a href="contact.html" class="hover:text-primary transition-colors">Safety Standards</a>
+          <a href="contact.html" class="hover:text-primary transition-colors">Environmental Charter</a>
+        </div>
       </div>
     </div>
   </footer>
