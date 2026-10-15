@@ -336,22 +336,25 @@
     <section class="max-w-7xl mx-auto px-gutter py-8 w-full">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch w-full">
         <!-- Tier 1: Residential Canopy Care -->
-        <div class="bg-surface-container rounded-2xl p-7 flex flex-col justify-between relative hover:shadow-xl transition-all duration-300 border border-surface-container-highest">
+        <div class="bg-surface-container rounded-2xl p-7 flex flex-col justify-between relative hover:shadow-xl transition-all duration-300 border border-surface-container-highest h-full">
           <div>
-            <div class="flex justify-between items-start mb-4">
+            <div class="flex justify-between items-start mb-4 min-h-[58px]">
               <div>
-                <span class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider">Residential</span>
+                <span class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider block">Residential</span>
                 <h3 class="font-headline text-2xl font-bold text-on-surface mt-1">Canopy Care</h3>
               </div>
-              <span class="bg-primary text-on-primary text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Popular</span>
+              <span class="bg-primary text-on-primary text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider shrink-0 mt-0.5 shadow-sm">Popular</span>
             </div>
             
-            <div class="my-6">
-              <span class="font-headline text-4xl font-extrabold text-on-surface" id="tier1-price">$450</span>
-              <span class="text-xs text-on-surface-variant" id="tier1-sub"> - $1,200 per project</span>
+            <div class="my-6 min-h-[64px] flex flex-col justify-center">
+              <div class="flex items-baseline gap-1.5 flex-wrap">
+                <span class="font-headline text-4xl font-extrabold text-on-surface tracking-tight" id="tier1-price">$450</span>
+                <span class="text-xs text-on-surface-variant font-medium" id="tier1-sub"> - $1,200 per project</span>
+              </div>
+              <span class="text-[11px] text-on-surface-variant/80 mt-1 block">Transparent project estimates</span>
             </div>
             
-            <p class="text-xs text-on-surface-variant mb-6 leading-relaxed">
+            <p class="text-xs text-on-surface-variant mb-6 leading-relaxed min-h-[52px] flex items-center">
               Ideal for homeowners maintaining healthy, balanced mature trees and keeping properties safe from overgrowth.
             </p>
             
@@ -375,7 +378,7 @@
             </ul>
           </div>
           
-          <div class="space-y-2">
+          <div class="space-y-2 mt-auto pt-4 border-t border-surface-container-highest/60">
             <button onclick="openBookingModal('Residential Canopy Care', 450)" class="w-full py-3 bg-secondary text-on-secondary rounded-xl text-xs font-bold hover:bg-secondary/90 transition-colors shadow-md">
               Select Canopy Care
             </button>
@@ -386,23 +389,27 @@
           </div>
         </div>
 
-        <!-- Tier 2: Municipal & Estate Package (Featured tall card) -->
-        <div class="bg-primary-container text-on-primary-container rounded-2xl p-7 flex flex-col justify-between relative shadow-2xl lg:-mt-4 lg:mb-4 transition-all duration-300 border border-primary-fixed/20">
-          <div class="absolute -top-3 right-6 bg-secondary text-on-secondary text-[11px] px-3 py-1 rounded-full uppercase tracking-wider font-bold shadow-md">
+        <!-- Tier 2: Municipal & Estate Package (Enterprise Grade) -->
+        <div class="bg-primary-container text-on-primary-container rounded-2xl p-7 flex flex-col justify-between relative shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-secondary/40 ring-1 ring-secondary/20 h-full">
+          <div class="absolute -top-3.5 right-6 bg-secondary text-on-secondary text-[10px] px-3 py-1 rounded-full uppercase tracking-wider font-bold shadow-md z-10">
             Enterprise Grade
           </div>
           <div>
-            <div class="mb-4">
-              <span class="text-[11px] font-bold text-primary-fixed uppercase tracking-wider">Commercial / Municipal</span>
-              <h3 class="font-headline text-2xl font-bold text-white mt-1">Estate Package</h3>
+            <div class="flex justify-between items-start mb-4 min-h-[58px]">
+              <div>
+                <span class="text-[11px] font-bold text-primary-fixed uppercase tracking-wider block">Commercial / Municipal</span>
+                <h3 class="font-headline text-2xl font-bold text-white mt-1">Estate Package</h3>
+              </div>
             </div>
             
-            <div class="my-6">
-              <span class="font-headline text-4xl font-extrabold text-white" id="tier2-price">Custom</span>
+            <div class="my-6 min-h-[64px] flex flex-col justify-center">
+              <div class="flex items-baseline gap-1.5">
+                <span class="font-headline text-4xl font-extrabold text-white tracking-tight" id="tier2-price">Custom</span>
+              </div>
               <span class="text-xs text-primary-fixed-dim block mt-1" id="tier2-sub">Quote-based scale or $1,200/mo retainer</span>
             </div>
             
-            <p class="text-xs text-primary-fixed-dim mb-6 leading-relaxed">
+            <p class="text-xs text-primary-fixed-dim mb-6 leading-relaxed min-h-[52px] flex items-center">
               Comprehensive multi-property risk assessments and scheduled preventative arboricultural management for campuses, HOAs, and municipalities.
             </p>
             
@@ -426,7 +433,7 @@
             </ul>
           </div>
           
-          <div class="space-y-2">
+          <div class="space-y-2 mt-auto pt-4 border-t border-white/10">
             <button onclick="openBookingModal('Estate & Municipal Care Package', 1200)" class="w-full py-3 bg-secondary text-on-secondary rounded-xl text-xs font-bold hover:bg-secondary/90 transition-colors shadow-lg">
               Request Custom Estimate
             </button>
@@ -438,20 +445,25 @@
         </div>
 
         <!-- Tier 3: Emergency & Hazard Mitigation -->
-        <div class="bg-surface-container rounded-2xl p-7 flex flex-col justify-between relative hover:shadow-xl transition-all duration-300 border border-surface-container-highest">
+        <div class="bg-surface-container rounded-2xl p-7 flex flex-col justify-between relative hover:shadow-xl transition-all duration-300 border border-surface-container-highest h-full">
           <div>
-            <div class="mb-4">
-              <span class="text-[11px] font-bold text-error uppercase tracking-wider">Urgent Response</span>
-              <h3 class="font-headline text-2xl font-bold text-on-surface mt-1">Hazard Mitigation</h3>
+            <div class="flex justify-between items-start mb-4 min-h-[58px]">
+              <div>
+                <span class="text-[11px] font-bold text-error uppercase tracking-wider block">Urgent Response</span>
+                <h3 class="font-headline text-2xl font-bold text-on-surface mt-1">Hazard Mitigation</h3>
+              </div>
+              <span class="bg-error/15 text-error border border-error/30 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider shrink-0 mt-0.5">24/7 Rapid</span>
             </div>
             
-            <div class="my-6">
-              <span class="text-xs text-on-surface-variant block">Starting at</span>
-              <span class="font-headline text-4xl font-extrabold text-on-surface" id="tier3-price">$800</span>
-              <span class="text-xs text-on-surface-variant" id="tier3-sub"> standard deployment</span>
+            <div class="my-6 min-h-[64px] flex flex-col justify-center">
+              <div class="flex items-baseline gap-1.5 flex-wrap">
+                <span class="font-headline text-4xl font-extrabold text-on-surface tracking-tight" id="tier3-price">$800</span>
+                <span class="text-xs text-on-surface-variant font-medium" id="tier3-sub"> standard deployment</span>
+              </div>
+              <span class="text-[11px] text-on-surface-variant/80 mt-1 block">Rapid priority crew dispatch</span>
             </div>
             
-            <p class="text-xs text-on-surface-variant mb-6 leading-relaxed">
+            <p class="text-xs text-on-surface-variant mb-6 leading-relaxed min-h-[52px] flex items-center">
               24/7 rapid deployment for severe storm destruction, compromised leaning trunks, and dangerous roof-threatening limbs.
             </p>
             
@@ -475,7 +487,7 @@
             </ul>
           </div>
           
-          <div class="space-y-2">
+          <div class="space-y-2 mt-auto pt-4 border-t border-surface-container-highest/60">
             <button onclick="openBookingModal('Hazard Mitigation Emergency Dispatch', 800)" class="w-full py-3 bg-primary text-on-primary rounded-xl text-xs font-bold hover:bg-primary/90 transition-colors shadow-md">
               Emergency Dispatch
             </button>
