@@ -468,6 +468,10 @@
           <span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
           <span>Plant Health Care (PHC) Audit</span>
         </a>
+        <a href="service-detail.html?id=crane-rigging" class="hover:text-primary transition-colors flex items-center gap-1.5 py-0.5">
+          <span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+          <span>60-Ton Crane Precision Rigging</span>
+        </a>
       </div>
 
       <!-- Col 3: Navigation & Platform -->
@@ -652,11 +656,11 @@
     // Other Services Links in Sidebar
     const otherContainer = document.getElementById('other-services-links');
     const allServices = Object.values(SERVICES_DATA);
-    const related = allServices.filter(s => s.id !== service.id).slice(0, 5);
+    const related = allServices.filter(s => s.id !== service.id);
     otherContainer.innerHTML = related.map(rel => `
-      <a href="service-detail.html?id=${rel.id}" class="p-2.5 rounded-xl hover:bg-surface-container flex items-center justify-between text-on-surface group transition-colors border border-transparent hover:border-surface-container">
-        <span class="font-medium truncate group-hover:text-primary">${rel.title}</span>
-        <span class="material-symbols-outlined text-[16px] text-outline group-hover:text-primary transition-transform group-hover:translate-x-0.5">chevron_right</span>
+      <a href="service-detail.html?id=${rel.id}" class="p-2 rounded-xl hover:bg-surface-container flex items-center justify-between text-on-surface group transition-colors border border-transparent hover:border-surface-container">
+        <span class="font-medium text-xs truncate group-hover:text-primary">${rel.title}</span>
+        <span class="material-symbols-outlined text-[15px] text-outline group-hover:text-primary transition-transform group-hover:translate-x-0.5">chevron_right</span>
       </a>
     `).join('');
 
