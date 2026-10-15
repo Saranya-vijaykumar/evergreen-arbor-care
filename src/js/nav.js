@@ -243,11 +243,155 @@ export function openBookingModal(defaultService = 'Tree Pruning & Care', default
   });
 }
 
+// Global View Preferences (Theme Mode & Layout Direction)
+export function initViewPreferences() {
+  const root = document.documentElement;
+
+  // Read saved preferences or system defaults
+  const savedTheme = localStorage.getItem('arbor_theme');
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+
+  const savedDir = localStorage.getItem('arbor_dir');
+  const isRtl = savedDir === 'rtl';
+
+  // Apply to DOM
+  if (isDark) {
+    root.classList.add('dark');
+  } else {
+    root.classList.remove('dark');
+  }
+
+  if (isRtl) {
+    root.setAttribute('dir', 'rtl');
+  } else {
+    root.setAttribute('dir', 'ltr');
+  }
+
+  // Update UI representations across all buttons
+  function syncUI() {
+    const currentIsDark = root.classList.contains('dark');
+    const currentIsRtl = root.getAttribute('dir') === 'rtl';
+
+    // Update all theme toggle elements
+    document.querySelectorAll('.theme-icon, #theme-icon').forEach(icon => {
+      icon.textContent = currentIsDark ? 'light_mode' : 'dark_mode';
+    });
+    document.querySelectorAll('.theme-text, #theme-text').forEach(el => {
+      el.textContent = currentIsDark ? 'Light Mode' : 'Dark Mode';
+    });
+    document.querySelectorAll('.theme-toggle-btn, #theme-toggle').forEach(btn => {
+      btn.setAttribute('title', currentIsDark ? 'Switch to Light Mode' : 'Switch to Dark Mode');
+      btn.setAttribute('aria-label', currentIsDark ? 'Switch to Light Mode' : 'Switch to Dark Mode');
+    });
+
+    // Update all direction toggle elements
+    document.querySelectorAll('.dir-text, #dir-text').forEach(el => {
+      el.textContent = currentIsRtl ? 'RTL Active' : 'LTR / RTL';
+    });
+    document.querySelectorAll('.dir-toggle-btn, #dir-toggle').forEach(btn => {
+      btn.setAttribute('title', currentIsRtl ? 'Switch to LTR Layout' : 'Switch to RTL Layout');
+      btn.setAttribute('aria-label', currentIsRtl ? 'Switch to LTR Layout' : 'Switch to RTL Layout');
+    });
+  }
+
+  // Toggle Theme Handler
+  function toggleTheme(e) {
+    if (e) e.stopPropagation();
+    const newIsDark = !root.classList.contains('dark');
+    if (newIsDark) {
+      root.classList.add('dark');
+      localStorage.setItem('arbor_theme', 'dark');
+      showToast('Theme Changed', 'Dark mode activated for enhanced night visibility.', 'success');
+    } else {
+      root.classList.remove('dark');
+      localStorage.setItem('arbor_theme', 'light');
+      showToast('Theme Changed', 'Light mode restored.', 'success');
+    }
+    syncUI();
+  }
+
+  // Toggle Direction Handler
+  function toggleDirection(e) {
+    if (e) e.stopPropagation();
+    const currentDir = root.getAttribute('dir');
+    const newIsRtl = currentDir !== 'rtl';
+    if (newIsRtl) {
+      root.setAttribute('dir', 'rtl');
+      localStorage.setItem('arbor_dir', 'rtl');
+      showToast('Layout Direction', 'Right-to-Left (RTL) mode activated.', 'success');
+    } else {
+      root.setAttribute('dir', 'ltr');
+      localStorage.setItem('arbor_dir', 'ltr');
+      showToast('Layout Direction', 'Left-to-Right (LTR) mode restored.', 'success');
+    }
+    syncUI();
+  }
+
+  // Bind click handlers to all theme buttons
+  document.querySelectorAll('.theme-toggle-btn, #theme-toggle').forEach(btn => {
+    if (!btn.dataset.themeBound) {
+      btn.dataset.themeBound = 'true';
+      btn.addEventListener('click', toggleTheme);
+    }
+  });
+
+  // Bind click handlers to all direction buttons
+  document.querySelectorAll('.dir-toggle-btn, #dir-toggle').forEach(btn => {
+    if (!btn.dataset.dirBound) {
+      btn.dataset.dirBound = 'true';
+      btn.addEventListener('click', toggleDirection);
+    }
+  });
+
+  // Nav Preferences dropdown toggle
+  const prefsBtn = document.getElementById('nav-preferences-toggle-btn');
+  const prefsMenu = document.getElementById('nav-preferences-menu');
+  const prefsChevron = document.getElementById('nav-prefs-chevron');
+
+  if (prefsBtn && prefsMenu) {
+    if (!prefsBtn.dataset.bound) {
+      prefsBtn.dataset.bound = 'true';
+      prefsBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        prefsMenu.classList.toggle('hidden');
+        if (prefsChevron) {
+          prefsChevron.classList.toggle('rotate-180');
+        }
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!prefsBtn.contains(e.target) && !prefsMenu.contains(e.target)) {
+          prefsMenu.classList.add('hidden');
+          if (prefsChevron) {
+            prefsChevron.classList.remove('rotate-180');
+          }
+        }
+      });
+    }
+  }
+
+  // Sync initial UI states
+  syncUI();
+}
+
 // Attach helpers to global window object
 if (typeof window !== 'undefined') {
   window.openBookingModal = openBookingModal;
   window.showToast = showToast;
   window.setupNavigation = setupNavigation;
+  window.initViewPreferences = initViewPreferences;
 }
 
-document.addEventListener('DOMContentLoaded', setupNavigation);
+// Immediately run view preferences init
+try {
+  initViewPreferences();
+} catch (e) {
+  console.warn('Preferences early init error:', e);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setupNavigation();
+  initViewPreferences();
+});
+

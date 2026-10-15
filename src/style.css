@@ -54,3 +54,239 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(113, 121, 115, 0.6);
 }
+
+/* =========================================================
+   DARK MODE PALETTE OVERRIDES
+   ArborPro Deep Forest & Obsidian Theme
+   ========================================================= */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: #0d1210 !important;
+  color: #e1e3df !important;
+}
+
+/* Background surfaces */
+html.dark .bg-surface,
+html.dark .bg-surface-container-lowest {
+  background-color: #121815 !important;
+  color: #e1e3df !important;
+}
+
+html.dark .bg-surface-container-low {
+  background-color: #17201b !important;
+}
+
+html.dark .bg-surface-container {
+  background-color: #1b2520 !important;
+}
+
+html.dark .bg-surface-container-high {
+  background-color: #222e28 !important;
+}
+
+html.dark .bg-surface-container-highest {
+  background-color: #293831 !important;
+}
+
+/* Text colors */
+html.dark .text-on-surface {
+  color: #e2e8e3 !important;
+}
+
+html.dark .text-on-surface-variant {
+  color: #9cb0a0 !important;
+}
+
+html.dark .text-outline {
+  color: #7d8f80 !important;
+}
+
+html.dark .text-outline-variant {
+  color: #435147 !important;
+}
+
+/* Borders */
+html.dark .border-surface-container,
+html.dark .border-surface-container-low,
+html.dark .border-surface-container-high,
+html.dark .border-surface-container-highest,
+html.dark .border-outline-variant {
+  border-color: #233027 !important;
+}
+
+html.dark .divide-surface-container > * + *,
+html.dark .divide-surface-container-high > * + *,
+html.dark .divide-surface-container-highest > * + * {
+  border-color: #233027 !important;
+}
+
+/* Header & Nav */
+html.dark header {
+  background-color: rgba(13, 18, 16, 0.9) !important;
+  border-bottom: 1px solid #233027 !important;
+}
+
+html.dark #mobile-menu-drawer {
+  background-color: #121815 !important;
+  border-top-color: #233027 !important;
+}
+
+/* Card hover states & dropdowns */
+html.dark .hover\:bg-surface-container:hover {
+  background-color: #1b2520 !important;
+}
+
+html.dark .hover\:bg-surface-container-high:hover {
+  background-color: #222e28 !important;
+}
+
+html.dark .hover\:bg-surface-container-highest:hover {
+  background-color: #293831 !important;
+}
+
+/* Form Inputs, Selects & Textareas */
+html.dark input:not([type="checkbox"]):not([type="radio"]),
+html.dark select,
+html.dark textarea {
+  background-color: #17201b !important;
+  color: #e2e8e3 !important;
+  border-color: #2a382f !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #6c7c70 !important;
+}
+
+/* Tables in Admin Dashboard */
+html.dark table thead th {
+  background-color: #17201b !important;
+  color: #e2e8e3 !important;
+  border-bottom-color: #233027 !important;
+}
+
+html.dark table tbody tr {
+  border-bottom-color: #233027 !important;
+}
+
+html.dark table tbody tr:hover {
+  background-color: #17201b !important;
+}
+
+/* Footer in dark mode */
+html.dark footer {
+  background-color: #080c0a !important;
+  border-top-color: #1e2822 !important;
+}
+
+/* Shadows adjustment */
+html.dark .shadow-sm,
+html.dark .shadow-md,
+html.dark .shadow-lg,
+html.dark .shadow-xl,
+html.dark .shadow-2xl {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Modals */
+html.dark #booking-modal-backdrop > div,
+html.dark #arbor-modal-root > div > div {
+  background-color: #121815 !important;
+  border-color: #233027 !important;
+}
+
+/* Preserve bright buttons */
+html.dark .bg-primary {
+  background-color: #1b6d24 !important;
+  color: #ffffff !important;
+}
+
+html.dark .bg-primary:hover {
+  background-color: #278e32 !important;
+}
+
+html.dark .bg-secondary {
+  background-color: #28656b !important;
+  color: #ffffff !important;
+}
+
+html.dark .bg-secondary:hover {
+  background-color: #347d84 !important;
+}
+
+html.dark .bg-primary-container {
+  background-color: #184820 !important;
+  color: #a4f5b2 !important;
+}
+
+html.dark .bg-secondary-container {
+  background-color: #19464b !important;
+  color: #a5ecf4 !important;
+}
+
+/* =========================================================
+   RTL (RIGHT-TO-LEFT) LAYOUT STYLING
+   ========================================================= */
+html[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .text-left {
+  text-align: right !important;
+}
+
+html[dir="rtl"] .text-right {
+  text-align: left !important;
+}
+
+/* Directional icons flipping */
+html[dir="rtl"] .material-symbols-outlined.flip-rtl,
+html[dir="rtl"] .material-symbols-outlined[data-flip-rtl="true"] {
+  transform: scaleX(-1);
+  display: inline-block;
+}
+
+/* Position adjustment for dropdowns in RTL */
+html[dir="rtl"] #nav-preferences-menu {
+  right: auto !important;
+  left: 0 !important;
+}
+
+html[dir="rtl"] #home-dropdown-group > div {
+  left: auto !important;
+  right: 0 !important;
+}
+
+/* Admin Layout RTL adjustments */
+html[dir="rtl"] aside.fixed.left-0 {
+  left: auto !important;
+  right: 0 !important;
+  border-right: none !important;
+  border-left: 1px solid #edebe6 !important;
+}
+
+html.dark[dir="rtl"] aside.fixed.left-0 {
+  border-left: 1px solid #233027 !important;
+}
+
+html[dir="rtl"] .pl-64 {
+  padding-left: 0 !important;
+  padding-right: 16rem !important;
+}
+
+html[dir="rtl"] header.left-64 {
+  left: 0 !important;
+  right: 16rem !important;
+}
+
+html[dir="rtl"] .mr-2,
+html[dir="rtl"] .mr-3 {
+  margin-right: 0 !important;
+  margin-left: 0.5rem !important;
+}
+
+
