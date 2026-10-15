@@ -247,12 +247,12 @@
             Expert insights on urban forestry, hazard mitigation, advanced arboriculture, and modern crane-assisted tree care operations.
           </p>
           
-          <div class="flex flex-wrap gap-3 items-center">
-            <div class="flex-1 min-w-[280px] relative">
+          <div class="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center w-full">
+            <div class="flex-1 min-w-0 relative">
               <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
               <input class="w-full pl-12 pr-4 py-3 bg-surface text-on-surface rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-fixed shadow-md" id="article-search" placeholder="Search articles, pests, species, safety..." type="text"/>
             </div>
-            <button id="search-btn" class="px-6 py-3 bg-secondary text-on-secondary rounded-xl text-xs font-bold hover:bg-secondary/90 transition-all shadow-md">Search</button>
+            <button id="search-btn" class="px-6 py-3 bg-secondary text-on-secondary rounded-xl text-xs font-bold hover:bg-secondary/90 transition-all shadow-md shrink-0">Search</button>
           </div>
         </div>
 
@@ -520,28 +520,50 @@
         </div>
 
         <!-- Downloadable Guides -->
-        <div class="p-6 bg-surface-container-low rounded-2xl shadow-sm border border-surface-container">
-          <h3 class="font-headline text-base font-bold mb-4 text-on-surface">Field Handbooks</h3>
+        <div class="p-5 sm:p-6 bg-surface-container-low rounded-2xl shadow-sm border border-surface-container w-full overflow-hidden">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-headline text-base font-bold text-on-surface flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary text-[20px]">menu_book</span>
+              Field Handbooks
+            </h3>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-bold uppercase tracking-wider">Free PDF</span>
+          </div>
           <div class="flex flex-col gap-3">
-            <a class="flex items-center justify-between p-3 bg-surface-container rounded-xl hover:bg-surface-container-high transition-colors" href="about.html#standards">
-              <div class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-secondary">picture_as_pdf</span>
-                <div>
-                  <div class="text-xs font-bold text-on-surface">ANSI A300 Standard Summary</div>
-                  <div class="text-[10px] text-outline">PDF • 4.2 MB</div>
+            <a class="flex items-center justify-between p-3 bg-surface-container rounded-xl hover:bg-surface-container-high transition-colors group/handbook w-full min-w-0" href="about.html#standards" download="ANSI_A300_Standard_Summary.pdf" onclick="showToast('Downloading Handbook', 'ANSI A300 Standard Summary PDF download initiated.', 'success')">
+              <div class="flex items-center gap-3 min-w-0 flex-1 mr-2">
+                <div class="w-9 h-9 rounded-lg bg-surface flex items-center justify-center shrink-0 border border-surface-container-high">
+                  <span class="material-symbols-outlined text-secondary text-[20px]">picture_as_pdf</span>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs font-bold text-on-surface truncate group-hover/handbook:text-primary transition-colors">ANSI A300 Standard Summary</div>
+                  <div class="text-[10px] text-outline flex items-center gap-1.5 mt-0.5">
+                    <span class="font-semibold text-secondary">PDF</span>
+                    <span>•</span>
+                    <span>4.2 MB</span>
+                  </div>
                 </div>
               </div>
-              <span class="material-symbols-outlined text-outline text-[18px]">download</span>
+              <div class="w-8 h-8 rounded-lg bg-surface flex items-center justify-center shrink-0 border border-surface-container-high group-hover/handbook:bg-primary group-hover/handbook:text-on-primary group-hover/handbook:border-primary transition-colors">
+                <span class="material-symbols-outlined text-[18px]">download</span>
+              </div>
             </a>
-            <a class="flex items-center justify-between p-3 bg-surface-container rounded-xl hover:bg-surface-container-high transition-colors" href="home-2.html#evaluator">
-              <div class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-secondary">picture_as_pdf</span>
-                <div>
-                  <div class="text-xs font-bold text-on-surface">Hazard Tree Checklist</div>
-                  <div class="text-[10px] text-outline">PDF • 1.8 MB</div>
+            <a class="flex items-center justify-between p-3 bg-surface-container rounded-xl hover:bg-surface-container-high transition-colors group/handbook w-full min-w-0" href="home-2.html#evaluator" download="Hazard_Tree_Checklist.pdf" onclick="showToast('Downloading Handbook', 'Hazard Tree Checklist PDF download initiated.', 'success')">
+              <div class="flex items-center gap-3 min-w-0 flex-1 mr-2">
+                <div class="w-9 h-9 rounded-lg bg-surface flex items-center justify-center shrink-0 border border-surface-container-high">
+                  <span class="material-symbols-outlined text-secondary text-[20px]">picture_as_pdf</span>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs font-bold text-on-surface truncate group-hover/handbook:text-primary transition-colors">Hazard Tree Checklist</div>
+                  <div class="text-[10px] text-outline flex items-center gap-1.5 mt-0.5">
+                    <span class="font-semibold text-secondary">PDF</span>
+                    <span>•</span>
+                    <span>1.8 MB</span>
+                  </div>
                 </div>
               </div>
-              <span class="material-symbols-outlined text-outline text-[18px]">download</span>
+              <div class="w-8 h-8 rounded-lg bg-surface flex items-center justify-center shrink-0 border border-surface-container-high group-hover/handbook:bg-primary group-hover/handbook:text-on-primary group-hover/handbook:border-primary transition-colors">
+                <span class="material-symbols-outlined text-[18px]">download</span>
+              </div>
             </a>
           </div>
         </div>
