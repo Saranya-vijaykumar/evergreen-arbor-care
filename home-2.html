@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Home 2 - Commercial &amp; Heavy Field Operations | ArborPro</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#012d1d",
+            "primary-container": "#1b4332",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#86af99",
+            "primary-fixed": "#c1ecd4",
+            "primary-fixed-dim": "#a5d0b9",
+            "on-primary-fixed": "#002114",
+            "secondary": "#7d562d",
+            "secondary-container": "#ffca98",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#7a532a",
+            "surface": "#f9faf6",
+            "surface-dim": "#dadad7",
+            "surface-container-low": "#f3f4f1",
+            "surface-container": "#eeeeeb",
+            "surface-container-high": "#e8e8e5",
+            "surface-container-highest": "#e2e3e0",
+            "on-surface": "#1a1c1a",
+            "on-surface-variant": "#414844",
+            "outline": "#717973",
+            "outline-variant": "#c1c8c2",
+            "surface-tint": "#3f6653",
+            "tertiary": "#401b1b",
+            "tertiary-container": "#5a302f",
+            "on-tertiary": "#ffffff",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6"
+          },
+          borderRadius: {
+            lg: "0.25rem",
+            xl: "0.5rem",
+            full: "0.75rem"
+          },
+          spacing: {
+            gutter: "1.5rem"
+          },
+          fontFamily: {
+            headline: ["Inter", "sans-serif"],
+            body: ["Inter", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="/src/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+</head>
+<body class="bg-surface font-body text-on-surface">
+  <!-- Header -->
+  <header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    <div class="h-20 max-w-7xl mx-auto px-gutter flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-primary-fixed group-hover:scale-105 transition-transform">
+          <span class="material-symbols-outlined text-[24px]">forest</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-headline text-lg font-bold text-on-surface tracking-tight leading-tight">ArborPro</span>
+          <span class="text-[11px] font-medium text-surface-tint uppercase tracking-wider">Operations</span>
+        </div>
+      </a>
+      
+      <nav class="hidden lg:flex items-center gap-2">
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="home" href="index.html">Home</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="home-2" href="home-2.html">Home 2</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="about" href="about.html">About</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="services" href="services.html">Services</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="blog" href="blog.html">Blog</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="pricing" href="pricing.html">Pricing</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="contact" href="contact.html">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a class="hidden sm:inline-flex items-center justify-center px-4 py-2 bg-secondary text-on-secondary rounded-lg text-sm font-semibold hover:bg-secondary/90 transition-all shadow-sm gap-2" data-path="admin-dashboard" href="admin.html">
+          <span class="material-symbols-outlined text-[18px]">dashboard</span>
+          Admin Dashboard
+        </a>
+        <button id="mobile-menu-toggle" aria-label="Toggle navigation menu" class="lg:hidden p-2 rounded-lg text-on-surface hover:bg-surface-container">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu-drawer" class="hidden lg:hidden border-t border-surface-container-high bg-surface px-6 py-4 flex flex-col gap-2 shadow-lg">
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="home" href="index.html">Home</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="home-2" href="home-2.html">Home 2</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="about" href="about.html">About</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="services" href="services.html">Services</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="blog" href="blog.html">Blog</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="pricing" href="pricing.html">Pricing</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="contact" href="contact.html">Contact</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-semibold bg-secondary text-on-secondary flex items-center justify-center gap-2 mt-2" href="admin.html">
+        <span class="material-symbols-outlined text-[18px]">dashboard</span> Admin Operations
+      </a>
+    </div>
+  </header>
+
+  <main class="w-full pt-20 bg-surface">
+    <!-- Live Dispatch Ticker -->
+    <div class="w-full bg-primary-container text-on-primary-container py-2.5 px-gutter flex items-center justify-between text-xs border-b border-primary-fixed/20 overflow-x-auto">
+      <div class="flex items-center gap-3 shrink-0">
+        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-primary text-primary-fixed text-[10px] font-bold uppercase tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-primary-fixed animate-ping"></span>
+          Live Ops
+        </span>
+        <span class="font-medium">Active Field Readiness: <strong>8 Heavy Crews Dispatched</strong> in King, Snohomish &amp; Pierce Counties</span>
+      </div>
+      <div class="hidden md:flex items-center gap-4 text-primary-fixed-dim">
+        <span>Average Response Time: <strong>28 Minutes</strong></span>
+        <span>•</span>
+        <a href="tel:18005558733" class="text-primary-fixed hover:underline font-bold flex items-center gap-1">
+          <span class="material-symbols-outlined text-[14px]">call</span> 1-800-555-TREE
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Variant 2: Split Modern Field Operations -->
+    <section class="relative w-full bg-surface-container-low py-16 lg:py-24 overflow-hidden border-b border-surface-container">
+      <div class="max-w-7xl mx-auto px-gutter grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7 flex flex-col gap-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary text-primary-fixed text-xs font-semibold w-max shadow-sm">
+            <span class="material-symbols-outlined text-[16px]">crane</span>
+            Commercial &amp; Heavy Crane Rigging Division
+          </div>
+
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-headline text-on-surface tracking-tight leading-tight">
+            Heavy-Duty Arboriculture for Critical Sites
+          </h1>
+
+          <p class="text-base text-on-surface-variant max-w-xl leading-relaxed">
+            From 60-ton remote crane dismantlings to municipal utility easements and zero-impact estate preservation, our ISA Board Certified Arborists engineer solutions where standard equipment cannot reach.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <button onclick="openBookingModal('Commercial Crane Operation', 1200)" class="px-6 py-3.5 bg-primary text-on-primary rounded-xl text-xs font-bold hover:bg-primary-container transition-all shadow-lg flex items-center gap-2">
+              <span class="material-symbols-outlined text-[18px]">engineering</span>
+              Request Engineering Review
+            </button>
+            <a href="#risk-tool" class="px-6 py-3.5 bg-surface text-on-surface border border-outline-variant rounded-xl text-xs font-bold hover:bg-surface-container transition-all flex items-center gap-2 shadow-sm">
+              <span class="material-symbols-outlined text-[18px]">health_and_safety</span>
+              Check Tree Hazard Level
+            </a>
+          </div>
+
+          <!-- Live Metrics Grid -->
+          <div class="grid grid-cols-3 gap-4 pt-4 border-t border-surface-container-highest">
+            <div class="bg-surface p-4 rounded-xl shadow-sm border border-surface-container">
+              <div class="text-2xl font-black text-primary font-headline">60-Ton</div>
+              <div class="text-[11px] text-on-surface-variant font-medium">Crane Reach Capacity</div>
+            </div>
+            <div class="bg-surface p-4 rounded-xl shadow-sm border border-surface-container">
+              <div class="text-2xl font-black text-primary font-headline">0 Impact</div>
+              <div class="text-[11px] text-on-surface-variant font-medium">Turf Protection System</div>
+            </div>
+            <div class="bg-surface p-4 rounded-xl shadow-sm border border-surface-container">
+              <div class="text-2xl font-black text-primary font-headline">$5,000,000</div>
+              <div class="text-[11px] text-on-surface-variant font-medium">Liability Guarantee</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 relative">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-surface group">
+            <div class="h-[460px] bg-cover bg-center group-hover:scale-105 transition-transform duration-700" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDWjZ-4pgS9bFdpCH9nBVaw6CfY9Kr2MBF_saAv-5AsYpa9O8A2s75GHH2J4ycBLMsoQzLg46XA6O-c8oTZhxV5G1NiN_nWdVDAbZqKPzM5dvT5vSGMXrd6QRQ4YhuDBvclRKuHEmADKR6ci4g9bUDc7P65ezh28EjuL8HE8nIjdwiQXlgV92Xw-gkVIGRf-6EI946kLa3kSOkedbDcyh-o76nsPdvX9y5dRDomqD54ySSq818bufWa')"></div>
+            
+            <div class="absolute bottom-4 left-4 right-4 bg-surface/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-surface-container">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xs font-bold text-on-surface">Emergency Crane Extraction</p>
+                  <p class="text-[11px] text-on-surface-variant">Mercer Island Waterfront Estate • 82ft Cedar</p>
+                </div>
+                <span class="px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed text-[10px] font-bold">100% Zero Damage</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Feature: Tree Hazard & Risk Assessment Tool -->
+    <section class="max-w-7xl mx-auto px-gutter py-16 w-full" id="risk-tool">
+      <div class="bg-surface-container-low rounded-3xl p-8 lg:p-12 shadow-sm border border-surface-container">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="text-xs font-bold text-secondary uppercase tracking-wider">Self-Diagnostic Tool</span>
+          <h2 class="font-headline text-3xl font-bold text-on-surface mt-1">Interactive Tree Hazard Evaluator</h2>
+          <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+            Select your tree's symptoms to instantly evaluate structural hazard severity and recommended dispatch priority.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Step 1 -->
+          <div class="bg-surface p-6 rounded-2xl border border-surface-container shadow-sm flex flex-col gap-3">
+            <span class="text-xs font-bold text-primary uppercase tracking-wider">Step 1: Visual Defect</span>
+            <label class="text-xs font-semibold text-on-surface" for="risk-defect">Observed Tree Condition</label>
+            <select id="risk-defect" class="w-full px-3 py-2.5 bg-surface-container rounded-xl text-xs text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer">
+              <option value="critical" data-score="50">Severe lean towards roof / powerline</option>
+              <option value="high" data-score="35">Large dead limbs (&gt; 4&quot; diameter) in crown</option>
+              <option value="moderate" data-score="20">Fungal shelf mushrooms at base / trunk</option>
+              <option value="minor" data-score="10">Mild canopy crowding / routine overgrowth</option>
+            </select>
+            <p class="text-[11px] text-on-surface-variant mt-auto">Defects indicate internal decay or windload instability.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="bg-surface p-6 rounded-2xl border border-surface-container shadow-sm flex flex-col gap-3">
+            <span class="text-xs font-bold text-primary uppercase tracking-wider">Step 2: Target Proximity</span>
+            <label class="text-xs font-semibold text-on-surface" for="risk-proximity">Distance to Building / Driveway</label>
+            <select id="risk-proximity" class="w-full px-3 py-2.5 bg-surface-container rounded-xl text-xs text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer">
+              <option value="50" selected>Direct target strike range (&lt; 15 ft)</option>
+              <option value="30">Within canopy drop zone (15 - 35 ft)</option>
+              <option value="10">Open lawn area (&gt; 35 ft away)</option>
+            </select>
+            <p class="text-[11px] text-on-surface-variant mt-auto">Targets determine financial and human safety exposure.</p>
+          </div>
+
+          <!-- Step 3: Result -->
+          <div class="bg-primary text-on-primary p-6 rounded-2xl shadow-xl flex flex-col justify-between" id="risk-result-box">
+            <div>
+              <span class="text-[11px] font-bold text-primary-fixed uppercase tracking-wider">Diagnostic Assessment</span>
+              <h3 class="text-xl font-bold font-headline mt-1" id="risk-result-title">Level 1: Critical Emergency</h3>
+              <p class="text-xs text-primary-fixed-dim mt-2 leading-relaxed" id="risk-result-desc">
+                High probability of structural failure with high-value target exposure. Recommended immediate arborist site audit.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-primary-container/80 flex items-center justify-between mt-4">
+              <div>
+                <span class="text-[10px] text-primary-fixed-dim uppercase tracking-wider">Suggested Service</span>
+                <p class="text-xs font-bold text-white" id="risk-result-service">Hazard Tree Rigging</p>
+              </div>
+              <button id="risk-dispatch-btn" class="px-4 py-2 bg-secondary text-on-secondary rounded-lg text-xs font-bold hover:bg-secondary/90 transition-colors shadow-md">
+                Book Audit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Heavy Machinery & Fleet Showcase with High-Res Imagery & Specs -->
+    <section class="w-full py-16 bg-surface">
+      <div class="max-w-7xl mx-auto px-gutter flex flex-col gap-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <span class="text-xs font-bold text-surface-tint uppercase tracking-wider">Heavy Engineering Fleet</span>
+            <h2 class="font-headline text-3xl font-bold text-on-surface mt-1">Industrial Equipment Specifications</h2>
+          </div>
+          <p class="text-xs text-on-surface-variant max-w-md leading-relaxed">
+            We operate one of the largest privately held, heavy-rigging forestry fleets in the Pacific Northwest, engineered for tight-access urban crane picks with zero turf footprint.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Machine 1: 60-Ton Crane -->
+          <div class="bg-surface-container-low rounded-2xl overflow-hidden border border-surface-container flex flex-col shadow-sm hover:shadow-xl transition-all duration-300 group">
+            <div class="h-48 w-full bg-cover bg-center relative group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCILnwdySdXvXrmvrcwvpgIBmBtsHX_Z3wtj0gu8lWphKQ7XgQTAsI12U8L5mF431bBLhIAavIi9zt9Xzi_Kl05TzBPlDoe4xAHjldwUKkHmDLVM2QAiARmUfZvnGSeYobe_YzN_IUmyLdWkex7q5K0Fd5V_9jp35pxICr3PHLyG853M5Zh-75yvpe5FY57bFVgDCrSLv9oRB0rSTzFyA0vm7oOg5qQV_fHjpFjTMm-cQKOusytzRZx')">
+              <span class="absolute top-3 left-3 bg-primary text-on-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Heavy Crane</span>
+              <span class="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-bold text-on-surface">60-Ton Rating</span>
+            </div>
+            <div class="p-5 flex flex-col flex-grow justify-between gap-3">
+              <div>
+                <h3 class="font-headline text-base font-bold text-on-surface">Liebherr LTM 1060 Knuckle Boom</h3>
+                <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">Picks 4,200 lb timber sections over multistory residential roofs with zero swing radius hazard.</p>
+              </div>
+              <div class="space-y-1 text-[11px] bg-surface p-3 rounded-xl border border-surface-container">
+                <div class="flex justify-between"><span class="text-outline">Max Tip Height:</span><span class="font-bold text-on-surface">131 ft</span></div>
+                <div class="flex justify-between"><span class="text-outline">Outrigger Spread:</span><span class="font-bold text-on-surface">19.5 ft</span></div>
+                <div class="flex justify-between"><span class="text-outline">Ground Pressure:</span><span class="font-bold text-primary">&lt; 3.8 PSI w/ Mats</span></div>
+              </div>
+              <button onclick="openBookingModal('Heavy Crane Rigging Operation', 1200)" class="w-full py-2 bg-primary text-on-primary rounded-lg text-xs font-bold hover:bg-primary-container transition-colors text-center">
+                Reserve Crane Crew
+              </button>
+            </div>
+          </div>
+
+          <!-- Machine 2: Altec Bucket Truck -->
+          <div class="bg-surface-container-low rounded-2xl overflow-hidden border border-surface-container flex flex-col shadow-sm hover:shadow-xl transition-all duration-300 group">
+            <div class="h-48 w-full bg-cover bg-center relative group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAHYrZXr9Fx77Virass_1ToKcUSoFH8hbUl2QMt1xYFw9LKmkFFvtRvy73cHtWgFcJJvAHKfwgvI8ZjPreRimWb9c-S7Ek_oQee8hAhlI7k-evZHoULitaMYZpLCQFKb9UcbXY16csqAhwohe8YL_12pILSZmn--0S9f3t7IsuwsBxMB5gU50p1JUz_JmN1KudQ0-kZ7ykduHSNHx3xw5IKmst6adoRmIAAxUFJPy4ibjE4LpKVNdrk')">
+              <span class="absolute top-3 left-3 bg-secondary text-on-secondary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Aerial Lift</span>
+              <span class="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-bold text-on-surface">75-Ft Reach</span>
+            </div>
+            <div class="p-5 flex flex-col flex-grow justify-between gap-3">
+              <div>
+                <h3 class="font-headline text-base font-bold text-on-surface">Altec LR7-60E Aerial Bucket</h3>
+                <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">Insulated high-voltage utility bucket truck for high-canopy pruning, storm line clearing, and crown thinning.</p>
+              </div>
+              <div class="space-y-1 text-[11px] bg-surface p-3 rounded-xl border border-surface-container">
+                <div class="flex justify-between"><span class="text-outline">Working Height:</span><span class="font-bold text-on-surface">75 ft</span></div>
+                <div class="flex justify-between"><span class="text-outline">Electrical Rating:</span><span class="font-bold text-on-surface">Cat C (46 kV)</span></div>
+                <div class="flex justify-between"><span class="text-outline">Side Reach:</span><span class="font-bold text-primary">48.2 ft Outreach</span></div>
+              </div>
+              <button onclick="openBookingModal('Bucket Truck Aerial Pruning', 650)" class="w-full py-2 bg-primary text-on-primary rounded-lg text-xs font-bold hover:bg-primary-container transition-colors text-center">
+                Deploy Aerial Crew
+              </button>
+            </div>
+          </div>
+
+          <!-- Machine 3: Vermeer Stump Grinder -->
+          <div class="bg-surface-container-low rounded-2xl overflow-hidden border border-surface-container flex flex-col shadow-sm hover:shadow-xl transition-all duration-300 group">
+            <div class="h-48 w-full bg-cover bg-center relative group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDaThnyifLrdKizoed4OaBfwVbU-Sz9Y5kh_sEmbU3BNoihm_yoD_vrL5b-hW3wtb-vVF6qpJcnTI2OZCL4RIdwuVQEMqb3WK8TRGXgHn9fzJNL96kdl4i47LQ6Bv0gaxXY74u4h7QF-jrIHvWezZS9gk2U8MOSZ1P0JjyCgjp28pqJH90JEQLZUhRWmRl2GHzuZyDPbTNprSyoO3-TBzt_MAtDN8iEkhiDub3dgMrMLyb8zHdZdaDL')">
+              <span class="absolute top-3 left-3 bg-primary text-on-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Root Mill</span>
+              <span class="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-bold text-on-surface">85 HP Turbo</span>
+            </div>
+            <div class="p-5 flex flex-col flex-grow justify-between gap-3">
+              <div>
+                <h3 class="font-headline text-base font-bold text-on-surface">Vermeer SC852 Track Grinder</h3>
+                <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">Heavy-duty dual rubber tracks traverse slopes effortlessly while cutting stumps 18 inches beneath lawn grade.</p>
+              </div>
+              <div class="space-y-1 text-[11px] bg-surface p-3 rounded-xl border border-surface-container">
+                <div class="flex justify-between"><span class="text-outline">Cutting Depth:</span><span class="font-bold text-on-surface">18 in Below Grade</span></div>
+                <div class="flex justify-between"><span class="text-outline">Engine:</span><span class="font-bold text-on-surface">85 HP Turbo Diesel</span></div>
+                <div class="flex justify-between"><span class="text-outline">Turf Impact:</span><span class="font-bold text-primary">Ultra-Low Ground PSI</span></div>
+              </div>
+              <button onclick="openBookingModal('Precision Stump Grinding Operation', 350)" class="w-full py-2 bg-primary text-on-primary rounded-lg text-xs font-bold hover:bg-primary-container transition-colors text-center">
+                Schedule Root Milling
+              </button>
+            </div>
+          </div>
+
+          <!-- Machine 4: Supersonic Air-Spade -->
+          <div class="bg-surface-container-low rounded-2xl overflow-hidden border border-surface-container flex flex-col shadow-sm hover:shadow-xl transition-all duration-300 group">
+            <div class="h-48 w-full bg-cover bg-center relative group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAxSfFYwFI8ytdoxG8zHoS7_izRXFEBYLtedUQHWR8ofGbXc7-7raTlv_vVnaftBDzkgRkyRkxiPl_XDoajKA2wi55WyLUw0InzHjBB_4O3VcjfNOlxTIfWWRA5C5zBUSse6RD-GPg80TzccuXfiHZciizV79xwnWKg7RBg_dARk_BwEz9mN2Wn1XQ8NhjRu6L303ec8yOs9thZXn2lITz9DGdtXzsToBLmlbgG4g2tgAPrkrkPI7JO')">
+              <span class="absolute top-3 left-3 bg-secondary text-on-secondary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Pneumatics</span>
+              <span class="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-bold text-on-surface">Mach 2 Airflow</span>
+            </div>
+            <div class="p-5 flex flex-col flex-grow justify-between gap-3">
+              <div>
+                <h3 class="font-headline text-base font-bold text-on-surface">Air-Spade 2000 Supersonic Excavator</h3>
+                <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">Pulverizes compacted subsoil without touching subterranean roots, irrigation, or utility conduits.</p>
+              </div>
+              <div class="space-y-1 text-[11px] bg-surface p-3 rounded-xl border border-surface-container">
+                <div class="flex justify-between"><span class="text-outline">Air Speed:</span><span class="font-bold text-on-surface">Mach 2 (1,400 mph)</span></div>
+                <div class="flex justify-between"><span class="text-outline">Root Safety:</span><span class="font-bold text-on-surface">100% Non-Destructive</span></div>
+                <div class="flex justify-between"><span class="text-outline">Application:</span><span class="font-bold text-primary">Collar Surgery &amp; Trenching</span></div>
+              </div>
+              <button onclick="openBookingModal('Pneumatic Air-Spade Excavation', 450)" class="w-full py-2 bg-primary text-on-primary rounded-lg text-xs font-bold hover:bg-primary-container transition-colors text-center">
+                Book Root Surgery
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW SECTION: Municipal & Commercial Contract Frameworks -->
+    <section class="w-full py-16 bg-surface-container-low border-y border-surface-container">
+      <div class="max-w-7xl mx-auto px-gutter flex flex-col gap-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <span class="text-xs font-bold text-surface-tint uppercase tracking-wider">Enterprise Reliability</span>
+            <h2 class="font-headline text-3xl font-bold text-on-surface mt-1">Municipal &amp; Enterprise Master Service Agreements</h2>
+          </div>
+          <p class="text-xs text-on-surface-variant max-w-md leading-relaxed">
+            From city parks and highway easements to tech campuses and multi-family residential portfolios, we deliver guaranteed response times, compliance reporting, and dedicated dispatchers.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-surface p-7 rounded-2xl border border-surface-container shadow-sm flex flex-col justify-between gap-6">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-primary text-primary-fixed flex items-center justify-center mb-4">
+                <span class="material-symbols-outlined text-[24px]">account_balance</span>
+              </div>
+              <h3 class="font-headline text-lg font-bold text-on-surface">Municipal Parks &amp; Right-of-Way</h3>
+              <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+                Full-service municipal street tree inventories, GIS cloud synchronization, emergency storm readiness, and compliance with local sensitive area ordinances.
+              </p>
+            </div>
+            <ul class="text-xs text-on-surface space-y-2 border-t border-surface-container pt-4">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[16px]">verified</span>1-Hour Storm Dispatch SLA</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[16px]">verified</span>ANSI A300 Compliance Audits</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[16px]">verified</span>Public Road Traffic Control Crew</li>
+            </ul>
+          </div>
+
+          <div class="bg-surface p-7 rounded-2xl border border-surface-container shadow-sm flex flex-col justify-between gap-6">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-secondary text-on-secondary flex items-center justify-center mb-4">
+                <span class="material-symbols-outlined text-[24px]">domain</span>
+              </div>
+              <h3 class="font-headline text-lg font-bold text-on-surface">Corporate Headquarters &amp; Campus Care</h3>
+              <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+                Multi-year arboricultural asset management protecting glass canopies, tenant walkways, solar arrays, and outdoor employee plazas.
+              </p>
+            </div>
+            <ul class="text-xs text-on-surface space-y-2 border-t border-surface-container pt-4">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[16px]">verified</span>Off-Hours Silent Operations</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[16px]">verified</span>Turf &amp; Paver Zero-Damage Guarantee</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[16px]">verified</span>Dedicated Senior Account Arborist</li>
+            </ul>
+          </div>
+
+          <div class="bg-surface p-7 rounded-2xl border border-surface-container shadow-sm flex flex-col justify-between gap-6">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-tertiary text-on-tertiary flex items-center justify-center mb-4">
+                <span class="material-symbols-outlined text-[24px]">shield</span>
+              </div>
+              <h3 class="font-headline text-lg font-bold text-on-surface">HOA &amp; Heritage Estate Portfolios</h3>
+              <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+                Comprehensive community canopy management, view restoration pruning, and proactive insect &amp; fungal pathogen control for premier neighborhoods.
+              </p>
+            </div>
+            <ul class="text-xs text-on-surface space-y-2 border-t border-surface-container pt-4">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[16px]">verified</span>Pre-Scheduled Seasonal Pruning</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[16px]">verified</span>Community Board Presentation Decks</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[16px]">verified</span>Preferential Group Volume Pricing</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Institutional Partners -->
+    <section class="w-full py-12 bg-surface-container-low border-t border-surface-container">
+      <div class="max-w-7xl mx-auto px-gutter text-center">
+        <p class="text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-6">Trusted by Premier Pacific Northwest Institutions</p>
+        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-14 opacity-75 grayscale hover:grayscale-0 transition-all">
+          <div class="font-headline font-bold text-sm tracking-tight text-on-surface flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary">account_balance</span>
+            Seattle Parks &amp; Recreation
+          </div>
+          <div class="font-headline font-bold text-sm tracking-tight text-on-surface flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary">domain</span>
+            Apex Commercial Real Estate
+          </div>
+          <div class="font-headline font-bold text-sm tracking-tight text-on-surface flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary">nature</span>
+            Puget Sound Heritage Trust
+          </div>
+          <div class="font-headline font-bold text-sm tracking-tight text-on-surface flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary">golf_course</span>
+            Broadmoor Country Club
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="w-full bg-surface-container-low py-8 border-t border-surface-container-high">
+    <div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-4 text-on-surface-variant text-xs">
+      <div class="flex items-center gap-3">
+        <div class="w-6 h-6 rounded bg-primary text-primary-fixed flex items-center justify-center">
+          <span class="material-symbols-outlined text-[14px]">forest</span>
+        </div>
+        <p>© 2026 ArborPro Operations Inc. All rights reserved. ISA Certified Master Arborists.</p>
+      </div>
+      <div class="flex items-center gap-6">
+        <a class="hover:text-on-surface transition-colors" href="index.html">Home</a>
+        <a class="hover:text-on-surface transition-colors" href="home-2.html">Home 2</a>
+        <a class="hover:text-on-surface transition-colors" href="about.html">About</a>
+        <a class="hover:text-on-surface transition-colors" href="services.html">Services</a>
+        <a class="hover:text-on-surface transition-colors" href="blog.html">Blog</a>
+        <a class="hover:text-on-surface transition-colors" href="pricing.html">Pricing</a>
+        <a class="hover:text-on-surface transition-colors" href="contact.html">Contact</a>
+        <a class="hover:text-on-surface transition-colors font-medium text-primary" href="admin.html">Staff Portal</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/store.js"></script>
+  <script type="module" src="/src/js/nav.js"></script>
+  <script type="module">
+    import { openBookingModal } from '/src/js/nav.js';
+
+    const defectSelect = document.getElementById('risk-defect');
+    const proxSelect = document.getElementById('risk-proximity');
+    const resultTitle = document.getElementById('risk-result-title');
+    const resultDesc = document.getElementById('risk-result-desc');
+    const resultService = document.getElementById('risk-result-service');
+    const dispatchBtn = document.getElementById('risk-dispatch-btn');
+
+    function calculateRisk() {
+      const defectScore = parseInt(defectSelect.options[defectSelect.selectedIndex].getAttribute('data-score') || '20');
+      const proxScore = parseInt(proxSelect.value || '30');
+      const totalScore = defectScore + proxScore;
+
+      let title = '';
+      let desc = '';
+      let service = '';
+      let amount = 450;
+
+      if (totalScore >= 75) {
+        title = 'Level 1: Critical Emergency';
+        desc = 'Severe structural defect within direct roof/powerline strike distance. Immediate crane stabilization required.';
+        service = 'Emergency Hazard Tree Dismantling';
+        amount = 950;
+      } else if (totalScore >= 45) {
+        title = 'Level 2: High Risk Mitigation';
+        desc = 'Visible decay or deadwood with property target. Recommended on-site sonic testing within 48 hours.';
+        service = 'ISA Structural Risk Assessment';
+        amount = 550;
+      } else {
+        title = 'Level 3: Preventative Maintenance';
+        desc = 'Low risk profile. Recommend seasonal crown thinning and deep root fertilization to maintain vigor.';
+        service = 'Preventative Crown Pruning';
+        amount = 350;
+      }
+
+      resultTitle.textContent = title;
+      resultDesc.textContent = desc;
+      resultService.textContent = service;
+
+      dispatchBtn.onclick = () => {
+        openBookingModal(service, amount);
+      };
+    }
+
+    defectSelect?.addEventListener('change', calculateRisk);
+    proxSelect?.addEventListener('change', calculateRisk);
+    calculateRisk();
+  </script>
+</body>
+</html>

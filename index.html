@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>ArborPro Operations | ISA Certified Arborists & Complete Tree Care</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#012d1d",
+            "primary-container": "#1b4332",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#86af99",
+            "primary-fixed": "#c1ecd4",
+            "primary-fixed-dim": "#a5d0b9",
+            "on-primary-fixed": "#002114",
+            "secondary": "#7d562d",
+            "secondary-container": "#ffca98",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#7a532a",
+            "surface": "#f9faf6",
+            "surface-dim": "#dadad7",
+            "surface-bright": "#f9faf6",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f3f4f1",
+            "surface-container": "#eeeeeb",
+            "surface-container-high": "#e8e8e5",
+            "surface-container-highest": "#e2e3e0",
+            "on-surface": "#1a1c1a",
+            "on-surface-variant": "#414844",
+            "outline": "#717973",
+            "outline-variant": "#c1c8c2",
+            "surface-tint": "#3f6653",
+            "tertiary": "#401b1b",
+            "tertiary-container": "#5a302f",
+            "on-tertiary": "#ffffff",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "on-error": "#ffffff"
+          },
+          borderRadius: {
+            DEFAULT: "0.125rem",
+            lg: "0.25rem",
+            xl: "0.5rem",
+            full: "0.75rem"
+          },
+          spacing: {
+            gutter: "1.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            margin: "2rem"
+          },
+          fontFamily: {
+            headline: ["Inter", "sans-serif"],
+            body: ["Inter", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="/src/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+</head>
+<body class="bg-surface font-body text-on-surface">
+  <!-- Global Header -->
+  <header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] transition-all">
+    <div class="h-20 max-w-7xl mx-auto px-gutter flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-primary-fixed group-hover:scale-105 transition-transform">
+          <span class="material-symbols-outlined text-[24px]">forest</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-headline text-lg font-bold text-on-surface tracking-tight leading-tight">ArborPro</span>
+          <span class="text-[11px] font-medium text-surface-tint uppercase tracking-wider">Operations</span>
+        </div>
+      </a>
+      
+      <nav class="hidden lg:flex items-center gap-2">
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="home" href="index.html">Home</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="home-2" href="home-2.html">Home 2</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="about" href="about.html">About</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="services" href="services.html">Services</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="blog" href="blog.html">Blog</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="pricing" href="pricing.html">Pricing</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="contact" href="contact.html">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a class="hidden sm:inline-flex items-center justify-center px-4 py-2 bg-secondary text-on-secondary rounded-lg text-sm font-semibold hover:bg-secondary/90 transition-all shadow-sm gap-2" data-path="admin-dashboard" href="admin.html">
+          <span class="material-symbols-outlined text-[18px]">dashboard</span>
+          Admin Dashboard
+        </a>
+        <button id="mobile-menu-toggle" aria-label="Toggle navigation menu" class="lg:hidden p-2 rounded-lg text-on-surface hover:bg-surface-container">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu-drawer" class="hidden lg:hidden border-t border-surface-container-high bg-surface px-6 py-4 flex flex-col gap-2 shadow-lg">
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="home" href="index.html">Home</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="home-2" href="home-2.html">Home 2</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="about" href="about.html">About</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="services" href="services.html">Services</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="blog" href="blog.html">Blog</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="pricing" href="pricing.html">Pricing</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="contact" href="contact.html">Contact</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-semibold bg-secondary text-on-secondary flex items-center justify-center gap-2 mt-2" href="admin.html">
+        <span class="material-symbols-outlined text-[18px]">dashboard</span> Admin Operations
+      </a>
+    </div>
+  </header>
+
+  <main class="w-full pt-20 bg-surface">
+    <div class="flex flex-col w-full">
+      <!-- Hero Section -->
+      <section class="relative w-full min-h-[780px] bg-primary text-on-primary flex items-center overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-35 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB--iTw7lsAPTgumaPqlpcO3IKB34v49ZQU_HtboI5O4wIeg95YELJIjoQ-tA2fJeMu0zlG1XHqcMCh_lxs2X93zJ4MgotsCDbaq844r_y_vkb0wo7-lI7Dn48IBd5znrgrwgd0jwP_L4ip5voj1wXRJjcWWScV_DDPVSyeulLlM8VD7Sk-rQ4_Wax7y_BtP4vIJuwP5VN5f-pZ68GZiMsLa74Q9Koql8UJTZDPXaWq9TAdzqZzBfuO')"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/85 to-transparent z-10"></div>
+        
+        <div class="max-w-7xl mx-auto px-gutter w-full relative z-20 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-7 flex flex-col gap-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-surface-container-lowest/15 backdrop-blur-md rounded-full w-max text-primary-fixed text-sm font-semibold">
+              <span class="material-symbols-outlined text-[18px]">verified</span>
+              ISA Certified Arborists &amp; Complete Tree Care
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-headline text-on-primary tracking-tight leading-tight">
+              Preserving Nature. Protecting Your Property.
+            </h1>
+            
+            <p class="text-lg text-primary-fixed-dim max-w-xl leading-relaxed">
+              Expert arboriculture, 24/7 emergency storm response, and precision tree maintenance backed by 20+ years of industry-leading safety and environmental stewardship.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <a class="px-6 py-3.5 bg-secondary text-on-secondary rounded-lg font-semibold hover:bg-secondary/90 transition-all shadow-lg flex items-center gap-2" href="#quote">
+                <span class="material-symbols-outlined text-[20px]">calculate</span>
+                Get Instant Estimate
+              </a>
+              <a class="px-6 py-3.5 bg-surface/15 backdrop-blur-md text-on-primary rounded-lg font-semibold hover:bg-surface/25 transition-all flex items-center gap-2" href="services.html">
+                <span>Explore Services</span>
+                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+              </a>
+            </div>
+
+            <div class="flex items-center gap-8 pt-6 border-t border-primary-container/60">
+              <div>
+                <p class="text-3xl font-bold text-on-primary">100%</p>
+                <p class="text-xs text-primary-fixed-dim uppercase tracking-wider font-medium">Fully Insured &amp; Bonded</p>
+              </div>
+              <div class="w-[1px] h-10 bg-primary-fixed/20"></div>
+              <div>
+                <p class="text-3xl font-bold text-on-primary">15k+</p>
+                <p class="text-xs text-primary-fixed-dim uppercase tracking-wider font-medium">Trees Maintained</p>
+              </div>
+              <div class="w-[1px] h-10 bg-primary-fixed/20"></div>
+              <div>
+                <p class="text-3xl font-bold text-on-primary">24/7</p>
+                <p class="text-xs text-primary-fixed-dim uppercase tracking-wider font-medium">Emergency Dispatch</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Instant Quote Calculator Widget -->
+          <div class="lg:col-span-5" id="quote">
+            <div class="bg-surface text-on-surface p-7 sm:p-8 rounded-2xl shadow-2xl border border-surface-container-high flex flex-col gap-4 relative">
+              <div class="flex items-center justify-between border-b border-surface-container-high pb-4">
+                <div>
+                  <h3 class="text-xl font-bold font-headline text-on-surface">Instant Quote Calculator</h3>
+                  <p class="text-xs text-on-surface-variant mt-0.5">Real-time ballpark investment estimate</p>
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center">
+                  <span class="material-symbols-outlined">bolt</span>
+                </div>
+              </div>
+
+              <div class="flex flex-col gap-4 pt-1">
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-xs font-semibold uppercase tracking-wider text-on-surface" for="calc-service">Select Service Type</label>
+                  <select class="w-full px-3 py-2.5 bg-surface-container rounded-lg text-sm text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer" id="calc-service">
+                    <option value="150" data-name="Tree Trimming & Pruning">Tree Trimming &amp; Pruning</option>
+                    <option value="350" data-name="Hazardous Tree Removal">Hazardous Tree Removal</option>
+                    <option value="120" data-name="Stump Grinding">Stump Grinding</option>
+                    <option value="200" data-name="Tree Health Assessment">Tree Health Assessment</option>
+                    <option value="450" data-name="Emergency Storm Response">Emergency Storm Response</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-xs font-semibold uppercase tracking-wider text-on-surface" for="calc-size">Tree Size / Height</label>
+                  <select class="w-full px-3 py-2.5 bg-surface-container rounded-lg text-sm text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer" id="calc-size">
+                    <option value="1">Small (Under 25 ft)</option>
+                    <option value="1.5" selected>Medium (25 - 50 ft)</option>
+                    <option value="2.2">Large (50+ ft / Complex Canopy)</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-xs font-semibold uppercase tracking-wider text-on-surface" for="calc-urgency">Urgency Level</label>
+                  <select class="w-full px-3 py-2.5 bg-surface-container rounded-lg text-sm text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer" id="calc-urgency">
+                    <option value="1">Standard Scheduling (Within 5-7 days)</option>
+                    <option value="1.35">Priority Scheduling (Within 48 hours)</option>
+                    <option value="1.75">Emergency Immediate Dispatch (Today)</option>
+                  </select>
+                </div>
+
+                <div class="bg-surface-container-low p-4 rounded-xl flex items-center justify-between mt-2 border border-surface-container">
+                  <div>
+                    <p class="text-xs text-on-surface-variant font-medium">Estimated Investment</p>
+                    <p class="text-3xl font-extrabold text-primary font-headline" id="calc-result">$225</p>
+                  </div>
+                  <button id="book-quote-btn" class="px-5 py-2.5 bg-primary text-on-primary rounded-lg text-sm font-semibold hover:bg-primary-container transition-all flex items-center gap-2 shadow-md">
+                    <span>Lock In Rate</span>
+                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ecological Impact Metrics Banner (Stitch Update) -->
+      <section class="w-full py-12 bg-primary-container text-on-primary-container border-y border-primary-fixed/20">
+        <div class="max-w-7xl mx-auto px-gutter grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-5 h-60 rounded-2xl overflow-hidden relative shadow-xl">
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBbZh7f1pc5xu0MqzNKc0AABjQSfvIrYszLqpdaYKesEp3RvXd9STyuDXQwpZFi8lr56bwVveBx4AG2o1aHMREsGOV-ffkPnVzzF9Cb8HysSnIOYU7KXYWvqzZYPbyn07FHzlPM1d-8s4Xz9LXnZ8fuaIaqk3HDLnbCCPM_EL3nPsr9yqNmENiBJWPbnwn-_MNhZNPLijp8ciHx11yjr729QX2NhmNihCFew0_I6rth9zK42q9wRFPL')"></div>
+            <div class="absolute inset-0 bg-primary/35"></div>
+            <div class="absolute bottom-4 left-4 right-4 bg-surface/90 backdrop-blur-md p-3.5 rounded-xl text-on-surface shadow-md">
+              <p class="text-[11px] font-bold uppercase tracking-wider text-surface-tint">Environmental Stewardship</p>
+              <p class="font-headline text-sm font-bold">100% Sustainable Canopy Practices</p>
+            </div>
+          </div>
+          <div class="lg:col-span-7 flex flex-col gap-4">
+            <span class="text-xs font-bold text-primary-fixed uppercase tracking-wider">Ecological Impact</span>
+            <h2 class="font-headline text-2xl md:text-3xl font-bold text-on-primary">Protecting Urban Forests &amp; Carbon Balance</h2>
+            <p class="text-xs md:text-sm text-primary-fixed-dim leading-relaxed">
+              Our certified arboriculture methods not only secure your home against storm hazards but actively contribute to cleaner air, reduced urban heat islands, and thriving local ecosystems.
+            </p>
+            <div class="grid grid-cols-3 gap-3 pt-2">
+              <div class="bg-surface/10 backdrop-blur-md p-3.5 rounded-xl border border-primary-fixed/20 text-center sm:text-left">
+                <p class="text-2xl font-black font-headline text-on-primary">120k</p>
+                <p class="text-[11px] text-primary-fixed-dim font-medium">Tons CO₂ Sequestered</p>
+              </div>
+              <div class="bg-surface/10 backdrop-blur-md p-3.5 rounded-xl border border-primary-fixed/20 text-center sm:text-left">
+                <p class="text-2xl font-black font-headline text-on-primary">99%</p>
+                <p class="text-[11px] text-primary-fixed-dim font-medium">Wood Waste Recycled</p>
+              </div>
+              <div class="bg-surface/10 backdrop-blur-md p-3.5 rounded-xl border border-primary-fixed/20 text-center sm:text-left">
+                <p class="text-2xl font-black font-headline text-on-primary">5,400</p>
+                <p class="text-[11px] text-primary-fixed-dim font-medium">Trees Planted Annually</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Core Services Section -->
+      <section class="w-full py-16 bg-surface-container-low" id="services">
+        <div class="max-w-7xl mx-auto px-gutter flex flex-col gap-12">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+              <span class="text-xs font-bold text-surface-tint uppercase tracking-wider">Comprehensive Expertise</span>
+              <h2 class="text-3xl font-bold font-headline text-on-surface mt-1">Core Arboricultural Services</h2>
+            </div>
+            <p class="text-sm text-on-surface-variant max-w-md">
+              From routine structural pruning to high-risk crane removals and fungal disease management, our certified team handles every job with precision.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Card 1 -->
+            <div class="bg-surface rounded-xl p-5 flex flex-col gap-4 shadow-sm hover:shadow-xl transition-all duration-300 group border border-surface-container">
+              <div class="h-44 rounded-lg overflow-hidden relative">
+                <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB2g-3xiWXQU8DWR3oUyce5tAR_uZI-MjhRvMnGqiBPsY2wGRMHwGoAwtdays0uVBIHhdnAHRywoSN3G4L1iTISvjUlBlyQ-20krvG8t2IheD02IfCBwBP-RPHrcVcwtm5CxfO2xaZLJEP1NUfcsW0BUbc1sjPtun6t70oBmP11L4KJnB1IJgYwtcyQNTrVc12vAbDgQXtCvfbtyV9nXAw_KkFVAnGUESfpY0SmMLO6_ggkKor0dzmJ')"></div>
+              </div>
+              <div class="flex items-center gap-2 text-surface-tint">
+                <span class="material-symbols-outlined text-[20px]">content_cut</span>
+                <span class="text-xs font-semibold uppercase tracking-wider">Precision Care</span>
+              </div>
+              <h3 class="text-lg font-bold font-headline text-on-surface">Tree Trimming &amp; Pruning</h3>
+              <p class="text-xs text-on-surface-variant leading-relaxed">Enhance structural integrity, sunlight penetration, and aesthetic value through ISA crown thinning.</p>
+              <button onclick="openBookingModal('Tree Trimming & Pruning', 450)" class="text-xs font-semibold text-primary flex items-center gap-1 mt-auto pt-2 hover:underline">
+                Book Consultation <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+              </button>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-surface rounded-xl p-5 flex flex-col gap-4 shadow-sm hover:shadow-xl transition-all duration-300 group border border-surface-container">
+              <div class="h-44 rounded-lg overflow-hidden relative">
+                <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCILnwdySdXvXrmvrcwvpgIBmBtsHX_Z3wtj0gu8lWphKQ7XgQTAsI12U8L5mF431bBLhIAavIi9zt9Xzi_Kl05TzBPlDoe4xAHjldwUKkHmDLVM2QAiARmUfZvnGSeYobe_YzN_IUmyLdWkex7q5K0Fd5V_9jp35pxICr3PHLyG853M5Zh-75yvpe5FY57bFVgDCrSLv9oRB0rSTzFyA0vm7oOg5qQV_fHjpFjTMm-cQKOusytzRZx')"></div>
+              </div>
+              <div class="flex items-center gap-2 text-secondary">
+                <span class="material-symbols-outlined text-[20px]">bolt</span>
+                <span class="text-xs font-semibold uppercase tracking-wider">24/7 Dispatch</span>
+              </div>
+              <h3 class="text-lg font-bold font-headline text-on-surface">Emergency Storm Removal</h3>
+              <p class="text-xs text-on-surface-variant leading-relaxed">Rapid response teams equipped for hazardous fallen limbs, structural roof breaches, and live hazard mitigation.</p>
+              <button onclick="openBookingModal('Emergency Storm Removal', 950)" class="text-xs font-semibold text-primary flex items-center gap-1 mt-auto pt-2 hover:underline">
+                Request Emergency Crew <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+              </button>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-surface rounded-xl p-5 flex flex-col gap-4 shadow-sm hover:shadow-xl transition-all duration-300 group border border-surface-container">
+              <div class="h-44 rounded-lg overflow-hidden relative">
+                <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAxSfFYwFI8ytdoxG8zHoS7_izRXFEBYLtedUQHWR8ofGbXc7-7raTlv_vVnaftBDzkgRkyRkxiPl_XDoajKA2wi55WyLUw0InzHjBB_4O3VcjfNOlxTIfWWRA5C5zBUSse6RD-GPg80TzccuXfiHZciizV79xwnWKg7RBg_dARk_BwEz9mN2Wn1XQ8NhjRu6L303ec8yOs9thZXn2lITz9DGdtXzsToBLmlbgG4g2tgAPrkrkPI7JO')"></div>
+              </div>
+              <div class="flex items-center gap-2 text-surface-tint">
+                <span class="material-symbols-outlined text-[20px]">settings_accessibility</span>
+                <span class="text-xs font-semibold uppercase tracking-wider">Complete Eradication</span>
+              </div>
+              <h3 class="text-lg font-bold font-headline text-on-surface">Stump Grinding</h3>
+              <p class="text-xs text-on-surface-variant leading-relaxed">Complete below-grade removal of unsightly stumps and roots, leaving lawn cleanly prepped for replanting.</p>
+              <button onclick="openBookingModal('Stump Grinding', 300)" class="text-xs font-semibold text-primary flex items-center gap-1 mt-auto pt-2 hover:underline">
+                Book Consultation <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+              </button>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="bg-surface rounded-xl p-5 flex flex-col gap-4 shadow-sm hover:shadow-xl transition-all duration-300 group border border-surface-container">
+              <div class="h-44 rounded-lg overflow-hidden relative">
+                <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCvsEDyZXDx3ReqHAD220Zs_IfUfgTnshaVFuW_GbOsobGo1LEnEo3iSi3N-AEPCSuXAWNmE-fuRadCA7weCT1hOPF3bIDltB3jJnt1ZRf7wZbGoSizPiRKghJQHiQ74RwKG6arn72haZKbKNjHsP7NkPIc27MYxUyCkk5p50qOyt590BBq3mOHh-aUKSckjqfg6hWg71xvGvZHsHhFOCa1WhA8EIrgBZb9k64O4PBB8VZk36Ar5vVq')"></div>
+              </div>
+              <div class="flex items-center gap-2 text-surface-tint">
+                <span class="material-symbols-outlined text-[20px]">health_and_safety</span>
+                <span class="text-xs font-semibold uppercase tracking-wider">Pathology &amp; Care</span>
+              </div>
+              <h3 class="text-lg font-bold font-headline text-on-surface">Health Assessment</h3>
+              <p class="text-xs text-on-surface-variant leading-relaxed">Comprehensive diagnostics for fungal infections, emerald ash borers, and tailored soil nutrition.</p>
+              <button onclick="openBookingModal('Tree Health Assessment', 250)" class="text-xs font-semibold text-primary flex items-center gap-1 mt-auto pt-2 hover:underline">
+                Book Diagnostic <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Before & After Tree Restoration Gallery (Stitch Update) -->
+      <section class="w-full py-16 bg-surface">
+        <div class="max-w-7xl mx-auto px-gutter flex flex-col gap-10">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+              <span class="text-xs font-bold text-surface-tint uppercase tracking-wider">Visual Proof</span>
+              <h2 class="text-3xl font-bold font-headline text-on-surface mt-1">Before &amp; After Tree Restoration Gallery</h2>
+            </div>
+            <p class="text-sm text-on-surface-variant max-w-md">
+              Witness our expert crews transform overgrown, hazardous canopies into safe, stunning landmarks using state-of-the-art rigging and bucket trucks.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-surface-container-low rounded-xl p-6 flex flex-col gap-4 shadow-md border border-surface-container">
+              <div class="relative h-80 rounded-lg overflow-hidden shadow-inner group">
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAHYrZXr9Fx77Virass_1ToKcUSoFH8hbUl2QMt1xYFw9LKmkFFvtRvy73cHtWgFcJJvAHKfwgvI8ZjPreRimWb9c-S7Ek_oQee8hAhlI7k-evZHoULitaMYZpLCQFKb9UcbXY16csqAhwohe8YL_12pILSZmn--0S9f3t7IsuwsBxMB5gU50p1JUz_JmN1KudQ0-kZ7ykduHSNHx3xw5IKmst6adoRmIAAxUFJPy4ibjE4LpKVNdrk')"></div>
+                <span class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase shadow-sm">Restoration Project A</span>
+              </div>
+              <h3 class="font-headline text-xl font-bold text-on-surface">Urban Canopy Clearance &amp; Bucket Truck Deployment</h3>
+              <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">Complex urban pruning removing deadwood over public thoroughfares, utilizing our heavy-duty Altec crane and chipper setup for zero-impact street clearance.</p>
+            </div>
+            <div class="bg-surface-container-low rounded-xl p-6 flex flex-col gap-4 shadow-md border border-surface-container">
+              <div class="relative h-80 rounded-lg overflow-hidden shadow-inner group">
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJy8cPeJRUcW-EKrlDTaBf6HfJrMPushrPRYIC7M9mGj6nVRUBa0S90ZgjWSzoS-PHVURKAhnviYYHmUO0LPWpIM4GMoeIleNKTTwbIxCW2mO5AT-HFVQvrRqlbYDh9r5K7G9jFZUQKTs2GUfube7MwL2_4xW2_vVOxYg3jw97mvX1HglckGrFhHWJbEEKJH-Kg6OOHCtIMIK1zMn9glBdHHB8YOa1fzobW4Py2QYwFvUkQtXZcyVR')"></div>
+                <span class="absolute top-4 left-4 bg-secondary text-on-secondary px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase shadow-sm">Restoration Project B</span>
+              </div>
+              <h3 class="font-headline text-xl font-bold text-on-surface">Precision Backyard Pruning &amp; Structural Rigging</h3>
+              <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">Delicate crown thinning in tight residential quarters. Our ISA certified climbers safely lower heavy limbs over prized landscaping with zero property disruption.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEW SECTION 1: Pacific Northwest Native Canopy Species Care Guide -->
+      <section class="w-full py-16 bg-surface-container-low border-y border-surface-container">
+        <div class="max-w-7xl mx-auto px-gutter flex flex-col gap-10">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+              <span class="text-xs font-bold text-surface-tint uppercase tracking-wider">Botanical Science &amp; Health</span>
+              <h2 class="text-3xl font-bold font-headline text-on-surface mt-1">Pacific Northwest Native Canopy Species Guide</h2>
+            </div>
+            <p class="text-sm text-on-surface-variant max-w-md">
+              Every tree species demands specific biological management. Learn how our arborists protect the structural health and longevity of our region's hallmark conifers and hardwoods.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Species 1: Douglas Fir -->
+            <div class="bg-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-surface-container flex flex-col">
+              <div class="h-48 w-full bg-cover bg-center relative" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB--iTw7lsAPTgumaPqlpcO3IKB34v49ZQU_HtboI5O4wIeg95YELJIjoQ-tA2fJeMu0zlG1XHqcMCh_lxs2X93zJ4MgotsCDbaq844r_y_vkb0wo7-lI7Dn48IBd5znrgrwgd0jwP_L4ip5voj1wXRJjcWWScV_DDPVSyeulLlM8VD7Sk-rQ4_Wax7y_BtP4vIJuwP5VN5f-pZ68GZiMsLa74Q9Koql8UJTZDPXaWq9TAdzqZzBfuO')">
+                <span class="absolute top-3 left-3 bg-primary text-on-primary px-3 py-1 rounded-full text-[11px] font-bold">Conifer</span>
+                <span class="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-bold text-on-surface">Up to 250ft</span>
+              </div>
+              <div class="p-5 flex flex-col flex-grow justify-between gap-4">
+                <div>
+                  <h3 class="font-headline text-base font-bold text-on-surface">Douglas Fir</h3>
+                  <p class="text-[11px] text-surface-tint italic font-medium">Pseudotsuga menziesii</p>
+                  <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">Fast-growing apex conifer prone to laminated root rot and high-wind sail failure in shallow soils.</p>
+                </div>
+                <div class="space-y-1.5 text-[11px] bg-surface-container-low p-3 rounded-xl border border-surface-container">
+                  <div class="flex justify-between"><span class="text-outline">Pruning Cadence:</span><span class="font-semibold text-on-surface">Every 3-5 Years</span></div>
+                  <div class="flex justify-between"><span class="text-outline">Fungal Risk:</span><span class="font-semibold text-secondary">Phaeolus schweinitzii</span></div>
+                  <div class="flex justify-between"><span class="text-outline">Wind-Firmness:</span><span class="font-semibold text-primary">Moderate / High</span></div>
+                </div>
+                <button onclick="openBookingModal('Douglas Fir Canopy Assessment', 350)" class="w-full py-2 bg-primary/10 hover:bg-primary hover:text-on-primary text-primary rounded-lg text-xs font-bold transition-colors text-center">
+                  Book Species Assessment
+                </button>
+              </div>
+            </div>
+
+            <!-- Species 2: Western Red Cedar -->
+            <div class="bg-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-surface-container flex flex-col">
+              <div class="h-48 w-full bg-cover bg-center relative" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBbZh7f1pc5xu0MqzNKc0AABjQSfvIrYszLqpdaYKesEp3RvXd9STyuDXQwpZFi8lr56bwVveBx4AG2o1aHMREsGOV-ffkPnVzzF9Cb8HysSnIOYU7KXYWvqzZYPbyn07FHzlPM1d-8s4Xz9LXnZ8fuaIaqk3HDLnbCCPM_EL3nPsr9yqNmENiBJWPbnwn-_MNhZNPLijp8ciHx11yjr729QX2NhmNihCFew0_I6rth9zK42q9wRFPL')">
+                <span class="absolute top-3 left-3 bg-primary text-on-primary px-3 py-1 rounded-full text-[11px] font-bold">Conifer</span>
+                <span class="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-bold text-on-surface">Up to 180ft</span>
+              </div>
+              <div class="p-5 flex flex-col flex-grow justify-between gap-4">
+                <div>
+                  <h3 class="font-headline text-base font-bold text-on-surface">Western Red Cedar</h3>
+                  <p class="text-[11px] text-surface-tint italic font-medium">Thuja plicata</p>
+                  <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">Iconic moisture-loving giant suffering from summer drought stress, crown dieback, and cedar flagging.</p>
+                </div>
+                <div class="space-y-1.5 text-[11px] bg-surface-container-low p-3 rounded-xl border border-surface-container">
+                  <div class="flex justify-between"><span class="text-outline">Pruning Cadence:</span><span class="font-semibold text-on-surface">Every 4-6 Years</span></div>
+                  <div class="flex justify-between"><span class="text-outline">Primary Risk:</span><span class="font-semibold text-secondary">Drought Desiccation</span></div>
+                  <div class="flex justify-between"><span class="text-outline">Recommended:</span><span class="font-semibold text-primary">Deep Root Hydration</span></div>
+                </div>
+                <button onclick="openBookingModal('Western Red Cedar Health Audit', 350)" class="w-full py-2 bg-primary/10 hover:bg-primary hover:text-on-primary text-primary rounded-lg text-xs font-bold transition-colors text-center">
+                  Book Species Assessment
+                </button>
+              </div>
+            </div>
+
+            <!-- Species 3: Garry Oak -->
+            <div class="bg-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-surface-container flex flex-col">
+              <div class="h-48 w-full bg-cover bg-center relative" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD-JOUq87oXjr1jQZB94ny82rtZNzz7AtVuKv03hYuouLBtLMqNUU2TQsBF2hgFgbXBLmuLj4iwC46gSDdjig67lqpyqGv6pcAVFqC_jqS0gMEttPqO577apcPjdAQVEucQgn7KtKx2FnxuOpq_JPMqO0187vzd3xp3qXSBG4iE1yyc_6UAkiAf7DvHzkhDT_cqFDklv_RgTjdRUejmf6qL8693YrOp2qUt39aWz6EycZtpqwRYwAk3')">
+                <span class="absolute top-3 left-3 bg-secondary text-on-secondary px-3 py-1 rounded-full text-[11px] font-bold">Hardwood</span>
+                <span class="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-bold text-on-surface">Protected Heritage</span>
+              </div>
+              <div class="p-5 flex flex-col flex-grow justify-between gap-4">
+                <div>
+                  <h3 class="font-headline text-base font-bold text-on-surface">Garry Oak (Oregon White)</h3>
+                  <p class="text-[11px] text-surface-tint italic font-medium">Quercus garryana</p>
+                  <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">Protected native oak requiring specialized municipal permits, root protection zones, and careful crown balancing.</p>
+                </div>
+                <div class="space-y-1.5 text-[11px] bg-surface-container-low p-3 rounded-xl border border-surface-container">
+                  <div class="flex justify-between"><span class="text-outline">Pruning Cadence:</span><span class="font-semibold text-on-surface">Every 5-7 Years</span></div>
+                  <div class="flex justify-between"><span class="text-outline">Permit Status:</span><span class="font-semibold text-secondary">Strict Municipal Protection</span></div>
+                  <div class="flex justify-between"><span class="text-outline">Soil Sensitivity:</span><span class="font-semibold text-primary">Zero Root Compaction</span></div>
+                </div>
+                <button onclick="openBookingModal('Garry Oak Heritage Preservation', 450)" class="w-full py-2 bg-primary/10 hover:bg-primary hover:text-on-primary text-primary rounded-lg text-xs font-bold transition-colors text-center">
+                  Book Species Assessment
+                </button>
+              </div>
+            </div>
+
+            <!-- Species 4: Bigleaf Maple -->
+            <div class="bg-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-surface-container flex flex-col">
+              <div class="h-48 w-full bg-cover bg-center relative" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDj57ha0-cMbUuYjEyGr7GJgIAibsfjreHTxJFFabl31hVCRlYr-u7fnyMnB3LLEEmJowv8kba7u-rBRXOu15JyEWVhGCSmoxCkOiSAw6zQuvROOXFwSrXyGJVAONlnslLoh27lo-zXrzgBSXdGt0XFgEggpXKJq9I4KeAuv_pCJ9oQz5C14vZCGcj2_yRyc37OE2O0JoNtSCp5PhAxCy9XeEKHurqaq7T_znSKfz1Skx5-Hc0rZRnf')">
+                <span class="absolute top-3 left-3 bg-secondary text-on-secondary px-3 py-1 rounded-full text-[11px] font-bold">Hardwood</span>
+                <span class="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-bold text-on-surface">Up to 100ft</span>
+              </div>
+              <div class="p-5 flex flex-col flex-grow justify-between gap-4">
+                <div>
+                  <h3 class="font-headline text-base font-bold text-on-surface">Bigleaf Maple</h3>
+                  <p class="text-[11px] text-surface-tint italic font-medium">Acer macrophyllum</p>
+                  <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">Sprawling deciduous canopy susceptible to codominant leader failure and heavy moss accumulation.</p>
+                </div>
+                <div class="space-y-1.5 text-[11px] bg-surface-container-low p-3 rounded-xl border border-surface-container">
+                  <div class="flex justify-between"><span class="text-outline">Pruning Cadence:</span><span class="font-semibold text-on-surface">Every 2-3 Years</span></div>
+                  <div class="flex justify-between"><span class="text-outline">Key Solution:</span><span class="font-semibold text-secondary">Cobra Dynamic Cabling</span></div>
+                  <div class="flex justify-between"><span class="text-outline">Fungal Risk:</span><span class="font-semibold text-primary">Verticillium Wilt</span></div>
+                </div>
+                <button onclick="openBookingModal('Bigleaf Maple Structural Audit', 350)" class="w-full py-2 bg-primary/10 hover:bg-primary hover:text-on-primary text-primary rounded-lg text-xs font-bold transition-colors text-center">
+                  Book Species Assessment
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEW SECTION 2: Verified Drone Inspections & High-Risk Case Studies -->
+      <section class="w-full py-16 bg-surface">
+        <div class="max-w-7xl mx-auto px-gutter flex flex-col gap-10">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+              <span class="text-xs font-bold text-surface-tint uppercase tracking-wider">Field Proven Execution</span>
+              <h2 class="text-3xl font-bold font-headline text-on-surface mt-1">High-Risk Rigging &amp; Drone Case Studies</h2>
+            </div>
+            <p class="text-sm text-on-surface-variant max-w-md">
+              Review documented engineering solutions from recent residential, shoreline, and commercial projects where zero damage was mandatory.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Case Study 1 -->
+            <div class="bg-surface-container-low rounded-2xl overflow-hidden border border-surface-container shadow-sm flex flex-col">
+              <div class="h-56 bg-cover bg-center relative" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCILnwdySdXvXrmvrcwvpgIBmBtsHX_Z3wtj0gu8lWphKQ7XgQTAsI12U8L5mF431bBLhIAavIi9zt9Xzi_Kl05TzBPlDoe4xAHjldwUKkHmDLVM2QAiARmUfZvnGSeYobe_YzN_IUmyLdWkex7q5K0Fd5V_9jp35pxICr3PHLyG853M5Zh-75yvpe5FY57bFVgDCrSLv9oRB0rSTzFyA0vm7oOg5qQV_fHjpFjTMm-cQKOusytzRZx')">
+                <span class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 rounded-full text-xs font-bold shadow-sm">Lake Washington Waterfront</span>
+              </div>
+              <div class="p-6 flex flex-col flex-grow justify-between gap-4">
+                <div>
+                  <h3 class="font-headline text-lg font-bold text-on-surface">95-Foot Rotting Western Hemlock Removal</h3>
+                  <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+                    Tree was leaning 18 degrees over a luxury boathouse with no rear road access. Deployed our 60-ton knuckle-boom crane over the residence with zero lawn compression mats.
+                  </p>
+                </div>
+                <div class="grid grid-cols-3 gap-2 bg-surface p-3 rounded-xl border border-surface-container text-center">
+                  <div><p class="text-xs font-bold text-primary font-headline">60-Ton</p><p class="text-[10px] text-outline">Crane Pick</p></div>
+                  <div><p class="text-xs font-bold text-primary font-headline">4.5 Hrs</p><p class="text-[10px] text-outline">Total Time</p></div>
+                  <div><p class="text-xs font-bold text-primary font-headline">$0</p><p class="text-[10px] text-outline">Lawn Damage</p></div>
+                </div>
+                <div class="text-[11px] text-surface-tint font-semibold flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-[16px]">verified</span> Medina Residential Estate • Verified Client
+                </div>
+              </div>
+            </div>
+
+            <!-- Case Study 2 -->
+            <div class="bg-surface-container-low rounded-2xl overflow-hidden border border-surface-container shadow-sm flex flex-col">
+              <div class="h-56 bg-cover bg-center relative" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB2g-3xiWXQU8DWR3oUyce5tAR_uZI-MjhRvMnGqiBPsY2wGRMHwGoAwtdays0uVBIHhdnAHRywoSN3G4L1iTISvjUlBlyQ-20krvG8t2IheD02IfCBwBP-RPHrcVcwtm5CxfO2xaZLJEP1NUfcsW0BUbc1sjPtun6t70oBmP11L4KJnB1IJgYwtcyQNTrVc12vAbDgQXtCvfbtyV9nXAw_KkFVAnGUESfpY0SmMLO6_ggkKor0dzmJ')">
+                <span class="absolute top-4 left-4 bg-secondary text-on-secondary px-3 py-1 rounded-full text-xs font-bold shadow-sm">Magnolia Historic District</span>
+              </div>
+              <div class="p-6 flex flex-col flex-grow justify-between gap-4">
+                <div>
+                  <h3 class="font-headline text-lg font-bold text-on-surface">Centennial Heritage Beech Canopy Preservation</h3>
+                  <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+                    Homeowner faced forced removal notice from insurer. We performed sonic tomography proving 78% residual wood wall integrity, installed dynamic Cobra bracing, and saved the canopy.
+                  </p>
+                </div>
+                <div class="grid grid-cols-3 gap-2 bg-surface p-3 rounded-xl border border-surface-container text-center">
+                  <div><p class="text-xs font-bold text-primary font-headline">3D Tomo</p><p class="text-[10px] text-outline">Diagnostic</p></div>
+                  <div><p class="text-xs font-bold text-primary font-headline">4 Cables</p><p class="text-[10px] text-outline">Cobra Braces</p></div>
+                  <div><p class="text-xs font-bold text-primary font-headline">Saved</p><p class="text-[10px] text-outline">110-Yr Tree</p></div>
+                </div>
+                <div class="text-[11px] text-surface-tint font-semibold flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-[16px]">verified</span> Seattle Heritage Trust • Verified Client
+                </div>
+              </div>
+            </div>
+
+            <!-- Case Study 3 -->
+            <div class="bg-surface-container-low rounded-2xl overflow-hidden border border-surface-container shadow-sm flex flex-col">
+              <div class="h-56 bg-cover bg-center relative" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDDoQgaTaC4c-CcoW0M0CZCm8PoB2Gj3prcwar2npLUFl7tFMXjQcoDv_AlBSL738TI17L5aXU4k1YoauxqYZIrxdXQtH6G_Za_wOA2JK0nOa-9O_3KoP0Qpvw0gFitlb3u-RSFXEio7EuhFSwPnM3jgmnpdlHJXdZ017sLLpHR5Oi8tJRxJYnDN_bDiqawp8H8NVLDhOYYphl8kOF4DS6Ck_evOnW2BGcCI0toMZzbC6d53nP6FOor')">
+                <span class="absolute top-4 left-4 bg-primary-container text-on-primary-container px-3 py-1 rounded-full text-xs font-bold shadow-sm">Bellevue Tech Campus</span>
+              </div>
+              <div class="p-6 flex flex-col flex-grow justify-between gap-4">
+                <div>
+                  <h3 class="font-headline text-lg font-bold text-on-surface">45-Acre Commercial Campus Storm Hardening</h3>
+                  <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+                    LiDAR drone scan of 320 campus trees mapped hazard over solar panel carports and glass atriums. Nighttime bucket truck operations cleared 65 tons of deadwood with zero tenant disruption.
+                  </p>
+                </div>
+                <div class="grid grid-cols-3 gap-2 bg-surface p-3 rounded-xl border border-surface-container text-center">
+                  <div><p class="text-xs font-bold text-primary font-headline">320 Trees</p><p class="text-[10px] text-outline">LiDAR Audit</p></div>
+                  <div><p class="text-xs font-bold text-primary font-headline">65 Tons</p><p class="text-[10px] text-outline">Wood Chipped</p></div>
+                  <div><p class="text-xs font-bold text-primary font-headline">100%</p><p class="text-[10px] text-outline">Zero Outages</p></div>
+                </div>
+                <div class="text-[11px] text-surface-tint font-semibold flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-[16px]">verified</span> Apex Commercial Properties • Campus Director
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEW SECTION 3: 4-Season Arboricultural Care Calendar -->
+      <section class="w-full py-16 bg-surface-container-low border-b border-surface-container">
+        <div class="max-w-7xl mx-auto px-gutter flex flex-col gap-10">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+              <span class="text-xs font-bold text-surface-tint uppercase tracking-wider">Proactive Maintenance</span>
+              <h2 class="text-3xl font-bold font-headline text-on-surface mt-1">Annual Seasonal Canopy Care Calendar</h2>
+            </div>
+            <p class="text-sm text-on-surface-variant max-w-md">
+              Maintain tree health year-round with our seasonal schedule tailored to Pacific Northwest microclimates and storm cycles.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Spring -->
+            <div class="bg-surface p-6 rounded-2xl border border-surface-container shadow-sm flex flex-col gap-3">
+              <div class="flex items-center gap-2 text-primary font-bold">
+                <span class="material-symbols-outlined text-[22px]">yard</span>
+                <span class="text-sm font-headline">Spring (Mar - May)</span>
+              </div>
+              <h4 class="text-base font-bold text-on-surface">Root Health &amp; Inoculations</h4>
+              <ul class="text-xs text-on-surface-variant space-y-2 leading-relaxed">
+                <li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-primary text-[14px] mt-0.5">check</span>Deep-root mycorrhizal fertilization</li>
+                <li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-primary text-[14px] mt-0.5">check</span>Bark beetle &amp; aphid systemic trunk injections</li>
+                <li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-primary text-[14px] mt-0.5">check</span>Soil decompaction with pneumatic Air-Spade</li>
+              </ul>
+              <button onclick="openBookingModal('Spring Soil & Inoculation Care', 300)" class="mt-auto pt-2 text-xs font-bold text-primary hover:underline flex items-center gap-1">
+                Book Spring Care <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+              </button>
+            </div>
+
+            <!-- Summer -->
+            <div class="bg-surface p-6 rounded-2xl border border-surface-container shadow-sm flex flex-col gap-3">
+              <div class="flex items-center gap-2 text-secondary font-bold">
+                <span class="material-symbols-outlined text-[22px]">wb_sunny</span>
+                <span class="text-sm font-headline">Summer (Jun - Aug)</span>
+              </div>
+              <h4 class="text-base font-bold text-on-surface">Drought &amp; Fire Hardening</h4>
+              <ul class="text-xs text-on-surface-variant space-y-2 leading-relaxed">
+                <li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-secondary text-[14px] mt-0.5">check</span>Defensible wildfire clearance pruning</li>
+                <li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-secondary text-[14px] mt-0.5">check</span>Targeted crown thinning to reduce moisture loss</li>
+                <li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-secondary text-[14px] mt-0.5">check</span>Organic arborist wood chip mulching</li>
+              </ul>
+              <button onclick="openBookingModal('Summer Wildfire Defensible Clearance', 450)" class="mt-auto pt-2 text-xs font-bold text-secondary hover:underline flex items-center gap-1">
+                Book Summer Care <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+              </button>
+            </div>
+
+            <!-- Autumn -->
+            <div class="bg-surface p-6 rounded-2xl border border-surface-container shadow-sm flex flex-col gap-3">
+              <div class="flex items-center gap-2 text-tertiary font-bold">
+                <span class="material-symbols-outlined text-[22px]">cyclone</span>
+                <span class="text-sm font-headline">Autumn (Sep - Nov)</span>
+              </div>
+              <h4 class="text-base font-bold text-on-surface">Storm Hazard Mitigation</h4>
+              <ul class="text-xs text-on-surface-variant space-y-2 leading-relaxed">
+                <li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-primary text-[14px] mt-0.5">check</span>Crown wind-sail reduction cuts</li>
+                <li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-primary text-[14px] mt-0.5">check</span>Deadwood extraction over roofs &amp; service drops</li>
+                <li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-primary text-[14px] mt-0.5">check</span>Dynamic Cobra cable tension checks</li>
+              </ul>
+              <button onclick="openBookingModal('Autumn Wind-Sail Thinning', 450)" class="mt-auto pt-2 text-xs font-bold text-primary hover:underline flex items-center gap-1">
+                Book Autumn Care <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+              </button>
+            </div>
+
+            <!-- Winter -->
+            <div class="bg-surface p-6 rounded-2xl border border-surface-container shadow-sm flex flex-col gap-3">
+              <div class="flex items-center gap-2 text-primary font-bold">
+                <span class="material-symbols-outlined text-[22px]">ac_unit</span>
+                <span class="text-sm font-headline">Winter (Dec - Feb)</span>
+              </div>
+              <h4 class="text-base font-bold text-on-surface">Dormant Pruning &amp; Emergency</h4>
+              <ul class="text-xs text-on-surface-variant space-y-2 leading-relaxed">
+                <li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-primary text-[14px] mt-0.5">check</span>Architectural dormant pruning for fruit/hardwood</li>
+                <li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-primary text-[14px] mt-0.5">check</span>Heavy snow &amp; ice load damage response</li>
+                <li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-primary text-[14px] mt-0.5">check</span>24/7 Crane dispatch for emergency windthrows</li>
+              </ul>
+              <button onclick="openBookingModal('Winter Dormant Pruning', 350)" class="mt-auto pt-2 text-xs font-bold text-primary hover:underline flex items-center gap-1">
+                Book Winter Care <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Choose Us -->
+      <section class="w-full py-16 bg-surface">
+        <div class="max-w-7xl mx-auto px-gutter grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-6 flex flex-col gap-6">
+            <span class="text-xs font-bold text-surface-tint uppercase tracking-wider">Uncompromising Standards</span>
+            <h2 class="text-3xl font-bold font-headline text-on-surface">Why Property Owners Trust ArborPro</h2>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              Tree work is high-stakes physical labor that requires rigorous training, modern machinery, and absolute accountability. We exceed every industry safety threshold.
+            </p>
+
+            <div class="flex flex-col gap-4 pt-2">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined">verified_user</span>
+                </div>
+                <div>
+                  <h4 class="text-base font-bold font-headline text-on-surface">ISA Board Certified Master Arborists</h4>
+                  <p class="text-xs text-on-surface-variant mt-1">Lead consultants hold elite certifications, ensuring your valuable canopy is managed scientifically.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined">shield</span>
+                </div>
+                <div>
+                  <h4 class="text-base font-bold font-headline text-on-surface">$5M Comprehensive Liability Protection</h4>
+                  <p class="text-xs text-on-surface-variant mt-1">Full workman’s comp and umbrella insurance giving you absolute peace of mind during crane extractions.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined">eco</span>
+                </div>
+                <div>
+                  <h4 class="text-base font-bold font-headline text-on-surface">Sustainable Wood Recycling</h4>
+                  <p class="text-xs text-on-surface-variant mt-1">100% of removed timber is repurposed into organic mulch, milled timber, or eco-friendly clean energy.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+            <div class="space-y-4">
+              <div class="h-64 rounded-xl bg-cover bg-center shadow-lg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDWjZ-4pgS9bFdpCH9nBVaw6CfY9Kr2MBF_saAv-5AsYpa9O8A2s75GHH2J4ycBLMsoQzLg46XA6O-c8oTZhxV5G1NiN_nWdVDAbZqKPzM5dvT5vSGMXrd6QRQ4YhuDBvclRKuHEmADKR6ci4g9bUDc7P65ezh28EjuL8HE8nIjdwiQXlgV92Xw-gkVIGRf-6EI946kLa3kSOkedbDcyh-o76nsPdvX9y5dRDomqD54ySSq818bufWa')"></div>
+              <div class="h-40 rounded-xl bg-cover bg-center shadow-lg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAmfcIE4BM3ZC5Z6VVA9g_aaT5CT_8JBb8RvAsGIgYDGZw1ajSsc9VrNHmnPkXGcd3BIH4YUSzU-knmfji5cTyO2jHDYC2OYQuuY_emzCYIAA-PI7fYKK1jSwJ4H28avti-kBg_x1jeJRmf3gS46sKH_OZ_3cGT1hmrJaQf_qPBAUSDrLeYwFsnmphse8b-4NQqpv8ayA7eERThDhiwk5cB4dUlvRe6qNlZ1CT8nHCIZ2os1S1N4y7L')"></div>
+            </div>
+            <div class="space-y-4 pt-8">
+              <div class="h-40 rounded-xl bg-cover bg-center shadow-lg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCBpD5sqjacgUuxoUJTF4YWRphcRBogyFBBoGt7Qbpw5mc8bMROoO5nLdVWrgxCqMDGzZ03KzXrlaCYv_pT1VJ0iC7MHTdumpFumnYMMhPx574PjPgLv2QDn3iJa3V1uWt_78fxIshWsSoXrgExFblAykLIgPWzp_JqgcTRjU9fmPSjKiVmSJImokcfgjcMQ1GJmSmelKCBDEztl9OUw6W3ePj6trm-9mC3QrXileHZve2e8fCabjjm')"></div>
+              <div class="h-64 rounded-xl bg-cover bg-center shadow-lg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCKAHOcfy3kOKW7hcwjuf6ghDkRO2Kz-y7FjPTfP-wxk1_8THKJNGIAKrF9FxzcsnrJShYgUO-XgRCTzkK1HCBsfjrAkPYiVaQD_QOHwm6of4SQOcOGVlAEXyQ5erCZtNU8KpHy0kZCKu9hsrhC07mp5Kbr22J1h63cWul9P57-zzQijHUnYKPY5UujQQVQwIAl99OH7v-ynIUIOyVXLBzccN-3sA9vs2rm8KL_OvKHSMFsqbmAI_ad')"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Client Reviews -->
+      <section class="w-full py-16 bg-surface-container-low">
+        <div class="max-w-7xl mx-auto px-gutter flex flex-col gap-12">
+          <div class="text-center max-w-2xl mx-auto flex flex-col gap-2">
+            <span class="text-xs font-bold text-surface-tint uppercase tracking-wider">Client Success Stories</span>
+            <h2 class="text-3xl font-bold font-headline text-on-surface">Trusted by Homeowners &amp; Municipalities</h2>
+            <p class="text-sm text-on-surface-variant">See what property managers and residential clients say about our precision and cleanup speed.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-surface p-7 rounded-2xl shadow-sm border border-surface-container flex flex-col justify-between gap-6">
+              <div class="flex flex-col gap-3">
+                <div class="flex text-secondary gap-1">
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+                <p class="text-sm text-on-surface leading-relaxed">"ArborPro removed a massive 70-foot pine leaning precariously over our garage during a severe storm. Their crane crew was absolute perfection—fast, meticulous, and zero property damage."</p>
+              </div>
+              <div class="flex items-center gap-3 pt-2">
+                <div class="w-10 h-10 rounded-full bg-cover bg-center shrink-0" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCToHqnUgzuTEKVsKB1Y92V7dL4fZ3ROoEwIKEXCzlQVbfr582ISwK37SwKbPfFeN266PSMbzuH3TvWv8EESxlYQyl98yErJuCdJdKNGpkW2yCWsdlj1tEt3iZgoIBXNc5leOjbkQVrNkgJm9Yc0YHV8LmoMZkPjXa-ddDxAaMQiaUcamtIa084YoBIgUGUvI2zXH-LkcmLUBA_8AeWw1UVLGLu-zoBin7_gnqPIWnOwISeCEBTxgEq')"></div>
+                <div>
+                  <p class="text-sm font-bold text-on-surface">Marcus Vance</p>
+                  <p class="text-xs text-on-surface-variant">Homeowner, Oakridge District</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-surface p-7 rounded-2xl shadow-sm border border-surface-container flex flex-col justify-between gap-6">
+              <div class="flex flex-col gap-3">
+                <div class="flex text-secondary gap-1">
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+                <p class="text-sm text-on-surface leading-relaxed">"As a commercial property manager, liability and prompt service are everything. ArborPro manages our entire 40-acre campus landscape health with unmatched professionalism."</p>
+              </div>
+              <div class="flex items-center gap-3 pt-2">
+                <div class="w-10 h-10 rounded-full bg-cover bg-center shrink-0" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDgH3GvljA3sNZg20QDhJx3NZv55sc6uJJ-cBiKE_Rf3kHmTgmrc1MFNS6gJuUpeIp-yxJqYwpsmkThpNuEcQEh-C_ZXFULQvr9qxgO6cPXL5gqYKKlcOiRodGLtRBQ2a5m1bP8TFWQuiZkkBFINNHlQ0763-tXv99kNJdjbe_hRB7BN3G4wOPAztUX3fLJ7oZyXjpuNDwSPsmC6f1NaWDl4W8ik7OrgfFJL9FWD3JqWM5xJApB5U4U')"></div>
+                <div>
+                  <p class="text-sm font-bold text-on-surface">Sarah Jenkins</p>
+                  <p class="text-xs text-on-surface-variant">Facilities Director, Apex Realty</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-surface p-7 rounded-2xl shadow-sm border border-surface-container flex flex-col justify-between gap-6">
+              <div class="flex flex-col gap-3">
+                <div class="flex text-secondary gap-1">
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+                <p class="text-sm text-on-surface leading-relaxed">"Their certified arborist diagnosed subtle root rot in our heritage maple that other services missed. Their micro-injection treatment plan saved the tree and kept our backyard shaded."</p>
+              </div>
+              <div class="flex items-center gap-3 pt-2">
+                <div class="w-10 h-10 rounded-full bg-cover bg-center shrink-0" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDksEu0qUedUZ1IxBWNUIy1Ty72279ucqd24Qr6rvf8LSPRaOMao3XJXwF4Ge2haTBJU-qsiqjF57P6TsPMr1k1wRwJgJM7CDSGkXZDP-hRg-SmmwiR3zI2mTovpPKk7oCbOlZhGjBjFSbyC8sfQkDw-9SHL0zTqIHxRYgH4YihjAXpHHHJAeNEen1uqjUuPgHeg5NLhTNCwYOJkOmy4TgCGH5CzjYYWznTojZWhYCP0pY-2STIdg_d')"></div>
+                <div>
+                  <p class="text-sm font-bold text-on-surface">Arthur Pendelton</p>
+                  <p class="text-xs text-on-surface-variant">Heritage Homeowner</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Banner CTA -->
+      <section class="w-full py-16 bg-surface">
+        <div class="max-w-7xl mx-auto px-gutter">
+          <div class="bg-primary-container text-on-primary-container rounded-3xl p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-10 relative overflow-hidden shadow-2xl">
+            <div class="flex flex-col gap-3 max-w-xl z-10">
+              <span class="text-xs font-bold text-primary-fixed uppercase tracking-wider">Ready for Professional Care?</span>
+              <h2 class="text-3xl font-bold font-headline text-on-primary">Schedule Your Free On-Site Consultation</h2>
+              <p class="text-sm text-primary-fixed-dim leading-relaxed">
+                Get an accurate, no-obligation quote from an ISA Certified Arborist with digital canopy assessment.
+              </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3 z-10 w-full md:w-auto">
+              <button onclick="openBookingModal('General Property Tree Audit', 0)" class="px-6 py-3.5 bg-secondary text-on-secondary rounded-lg text-sm font-semibold hover:bg-secondary/90 transition-all text-center shadow-lg">
+                Book Consultation
+              </button>
+              <a class="px-6 py-3.5 bg-surface/10 backdrop-blur-md text-on-primary rounded-lg text-sm font-semibold hover:bg-surface/20 transition-all text-center flex items-center justify-center gap-2 border border-white/20" href="tel:18005558733">
+                <span class="material-symbols-outlined text-[18px]">call</span>
+                1-800-555-TREE
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="w-full bg-surface-container-low py-8 border-t border-surface-container-high">
+    <div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-4 text-on-surface-variant text-xs">
+      <div class="flex items-center gap-3">
+        <div class="w-6 h-6 rounded bg-primary text-primary-fixed flex items-center justify-center">
+          <span class="material-symbols-outlined text-[14px]">forest</span>
+        </div>
+        <p>© 2026 ArborPro Operations Inc. All rights reserved. ISA Certified Master Arborists.</p>
+      </div>
+      <div class="flex items-center gap-6">
+        <a class="hover:text-on-surface transition-colors" href="index.html">Home</a>
+        <a class="hover:text-on-surface transition-colors" href="home-2.html">Home 2</a>
+        <a class="hover:text-on-surface transition-colors" href="about.html">About</a>
+        <a class="hover:text-on-surface transition-colors" href="services.html">Services</a>
+        <a class="hover:text-on-surface transition-colors" href="blog.html">Blog</a>
+        <a class="hover:text-on-surface transition-colors" href="pricing.html">Pricing</a>
+        <a class="hover:text-on-surface transition-colors" href="contact.html">Contact</a>
+        <a class="hover:text-on-surface transition-colors font-medium text-primary" href="admin.html">Staff Portal</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/store.js"></script>
+  <script type="module" src="/src/js/nav.js"></script>
+  <script type="module">
+    import { ArborStore } from '/src/js/store.js';
+    import { openBookingModal } from '/src/js/nav.js';
+
+    const serviceSelect = document.getElementById('calc-service');
+    const sizeSelect = document.getElementById('calc-size');
+    const urgencySelect = document.getElementById('calc-urgency');
+    const resultDisplay = document.getElementById('calc-result');
+    const bookQuoteBtn = document.getElementById('book-quote-btn');
+
+    function calculateEstimate() {
+      const base = parseFloat(serviceSelect.value);
+      const sizeMul = parseFloat(sizeSelect.value);
+      const urgencyMul = parseFloat(urgencySelect.value);
+      const total = Math.round(base * sizeMul * urgencyMul);
+      resultDisplay.textContent = '$' + total;
+      return total;
+    }
+
+    serviceSelect?.addEventListener('change', calculateEstimate);
+    sizeSelect?.addEventListener('change', calculateEstimate);
+    urgencySelect?.addEventListener('change', calculateEstimate);
+
+    bookQuoteBtn?.addEventListener('click', () => {
+      const total = calculateEstimate();
+      const serviceName = serviceSelect.options[serviceSelect.selectedIndex].getAttribute('data-name') || serviceSelect.options[serviceSelect.selectedIndex].text;
+      openBookingModal(serviceName, total);
+    });
+
+    calculateEstimate();
+  </script>
+</body>
+</html>

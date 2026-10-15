@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Pricing &amp; Packages | ArborPro Operations</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#012d1d",
+            "primary-container": "#1b4332",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#86af99",
+            "primary-fixed": "#c1ecd4",
+            "primary-fixed-dim": "#a5d0b9",
+            "secondary": "#7d562d",
+            "secondary-container": "#ffca98",
+            "on-secondary": "#ffffff",
+            "surface": "#f9faf6",
+            "surface-container-low": "#f3f4f1",
+            "surface-container": "#eeeeeb",
+            "surface-container-high": "#e8e8e5",
+            "surface-container-highest": "#e2e3e0",
+            "on-surface": "#1a1c1a",
+            "on-surface-variant": "#414844",
+            "outline": "#717973",
+            "outline-variant": "#c1c8c2",
+            "surface-tint": "#3f6653",
+            "error": "#ba1a1a"
+          },
+          borderRadius: {
+            lg: "0.25rem",
+            xl: "0.5rem",
+            full: "0.75rem"
+          },
+          spacing: {
+            gutter: "1.5rem"
+          },
+          fontFamily: {
+            headline: ["Inter", "sans-serif"],
+            body: ["Inter", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="/src/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+</head>
+<body class="bg-surface font-body text-on-surface">
+  <!-- Header -->
+  <header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    <div class="h-20 max-w-7xl mx-auto px-gutter flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-primary-fixed group-hover:scale-105 transition-transform">
+          <span class="material-symbols-outlined text-[24px]">forest</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-headline text-lg font-bold text-on-surface tracking-tight leading-tight">ArborPro</span>
+          <span class="text-[11px] font-medium text-surface-tint uppercase tracking-wider">Operations</span>
+        </div>
+      </a>
+      
+      <nav class="hidden lg:flex items-center gap-2">
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="home" href="index.html">Home</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="home-2" href="home-2.html">Home 2</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="about" href="about.html">About</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="services" href="services.html">Services</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="blog" href="blog.html">Blog</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="pricing" href="pricing.html">Pricing</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="contact" href="contact.html">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a class="hidden sm:inline-flex items-center justify-center px-4 py-2 bg-secondary text-on-secondary rounded-lg text-sm font-semibold hover:bg-secondary/90 transition-all shadow-sm gap-2" data-path="admin-dashboard" href="admin.html">
+          <span class="material-symbols-outlined text-[18px]">dashboard</span>
+          Admin Dashboard
+        </a>
+        <button id="mobile-menu-toggle" aria-label="Toggle navigation menu" class="lg:hidden p-2 rounded-lg text-on-surface hover:bg-surface-container">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu-drawer" class="hidden lg:hidden border-t border-surface-container-high bg-surface px-6 py-4 flex flex-col gap-2 shadow-lg">
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="home" href="index.html">Home</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="home-2" href="home-2.html">Home 2</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="about" href="about.html">About</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="services" href="services.html">Services</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="blog" href="blog.html">Blog</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="pricing" href="pricing.html">Pricing</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="contact" href="contact.html">Contact</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-semibold bg-secondary text-on-secondary flex items-center justify-center gap-2 mt-2" href="admin.html">
+        <span class="material-symbols-outlined text-[18px]">dashboard</span> Admin Operations
+      </a>
+    </div>
+  </header>
+
+  <main class="w-full pt-20 bg-surface">
+    <!-- Hero Section -->
+    <section class="relative px-gutter py-16 max-w-7xl mx-auto w-full flex flex-col items-center text-center">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-high text-primary mb-4 text-xs font-semibold uppercase tracking-wider">
+        <span class="material-symbols-outlined text-[16px]">verified</span>
+        <span>Certified Professional Arboriculture</span>
+      </div>
+      <h1 class="font-headline text-3xl md:text-5xl font-bold text-on-surface max-w-3xl mb-4 tracking-tight">
+        Transparent Arboriculture Pricing
+      </h1>
+      <p class="text-sm md:text-base text-on-surface-variant max-w-2xl mb-8 leading-relaxed">
+        Predictable investment tiers for residential canopy care, emergency storm mitigation, and ongoing estate property maintenance.
+      </p>
+
+      <!-- Billing toggle micro-interaction -->
+      <div class="flex items-center gap-2 bg-surface-container-high p-1.5 rounded-xl border border-surface-container-highest shadow-inner">
+        <button id="billing-standard-btn" class="px-4 py-2 rounded-lg bg-surface text-on-surface text-xs font-bold shadow-sm transition-all" onclick="setBilling('standard')">Standard Project Rates</button>
+        <button id="billing-annual-btn" class="px-4 py-2 rounded-lg text-on-surface-variant text-xs font-semibold hover:text-on-surface transition-all flex items-center gap-1.5" onclick="setBilling('annual')">
+          <span>Annual Maintenance Contracts</span>
+          <span class="bg-secondary text-on-secondary px-1.5 py-0.5 rounded text-[10px] font-bold">-15%</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Interactive Project Cost Estimator Tool (Stitch Update) -->
+    <section class="max-w-5xl mx-auto px-gutter py-8 w-full">
+      <div class="text-center mb-8">
+        <span class="text-xs font-bold text-primary uppercase tracking-wider">Interactive Tool</span>
+        <h2 class="font-headline text-3xl font-bold text-on-surface mt-1">Project Cost Estimator</h2>
+        <p class="text-xs md:text-sm text-on-surface-variant mt-2 max-w-xl mx-auto">Customize your tree service parameters below to instantly calculate an estimated investment range.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start bg-surface-container rounded-2xl p-6 md:p-8 border border-surface-container-highest shadow-sm">
+        <!-- Controls -->
+        <div class="lg:col-span-2 flex flex-col gap-6">
+          <div>
+            <label class="block font-headline text-sm font-bold text-on-surface mb-3">1. Select Service Type</label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <button class="estimator-service-btn p-3.5 rounded-xl border-2 border-primary bg-primary text-on-primary text-xs font-bold text-center transition-all shadow-sm" onclick="selectService('canopy', 450, 1200, this)">Canopy Care</button>
+              <button class="estimator-service-btn p-3.5 rounded-xl border-2 border-outline-variant bg-surface text-on-surface text-xs font-bold text-center transition-all hover:border-primary" onclick="selectService('estate', 1500, 3500, this)">Estate Package</button>
+              <button class="estimator-service-btn p-3.5 rounded-xl border-2 border-outline-variant bg-surface text-on-surface text-xs font-bold text-center transition-all hover:border-primary" onclick="selectService('hazard', 800, 2500, this)">Hazard Mitigation</button>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <label class="font-headline text-sm font-bold text-on-surface" for="tree-range">2. Number of Trees / Zones</label>
+              <span class="font-headline text-sm font-bold text-primary" id="tree-count-display">2 Trees</span>
+            </div>
+            <input class="w-full accent-primary cursor-pointer h-2 bg-surface-container-high rounded-lg" id="tree-range" max="25" min="1" oninput="updateEstimator()" step="1" type="range" value="2" />
+            <div class="flex justify-between text-[10px] text-on-surface-variant font-medium mt-1">
+              <span>1 Tree</span>
+              <span>10 Trees</span>
+              <span>25+ Trees</span>
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-headline text-sm font-bold text-on-surface mb-2">3. Average Canopy Height</label>
+            <div class="grid grid-cols-3 gap-2 sm:gap-3">
+              <button class="estimator-height-btn py-2 px-1 sm:px-2 rounded-xl border-2 border-primary bg-primary text-on-primary text-xs font-bold transition-all text-center" onclick="setHeight('small', 1.0, this)" type="button">Small (&lt;25ft)</button>
+              <button class="estimator-height-btn py-2 px-1 sm:px-2 rounded-xl border-2 border-outline-variant bg-surface text-on-surface text-xs font-semibold transition-all hover:border-primary text-center" onclick="setHeight('medium', 1.35, this)" type="button">Medium (25-50ft)</button>
+              <button class="estimator-height-btn py-2 px-1 sm:px-2 rounded-xl border-2 border-outline-variant bg-surface text-on-surface text-xs font-semibold transition-all hover:border-primary text-center" onclick="setHeight('large', 1.85, this)" type="button">Large (50ft+)</button>
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-headline text-sm font-bold text-on-surface mb-3">4. Add-on Services</label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <label class="flex items-center gap-3 p-3 bg-surface rounded-xl border border-outline-variant cursor-pointer hover:border-primary transition-colors">
+                <input class="addon-checkbox accent-primary w-4 h-4 rounded" onchange="updateEstimator()" type="checkbox" value="250" data-name="Stump Grinding" />
+                <span class="text-xs text-on-surface font-medium">Stump Grinding (+$250)</span>
+              </label>
+              <label class="flex items-center gap-3 p-3 bg-surface rounded-xl border border-outline-variant cursor-pointer hover:border-primary transition-colors">
+                <input class="addon-checkbox accent-primary w-4 h-4 rounded" onchange="updateEstimator()" type="checkbox" value="180" data-name="Deep Root Fertilizer" />
+                <span class="text-xs text-on-surface font-medium">Deep Root Fertilizer (+$180)</span>
+              </label>
+              <label class="flex items-center gap-3 p-3 bg-surface rounded-xl border border-outline-variant cursor-pointer hover:border-primary transition-colors">
+                <input class="addon-checkbox accent-primary w-4 h-4 rounded" onchange="updateEstimator()" type="checkbox" value="150" data-name="Priority Debris Hauling" />
+                <span class="text-xs text-on-surface font-medium">Debris Hauling Priority (+$150)</span>
+              </label>
+              <label class="flex items-center gap-3 p-3 bg-surface rounded-xl border border-outline-variant cursor-pointer hover:border-primary transition-colors">
+                <input class="addon-checkbox accent-primary w-4 h-4 rounded" onchange="updateEstimator()" type="checkbox" value="300" data-name="ISA Expert Report" />
+                <span class="text-xs text-on-surface font-medium">ISA Expert Report (+$300)</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Output Box -->
+        <div class="bg-primary text-on-primary rounded-xl p-6 flex flex-col justify-between h-full shadow-lg">
+          <div>
+            <span class="text-[11px] font-bold text-secondary-fixed uppercase tracking-wider block mb-1">Estimated Cost Range</span>
+            <div class="my-3">
+              <span class="font-headline text-3xl font-extrabold text-white" id="est-price-min">$900</span>
+              <span class="text-sm text-primary-fixed-dim block mt-0.5" id="est-price-max">to $2,400</span>
+            </div>
+            <p class="text-xs text-primary-fixed-dim mb-6 leading-relaxed">
+              Includes certified arborists, professional safety gear, complete cleanup, and standard local transit.
+            </p>
+            <ul class="flex flex-col gap-2 text-xs text-white/90 border-t border-white/15 pt-4 mb-6">
+              <li class="flex justify-between"><span>Base Tier:</span><span class="font-bold" id="summary-tier">Canopy Care</span></li>
+              <li class="flex justify-between"><span>Tree Count:</span><span class="font-bold" id="summary-trees">2 Trees</span></li>
+              <li class="flex justify-between"><span>Add-ons Selected:</span><span class="font-bold" id="summary-addons">0</span></li>
+            </ul>
+          </div>
+          <button onclick="bookCalculatedEstimate()" class="w-full py-3 bg-secondary text-on-secondary rounded-xl text-xs font-bold hover:bg-secondary/90 transition-colors shadow-md flex items-center justify-center gap-2">
+            <span>Lock in Estimate &amp; Book</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Tiers (3 Cards Bento/Asymmetric) -->
+    <section class="max-w-7xl mx-auto px-gutter py-8 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+        <!-- Tier 1: Residential Canopy Care -->
+        <div class="bg-surface-container rounded-2xl p-7 flex flex-col justify-between relative hover:shadow-xl transition-all duration-300 border border-surface-container-highest">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <span class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider">Residential</span>
+                <h3 class="font-headline text-2xl font-bold text-on-surface mt-1">Canopy Care</h3>
+              </div>
+              <span class="bg-primary text-on-primary text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Popular</span>
+            </div>
+            
+            <div class="my-6">
+              <span class="font-headline text-4xl font-extrabold text-on-surface" id="tier1-price">$450</span>
+              <span class="text-xs text-on-surface-variant" id="tier1-sub"> - $1,200 per project</span>
+            </div>
+            
+            <p class="text-xs text-on-surface-variant mb-6 leading-relaxed">
+              Ideal for homeowners maintaining healthy, balanced mature trees and keeping properties safe from overgrowth.
+            </p>
+            
+            <ul class="flex flex-col gap-2.5 mb-8">
+              <li class="flex items-center gap-2.5 text-xs text-on-surface">
+                <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                Crown reduction &amp; structural pruning
+              </li>
+              <li class="flex items-center gap-2.5 text-xs text-on-surface">
+                <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                Deadwood removal &amp; canopy aeration
+              </li>
+              <li class="flex items-center gap-2.5 text-xs text-on-surface">
+                <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                Complete debris hauling &amp; mulch chipping
+              </li>
+              <li class="flex items-center gap-2.5 text-xs text-on-surface">
+                <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                ISA-compliant certified climbers
+              </li>
+            </ul>
+          </div>
+          
+          <button onclick="openBookingModal('Residential Canopy Care', 450)" class="w-full py-3 bg-secondary text-on-secondary rounded-xl text-xs font-bold hover:bg-secondary/90 transition-colors shadow-md">
+            Select Canopy Care
+          </button>
+        </div>
+
+        <!-- Tier 2: Municipal & Estate Package (Featured tall card) -->
+        <div class="bg-primary-container text-on-primary-container rounded-2xl p-7 flex flex-col justify-between relative shadow-2xl lg:-mt-4 lg:mb-4 transition-all duration-300 border border-primary-fixed/20">
+          <div class="absolute -top-3 right-6 bg-secondary text-on-secondary text-[11px] px-3 py-1 rounded-full uppercase tracking-wider font-bold shadow-md">
+            Enterprise Grade
+          </div>
+          <div>
+            <div class="mb-4">
+              <span class="text-[11px] font-bold text-primary-fixed uppercase tracking-wider">Commercial / Municipal</span>
+              <h3 class="font-headline text-2xl font-bold text-white mt-1">Estate Package</h3>
+            </div>
+            
+            <div class="my-6">
+              <span class="font-headline text-4xl font-extrabold text-white" id="tier2-price">Custom</span>
+              <span class="text-xs text-primary-fixed-dim block mt-1" id="tier2-sub">Quote-based scale or $1,200/mo retainer</span>
+            </div>
+            
+            <p class="text-xs text-primary-fixed-dim mb-6 leading-relaxed">
+              Comprehensive multi-property risk assessments and scheduled preventative arboricultural management for campuses, HOAs, and municipalities.
+            </p>
+            
+            <ul class="flex flex-col gap-2.5 mb-8">
+              <li class="flex items-center gap-2.5 text-xs text-white">
+                <span class="material-symbols-outlined text-secondary-container text-[18px]">check_circle</span>
+                Full campus tree inventory &amp; GPS mapping
+              </li>
+              <li class="flex items-center gap-2.5 text-xs text-white">
+                <span class="material-symbols-outlined text-secondary-container text-[18px]">check_circle</span>
+                Utility line clearance &amp; roof buffer pruning
+              </li>
+              <li class="flex items-center gap-2.5 text-xs text-white">
+                <span class="material-symbols-outlined text-secondary-container text-[18px]">check_circle</span>
+                Guaranteed priority 12-hour response SLA
+              </li>
+              <li class="flex items-center gap-2.5 text-xs text-white">
+                <span class="material-symbols-outlined text-secondary-container text-[18px]">check_circle</span>
+                Dedicated Board Certified Master Arborist
+              </li>
+            </ul>
+          </div>
+          
+          <button onclick="openBookingModal('Estate & Municipal Care Package', 1200)" class="w-full py-3 bg-secondary text-on-secondary rounded-xl text-xs font-bold hover:bg-secondary/90 transition-colors shadow-lg">
+            Request Custom Estimate
+          </button>
+        </div>
+
+        <!-- Tier 3: Emergency & Hazard Mitigation -->
+        <div class="bg-surface-container rounded-2xl p-7 flex flex-col justify-between relative hover:shadow-xl transition-all duration-300 border border-surface-container-highest">
+          <div>
+            <div class="mb-4">
+              <span class="text-[11px] font-bold text-error uppercase tracking-wider">Urgent Response</span>
+              <h3 class="font-headline text-2xl font-bold text-on-surface mt-1">Hazard Mitigation</h3>
+            </div>
+            
+            <div class="my-6">
+              <span class="text-xs text-on-surface-variant block">Starting at</span>
+              <span class="font-headline text-4xl font-extrabold text-on-surface" id="tier3-price">$800</span>
+              <span class="text-xs text-on-surface-variant" id="tier3-sub"> standard deployment</span>
+            </div>
+            
+            <p class="text-xs text-on-surface-variant mb-6 leading-relaxed">
+              24/7 rapid deployment for severe storm destruction, compromised leaning trunks, and dangerous roof-threatening limbs.
+            </p>
+            
+            <ul class="flex flex-col gap-2.5 mb-8">
+              <li class="flex items-center gap-2.5 text-xs text-on-surface">
+                <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                24/7 immediate emergency dispatch crew
+              </li>
+              <li class="flex items-center gap-2.5 text-xs text-on-surface">
+                <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                Hazardous fallen trunk &amp; limb extraction
+              </li>
+              <li class="flex items-center gap-2.5 text-xs text-on-surface">
+                <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                Crane-assisted complex structural rigging
+              </li>
+              <li class="flex items-center gap-2.5 text-xs text-on-surface">
+                <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                Direct insurance documentation &amp; photo reports
+              </li>
+            </ul>
+          </div>
+          
+          <button onclick="openBookingModal('Hazard Mitigation Emergency Dispatch', 800)" class="w-full py-3 bg-primary text-on-primary rounded-xl text-xs font-bold hover:bg-primary/90 transition-colors shadow-md">
+            Emergency Dispatch
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW SECTION: Property Size & Canopy Density Matrix -->
+    <section class="max-w-7xl mx-auto px-gutter py-12 w-full">
+      <div class="text-center mb-10 max-w-2xl mx-auto">
+        <span class="text-xs font-bold text-surface-tint uppercase tracking-wider">Scale &amp; Coverage</span>
+        <h2 class="font-headline text-3xl font-bold text-on-surface mt-1">Property Size &amp; Canopy Density Guide</h2>
+        <p class="text-xs md:text-sm text-on-surface-variant mt-2">
+          Compare realistic annual arboriculture maintenance investment models categorized by lot acreage, tree density, and machinery requirements.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Scale 1: Urban Residential Lot -->
+        <div class="bg-surface-container-low rounded-2xl overflow-hidden border border-surface-container shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="h-48 bg-cover bg-center relative" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAHYrZXr9Fx77Virass_1ToKcUSoFH8hbUl2QMt1xYFw9LKmkFFvtRvy73cHtWgFcJJvAHKfwgvI8ZjPreRimWb9c-S7Ek_oQee8hAhlI7k-evZHoULitaMYZpLCQFKb9UcbXY16csqAhwohe8YL_12pILSZmn--0S9f3t7IsuwsBxMB5gU50p1JUz_JmN1KudQ0-kZ7ykduHSNHx3xw5IKmst6adoRmIAAxUFJPy4ibjE4LpKVNdrk')">
+              <span class="absolute top-3 left-3 bg-primary text-on-primary px-3 py-1 rounded-full text-[11px] font-bold">Urban Lot</span>
+              <span class="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-bold text-on-surface">&lt; 0.25 Acre</span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-headline text-lg font-bold text-on-surface">Urban Single-Family Lot</h3>
+              <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">Typical residential footprint featuring 2 to 5 mature trees near rooflines, utility lines, and neighboring fence boundaries.</p>
+              
+              <div class="my-4 p-3.5 bg-surface rounded-xl border border-surface-container space-y-2 text-xs">
+                <div class="flex justify-between"><span class="text-outline">Canopy Count:</span><span class="font-bold text-on-surface">2 - 5 Mature Trees</span></div>
+                <div class="flex justify-between"><span class="text-outline">Access Type:</span><span class="font-bold text-on-surface">Bucket Truck / Climbers</span></div>
+                <div class="flex justify-between"><span class="text-outline">Typical Cadence:</span><span class="font-bold text-on-surface">Every 2 Years</span></div>
+                <div class="flex justify-between border-t border-surface-container pt-1.5"><span class="text-outline font-semibold">Typical Annual Budget:</span><span class="font-extrabold text-primary">$650 - $1,400</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button onclick="openBookingModal('Urban Lot Tree Maintenance', 650)" class="w-full py-2.5 bg-primary/10 hover:bg-primary hover:text-on-primary text-primary rounded-xl text-xs font-bold transition-colors">
+              Book Urban Lot Consult
+            </button>
+          </div>
+        </div>
+
+        <!-- Scale 2: Suburban Estate -->
+        <div class="bg-surface-container-low rounded-2xl overflow-hidden border border-surface-container shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="h-48 bg-cover bg-center relative" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD-JOUq87oXjr1jQZB94ny82rtZNzz7AtVuKv03hYuouLBtLMqNUU2TQsBF2hgFgbXBLmuLj4iwC46gSDdjig67lqpyqGv6pcAVFqC_jqS0gMEttPqO577apcPjdAQVEucQgn7KtKx2FnxuOpq_JPMqO0187vzd3xp3qXSBG4iE1yyc_6UAkiAf7DvHzkhDT_cqFDklv_RgTjdRUejmf6qL8693YrOp2qUt39aWz6EycZtpqwRYwAk3')">
+              <span class="absolute top-3 left-3 bg-secondary text-on-secondary px-3 py-1 rounded-full text-[11px] font-bold">Suburban Estate</span>
+              <span class="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-bold text-on-surface">0.5 - 2.0 Acres</span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-headline text-lg font-bold text-on-surface">Suburban Acreage &amp; Estate</h3>
+              <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">Substantial private tree canopy with mixed native conifers, heritage hardwoods, ornamental trees, and extensive root zones.</p>
+              
+              <div class="my-4 p-3.5 bg-surface rounded-xl border border-surface-container space-y-2 text-xs">
+                <div class="flex justify-between"><span class="text-outline">Canopy Count:</span><span class="font-bold text-on-surface">8 - 25 Mature Trees</span></div>
+                <div class="flex justify-between"><span class="text-outline">Access Type:</span><span class="font-bold text-on-surface">Turf Mats + Mini-Loader</span></div>
+                <div class="flex justify-between"><span class="text-outline">Typical Cadence:</span><span class="font-bold text-on-surface">Annual / Semi-Annual</span></div>
+                <div class="flex justify-between border-t border-surface-container pt-1.5"><span class="text-outline font-semibold">Typical Annual Budget:</span><span class="font-extrabold text-primary">$1,800 - $4,200</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button onclick="openBookingModal('Suburban Estate Care Package', 1800)" class="w-full py-2.5 bg-secondary text-on-secondary hover:bg-secondary/90 rounded-xl text-xs font-bold transition-colors shadow-md">
+              Book Estate Consult
+            </button>
+          </div>
+        </div>
+
+        <!-- Scale 3: Commercial Campus & Forestry -->
+        <div class="bg-surface-container-low rounded-2xl overflow-hidden border border-surface-container shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="h-48 bg-cover bg-center relative" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDDoQgaTaC4c-CcoW0M0CZCm8PoB2Gj3prcwar2npLUFl7tFMXjQcoDv_AlBSL738TI17L5aXU4k1YoauxqYZIrxdXQtH6G_Za_wOA2JK0nOa-9O_3KoP0Qpvw0gFitlb3u-RSFXEio7EuhFSwPnM3jgmnpdlHJXdZ017sLLpHR5Oi8tJRxJYnDN_bDiqawp8H8NVLDhOYYphl8kOF4DS6Ck_evOnW2BGcCI0toMZzbC6d53nP6FOor')">
+              <span class="absolute top-3 left-3 bg-primary-container text-on-primary-container px-3 py-1 rounded-full text-[11px] font-bold">Commercial Campus</span>
+              <span class="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-bold text-on-surface">3.0+ Acres</span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-headline text-lg font-bold text-on-surface">Commercial Campus &amp; Parcels</h3>
+              <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">Corporate headquarters, multi-family apartment communities, city parks, and institutional greenbelts with high liability exposure.</p>
+              
+              <div class="my-4 p-3.5 bg-surface rounded-xl border border-surface-container space-y-2 text-xs">
+                <div class="flex justify-between"><span class="text-outline">Canopy Count:</span><span class="font-bold text-on-surface">30+ Documented Trees</span></div>
+                <div class="flex justify-between"><span class="text-outline">Access Type:</span><span class="font-bold text-on-surface">Heavy Crane + Chipper</span></div>
+                <div class="flex justify-between"><span class="text-outline">Typical Cadence:</span><span class="font-bold text-on-surface">Quarterly Audits / SLA</span></div>
+                <div class="flex justify-between border-t border-surface-container pt-1.5"><span class="text-outline font-semibold">Contract Tier:</span><span class="font-extrabold text-primary">Custom Enterprise SLA</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button onclick="openBookingModal('Commercial Campus Master Agreement', 2500)" class="w-full py-2.5 bg-primary text-on-primary hover:bg-primary-container rounded-xl text-xs font-bold transition-colors shadow-md">
+              Request Commercial Proposal
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Municipal Permit Checklist Accordion Section (Stitch Update) -->
+    <section class="max-w-5xl mx-auto px-gutter py-12 w-full">
+      <div class="text-center mb-8">
+        <span class="text-xs font-bold text-primary uppercase tracking-wider">Regulatory Guidance</span>
+        <h2 class="font-headline text-2xl md:text-3xl font-bold text-on-surface mt-1">Municipal Permit &amp; Compliance Checklist</h2>
+        <p class="text-xs md:text-sm text-on-surface-variant mt-2 max-w-xl mx-auto">Check local ordinance requirements for tree trimming and removal based on species and trunk diameter.</p>
+      </div>
+      <div class="flex flex-col gap-3">
+        <!-- Checklist Item 1 -->
+        <div class="bg-surface-container rounded-xl p-5 transition-all border border-surface-container-highest cursor-pointer group" onclick="toggleCompliance(this)">
+          <div class="flex justify-between items-center">
+            <h3 class="font-headline text-sm md:text-base font-bold text-on-surface group-hover:text-primary transition-colors">
+              Protected Canopy &amp; Heritage Species (Oak, Maple &gt; 12" DBH)
+            </h3>
+            <span class="material-symbols-outlined text-on-surface-variant transition-transform compliance-icon">expand_more</span>
+          </div>
+          <div class="compliance-content hidden mt-3 pt-3 border-t border-surface-container-highest">
+            <p class="text-xs text-on-surface-variant mb-3 leading-relaxed">
+              Heritage trees of certain diameters require municipal review prior to major canopy reduction or removal. ArborPro files this paperwork automatically for our clients.
+            </p>
+            <ul class="flex flex-col gap-2 text-xs text-on-surface">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Permit application filing with city arborist</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> On-site arborist health evaluation report</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> 5-to-10 day standard approval waiting window</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Checklist Item 2 -->
+        <div class="bg-surface-container rounded-xl p-5 transition-all border border-surface-container-highest cursor-pointer group" onclick="toggleCompliance(this)">
+          <div class="flex justify-between items-center">
+            <h3 class="font-headline text-sm md:text-base font-bold text-on-surface group-hover:text-primary transition-colors">
+              Utility Line Clearance &amp; Overhead Wires Exemption
+            </h3>
+            <span class="material-symbols-outlined text-on-surface-variant transition-transform compliance-icon">expand_more</span>
+          </div>
+          <div class="compliance-content hidden mt-3 pt-3 border-t border-surface-container-highest">
+            <p class="text-xs text-on-surface-variant mb-3 leading-relaxed">
+              Trees interfering with primary utility lines or service drops have expedited municipal clearing exemptions handled in partnership with local power providers.
+            </p>
+            <ul class="flex flex-col gap-2 text-xs text-on-surface">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> 24-hour emergency utility clearance clearance</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Zero permit fee for active hazard zones</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Power shutoff coordination if required</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Checklist Item 3 -->
+        <div class="bg-surface-container rounded-xl p-5 transition-all border border-surface-container-highest cursor-pointer group" onclick="toggleCompliance(this)">
+          <div class="flex justify-between items-center">
+            <h3 class="font-headline text-sm md:text-base font-bold text-on-surface group-hover:text-primary transition-colors">
+              Riparian &amp; Watershed Buffer Zone Regulations
+            </h3>
+            <span class="material-symbols-outlined text-on-surface-variant transition-transform compliance-icon">expand_more</span>
+          </div>
+          <div class="compliance-content hidden mt-3 pt-3 border-t border-surface-container-highest">
+            <p class="text-xs text-on-surface-variant mb-3 leading-relaxed">
+              Properties situated near creeks, lakes, or protected watershed buffers are subject to environmental board guidelines to prevent soil erosion.
+            </p>
+            <ul class="flex flex-col gap-2 text-xs text-on-surface">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Soil erosion and sediment control compliance</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Selective pruning rather than full removal mandates</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Replacement sapling planting agreement</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Table Section -->
+    <section class="max-w-7xl mx-auto px-gutter py-12 w-full">
+      <div class="mb-6">
+        <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Detailed Breakdown</span>
+        <h2 class="font-headline text-2xl font-bold text-on-surface mt-1">Service Tier Feature Matrix</h2>
+      </div>
+      <div class="bg-surface-container rounded-2xl overflow-hidden p-6 border border-surface-container-highest shadow-sm">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b border-outline-variant/30 text-xs font-bold text-on-surface uppercase tracking-wider">
+                <th class="py-3 px-4">Service Feature</th>
+                <th class="py-3 px-4 text-center">Canopy Care</th>
+                <th class="py-3 px-4 text-center">Estate Package</th>
+                <th class="py-3 px-4 text-center">Hazard Mitigation</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-outline-variant/15 text-xs text-on-surface-variant font-medium">
+              <tr>
+                <td class="py-3.5 px-4 font-semibold text-on-surface">Standard Trimming &amp; Pruning</td>
+                <td class="py-3.5 px-4 text-center text-primary"><span class="material-symbols-outlined text-[18px]">check</span></td>
+                <td class="py-3.5 px-4 text-center text-primary"><span class="material-symbols-outlined text-[18px]">check</span></td>
+                <td class="py-3.5 px-4 text-center text-on-surface-variant">-</td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-4 font-semibold text-on-surface">Stump Grinding &amp; Below-Grade Removal</td>
+                <td class="py-3.5 px-4 text-center text-on-surface-variant">Add-on</td>
+                <td class="py-3.5 px-4 text-center text-primary"><span class="material-symbols-outlined text-[18px]">check</span></td>
+                <td class="py-3.5 px-4 text-center text-on-surface-variant">Add-on</td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-4 font-semibold text-on-surface">Deep Root Fertilization &amp; Soil Aeration</td>
+                <td class="py-3.5 px-4 text-center text-on-surface-variant">-</td>
+                <td class="py-3.5 px-4 text-center text-primary"><span class="material-symbols-outlined text-[18px]">check</span></td>
+                <td class="py-3.5 px-4 text-center text-on-surface-variant">-</td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-4 font-semibold text-on-surface">ISA Health Diagnostics &amp; Risk Report</td>
+                <td class="py-3.5 px-4 text-center text-on-surface-variant">Basic</td>
+                <td class="py-3.5 px-4 text-center text-primary"><span class="material-symbols-outlined text-[18px]">check</span></td>
+                <td class="py-3.5 px-4 text-center text-primary"><span class="material-symbols-outlined text-[18px]">check</span></td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-4 font-semibold text-on-surface">Response Time SLA</td>
+                <td class="py-3.5 px-4 text-center">48 - 72 Hours</td>
+                <td class="py-3.5 px-4 text-center font-bold text-primary">Priority (12h)</td>
+                <td class="py-3.5 px-4 text-center font-bold text-secondary">24/7 Immediate</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="max-w-4xl mx-auto px-gutter py-12 w-full">
+      <div class="text-center mb-10">
+        <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Got Questions?</span>
+        <h2 class="font-headline text-3xl font-bold text-on-surface mt-1">Frequently Asked Pricing Questions</h2>
+      </div>
+      
+      <div class="flex flex-col gap-3">
+        <div class="bg-surface-container rounded-2xl p-5 transition-all border border-surface-container-high cursor-pointer faq-item" onclick="toggleFaq(this)">
+          <h3 class="text-sm font-bold text-on-surface flex justify-between items-center">
+            Are municipal permits included in the quoted price?
+            <span class="material-symbols-outlined transition-transform text-outline">expand_more</span>
+          </h3>
+          <p class="text-xs text-on-surface-variant mt-3 leading-relaxed hidden faq-answer">
+            Yes, for all Municipal &amp; Estate packages as well as standard canopy care involving protected species, our team handles local municipal paperwork, permit filing, and compliance checks on your behalf.
+          </p>
+        </div>
+
+        <div class="bg-surface-container rounded-2xl p-5 transition-all border border-surface-container-high cursor-pointer faq-item" onclick="toggleFaq(this)">
+          <h3 class="text-sm font-bold text-on-surface flex justify-between items-center">
+            How does ArborPro handle insurance claims for storm damage?
+            <span class="material-symbols-outlined transition-transform text-outline">expand_more</span>
+          </h3>
+          <p class="text-xs text-on-surface-variant mt-3 leading-relaxed hidden faq-answer">
+            We work directly with major homeowner insurance providers. For emergency hazard mitigation, we document structural breaches with high-resolution photography and provide itemized invoices tailored for swift claims processing.
+          </p>
+        </div>
+
+        <div class="bg-surface-container rounded-2xl p-5 transition-all border border-surface-container-high cursor-pointer faq-item" onclick="toggleFaq(this)">
+          <h3 class="text-sm font-bold text-on-surface flex justify-between items-center">
+            What are your standard payment terms?
+            <span class="material-symbols-outlined transition-transform text-outline">expand_more</span>
+          </h3>
+          <p class="text-xs text-on-surface-variant mt-3 leading-relaxed hidden faq-answer">
+            We require a 30% deposit upon project scheduling for large crane canopy operations, with the remaining balance due immediately upon satisfactory completion of work. Annual contracts are billed monthly via automated ACH or card.
+          </p>
+        </div>
+
+        <div class="bg-surface-container rounded-2xl p-5 transition-all border border-surface-container-high cursor-pointer faq-item" onclick="toggleFaq(this)">
+          <h3 class="text-sm font-bold text-on-surface flex justify-between items-center">
+            Are your arborists fully bonded and insured?
+            <span class="material-symbols-outlined transition-transform text-outline">expand_more</span>
+          </h3>
+          <p class="text-xs text-on-surface-variant mt-3 leading-relaxed hidden faq-answer">
+            Absolutely. ArborPro maintains \$5,000,000 in comprehensive liability protection, full worker's compensation coverage, and ISA Certified Arborist credentials across all active field crews.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="w-full bg-surface-container-low py-8 border-t border-surface-container-high">
+    <div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-4 text-on-surface-variant text-xs">
+      <div class="flex items-center gap-3">
+        <div class="w-6 h-6 rounded bg-primary text-primary-fixed flex items-center justify-center">
+          <span class="material-symbols-outlined text-[14px]">forest</span>
+        </div>
+        <p>© 2026 ArborPro Operations Inc. All rights reserved. ISA Certified Master Arborists.</p>
+      </div>
+      <div class="flex items-center gap-6">
+        <a class="hover:text-on-surface transition-colors" href="index.html">Home</a>
+        <a class="hover:text-on-surface transition-colors" href="home-2.html">Home 2</a>
+        <a class="hover:text-on-surface transition-colors" href="about.html">About</a>
+        <a class="hover:text-on-surface transition-colors" href="services.html">Services</a>
+        <a class="hover:text-on-surface transition-colors" href="blog.html">Blog</a>
+        <a class="hover:text-on-surface transition-colors" href="pricing.html">Pricing</a>
+        <a class="hover:text-on-surface transition-colors" href="contact.html">Contact</a>
+        <a class="hover:text-on-surface transition-colors font-medium text-primary" href="admin.html">Staff Portal</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/store.js"></script>
+  <script type="module" src="/src/js/nav.js"></script>
+  <script>
+    function setBilling(mode) {
+      const standardBtn = document.getElementById('billing-standard-btn');
+      const annualBtn = document.getElementById('billing-annual-btn');
+      const t1 = document.getElementById('tier1-price');
+      const t1Sub = document.getElementById('tier1-sub');
+      const t3 = document.getElementById('tier3-price');
+      const t3Sub = document.getElementById('tier3-sub');
+
+      if (mode === 'annual') {
+        standardBtn.className = 'px-4 py-2 rounded-lg text-on-surface-variant text-xs font-semibold hover:text-on-surface transition-all';
+        annualBtn.className = 'px-4 py-2 rounded-lg bg-surface text-on-surface text-xs font-bold shadow-sm transition-all flex items-center gap-1.5';
+        t1.textContent = '$382';
+        t1Sub.textContent = ' / mo (annual contract)';
+        t3.textContent = '$680';
+        t3Sub.textContent = ' priority member dispatch';
+      } else {
+        standardBtn.className = 'px-4 py-2 rounded-lg bg-surface text-on-surface text-xs font-bold shadow-sm transition-all';
+        annualBtn.className = 'px-4 py-2 rounded-lg text-on-surface-variant text-xs font-semibold hover:text-on-surface transition-all flex items-center gap-1.5';
+        t1.textContent = '$450';
+        t1Sub.textContent = ' - $1,200 per project';
+        t3.textContent = '$800';
+        t3Sub.textContent = ' standard deployment';
+      }
+    }
+
+    function toggleFaq(el) {
+      const answer = el.querySelector('.faq-answer');
+      const icon = el.querySelector('.material-symbols-outlined');
+      if (answer) {
+        answer.classList.toggle('hidden');
+        if (icon) {
+          icon.textContent = answer.classList.contains('hidden') ? 'expand_more' : 'expand_less';
+        }
+      }
+    }
+
+    let currentBaseMin = 450;
+    let currentBaseMax = 1200;
+    let currentTierName = "Canopy Care";
+    let currentHeightMultiplier = 1.0;
+
+    function selectService(type, min, max, btn) {
+      currentBaseMin = min;
+      currentBaseMax = max;
+      if (type === 'canopy') currentTierName = 'Canopy Care';
+      if (type === 'estate') currentTierName = 'Estate Package';
+      if (type === 'hazard') currentTierName = 'Hazard Mitigation';
+
+      const serviceBtns = document.querySelectorAll('.estimator-service-btn');
+      serviceBtns.forEach(b => {
+        b.className = 'estimator-service-btn p-3.5 rounded-xl border-2 border-outline-variant bg-surface text-on-surface text-xs font-bold text-center transition-all hover:border-primary';
+      });
+      if (btn) {
+        btn.className = 'estimator-service-btn p-3.5 rounded-xl border-2 border-primary bg-primary text-on-primary text-xs font-bold text-center transition-all shadow-sm';
+      }
+
+      updateEstimator();
+    }
+
+    function setHeight(type, multiplier, btn) {
+      currentHeightMultiplier = multiplier;
+      const heightBtns = document.querySelectorAll('.estimator-height-btn');
+      heightBtns.forEach(b => {
+        b.className = 'estimator-height-btn py-2 px-1 sm:px-2 rounded-xl border-2 border-outline-variant bg-surface text-on-surface text-xs font-semibold transition-all hover:border-primary text-center';
+      });
+      if (btn) {
+        btn.className = 'estimator-height-btn py-2 px-1 sm:px-2 rounded-xl border-2 border-primary bg-primary text-on-primary text-xs font-bold transition-all text-center';
+      }
+      updateEstimator();
+    }
+
+    function updateEstimator() {
+      const treeInput = document.getElementById('tree-range');
+      if (!treeInput) return;
+      const trees = parseInt(treeInput.value) || 1;
+      const countDisplay = document.getElementById('tree-count-display');
+      const sumTrees = document.getElementById('summary-trees');
+      const sumTier = document.getElementById('summary-tier');
+      const sumAddons = document.getElementById('summary-addons');
+      const estMin = document.getElementById('est-price-min');
+      const estMax = document.getElementById('est-price-max');
+
+      if (countDisplay) countDisplay.innerText = trees + (trees === 1 ? ' Tree' : ' Trees');
+      if (sumTrees) sumTrees.innerText = trees + (trees === 1 ? ' Tree' : ' Trees');
+      if (sumTier) sumTier.innerText = currentTierName;
+
+      const checkboxes = document.querySelectorAll('.addon-checkbox:checked');
+      let addonsTotal = 0;
+      checkboxes.forEach(cb => {
+        addonsTotal += parseInt(cb.value) || 0;
+      });
+      if (sumAddons) sumAddons.innerText = checkboxes.length;
+
+      const scaleMultiplier = (1 + (trees - 1) * 0.45) * currentHeightMultiplier;
+      const finalMin = Math.round(currentBaseMin * scaleMultiplier + addonsTotal);
+      const finalMax = Math.round(currentBaseMax * scaleMultiplier + addonsTotal);
+
+      if (estMin) estMin.innerText = '$' + finalMin.toLocaleString();
+      if (estMax) estMax.innerText = 'to $' + finalMax.toLocaleString();
+    }
+
+    function bookCalculatedEstimate() {
+      const trees = parseInt(document.getElementById('tree-range').value) || 1;
+      const checkboxes = document.querySelectorAll('.addon-checkbox:checked');
+      let addonsTotal = 0;
+      let addonNames = [];
+      checkboxes.forEach(cb => {
+        addonsTotal += parseInt(cb.value) || 0;
+        addonNames.push(cb.getAttribute('data-name'));
+      });
+      const scaleMultiplier = (1 + (trees - 1) * 0.45) * currentHeightMultiplier;
+      const avgEstimate = Math.round(((currentBaseMin + currentBaseMax) / 2) * scaleMultiplier + addonsTotal);
+      const serviceTitle = `${currentTierName} (${trees} ${trees === 1 ? 'tree' : 'trees'}${addonNames.length ? ' + ' + addonNames.join(', ') : ''})`;
+
+      if (window.openBookingModal) {
+        window.openBookingModal(serviceTitle, avgEstimate);
+      } else {
+        window.location.href = `contact.html?service=${encodeURIComponent(serviceTitle)}&price=${avgEstimate}`;
+      }
+    }
+
+    function toggleCompliance(el) {
+      const content = el.querySelector('.compliance-content');
+      const icon = el.querySelector('.compliance-icon');
+      if (content) {
+        content.classList.toggle('hidden');
+        if (icon) {
+          icon.textContent = content.classList.contains('hidden') ? 'expand_more' : 'expand_less';
+        }
+      }
+    }
+  </script>
+</body>
+</html>

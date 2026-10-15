@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>About Us, Team &amp; Heritage | ArborPro Operations</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#012d1d",
+            "primary-container": "#1b4332",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#86af99",
+            "primary-fixed": "#c1ecd4",
+            "primary-fixed-dim": "#a5d0b9",
+            "secondary": "#7d562d",
+            "secondary-container": "#ffca98",
+            "on-secondary": "#ffffff",
+            "surface": "#f9faf6",
+            "surface-container-low": "#f3f4f1",
+            "surface-container": "#eeeeeb",
+            "surface-container-high": "#e8e8e5",
+            "surface-container-highest": "#e2e3e0",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#1a1c1a",
+            "on-surface-variant": "#414844",
+            "outline": "#717973",
+            "outline-variant": "#c1c8c2",
+            "surface-tint": "#3f6653",
+            "error": "#ba1a1a"
+          },
+          borderRadius: {
+            lg: "0.25rem",
+            xl: "0.5rem",
+            full: "0.75rem"
+          },
+          spacing: {
+            gutter: "1.5rem"
+          },
+          fontFamily: {
+            headline: ["Inter", "sans-serif"],
+            body: ["Inter", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="/src/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+</head>
+<body class="bg-surface font-body text-on-surface">
+  <!-- Header with About right next to Home -->
+  <header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    <div class="h-20 max-w-7xl mx-auto px-gutter flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-primary-fixed group-hover:scale-105 transition-transform">
+          <span class="material-symbols-outlined text-[24px]">forest</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-headline text-lg font-bold text-on-surface tracking-tight leading-tight">ArborPro</span>
+          <span class="text-[11px] font-medium text-surface-tint uppercase tracking-wider">Operations</span>
+        </div>
+      </a>
+      
+      <nav class="hidden lg:flex items-center gap-2">
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="home" href="index.html">Home</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="home-2" href="home-2.html">Home 2</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="about" href="about.html">About</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="services" href="services.html">Services</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="blog" href="blog.html">Blog</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="pricing" href="pricing.html">Pricing</a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="contact" href="contact.html">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a class="hidden sm:inline-flex items-center justify-center px-4 py-2 bg-secondary text-on-secondary rounded-lg text-sm font-semibold hover:bg-secondary/90 transition-all shadow-sm gap-2" data-path="admin-dashboard" href="admin.html">
+          <span class="material-symbols-outlined text-[18px]">dashboard</span>
+          Admin Dashboard
+        </a>
+        <button id="mobile-menu-toggle" aria-label="Toggle navigation menu" class="lg:hidden p-2 rounded-lg text-on-surface hover:bg-surface-container">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu-drawer" class="hidden lg:hidden border-t border-surface-container-high bg-surface px-6 py-4 flex flex-col gap-2 shadow-lg">
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="home" href="index.html">Home</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="home-2" href="home-2.html">Home 2</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="about" href="about.html">About</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="services" href="services.html">Services</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="blog" href="blog.html">Blog</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="pricing" href="pricing.html">Pricing</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="contact" href="contact.html">Contact</a>
+      <a class="px-3 py-2 rounded-lg text-sm font-semibold bg-secondary text-on-secondary flex items-center justify-center gap-2 mt-2" href="admin.html">
+        <span class="material-symbols-outlined text-[18px]">dashboard</span> Admin Operations
+      </a>
+    </div>
+  </header>
+
+  <main class="w-full pt-20 bg-surface">
+    <!-- Hero Section -->
+    <section class="relative w-full overflow-hidden bg-primary py-20 lg:py-24 px-gutter text-on-primary">
+      <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBSIdzyM9UPia1NrzwSz7GHUWc750xhnA-Dy0idRLRW2MEEXjO5TidBW9Obp5wzwk_lhJkvoktWkRkLJj67L37UrN8iBEts73YApm0HOGa-b-FB36kfVXqHJSseGCIHAuXCSDzRYM27-x603JUbNtPhqCkew2PvqQbsLnhNMYJL4PRUGWa5H-Zu4eG2GSDi5UYe9SN67cr8kH3S2kHtLhU-8di8sON9AkCDV78mHzt49VLz3Bwohmif')"></div>
+      <div class="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row items-center gap-12">
+        <div class="flex-1 flex flex-col gap-6">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-container text-on-primary-container text-xs font-semibold w-max">
+            <span class="material-symbols-outlined text-[16px]">verified</span> ESTABLISHED 2004 • PACIFIC NORTHWEST
+          </span>
+          <h1 class="font-headline text-3xl md:text-5xl lg:text-6xl font-bold text-on-primary tracking-tight leading-tight">
+            Decades of Arboricultural Excellence
+          </h1>
+          <p class="text-base text-primary-fixed-dim max-w-2xl leading-relaxed">
+            ArborPro Operations was founded on a singular commitment: preserving the structural integrity and natural beauty of our urban and rural canopies through rigorous science, uncompromising safety, and deep ecological respect.
+          </p>
+          <div class="grid grid-cols-3 gap-6 pt-6 border-t border-primary-container/50">
+            <div>
+              <div class="font-headline text-3xl md:text-4xl font-extrabold text-primary-fixed">20+</div>
+              <div class="text-xs text-primary-fixed-dim uppercase tracking-wider font-medium">Years Experience</div>
+            </div>
+            <div>
+              <div class="font-headline text-3xl md:text-4xl font-extrabold text-primary-fixed">100%</div>
+              <div class="text-xs text-primary-fixed-dim uppercase tracking-wider font-medium">ISA Certified</div>
+            </div>
+            <div>
+              <div class="font-headline text-3xl md:text-4xl font-extrabold text-primary-fixed">15k+</div>
+              <div class="text-xs text-primary-fixed-dim uppercase tracking-wider font-medium">Properties Managed</div>
+            </div>
+          </div>
+        </div>
+        <div class="w-full lg:w-[420px]">
+          <div class="bg-surface/10 backdrop-blur-md p-7 rounded-2xl border border-white/20 shadow-2xl flex flex-col gap-5">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center text-on-secondary">
+                <span class="material-symbols-outlined">forest</span>
+              </div>
+              <div>
+                <h3 class="font-headline text-lg font-bold text-on-primary">Our Core Mission</h3>
+                <p class="text-xs text-primary-fixed-dim">Scientific tree care for a safer tomorrow.</p>
+              </div>
+            </div>
+            <p class="text-xs text-primary-fixed-dim leading-relaxed">
+              We combine advanced diagnostic tools, heavy-duty crane operations, and ecological insight to protect both property investments and natural canopies across the region.
+            </p>
+            <button onclick="openBookingModal('On-Site Canopy Consultation', 0)" class="w-full py-3 px-6 bg-secondary text-on-secondary rounded-lg text-xs font-bold text-center hover:bg-secondary/90 transition-colors shadow-md">
+              Schedule On-Site Consultation
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW SECTION: Detailed Company Origins & The ArborPro Story -->
+    <section class="w-full py-16 px-gutter bg-surface border-b border-surface-container">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-6 space-y-4">
+          <span class="text-xs font-bold text-secondary uppercase tracking-wider">Our Heritage</span>
+          <h2 class="font-headline text-3xl font-bold text-on-surface">Born in the Ancient Douglas Fir Forests</h2>
+          <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">
+            Founded in 2004 by ISA Board Certified Master Arborist Marcus Vance, ArborPro Operations originated as a specialized climbing unit tackling hazardous, storm-damaged trees that ordinary landscaping firms refused to touch.
+          </p>
+          <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">
+            Over two decades, we developed an industry-first hybrid approach: combining the rigorous academic diagnostics of botanical pathology with heavy-duty civil engineering rigging techniques. Today, we manage over 250,000 canopy acres for corporate campuses, municipalities, and private heritage estates throughout the Pacific Northwest.
+          </p>
+          
+          <div class="grid grid-cols-2 gap-4 pt-4">
+            <div class="p-4 rounded-xl bg-surface-container-low border border-surface-container">
+              <span class="text-2xl font-black text-primary font-headline">0</span>
+              <p class="text-xs text-on-surface-variant font-medium mt-0.5">Lost-Time OSHA Safety Incidents Across 2,400+ Job Sites</p>
+            </div>
+            <div class="p-4 rounded-xl bg-surface-container-low border border-surface-container">
+              <span class="text-2xl font-black text-primary font-headline">100%</span>
+              <p class="text-xs text-on-surface-variant font-medium mt-0.5">Wood Waste Recycled &amp; Upcycled Locally</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+          <div class="rounded-2xl overflow-hidden shadow-lg h-64 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCKAHOcfy3kOKW7hcwjuf6ghDkRO2Kz-y7FjPTfP-wxk1_8THKJNGIAKrF9FxzcsnrJShYgUO-XgRCTzkK1HCBsfjrAkPYiVaQD_QOHwm6of4SQOcOGVlAEXyQ5erCZtNU8KpHy0kZCKu9hsrhC07mp5Kbr22J1h63cWul9P57-zzQijHUnYKPY5UujQQVQwIAl99OH7v-ynIUIOyVXLBzccN-3sA9vs2rm8KL_OvKHSMFsqbmAI_ad')"></div>
+          <div class="rounded-2xl overflow-hidden shadow-lg h-64 bg-cover bg-center mt-6" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCBpD5sqjacgUuxoUJTF4YWRphcRBogyFBBoGt7Qbpw5mc8bMROoO5nLdVWrgxCqMDGzZ03KzXrlaCYv_pT1VJ0iC7MHTdumpFumnYMMhPx574PjPgLv2QDn3iJa3V1uWt_78fxIshWsSoXrgExFblAykLIgPWzp_JqgcTRjU9fmPSjKiVmSJImokcfgjcMQ1GJmSmelKCBDEztl9OUw6W3ePj6trm-9mC3QrXileHZve2e8fCabjjm')"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="w-full py-16 px-gutter bg-surface-container-low">
+      <div class="max-w-7xl mx-auto flex flex-col gap-12">
+        <div class="text-center max-w-3xl mx-auto flex flex-col gap-2">
+          <span class="text-xs font-bold text-surface-tint uppercase tracking-wider">Our Philosophy</span>
+          <h2 class="font-headline text-3xl font-bold text-on-surface">Rooted in Principle, Driven by Science</h2>
+          <p class="text-sm text-on-surface-variant">Every cut, assessment, and operation is guided by our four foundational pillars of professional arboriculture.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-surface p-6 rounded-2xl flex flex-col gap-3 shadow-sm border border-surface-container">
+            <div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
+            </div>
+            <h3 class="font-headline text-lg font-bold text-on-surface">Environmental Stewardship</h3>
+            <p class="text-xs text-on-surface-variant leading-relaxed">Prioritizing tree preservation, soil health, and minimal ecological disruption across all residential and municipal sites.</p>
+          </div>
+
+          <div class="bg-surface p-6 rounded-2xl flex flex-col gap-3 shadow-sm border border-surface-container">
+            <div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">security</span>
+            </div>
+            <h3 class="font-headline text-lg font-bold text-on-surface">Uncompromising Safety</h3>
+            <p class="text-xs text-on-surface-variant leading-relaxed">Adhering strictly to ANSI Z133 standards, utilizing advanced rigging gear, and maintaining zero-incident operational protocols.</p>
+          </div>
+
+          <div class="bg-surface p-6 rounded-2xl flex flex-col gap-3 shadow-sm border border-surface-container">
+            <div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">science</span>
+            </div>
+            <h3 class="font-headline text-lg font-bold text-on-surface">Scientific Precision</h3>
+            <p class="text-xs text-on-surface-variant leading-relaxed">Using resistograph testing, sonic tomography, and structural load analysis to make accurate tree health diagnoses.</p>
+          </div>
+
+          <div class="bg-surface p-6 rounded-2xl flex flex-col gap-3 shadow-sm border border-surface-container">
+            <div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">recycling</span>
+            </div>
+            <h3 class="font-headline text-lg font-bold text-on-surface">Sustainable Recycling</h3>
+            <p class="text-xs text-on-surface-variant leading-relaxed">Diverting 100% of organic waste into high-grade mulch, milled lumber, and biomass energy programs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW SECTION: Specialized Machinery & Diagnostic Technology -->
+    <section class="w-full py-16 px-gutter bg-surface">
+      <div class="max-w-7xl mx-auto flex flex-col gap-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <span class="text-xs font-bold text-surface-tint uppercase tracking-wider">Field Technology</span>
+            <h2 class="font-headline text-3xl font-bold text-on-surface mt-1">Diagnostic Scientific Arsenal</h2>
+          </div>
+          <p class="text-xs text-on-surface-variant max-w-md leading-relaxed">
+            We don't guess when assessing living timber. Our teams deploy non-destructive testing tools to reveal unseen internal decay before dangerous failure occurs.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container flex flex-col gap-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-primary text-primary-fixed flex items-center justify-center">
+                <span class="material-symbols-outlined">sound_detection_dog_barking</span>
+              </div>
+              <div>
+                <h4 class="font-headline text-base font-bold text-on-surface">Picrom Sonic Tomography</h4>
+                <p class="text-[11px] text-surface-tint font-semibold">3D Acoustic Cross-Sections</p>
+              </div>
+            </div>
+            <p class="text-xs text-on-surface-variant leading-relaxed">
+              Sends calibrated sound waves through tree trunks to generate color-coded cross-sectional maps of internal decay and hollow cavities with zero tree harm.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container flex flex-col gap-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-primary text-primary-fixed flex items-center justify-center">
+                <span class="material-symbols-outlined">air</span>
+              </div>
+              <div>
+                <h4 class="font-headline text-base font-bold text-on-surface">Air-Spade Root Decompaction</h4>
+                <p class="text-[11px] text-surface-tint font-semibold">Supersonic Pneumatic Air Knife</p>
+              </div>
+            </div>
+            <p class="text-xs text-on-surface-variant leading-relaxed">
+              Dislodges dense compacted clay soil at Mach 2 speeds without nicking delicate feeder roots or subterranean irrigation lines.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container flex flex-col gap-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-primary text-primary-fixed flex items-center justify-center">
+                <span class="material-symbols-outlined">cable</span>
+              </div>
+              <div>
+                <h4 class="font-headline text-base font-bold text-on-surface">Dynamic Cobra Cabling</h4>
+                <p class="text-[11px] text-surface-tint font-semibold">Structural Canopy Bracing</p>
+              </div>
+            </div>
+            <p class="text-xs text-on-surface-variant leading-relaxed">
+              Non-invasive flexible synthetic cables that allow natural tree movement in wind while preventing codominant stems from splitting apart.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW SECTION: In-House Soil Science & Pathology Diagnostic Laboratory -->
+    <section class="w-full py-16 px-gutter bg-surface-container-low border-y border-surface-container">
+      <div class="max-w-7xl mx-auto flex flex-col gap-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <span class="text-xs font-bold text-surface-tint uppercase tracking-wider">Scientific Diagnostics</span>
+            <h2 class="font-headline text-3xl font-bold text-on-surface mt-1">In-House Soil Science &amp; Pathology Lab</h2>
+          </div>
+          <p class="text-xs text-on-surface-variant max-w-md leading-relaxed">
+            We operate our own dedicated arboricultural pathology laboratory in Seattle, enabling rapid DNA testing of wood rot fungi and comprehensive soil microbiology profiling within 24 hours.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Step 1: Culture -->
+          <div class="bg-surface rounded-2xl overflow-hidden border border-surface-container flex flex-col shadow-sm">
+            <div class="h-44 bg-cover bg-center relative" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCvsEDyZXDx3ReqHAD220Zs_IfUfgTnshaVFuW_GbOsobGo1LEnEo3iSi3N-AEPCSuXAWNmE-fuRadCA7weCT1hOPF3bIDltB3jJnt1ZRf7wZbGoSizPiRKghJQHiQ74RwKG6arn72haZKbKNjHsP7NkPIc27MYxUyCkk5p50qOyt590BBq3mOHh-aUKSckjqfg6hWg71xvGvZHsHhFOCa1WhA8EIrgBZb9k64O4PBB8VZk36Ar5vVq')">
+              <span class="absolute top-3 left-3 bg-primary text-on-primary px-2.5 py-0.5 rounded-full text-[10px] font-bold">Phase 1</span>
+            </div>
+            <div class="p-5 flex flex-col flex-grow justify-between gap-3">
+              <div>
+                <h4 class="font-headline text-base font-bold text-on-surface">Cambium &amp; Spore Biopsy</h4>
+                <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">Microscopic culture swabs pinpoint destructive fungal pathogens including Armillaria root rot, Verticillium wilt, and Phytophthora.</p>
+              </div>
+              <div class="text-[11px] font-bold text-primary flex items-center gap-1 border-t border-surface-container pt-3">
+                <span class="material-symbols-outlined text-[16px]">biotech</span> PCR Pathogen Analysis
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Soil Chemistry -->
+          <div class="bg-surface rounded-2xl overflow-hidden border border-surface-container flex flex-col shadow-sm">
+            <div class="h-44 bg-cover bg-center relative" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBbZh7f1pc5xu0MqzNKc0AABjQSfvIrYszLqpdaYKesEp3RvXd9STyuDXQwpZFi8lr56bwVveBx4AG2o1aHMREsGOV-ffkPnVzzF9Cb8HysSnIOYU7KXYWvqzZYPbyn07FHzlPM1d-8s4Xz9LXnZ8fuaIaqk3HDLnbCCPM_EL3nPsr9yqNmENiBJWPbnwn-_MNhZNPLijp8ciHx11yjr729QX2NhmNihCFew0_I6rth9zK42q9wRFPL')">
+              <span class="absolute top-3 left-3 bg-secondary text-on-secondary px-2.5 py-0.5 rounded-full text-[10px] font-bold">Phase 2</span>
+            </div>
+            <div class="p-5 flex flex-col flex-grow justify-between gap-3">
+              <div>
+                <h4 class="font-headline text-base font-bold text-on-surface">Soil Food Web Profiling</h4>
+                <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">Cation exchange capacity (CEC), pH spectrum, and beneficial mycorrhizal fungus counts to formulate custom root nutrients.</p>
+              </div>
+              <div class="text-[11px] font-bold text-secondary flex items-center gap-1 border-t border-surface-container pt-3">
+                <span class="material-symbols-outlined text-[16px]">science</span> Spectrophotometry Assay
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Tomography -->
+          <div class="bg-surface rounded-2xl overflow-hidden border border-surface-container flex flex-col shadow-sm">
+            <div class="h-44 bg-cover bg-center relative" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB2g-3xiWXQU8DWR3oUyce5tAR_uZI-MjhRvMnGqiBPsY2wGRMHwGoAwtdays0uVBIHhdnAHRywoSN3G4L1iTISvjUlBlyQ-20krvG8t2IheD02IfCBwBP-RPHrcVcwtm5CxfO2xaZLJEP1NUfcsW0BUbc1sjPtun6t70oBmP11L4KJnB1IJgYwtcyQNTrVc12vAbDgQXtCvfbtyV9nXAw_KkFVAnGUESfpY0SmMLO6_ggkKor0dzmJ')">
+              <span class="absolute top-3 left-3 bg-tertiary text-on-tertiary px-2.5 py-0.5 rounded-full text-[10px] font-bold">Phase 3</span>
+            </div>
+            <div class="p-5 flex flex-col flex-grow justify-between gap-3">
+              <div>
+                <h4 class="font-headline text-base font-bold text-on-surface">Sonic Acoustic Mapping</h4>
+                <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">Calibrated sound pulses measure wood sound transmission velocities to produce color-coded 2D and 3D cross-sections of internal decay.</p>
+              </div>
+              <div class="text-[11px] font-bold text-primary flex items-center gap-1 border-t border-surface-container pt-3">
+                <span class="material-symbols-outlined text-[16px]">graphic_eq</span> Non-Destructive Tomography
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4: Vascular Injections -->
+          <div class="bg-surface rounded-2xl overflow-hidden border border-surface-container flex flex-col shadow-sm">
+            <div class="h-44 bg-cover bg-center relative" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBpuRcVhdHam2z1h4wc0IlJkNqNYrV4YMBn2JBjUAXxkGJULPe6lamb1xMv5mxTtSheEIR0ntZ4UZHLNKFsDya80jfZScnfzl_77srNC4F6k-UP5JVOQC9wX-yAPzjM7_I1c5r4C3AtrlkMcJ76hivGb_79_fM7pWc7YaW4sa2Q4VTG00qwCV_aprLkZBa4waUlFirB9TdFv7RKBqaR0A05XLmuRysTJDF4rRWLogjWiVD4uW7lK3Pd')">
+              <span class="absolute top-3 left-3 bg-primary-container text-on-primary-container px-2.5 py-0.5 rounded-full text-[10px] font-bold">Phase 4</span>
+            </div>
+            <div class="p-5 flex flex-col flex-grow justify-between gap-3">
+              <div>
+                <h4 class="font-headline text-base font-bold text-on-surface">Targeted Micro-Infusion</h4>
+                <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">Direct vascular injection of organic systemic fungicides and borer insect deterrents, protecting canopy foliage for up to 3 years.</p>
+              </div>
+              <div class="text-[11px] font-bold text-primary flex items-center gap-1 border-t border-surface-container pt-3">
+                <span class="material-symbols-outlined text-[16px]">medication</span> Closed-Loop Trunk Delivery
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expanded Leadership & Expert Team Section -->
+    <section class="w-full py-16 px-gutter bg-surface-container-lowest border-y border-surface-container">
+      <div class="max-w-7xl mx-auto flex flex-col gap-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div class="flex flex-col gap-2 max-w-2xl">
+            <span class="text-xs font-bold text-surface-tint uppercase tracking-wider">Expert Leadership</span>
+            <h2 class="font-headline text-3xl font-bold text-on-surface">Meet Our Certified Master Arborists</h2>
+            <p class="text-sm text-on-surface-variant">Over 75 years of combined field expertise backed by the highest institutional credentials.</p>
+          </div>
+          <div class="flex items-center gap-2 text-primary text-xs font-semibold">
+            <span class="material-symbols-outlined text-[18px]">badge</span>
+            <span>All crew leads hold current ISA &amp; TRAQ credentials</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Team Member 1 -->
+          <div class="bg-surface-container-low rounded-2xl overflow-hidden shadow-sm border border-surface-container flex flex-col">
+            <div class="h-72 w-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVoyknB0C32X9Mk9GuPXmNKIhP7cD_tvXCh_GUXJIqwhJK2NvL24Sw2Q8PfKzxSih35cESS2ooqNqXNYNb9-uEOgBjb7VgfirBTrS-mTHrnRhQwvyZ9AVMp1rxsNQPgn4PbYEcYKOQODfpMtbI7TRVbJyegyv5OPThjW9HYOsTf21TNZ9-Qun3aebmsI9mDIbe5G895M73LU1h6xrnzrneFQQsj_bmh7idnSMn1Xl3A2d-fAvErJEi')"></div>
+            <div class="p-6 flex flex-col gap-3 flex-1 justify-between">
+              <div class="flex flex-col gap-1.5">
+                <span class="text-[11px] text-surface-tint font-bold uppercase tracking-wider">Founder &amp; Chief Arborist</span>
+                <h3 class="font-headline text-xl font-bold text-on-surface">Marcus Vance</h3>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Specializing in complex hazard tree mitigation and municipal urban forestry planning with over 22 years in the field.</p>
+              </div>
+              <div class="pt-3 border-t border-surface-container flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface text-[10px] font-bold">BCMA #PN-5822B</span>
+                <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface text-[10px] font-bold">TRAQ</span>
+                <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface text-[10px] font-bold">ISA Certified</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Team Member 2 -->
+          <div class="bg-surface-container-low rounded-2xl overflow-hidden shadow-sm border border-surface-container flex flex-col">
+            <div class="h-72 w-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD0gsZw_U2S4xzps2mVoZv_75EfR4ZRF2cZO8KR0DwSgLH7bIl4lEJ6hnzlWQVTOa81MjKEok7hjKQK9LZyQnuRP40f8mZtScAZ6RKQnb3g4j3HAdp60cgdqMvwmuEs7V-3zGtW5eftczQUcmCmpDydunJhkvbqJDvaaT2z5HmC9wvCl4GrNvhHLCE7fd2SAHdfAqRU81tTEdfqEVfcBAJJ63FhjYUt8rqepzRmnvHGvMWwa5MSd3_4')"></div>
+            <div class="p-6 flex flex-col gap-3 flex-1 justify-between">
+              <div class="flex flex-col gap-1.5">
+                <span class="text-[11px] text-surface-tint font-bold uppercase tracking-wider">Director of Safety &amp; Rigging</span>
+                <h3 class="font-headline text-xl font-bold text-on-surface">Dr. Elena Rostova</h3>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Expert in crane-assisted tree removal physics, structural cabling mechanics, and enforcing rigorous ANSI Z133 protocols.</p>
+              </div>
+              <div class="pt-3 border-t border-surface-container flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface text-[10px] font-bold">ISA Certified</span>
+                <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface text-[10px] font-bold">ANSI Z133 Auditor</span>
+                <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface text-[10px] font-bold">CTSP</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Team Member 3 -->
+          <div class="bg-surface-container-low rounded-2xl overflow-hidden shadow-sm border border-surface-container flex flex-col">
+            <div class="h-72 w-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA9f97-aQXRqEty5ZNaOHz232deEzkjRdVJeJ0HPo734oTJNDMQDJrl_kxe6Oey-aFOtwPKDoQQYpTySq6uAGfIrfq6jzBC29EOIX3seXtWfrk3lnIJRH4AEp0316qe8y-Jda-Azmk34YkjKieSXhJg1to65wg2msjhMkHJoldhGyHW6PtEfoyCx-_ODr4yYccu1bRXTCUzJap-fTWiIPld0KcDOCs-agn35e9Nn_n6-hPkUdkstZvp')"></div>
+            <div class="p-6 flex flex-col gap-3 flex-1 justify-between">
+              <div class="flex flex-col gap-1.5">
+                <span class="text-[11px] text-surface-tint font-bold uppercase tracking-wider">Operations &amp; Fleet Lead</span>
+                <h3 class="font-headline text-xl font-bold text-on-surface">Derrick Thorne</h3>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Directing heavy equipment logistics, emergency storm response units, and sustainable wood waste upcycling operations.</p>
+              </div>
+              <div class="pt-3 border-t border-surface-container flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface text-[10px] font-bold">ISA Certified</span>
+                <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface text-[10px] font-bold">CDL-A Crane Op</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Company History & Milestones -->
+    <section class="w-full py-16 px-gutter bg-surface">
+      <div class="max-w-7xl mx-auto flex flex-col gap-12">
+        <div class="text-center max-w-3xl mx-auto flex flex-col gap-2">
+          <span class="text-xs font-bold text-surface-tint uppercase tracking-wider">Our Journey</span>
+          <h2 class="font-headline text-3xl font-bold text-on-surface">Milestones in Arboricultural Leadership</h2>
+          <p class="text-sm text-on-surface-variant">Tracing our evolution from a boutique local crew to the region's most trusted service provider.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="bg-surface-container-low p-6 rounded-2xl flex flex-col gap-2 shadow-sm border border-surface-container">
+            <div class="font-headline text-2xl font-black text-secondary">2004</div>
+            <h3 class="font-headline text-base font-bold text-on-surface">Founding &amp; Inception</h3>
+            <p class="text-xs text-on-surface-variant leading-relaxed">Started with a single truck and a commitment to scientifically sound tree preservation.</p>
+          </div>
+
+          <div class="bg-surface-container-low p-6 rounded-2xl flex flex-col gap-2 shadow-sm border border-surface-container">
+            <div class="font-headline text-2xl font-black text-secondary">2012</div>
+            <h3 class="font-headline text-base font-bold text-on-surface">Regional Expansion</h3>
+            <p class="text-xs text-on-surface-variant leading-relaxed">Expanded fleet and certified personnel to handle large municipal contracts.</p>
+          </div>
+
+          <div class="bg-surface-container-low p-6 rounded-2xl flex flex-col gap-2 shadow-sm border border-surface-container">
+            <div class="font-headline text-2xl font-black text-secondary">2018</div>
+            <h3 class="font-headline text-base font-bold text-on-surface">Crane Hazard Leadership</h3>
+            <p class="text-xs text-on-surface-variant leading-relaxed">Pioneered crane-assisted hazard tree extractions in tight residential spaces.</p>
+          </div>
+
+          <div class="bg-surface-container-low p-6 rounded-2xl flex flex-col gap-2 shadow-sm border border-surface-container">
+            <div class="font-headline text-2xl font-black text-secondary">2023</div>
+            <h3 class="font-headline text-base font-bold text-on-surface">Sustainability Award</h3>
+            <p class="text-xs text-on-surface-variant leading-relaxed">Recognized for 100% waste diversion through innovative mulch upcycling.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW SECTION: Community Canopy Stewardship -->
+    <section class="w-full py-16 px-gutter bg-surface-container-low border-t border-surface-container">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 flex flex-col gap-4">
+          <span class="text-xs font-bold text-primary uppercase tracking-wider">Giving Back</span>
+          <h2 class="font-headline text-3xl font-bold text-on-surface">Annual Urban Canopy Restoration Initiative</h2>
+          <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">
+            For every mature tree we are forced to dismantle due to hazard or decay, ArborPro funds and plants three native climate-resilient saplings (Western Red Cedar, Garry Oak, and Douglas Fir) in underserved urban communities.
+          </p>
+          <div class="flex items-center gap-6 pt-2">
+            <div>
+              <span class="text-2xl font-black text-primary font-headline">4,500+</span>
+              <p class="text-[11px] text-on-surface-variant">Saplings Planted Since 2019</p>
+            </div>
+            <div class="w-[1px] h-8 bg-surface-container-highest"></div>
+            <div>
+              <span class="text-2xl font-black text-primary font-headline">12</span>
+              <p class="text-[11px] text-on-surface-variant">School Forestry Workshops per Year</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 bg-surface p-6 rounded-2xl shadow-sm border border-surface-container">
+          <h4 class="font-headline text-sm font-bold text-on-surface mb-2">Need a Certified Arborist Report?</h4>
+          <p class="text-xs text-on-surface-variant mb-4 leading-relaxed">
+            Whether for municipal permit approval, tree preservation ordinances, or real estate due diligence, our team delivers certified TRAQ reports.
+          </p>
+          <button onclick="openBookingModal('Certified Arborist TRAQ Report', 350)" class="w-full py-2.5 bg-primary text-on-primary rounded-xl text-xs font-bold hover:bg-primary-container transition-colors shadow-md">
+            Request TRAQ Assessment
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANSI A300 Banner -->
+    <section class="w-full py-12 px-gutter bg-primary-container text-on-primary-container">
+      <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div class="flex flex-col gap-1.5 max-w-2xl">
+          <span class="text-xs uppercase tracking-wider text-primary-fixed font-bold">Strict Industry Standards</span>
+          <h2 class="font-headline text-2xl font-bold text-on-primary">ANSI A300 Compliant &amp; Institutional Members</h2>
+          <p class="text-xs text-on-primary-container leading-relaxed">We operate strictly under ANSI A300 standards and maintain active memberships with the International Society of Arboriculture (ISA) and the Tree Care Industry Association (TCIA).</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-4">
+          <div class="px-5 py-3 bg-primary rounded-xl flex items-center gap-3 shadow-md">
+            <span class="material-symbols-outlined text-primary-fixed text-[28px]">verified_user</span>
+            <div class="flex flex-col">
+              <span class="text-xs font-bold text-on-primary">ANSI A300</span>
+              <span class="text-[11px] text-primary-fixed-dim">Fully Compliant</span>
+            </div>
+          </div>
+          <div class="px-5 py-3 bg-primary rounded-xl flex items-center gap-3 shadow-md">
+            <span class="material-symbols-outlined text-primary-fixed text-[28px]">workspace_premium</span>
+            <div class="flex flex-col">
+              <span class="text-xs font-bold text-on-primary">ISA Member</span>
+              <span class="text-[11px] text-primary-fixed-dim">Gold Level</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="w-full bg-surface-container-low py-8 border-t border-surface-container-high">
+    <div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-4 text-on-surface-variant text-xs">
+      <div class="flex items-center gap-3">
+        <div class="w-6 h-6 rounded bg-primary text-primary-fixed flex items-center justify-center">
+          <span class="material-symbols-outlined text-[14px]">forest</span>
+        </div>
+        <p>© 2026 ArborPro Operations Inc. All rights reserved. ISA Certified Master Arborists.</p>
+      </div>
+      <div class="flex items-center gap-6">
+        <a class="hover:text-on-surface transition-colors" href="index.html">Home</a>
+        <a class="hover:text-on-surface transition-colors" href="home-2.html">Home 2</a>
+        <a class="hover:text-on-surface transition-colors" href="about.html">About</a>
+        <a class="hover:text-on-surface transition-colors" href="services.html">Services</a>
+        <a class="hover:text-on-surface transition-colors" href="blog.html">Blog</a>
+        <a class="hover:text-on-surface transition-colors" href="pricing.html">Pricing</a>
+        <a class="hover:text-on-surface transition-colors" href="contact.html">Contact</a>
+        <a class="hover:text-on-surface transition-colors font-medium text-primary" href="admin.html">Staff Portal</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/store.js"></script>
+  <script type="module" src="/src/js/nav.js"></script>
+</body>
+</html>

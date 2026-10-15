@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {"colors": {"on-tertiary-fixed-variant": "#673a39", "surface-container": "#eeeeeb", "primary-container": "#1b4332", "error": "#ba1a1a", "on-secondary-fixed": "#2c1600", "on-secondary-container": "#7a532a", "tertiary-container": "#5a302f", "tertiary": "#401b1b", "surface-variant": "#e2e3e0", "tertiary-fixed": "#ffdad8", "secondary": "#7d562d", "on-secondary-fixed-variant": "#623f18", "primary": "#012d1d", "surface-dim": "#dadad7", "primary-fixed": "#c1ecd4", "inverse-surface": "#2f312f", "surface-tint": "#3f6653", "on-background": "#1a1c1a", "error-container": "#ffdad6", "on-tertiary": "#ffffff", "primary-fixed-dim": "#a5d0b9", "on-secondary": "#ffffff", "on-error-container": "#93000a", "surface-container-lowest": "#ffffff", "inverse-primary": "#a5d0b9", "tertiary-fixed-dim": "#f5b7b4", "background": "#f9faf6", "on-surface-variant": "#414844", "on-tertiary-fixed": "#331111", "surface-container-low": "#f3f4f1", "secondary-container": "#ffca98", "on-tertiary-container": "#d29895", "on-primary-fixed": "#002114", "secondary-fixed-dim": "#f0bd8b", "surface-container-highest": "#e2e3e0", "surface": "#f9faf6", "surface-bright": "#f9faf6", "on-surface": "#1a1c1a", "inverse-on-surface": "#f0f1ee", "on-primary": "#ffffff", "outline-variant": "#c1c8c2", "on-primary-container": "#86af99", "on-primary-fixed-variant": "#274e3d", "surface-container-high": "#e8e8e5", "on-error": "#ffffff", "outline": "#717973", "secondary-fixed": "#ffdcbd"}, "borderRadius": {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"}, "spacing": {"gutter": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "space-xl": "2.5rem", "space-md": "1rem", "margin": "2rem"}, "fontFamily": {"label-md": ["Inter"], "headline-xl": ["Inter"], "headline-lg": ["Inter"], "headline-sm": ["Inter"], "label-sm": ["Inter"], "body-sm": ["Inter"], "body-lg": ["Inter"], "headline-md": ["Inter"], "body-md": ["Inter"]}, "fontSize": {"label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}], "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}], "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}], "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}], "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}], "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}], "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}], "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]}}}};</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/></head><body class="bg-surface font-body text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-7xl mx-auto px-gutter flex items-center justify-between"><div class="flex items-center gap-3"><img alt="ArborPro Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1Jp7GZttwTno0cu934xvEyeJkn3JKsnS01WubUaVnl8XJI3hKj-0S8M2E1lWqHKxmP4BwCEVEhw4kv0V1NEUntbyqMgPDgji2WQP1DyxRax-n0dnHT_U_-EoAAG_zf1UETD4fz_rgmW7aqbQnhOWpD8Z4RKFRmZ1XSzKP_zAWytJDPgzszCIoXir-1e-E_vzwBhVZEP4Z3d0kq_ilpazRplbNTBUVF3E_9HS2WFpRWDWSQaKsWxGV"/><span class="font-headline-sm text-on-surface tracking-tight">ArborPro Services</span></div><nav class="hidden lg:flex items-center gap-space-lg" data-active-classes="bg-primary-container text-on-primary-container font-bold"><a aria-current="page" class="transition-colors bg-primary-container text-on-primary-container font-bold" data-path="home" href="#">Home</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="services" href="#">Services</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">About</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="blog" href="#">Blog</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="pricing" href="#">Pricing</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">Contact</a></nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center justify-center px-space-md py-space-sm bg-secondary text-on-secondary rounded-lg font-label-md hover:bg-secondary/90 transition-colors" data-path="admin-dashboard" href="#">Admin Dashboard</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full">
+<section class="relative w-full min-h-[870px] bg-primary text-on-primary flex items-center -mt-20 pt-20 overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-40 bg-cover bg-center" data-alt="A cinematic, sunlit shot of a magnificent ancient oak tree standing tall in a lush pristine forest, with shafts of golden morning light piercing through dense emerald canopy. Professional certified arborists are visible in the background inspecting health and safety. Clean, natural, highly professional environmental photography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB--iTw7lsAPTgumaPqlpcO3IKB34v49ZQU_HtboI5O4wIeg95YELJIjoQ-tA2fJeMu0zlG1XHqcMCh_lxs2X93zJ4MgotsCDbaq844r_y_vkb0wo7-lI7Dn48IBd5znrgrwgd0jwP_L4ip5voj1wXRJjcWWScV_DDPVSyeulLlM8VD7Sk-rQ4_Wax7y_BtP4vIJuwP5VN5f-pZ68GZiMsLa74Q9Koql8UJTZDPXaWq9TAdzqZzBfuO')"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-transparent z-10"></div>
+<div class="max-w-7xl mx-auto px-gutter w-full relative z-20 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<div class="inline-flex items-center gap-space-sm px-space-md py-space-sm bg-surface-container-lowest/15 backdrop-blur-md rounded-full w-max text-primary-fixed font-label-md">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+          ISA Certified Arborists & Complete Tree Care
+        </div>
+<h1 class="font-headline-xl text-on-primary tracking-tight">Preserving Nature. Protecting Your Property.</h1>
+<p class="font-body-lg text-primary-fixed-dim max-w-xl">
+          Expert arboriculture, emergency storm response, and precision tree maintenance backed by 15+ years of industry-leading safety and environmental stewardship.
+        </p>
+<div class="flex flex-wrap items-center gap-space-md pt-space-sm">
+<a class="px-space-xl py-space-md bg-secondary text-on-secondary rounded-lg font-label-md hover:bg-secondary/90 transition-all shadow-lg flex items-center gap-2" href="#quote">
+<span class="material-symbols-outlined text-[18px]">calculate</span>
+            Get Instant Estimate
+          </a>
+<a class="px-space-xl py-space-md bg-surface/10 backdrop-blur-md text-on-primary rounded-lg font-label-md hover:bg-surface/20 transition-all" href="#services">
+            Explore Services
+          </a>
+</div>
+<div class="flex items-center gap-space-xl pt-space-lg">
+<div>
+<p class="font-headline-md text-on-primary">100%</p>
+<p class="font-label-sm text-primary-fixed-dim">Fully Insured & Bonded</p>
+</div>
+<div class="w-[1px] h-10 bg-primary-fixed/20"></div>
+<div>
+<p class="font-headline-md text-on-primary">15k+</p>
+<p class="font-label-sm text-primary-fixed-dim">Trees Maintained Safely</p>
+</div>
+<div class="w-[1px] h-10 bg-primary-fixed/20"></div>
+<div>
+<p class="font-headline-md text-on-primary">24/7</p>
+<p class="font-label-sm text-primary-fixed-dim">Emergency Dispatch</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5" id="quote">
+<div class="bg-surface text-on-surface p-8 rounded-xl shadow-xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-on-surface">Instant Quote Calculator</h3>
+<span class="material-symbols-outlined text-secondary">bolt</span>
+</div>
+<p class="font-body-sm text-on-surface-variant">Configure your property needs below for an immediate ballpark estimate.</p>
+<div class="flex flex-col gap-space-md pt-space-xs">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-on-surface">Select Service Type</label>
+<select class="w-full px-space-md py-space-sm bg-surface-container rounded-lg font-body-md text-on-surface outline-none" id="calc-service">
+<option value="150">Tree Trimming & Pruning</option>
+<option value="300">Hazardous Tree Removal</option>
+<option value="100">Stump Grinding</option>
+<option value="200">Tree Health Assessment</option>
+</select>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-on-surface">Tree Size / Height</label>
+<select class="w-full px-space-md py-space-sm bg-surface-container rounded-lg font-body-md text-on-surface outline-none" id="calc-size">
+<option value="1">Small (Under 25 ft)</option>
+<option value="1.5">Medium (25 - 50 ft)</option>
+<option value="2.2">Large (50+ ft / Complex)</option>
+</select>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-on-surface">Urgency Level</label>
+<select class="w-full px-space-md py-space-sm bg-surface-container rounded-lg font-body-md text-on-surface outline-none" id="calc-urgency">
+<option value="1">Standard Scheduling</option>
+<option value="1.4">Priority / Urgent (48 hrs)</option>
+<option value="1.8">Emergency (Immediate)</option>
+</select>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg flex items-center justify-between mt-space-xs">
+<div>
+<p class="font-label-sm text-on-surface-variant">Estimated Investment</p>
+<p class="font-headline-md text-primary" id="calc-result">$150</p>
+</div>
+<button class="px-space-md py-space-sm bg-primary text-on-primary rounded-lg font-label-md hover:bg-primary-container transition-colors" onclick="alert('Quote requested successfully! Our dispatcher will contact you within 15 minutes.')">
+                Book This Rate
+              </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="w-full py-margin bg-surface-container-low" id="services">
+<div class="max-w-7xl mx-auto px-gutter flex flex-col gap-space-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div>
+<span class="font-label-sm text-surface-tint uppercase tracking-wider">Comprehensive Expertise</span>
+<h2 class="font-headline-lg text-on-surface mt-space-xs">Core Arboricultural Services</h2>
+</div>
+<p class="font-body-md text-on-surface-variant max-w-md">
+          From routine structural pruning to high-risk crane removals and disease management, our certified team handles every job with military precision.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg">
+<div class="bg-surface rounded-xl p-6 flex flex-col gap-space-md hover:shadow-xl transition-all group">
+<div class="h-48 rounded-lg overflow-hidden relative">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="A professional arborist suspended safely in climbing gear pruning delicate branches of a mature green tree against a clear sky. High safety standards and modern rigging equipment visible." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB2g-3xiWXQU8DWR3oUyce5tAR_uZI-MjhRvMnGqiBPsY2wGRMHwGoAwtdays0uVBIHhdnAHRywoSN3G4L1iTISvjUlBlyQ-20krvG8t2IheD02IfCBwBP-RPHrcVcwtm5CxfO2xaZLJEP1NUfcsW0BUbc1sjPtun6t70oBmP11L4KJnB1IJgYwtcyQNTrVc12vAbDgQXtCvfbtyV9nXAw_KkFVAnGUESfpY0SmMLO6_ggkKor0dzmJ')"></div>
+</div>
+<div class="flex items-center gap-2 text-surface-tint">
+<span class="material-symbols-outlined">content_cut</span>
+<span class="font-label-md">Precision Care</span>
+</div>
+<h3 class="font-headline-sm text-on-surface">Tree Trimming & Pruning</h3>
+<p class="font-body-sm text-on-surface-variant">Enhance structural integrity, sunlight penetration, and aesthetic value through ISA-compliant crown cleaning and thinning.</p>
+<a class="font-label-md text-primary flex items-center gap-1 mt-auto pt-space-sm hover:underline" href="#">
+            Learn More <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="bg-surface rounded-xl p-6 flex flex-col gap-space-md hover:shadow-xl transition-all group">
+<div class="h-48 rounded-lg overflow-hidden relative">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="A massive fallen oak tree across a residential roof during a storm, with emergency response arborists utilizing chainsaws and heavy rigging cranes to safely clear the hazard." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCILnwdySdXvXrmvrcwvpgIBmBtsHX_Z3wtj0gu8lWphKQ7XgQTAsI12U8L5mF431bBLhIAavIi9zt9Xzi_Kl05TzBPlDoe4xAHjldwUKkHmDLVM2QAiARmUfZvnGSeYobe_YzN_IUmyLdWkex7q5K0Fd5V_9jp35pxICr3PHLyG853M5Zh-75yvpe5FY57bFVgDCrSLv9oRB0rSTzFyA0vm7oOg5qQV_fHjpFjTMm-cQKOusytzRZx')"></div>
+</div>
+<div class="flex items-center gap-2 text-secondary">
+<span class="material-symbols-outlined">bolt</span>
+<span class="font-label-md">24/7 Dispatch</span>
+</div>
+<h3 class="font-headline-sm text-on-surface">Emergency Storm Removal</h3>
+<p class="font-body-sm text-on-surface-variant">Rapid response teams equipped for hazardous fallen limbs, structural roof breaches, and immediate danger mitigation.</p>
+<a class="font-label-md text-primary flex items-center gap-1 mt-auto pt-space-sm hover:underline" href="#">
+            Learn More <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="bg-surface rounded-xl p-6 flex flex-col gap-space-md hover:shadow-xl transition-all group">
+<div class="h-48 rounded-lg overflow-hidden relative">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="A powerful commercial stump grinder machine chewing down a large tree stump into clean wood mulch in a suburban front yard. Professional landscaping restoration." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAxSfFYwFI8ytdoxG8zHoS7_izRXFEBYLtedUQHWR8ofGbXc7-7raTlv_vVnaftBDzkgRkyRkxiPl_XDoajKA2wi55WyLUw0InzHjBB_4O3VcjfNOlxTIfWWRA5C5zBUSse6RD-GPg80TzccuXfiHZciizV79xwnWKg7RBg_dARk_BwEz9mN2Wn1XQ8NhjRu6L303ec8yOs9thZXn2lITz9DGdtXzsToBLmlbgG4g2tgAPrkrkPI7JO')"></div>
+</div>
+<div class="flex items-center gap-2 text-surface-tint">
+<span class="material-symbols-outlined">settings_accessibility</span>
+<span class="font-label-md">Complete Eradication</span>
+</div>
+<h3 class="font-headline-sm text-on-surface">Stump Grinding</h3>
+<p class="font-body-sm text-on-surface-variant">Complete below-grade removal of unsightly stumps and root systems, leaving your lawn prepped for replanting or turfing.</p>
+<a class="font-label-md text-primary flex items-center gap-1 mt-auto pt-space-sm hover:underline" href="#">
+            Learn More <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="bg-surface rounded-xl p-6 flex flex-col gap-space-md hover:shadow-xl transition-all group">
+<div class="h-48 rounded-lg overflow-hidden relative">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="A certified arborist examining tree bark pathology with specialized digital diagnostic tools in a sprawling municipal park. Scientific tree care and health management." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCvsEDyZXDx3ReqHAD220Zs_IfUfgTnshaVFuW_GbOsobGo1LEnEo3iSi3N-AEPCSuXAWNmE-fuRadCA7weCT1hOPF3bIDltB3jJnt1ZRf7wZbGoSizPiRKghJQHiQ74RwKG6arn72haZKbKNjHsP7NkPIc27MYxUyCkk5p50qOyt590BBq3mOHh-aUKSckjqfg6hWg71xvGvZHsHhFOCa1WhA8EIrgBZb9k64O4PBB8VZk36Ar5vVq')"></div>
+</div>
+<div class="flex items-center gap-2 text-surface-tint">
+<span class="material-symbols-outlined">health_and_safety</span>
+<span class="font-label-md">Pathology & Care</span>
+</div>
+<h3 class="font-headline-sm text-on-surface">Health Assessment</h3>
+<p class="font-body-sm text-on-surface-variant">Comprehensive diagnostics for fungal infections, pest infestations, nutrient deficiencies, and customized treatment plans.</p>
+<a class="font-label-md text-primary flex items-center gap-1 mt-auto pt-space-sm hover:underline" href="#">
+            Learn More <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<section class="w-full py-margin bg-surface">
+<div class="max-w-7xl mx-auto px-gutter grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-6 flex flex-col gap-space-md">
+<span class="font-label-sm text-surface-tint uppercase tracking-wider">Uncompromising Standards</span>
+<h2 class="font-headline-lg text-on-surface">Why Property Owners Trust ArborPro</h2>
+<p class="font-body-md text-on-surface-variant">
+          Tree work is high-stakes physical labor that requires rigorous training, modern machinery, and absolute accountability. We exceed every industry safety threshold.
+        </p>
+<div class="flex flex-col gap-space-md pt-space-sm">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-on-surface">ISA Board Certified Master Arborists</h4>
+<p class="font-body-sm text-on-surface-variant mt-1">Our lead consultants hold elite certifications, ensuring your valuable canopy is treated with scientific expertise.</p>
+</div>
+</div>
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">shield</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-on-surface">$5M Comprehensive Liability Protection</h4>
+<p class="font-body-sm text-on-surface-variant mt-1">Full workman’s comp and umbrella property protection giving you absolute peace of mind during complex crane jobs.</p>
+</div>
+</div>
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">eco</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-on-surface">Sustainable Wood Recycling</h4>
+<p class="font-body-sm text-on-surface-variant mt-1">100% of removed timber is recycled into premium organic mulch, milled lumber, or biomass energy.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-6 grid grid-cols-2 gap-space-md">
+<div class="space-y-space-md">
+<div class="h-64 rounded-xl bg-cover bg-center shadow-lg" data-alt="A professional bucket truck and crane lifting heavy rigging gear during an urban tree extraction. Sunny afternoon lighting, sharp focus." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDWjZ-4pgS9bFdpCH9nBVaw6CfY9Kr2MBF_saAv-5AsYpa9O8A2s75GHH2J4ycBLMsoQzLg46XA6O-c8oTZhxV5G1NiN_nWdVDAbZqKPzM5dvT5vSGMXrd6QRQ4YhuDBvclRKuHEmADKR6ci4g9bUDc7P65ezh28EjuL8HE8nIjdwiQXlgV92Xw-gkVIGRf-6EI946kLa3kSOkedbDcyh-o76nsPdvX9y5dRDomqD54ySSq818bufWa')"></div>
+<div class="h-40 rounded-xl bg-cover bg-center shadow-lg" data-alt="Close-up of a certified arborist inspecting tree rings and core samples for disease detection." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAmfcIE4BM3ZC5Z6VVA9g_aaT5CT_8JBb8RvAsGIgYDGZw1ajSsc9VrNHmnPkXGcd3BIH4YUSzU-knmfji5cTyO2jHDYC2OYQuuY_emzCYIAA-PI7fYKK1jSwJ4H28avti-kBg_x1jeJRmf3gS46sKH_OZ_3cGT1hmrJaQf_qPBAUSDrLeYwFsnmphse8b-4NQqpv8ayA7eERThDhiwk5cB4dUlvRe6qNlZ1CT8nHCIZ2os1S1N4y7L')"></div>
+</div>
+<div class="space-y-space-md pt-8">
+<div class="h-40 rounded-xl bg-cover bg-center shadow-lg" data-alt="Neatly stacked organic wood mulch ready for garden delivery after professional tree grinding." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCBpD5sqjacgUuxoUJTF4YWRphcRBogyFBBoGt7Qbpw5mc8bMROoO5nLdVWrgxCqMDGzZ03KzXrlaCYv_pT1VJ0iC7MHTdumpFumnYMMhPx574PjPgLv2QDn3iJa3V1uWt_78fxIshWsSoXrgExFblAykLIgPWzp_JqgcTRjU9fmPSjKiVmSJImokcfgjcMQ1GJmSmelKCBDEztl9OUw6W3ePj6trm-9mC3QrXileHZve2e8fCabjjm')"></div>
+<div class="h-64 rounded-xl bg-cover bg-center shadow-lg" data-alt="A team of uniformed arborists posing proudly in front of fully equipped service trucks." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCKAHOcfy3kOKW7hcwjuf6ghDkRO2Kz-y7FjPTfP-wxk1_8THKJNGIAKrF9FxzcsnrJShYgUO-XgRCTzkK1HCBsfjrAkPYiVaQD_QOHwm6of4SQOcOGVlAEXyQ5erCZtNU8KpHy0kZCKu9hsrhC07mp5Kbr22J1h63cWul9P57-zzQijHUnYKPY5UujQQVQwIAl99OH7v-ynIUIOyVXLBzccN-3sA9vs2rm8KL_OvKHSMFsqbmAI_ad')"></div>
+</div>
+</div>
+</div>
+</section>
+<section class="w-full py-margin bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-gutter flex flex-col gap-space-xl">
+<div class="text-center max-w-2xl mx-auto flex flex-col gap-space-sm">
+<span class="font-label-sm text-surface-tint uppercase tracking-wider">Client Success Stories</span>
+<h2 class="font-headline-lg text-on-surface">Trusted by Homeowners & Municipalities</h2>
+<p class="font-body-md text-on-surface-variant">See what property managers and residential clients say about our precision, cleanup speed, and professionalism.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<div class="bg-surface p-8 rounded-xl shadow-md flex flex-col justify-between gap-space-lg">
+<div class="flex flex-col gap-space-sm">
+<div class="flex text-secondary gap-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-on-surface">"ArborPro removed a massive 70-foot pine leaning precariously over our garage during a severe storm. Their crane crew was absolute perfection—fast, meticulous, and zero property damage."</p>
+</div>
+<div class="flex items-center gap-space-md pt-space-sm">
+<div class="w-12 h-12 rounded-full bg-cover bg-center" data-alt="Portrait of a smiling middle-aged male homeowner in a suburban garden setting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCToHqnUgzuTEKVsKB1Y92V7dL4fZ3ROoEwIKEXCzlQVbfr582ISwK37SwKbPfFeN266PSMbzuH3TvWv8EESxlYQyl98yErJuCdJdKNGpkW2yCWsdlj1tEt3iZgoIBXNc5leOjbkQVrNkgJm9Yc0YHV8LmoMZkPjXa-ddDxAaMQiaUcamtIa084YoBIgUGUvI2zXH-LkcmLUBA_8AeWw1UVLGLu-zoBin7_gnqPIWnOwISeCEBTxgEq')"></div>
+<div>
+<p class="font-label-md text-on-surface">Marcus Vance</p>
+<p class="font-label-sm text-on-surface-variant">Homeowner, Oakridge District</p>
+</div>
+</div>
+</div>
+<div class="bg-surface p-8 rounded-xl shadow-md flex flex-col justify-between gap-space-lg">
+<div class="flex flex-col gap-space-sm">
+<div class="flex text-secondary gap-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-on-surface">"As a commercial property manager, liability and prompt service are everything. ArborPro manages our entire 40-acre campus landscape health with unmatched professionalism."</p>
+</div>
+<div class="flex items-center gap-space-md pt-space-sm">
+<div class="w-12 h-12 rounded-full bg-cover bg-center" data-alt="Portrait of a professional female corporate property manager in modern office attire." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDgH3GvljA3sNZg20QDhJx3NZv55sc6uJJ-cBiKE_Rf3kHmTgmrc1MFNS6gJuUpeIp-yxJqYwpsmkThpNuEcQEh-C_ZXFULQvr9qxgO6cPXL5gqYKKlcOiRodGLtRBQ2a5m1bP8TFWQuiZkkBFINNHlQ0763-tXv99kNJdjbe_hRB7BN3G4wOPAztUX3fLJ7oZyXjpuNDwSPsmC6f1NaWDl4W8ik7OrgfFJL9FWD3JqWM5xJApB5U4U')"></div>
+<div>
+<p class="font-label-md text-on-surface">Sarah Jenkins</p>
+<p class="font-label-sm text-on-surface-variant">Facilities Director, Apex Realty</p>
+</div>
+</div>
+</div>
+<div class="bg-surface p-8 rounded-xl shadow-md flex flex-col justify-between gap-space-lg">
+<div class="flex flex-col gap-space-sm">
+<div class="flex text-secondary gap-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-on-surface">"Their certified arborist diagnosed a subtle root rot in our heritage maple that other services missed. Their treatment plan saved the tree and kept our backyard shaded."</p>
+</div>
+<div class="flex items-center gap-space-md pt-space-sm">
+<div class="w-12 h-12 rounded-full bg-cover bg-center" data-alt="Portrait of an elderly gentleman smiling warmly in a lush backyard garden." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDksEu0qUedUZ1IxBWNUIy1Ty72279ucqd24Qr6rvf8LSPRaOMao3XJXwF4Ge2haTBJU-qsiqjF57P6TsPMr1k1wRwJgJM7CDSGkXZDP-hRg-SmmwiR3zI2mTovpPKk7oCbOlZhGjBjFSbyC8sfQkDw-9SHL0zTqIHxRYgH4YihjAXpHHHJAeNEen1uqjUuPgHeg5NLhTNCwYOJkOmy4TgCGH5CzjYYWznTojZWhYCP0pY-2STIdg_d')"></div>
+<div>
+<p class="font-label-md text-on-surface">Arthur Pendelton</p>
+<p class="font-label-sm text-on-surface-variant">Residential Client</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="w-full py-margin bg-surface">
+<div class="max-w-7xl mx-auto px-gutter">
+<div class="bg-primary-container text-on-primary-container rounded-2xl p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 relative overflow-hidden shadow-2xl">
+<div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-surface/5 pointer-events-none"></div>
+<div class="flex flex-col gap-space-md max-w-xl z-10">
+<span class="font-label-sm text-primary-fixed uppercase tracking-wider">Ready for Expert Tree Care?</span>
+<h2 class="font-headline-lg text-on-primary">Schedule Your Free On-Site Consultation Today</h2>
+<p class="font-body-md text-primary-fixed-dim">
+            Get an accurate, no-obligation quote from an ISA Certified Arborist. Quick response times and guaranteed satisfaction.
+          </p>
+</div>
+<div class="flex flex-col sm:flex-row gap-space-md z-10 w-full md:w-auto">
+<a class="px-space-xl py-space-md bg-secondary text-on-secondary rounded-lg font-label-md hover:bg-secondary/90 transition-all text-center shadow-lg" href="#quote">
+            Book Service Now
+          </a>
+<a class="px-space-xl py-space-md bg-surface/10 backdrop-blur-md text-on-primary rounded-lg font-label-md hover:bg-surface/20 transition-all text-center flex items-center justify-center gap-2" href="tel:5558337325">
+<span class="material-symbols-outlined text-[18px]">call</span>
+            Call (555) TREE-CARE
+          </a>
+</div>
+</div>
+</div>
+</section>
+<script>
+    const serviceSelect = document.getElementById('calc-service');
+    const sizeSelect = document.getElementById('calc-size');
+    const urgencySelect = document.getElementById('calc-urgency');
+    const resultDisplay = document.getElementById('calc-result');
+
+    function updateEstimate() {
+      const base = parseFloat(serviceSelect.value);
+      const sizeMul = parseFloat(sizeSelect.value);
+      const urgencyMul = parseFloat(urgencySelect.value);
+      const total = Math.round(base * sizeMul * urgencyMul);
+      resultDisplay.textContent = '$' + total;
+    }
+
+    serviceSelect.addEventListener('change', updateEstimate);
+    sizeSelect.addEventListener('change', updateEstimate);
+    urgencySelect.addEventListener('change', updateEstimate);
+  </script>
+</div></main><footer class="w-full bg-surface-container-low py-margin"><div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-space-md text-on-surface-variant text-body-sm"><p>© 2024 ArborPro Services. All rights reserved.</p><div class="flex gap-space-lg"><a class="hover:text-on-surface" href="#">Privacy Policy</a><a class="hover:text-on-surface" href="#">Terms of Service</a></div></div></footer></body></html>

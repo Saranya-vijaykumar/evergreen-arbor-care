@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Operations Dashboard | ArborPro Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#012d1d",
+            "primary-container": "#1b4332",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#86af99",
+            "primary-fixed": "#c1ecd4",
+            "primary-fixed-dim": "#a5d0b9",
+            "on-primary-fixed": "#002114",
+            "on-primary-fixed-variant": "#274e3d",
+            "secondary": "#7d562d",
+            "secondary-container": "#ffca98",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#7a532a",
+            "surface": "#f9faf6",
+            "surface-dim": "#dadad7",
+            "surface-container-low": "#f3f4f1",
+            "surface-container": "#eeeeeb",
+            "surface-container-high": "#e8e8e5",
+            "surface-container-highest": "#e2e3e0",
+            "on-surface": "#1a1c1a",
+            "on-surface-variant": "#414844",
+            "inverse-surface": "#2f312f",
+            "inverse-on-surface": "#f0f1ee",
+            "outline": "#717973",
+            "outline-variant": "#c1c8c2",
+            "surface-tint": "#3f6653",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "on-error": "#ffffff"
+          },
+          borderRadius: {
+            lg: "0.25rem",
+            xl: "0.5rem",
+            full: "0.75rem"
+          },
+          spacing: {
+            gutter: "1.5rem"
+          },
+          fontFamily: {
+            headline: ["Inter", "sans-serif"],
+            body: ["Inter", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="/src/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+</head>
+<body class="bg-surface font-body text-on-surface">
+  <!-- Desktop Left Sidebar -->
+  <aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low border-r border-surface-container-high z-50 flex flex-col pt-6 pb-6">
+    <div class="px-6 mb-8 flex items-center gap-3">
+      <div class="w-9 h-9 rounded-xl bg-primary text-primary-fixed flex items-center justify-center">
+        <span class="material-symbols-outlined text-[22px]">forest</span>
+      </div>
+      <div>
+        <span class="font-headline text-base font-bold text-primary block leading-tight">Arbor Admin</span>
+        <span class="text-[10px] text-surface-tint font-semibold uppercase tracking-wider">Field Ops Portal</span>
+      </div>
+    </div>
+    
+    <nav class="flex-1 px-4 space-y-1.5" id="admin-nav">
+      <a class="flex items-center px-4 py-2.5 rounded-xl transition-all bg-primary-container text-on-primary-container font-bold text-xs" href="admin.html">
+        <span class="material-symbols-outlined mr-3 text-[20px]">dashboard</span>
+        Dashboard
+      </a>
+      <a class="flex items-center px-4 py-2.5 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="services.html">
+        <span class="material-symbols-outlined mr-3 text-[20px]">handyman</span>
+        Service Catalog
+      </a>
+      <a class="flex items-center px-4 py-2.5 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="pricing.html">
+        <span class="material-symbols-outlined mr-3 text-[20px]">payments</span>
+        Rate Schedules
+      </a>
+      <div class="pt-4 pb-2 px-3 text-[10px] font-bold text-outline uppercase tracking-wider">Public Website</div>
+      <a class="flex items-center px-4 py-2 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="index.html">
+        <span class="material-symbols-outlined mr-3 text-[18px]">home</span>
+        Home (Standard)
+      </a>
+      <a class="flex items-center px-4 py-2 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="home-2.html">
+        <span class="material-symbols-outlined mr-3 text-[18px]">domain</span>
+        Home 2 (Heavy Ops)
+      </a>
+      <a class="flex items-center px-4 py-2 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="about.html">
+        <span class="material-symbols-outlined mr-3 text-[18px]">info</span>
+        About Us &amp; Team
+      </a>
+      <a class="flex items-center px-4 py-2 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="blog.html">
+        <span class="material-symbols-outlined mr-3 text-[18px]">article</span>
+        Blog &amp; Knowledge Base
+      </a>
+    </nav>
+
+    <div class="px-4 pt-4 border-t border-surface-container-high">
+      <div class="p-3 rounded-xl bg-surface-container flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-fixed">
+          <span class="material-symbols-outlined text-[16px]">person</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-xs font-bold text-on-surface truncate">Tyler Vance</p>
+          <p class="text-[10px] text-on-surface-variant truncate">Lead Dispatcher</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Container with sidebar offset -->
+  <div class="pl-64">
+    <!-- Top Header Bar -->
+    <header class="fixed top-0 left-64 right-0 h-16 bg-surface/85 backdrop-blur-xl border-b border-surface-container-high shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter">
+      <div class="flex items-center gap-3">
+        <span class="font-headline text-lg font-bold text-on-surface">Operations Dashboard</span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed text-[11px] font-bold">
+          <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+          Live Sync Active
+        </span>
+      </div>
+      <div class="flex items-center gap-4">
+        <button id="open-new-order-modal-btn" class="px-3.5 py-1.5 bg-primary text-on-primary rounded-lg text-xs font-bold flex items-center gap-1.5 hover:bg-primary-container transition-all shadow-sm">
+          <span class="material-symbols-outlined text-[16px]">add</span>
+          New Order
+        </button>
+        <span class="material-symbols-outlined text-on-surface-variant cursor-pointer text-[20px] hover:text-on-surface">notifications</span>
+        <div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center">
+          <span class="material-symbols-outlined text-[16px]">person</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="relative pt-20 bg-surface p-gutter">
+      <div class="flex flex-col w-full pb-16">
+        <!-- 4 KPI Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <!-- KPI 1 -->
+          <div class="bg-surface-container-low rounded-2xl p-6 flex flex-col justify-between shadow-sm border border-surface-container relative overflow-hidden group hover:shadow-md transition-all">
+            <div class="absolute -right-6 -bottom-6 w-28 h-28 bg-primary/5 rounded-full blur-2xl group-hover:scale-150 transition-transform"></div>
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <p class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Active Work Orders</p>
+                <h3 class="text-3xl font-extrabold font-headline text-on-surface" id="kpi-active-orders">38</h3>
+              </div>
+              <div class="w-11 h-11 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center">
+                <span class="material-symbols-outlined text-[22px]">file_open</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-1 text-[11px] text-on-primary-fixed-variant font-medium">
+              <span class="material-symbols-outlined text-[16px]">trending_up</span>
+              <span>+12% from last week</span>
+            </div>
+          </div>
+
+          <!-- KPI 2 -->
+          <div class="bg-surface-container-low rounded-2xl p-6 flex flex-col justify-between shadow-sm border border-surface-container relative overflow-hidden group hover:shadow-md transition-all">
+            <div class="absolute -right-6 -bottom-6 w-28 h-28 bg-secondary/10 rounded-full blur-2xl group-hover:scale-150 transition-transform"></div>
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <p class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Pending Assessments</p>
+                <h3 class="text-3xl font-extrabold font-headline text-on-surface" id="kpi-pending-assessments">14</h3>
+              </div>
+              <div class="w-11 h-11 rounded-xl bg-secondary-container text-on-secondary-container flex items-center justify-center">
+                <span class="material-symbols-outlined text-[22px]">assignment_late</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-1 text-[11px] text-secondary font-medium">
+              <span class="material-symbols-outlined text-[16px]">schedule</span>
+              <span id="kpi-urgent-note">4 priority requests</span>
+            </div>
+          </div>
+
+          <!-- KPI 3 -->
+          <div class="bg-surface-container-low rounded-2xl p-6 flex flex-col justify-between shadow-sm border border-surface-container relative overflow-hidden group hover:shadow-md transition-all">
+            <div class="absolute -right-6 -bottom-6 w-28 h-28 bg-primary/5 rounded-full blur-2xl group-hover:scale-150 transition-transform"></div>
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <p class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Monthly Revenue</p>
+                <h3 class="text-3xl font-extrabold font-headline text-on-surface" id="kpi-monthly-revenue">$128,450</h3>
+              </div>
+              <div class="w-11 h-11 rounded-xl bg-primary text-on-primary flex items-center justify-center">
+                <span class="material-symbols-outlined text-[22px]">payments</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-1 text-[11px] text-on-primary-fixed-variant font-medium">
+              <span class="material-symbols-outlined text-[16px]">trending_up</span>
+              <span>+8.4% vs monthly target</span>
+            </div>
+          </div>
+
+          <!-- KPI 4 -->
+          <div class="bg-surface-container-low rounded-2xl p-6 flex flex-col justify-between shadow-sm border border-surface-container relative overflow-hidden group hover:shadow-md transition-all">
+            <div class="absolute -right-6 -bottom-6 w-28 h-28 bg-secondary/10 rounded-full blur-2xl group-hover:scale-150 transition-transform"></div>
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <p class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Active Field Crews</p>
+                <h3 class="text-3xl font-extrabold font-headline text-on-surface">8 / 10</h3>
+              </div>
+              <div class="w-11 h-11 rounded-xl bg-surface-variant text-on-surface-variant flex items-center justify-center">
+                <span class="material-symbols-outlined text-[22px]">groups</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-1 text-[11px] text-on-surface-variant font-medium">
+              <span class="material-symbols-outlined text-[16px]">check_circle</span>
+              <span>2 crews ready on standby</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- New Analytics Widgets: Equipment Utilization & Crew Certifications (Stitch Update) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <!-- Widget 1: Equipment Utilization Rates -->
+          <div class="bg-surface-container-low rounded-2xl p-6 shadow-sm border border-surface-container flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <h3 class="font-headline text-lg font-bold text-on-surface">Equipment Utilization Rates</h3>
+                <p class="text-xs text-on-surface-variant">Heavy machinery &amp; fleet operational status</p>
+              </div>
+              <div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center">
+                <span class="material-symbols-outlined text-[20px]">local_shipping</span>
+              </div>
+            </div>
+
+            <div class="space-y-4 my-2">
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1.5 text-on-surface">
+                  <span>Bucket Trucks (6/8 active)</span>
+                  <span class="font-bold text-primary">75%</span>
+                </div>
+                <div class="w-full bg-surface-container-highest h-2.5 rounded-full overflow-hidden">
+                  <div class="bg-primary h-full rounded-full transition-all" style="width: 75%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1.5 text-on-surface">
+                  <span>Chippers &amp; Shredders (12/15 active)</span>
+                  <span class="font-bold text-primary">80%</span>
+                </div>
+                <div class="w-full bg-surface-container-highest h-2.5 rounded-full overflow-hidden">
+                  <div class="bg-primary h-full rounded-full transition-all" style="width: 80%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1.5 text-on-surface">
+                  <span>Stump Grinders (3/5 active)</span>
+                  <span class="font-bold text-secondary">60%</span>
+                </div>
+                <div class="w-full bg-surface-container-highest h-2.5 rounded-full overflow-hidden">
+                  <div class="bg-secondary h-full rounded-full transition-all" style="width: 60%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-4 border-t border-surface-container text-xs text-on-surface-variant mt-2">
+              <span class="font-medium">Overall Fleet Efficiency</span>
+              <span class="text-primary font-bold">78.3% Fleet Usage</span>
+            </div>
+          </div>
+
+          <!-- Widget 2: Crew Certifications Expiration -->
+          <div class="bg-surface-container-low rounded-2xl p-6 shadow-sm border border-surface-container flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <h3 class="font-headline text-lg font-bold text-on-surface">Crew Certifications Expiration</h3>
+                <p class="text-xs text-on-surface-variant">Arborist licenses &amp; safety renewals tracking</p>
+              </div>
+              <div class="w-10 h-10 rounded-xl bg-secondary-container text-on-secondary-container flex items-center justify-center">
+                <span class="material-symbols-outlined text-[20px]">verified</span>
+              </div>
+            </div>
+
+            <div class="space-y-3 my-2">
+              <div class="flex items-center justify-between p-3 bg-surface-container rounded-xl border border-surface-container-high">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-error-container text-on-error-container flex items-center justify-center font-bold text-xs">
+                    14d
+                  </div>
+                  <div>
+                    <div class="font-bold text-xs text-on-surface">ISA Certified Arborist (J. Miller)</div>
+                    <div class="text-[11px] text-on-surface-variant">Crew Alpha • Expires in 14 days</div>
+                  </div>
+                </div>
+                <span class="text-error font-bold text-xs px-2 py-0.5 rounded-full bg-error-container/40">Urgent</span>
+              </div>
+
+              <div class="flex items-center justify-between p-3 bg-surface-container rounded-xl border border-surface-container-high">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-xs">
+                    45d
+                  </div>
+                  <div>
+                    <div class="font-bold text-xs text-on-surface">Crane Operator Safety (S. Vance)</div>
+                    <div class="text-[11px] text-on-surface-variant">Crew Bravo • Expires in 45 days</div>
+                  </div>
+                </div>
+                <span class="text-secondary font-bold text-xs px-2 py-0.5 rounded-full bg-secondary-container/50">Pending</span>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-4 border-t border-surface-container text-xs text-on-surface-variant mt-2">
+              <span class="font-medium">Total Active Certifications</span>
+              <span class="text-on-surface font-bold">42 / 44 Valid</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Operations Chart & Quick Actions Row -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+          <!-- Chart -->
+          <div class="lg:col-span-2 bg-surface-container-low rounded-2xl p-6 shadow-sm border border-surface-container">
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <h3 class="font-headline text-lg font-bold text-on-surface">Operations Overview</h3>
+                <p class="text-xs text-on-surface-variant">Real-time completion metrics and weekly volume</p>
+              </div>
+              <div class="flex gap-1.5 bg-surface-container p-1 rounded-xl">
+                <button id="chart-week-btn" class="px-3 py-1 rounded-lg text-xs font-bold transition-all bg-primary text-on-primary shadow-sm" onclick="setChartMode('week')">Week</button>
+                <button id="chart-month-btn" class="px-3 py-1 rounded-lg text-xs font-semibold text-on-surface-variant hover:text-on-surface transition-all" onclick="setChartMode('month')">Month</button>
+              </div>
+            </div>
+            
+            <div class="h-60 w-full flex items-end justify-between gap-4 pt-8 pb-2 px-4" id="chart-bars-container">
+              <!-- Bar 1 -->
+              <div class="w-full bg-surface-container-highest rounded-t-xl h-[40%] relative group flex flex-col items-center">
+                <div class="absolute -top-7 bg-inverse-surface text-inverse-on-surface text-[11px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">$18k</div>
+                <div class="w-full bg-primary-container rounded-t-xl h-[75%] mt-auto transition-all"></div>
+                <span class="text-xs text-on-surface-variant mt-2 font-medium">W1</span>
+              </div>
+              <!-- Bar 2 -->
+              <div class="w-full bg-surface-container-highest rounded-t-xl h-[65%] relative group flex flex-col items-center">
+                <div class="absolute -top-7 bg-inverse-surface text-inverse-on-surface text-[11px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">$28k</div>
+                <div class="w-full bg-primary-container rounded-t-xl h-[85%] mt-auto transition-all"></div>
+                <span class="text-xs text-on-surface-variant mt-2 font-medium">W2</span>
+              </div>
+              <!-- Bar 3 -->
+              <div class="w-full bg-surface-container-highest rounded-t-xl h-[80%] relative group flex flex-col items-center">
+                <div class="absolute -top-7 bg-inverse-surface text-inverse-on-surface text-[11px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">$34k</div>
+                <div class="w-full bg-primary-container rounded-t-xl h-[95%] mt-auto transition-all"></div>
+                <span class="text-xs text-on-surface-variant mt-2 font-medium">W3</span>
+              </div>
+              <!-- Bar 4 -->
+              <div class="w-full bg-surface-container-highest rounded-t-xl h-[95%] relative group flex flex-col items-center">
+                <div class="absolute -top-7 bg-inverse-surface text-inverse-on-surface text-[11px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">$48k</div>
+                <div class="w-full bg-primary-container rounded-t-xl h-[90%] mt-auto transition-all"></div>
+                <span class="text-xs text-on-surface-variant mt-2 font-medium">W4</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="bg-surface-container-low rounded-2xl p-6 shadow-sm border border-surface-container flex flex-col justify-between">
+            <div>
+              <h3 class="font-headline text-lg font-bold text-on-surface mb-1">Quick Actions</h3>
+              <p class="text-xs text-on-surface-variant mb-4">Fast dispatch &amp; operational controls</p>
+            </div>
+            <div class="flex flex-col gap-3 flex-1 justify-around">
+              <button onclick="openManualOrderModal()" class="w-full py-3 px-4 bg-primary text-on-primary rounded-xl text-xs font-bold flex items-center justify-between hover:bg-opacity-95 transition-all shadow-sm">
+                <span class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px]">add_circle</span>New Work Order</span>
+                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+              </button>
+              <button onclick="quickDispatchHighest()" class="w-full py-3 px-4 bg-secondary-container text-on-secondary-container rounded-xl text-xs font-bold flex items-center justify-between hover:bg-opacity-90 transition-all shadow-sm">
+                <span class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px]">emergency</span>Dispatch Priority Crew</span>
+                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+              </button>
+              <button onclick="window.location.href='contact.html'" class="w-full py-3 px-4 bg-surface-container-highest text-on-surface rounded-xl text-xs font-bold flex items-center justify-between hover:bg-surface-variant transition-all shadow-sm">
+                <span class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px]">assignment_add</span>Client Intake Form</span>
+                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- NEW SECTION: Live Fleet GPS Telemetry & Active Crew Radar -->
+        <div class="bg-surface-container-low rounded-2xl p-6 shadow-sm border border-surface-container mb-8">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
+                <h3 class="font-headline text-xl font-bold text-on-surface">Live Fleet GPS Telemetry &amp; Crew Status</h3>
+              </div>
+              <p class="text-xs text-on-surface-variant mt-0.5">Real-time transponder telemetry across King, Snohomish &amp; Pierce county job sites</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs text-on-surface-variant font-medium">8 Units Active • 2 Standby</span>
+              <button onclick="refreshFleetTelemetry()" class="px-3 py-1.5 bg-surface rounded-lg text-xs font-bold text-on-surface border border-outline-variant hover:bg-surface-container transition-colors flex items-center gap-1 shadow-sm">
+                <span class="material-symbols-outlined text-[14px]">refresh</span> Refresh Telemetry
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <!-- Crew 1 -->
+            <div class="bg-surface rounded-xl p-4 border border-surface-container flex flex-col justify-between shadow-sm">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-primary">Crew Alpha (Unit #01)</span>
+                  <h4 class="font-bold text-xs text-on-surface">Liebherr 60T Crane Rig</h4>
+                </div>
+                <span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed text-[10px] font-bold">On Scene</span>
+              </div>
+              <p class="text-[11px] text-on-surface-variant mb-3">Medina Waterfront • 82ft Cedar Extraction</p>
+              <div class="space-y-1 text-[10px] bg-surface-container-low p-2.5 rounded-lg border border-surface-container text-on-surface mb-3">
+                <div class="flex justify-between"><span class="text-outline">Lead Climber:</span><span class="font-bold">Marcus Vance (BCMA)</span></div>
+                <div class="flex justify-between"><span class="text-outline">Winch Load:</span><span class="font-bold text-primary">3,800 lbs Pick</span></div>
+                <div class="flex justify-between"><span class="text-outline">Safety Status:</span><span class="font-bold text-primary">100% Green</span></div>
+              </div>
+              <button onclick="showToast('Telemetry Link Active', 'Pinging Crew Alpha: Signal 98% nominal.', 'success')" class="w-full py-1.5 bg-surface-container hover:bg-surface-container-high rounded-lg text-[11px] font-semibold text-on-surface transition-colors flex items-center justify-center gap-1">
+                <span class="material-symbols-outlined text-[14px]">sensors</span> Ping Transponder
+              </button>
+            </div>
+
+            <!-- Crew 2 -->
+            <div class="bg-surface rounded-xl p-4 border border-surface-container flex flex-col justify-between shadow-sm">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-secondary">Crew Bravo (Unit #03)</span>
+                  <h4 class="font-bold text-xs text-on-surface">Altec 75ft Bucket Lift</h4>
+                </div>
+                <span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold animate-pulse">En Route</span>
+              </div>
+              <p class="text-[11px] text-on-surface-variant mb-3">Magnolia Bluff • Windthrow Emergency</p>
+              <div class="space-y-1 text-[10px] bg-surface-container-low p-2.5 rounded-lg border border-surface-container text-on-surface mb-3">
+                <div class="flex justify-between"><span class="text-outline">Lead Operator:</span><span class="font-bold">Tyler Vance (CTSP)</span></div>
+                <div class="flex justify-between"><span class="text-outline">Speed / GPS:</span><span class="font-bold text-secondary">42 mph (ETA 12m)</span></div>
+                <div class="flex justify-between"><span class="text-outline">Safety Status:</span><span class="font-bold text-primary">Pre-Rigged</span></div>
+              </div>
+              <button onclick="showToast('Telemetry Link Active', 'Crew Bravo GPS ETA: 12 minutes to Magnolia.', 'success')" class="w-full py-1.5 bg-surface-container hover:bg-surface-container-high rounded-lg text-[11px] font-semibold text-on-surface transition-colors flex items-center justify-center gap-1">
+                <span class="material-symbols-outlined text-[14px]">navigation</span> Track Routing
+              </button>
+            </div>
+
+            <!-- Crew 3 -->
+            <div class="bg-surface rounded-xl p-4 border border-surface-container flex flex-col justify-between shadow-sm">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-primary">Crew Gamma (Unit #02)</span>
+                  <h4 class="font-bold text-xs text-on-surface">Pathology &amp; Air-Spade</h4>
+                </div>
+                <span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed text-[10px] font-bold">On Scene</span>
+              </div>
+              <p class="text-[11px] text-on-surface-variant mb-3">Bellevue Tech Campus • Tomography Scan</p>
+              <div class="space-y-1 text-[10px] bg-surface-container-low p-2.5 rounded-lg border border-surface-container text-on-surface mb-3">
+                <div class="flex justify-between"><span class="text-outline">Lead Pathologist:</span><span class="font-bold">Dr. Elena Rostova</span></div>
+                <div class="flex justify-between"><span class="text-outline">Sensors Active:</span><span class="font-bold text-primary">12-Point Sonic Array</span></div>
+                <div class="flex justify-between"><span class="text-outline">Residual Wall:</span><span class="font-bold text-primary">76% Healthy</span></div>
+              </div>
+              <button onclick="showToast('Telemetry Link Active', 'Crew Gamma: 3D Acoustic Tomogram rendering...', 'success')" class="w-full py-1.5 bg-surface-container hover:bg-surface-container-high rounded-lg text-[11px] font-semibold text-on-surface transition-colors flex items-center justify-center gap-1">
+                <span class="material-symbols-outlined text-[14px]">query_stats</span> View Diagnostic
+              </button>
+            </div>
+
+            <!-- Crew 4 -->
+            <div class="bg-surface rounded-xl p-4 border border-surface-container flex flex-col justify-between shadow-sm">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-outline">Crew Delta (Unit #05)</span>
+                  <h4 class="font-bold text-xs text-on-surface">Vermeer Grinder &amp; Chipper</h4>
+                </div>
+                <span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] font-bold">Standby</span>
+              </div>
+              <p class="text-[11px] text-on-surface-variant mb-3">Seattle Central Depot • Ready Deploy</p>
+              <div class="space-y-1 text-[10px] bg-surface-container-low p-2.5 rounded-lg border border-surface-container text-on-surface mb-3">
+                <div class="flex justify-between"><span class="text-outline">Lead Tech:</span><span class="font-bold">Jason Chen</span></div>
+                <div class="flex justify-between"><span class="text-outline">Fuel / Maintenance:</span><span class="font-bold text-primary">100% Pre-Check</span></div>
+                <div class="flex justify-between"><span class="text-outline">Standby Alert:</span><span class="font-bold text-primary">Immediate Ready</span></div>
+              </div>
+              <button onclick="showToast('Dispatch Standby Crew', 'Crew Delta queued for next priority work order.', 'success')" class="w-full py-1.5 bg-surface-container hover:bg-surface-container-high rounded-lg text-[11px] font-semibold text-on-surface transition-colors flex items-center justify-center gap-1">
+                <span class="material-symbols-outlined text-[14px]">bolt</span> Quick Deploy
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Requests & Active Jobs Table -->
+        <div class="bg-surface-container-low rounded-2xl p-6 shadow-sm border border-surface-container">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
+            <div>
+              <h3 class="font-headline text-xl font-bold text-on-surface">Service Requests &amp; Active Jobs</h3>
+              <p class="text-xs text-on-surface-variant mt-0.5">Manage incoming client trees, storm hazard reports, and scheduled maintenance</p>
+            </div>
+            
+            <div class="flex flex-wrap items-center gap-3 w-full sm:w-auto">
+              <!-- Filter status dropdown -->
+              <select id="table-status-filter" class="bg-surface-container px-3 py-2 rounded-xl text-xs font-semibold text-on-surface border border-outline-variant focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer">
+                <option value="ALL">All Statuses</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Scheduled">Scheduled</option>
+                <option value="Pending Review">Pending Review</option>
+                <option value="Completed">Completed</option>
+              </select>
+
+              <div class="relative flex-1 sm:w-64">
+                <span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[18px]">search</span>
+                <input id="table-search-input" class="w-full bg-surface-container pl-9 pr-4 py-2 rounded-xl text-xs text-on-surface border border-outline-variant focus:outline-none focus:ring-1 focus:ring-primary" placeholder="Search address or client..." type="text"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-surface-container-highest text-[11px] font-bold text-on-surface-variant uppercase tracking-wider">
+                  <th class="py-3 px-4">Client / Location</th>
+                  <th class="py-3 px-4">Service Type</th>
+                  <th class="py-3 px-4">Assigned Crew</th>
+                  <th class="py-3 px-4">Status</th>
+                  <th class="py-3 px-4">Priority</th>
+                  <th class="py-3 px-4 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-surface-container-highest text-xs text-on-surface" id="work-orders-tbody">
+                <!-- Rows injected dynamically via store -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="flex items-center justify-between mt-6 pt-4 border-t border-surface-container-highest">
+            <span class="text-xs text-on-surface-variant font-medium" id="table-records-count">Showing 4 active records</span>
+            <div class="flex gap-2">
+              <button class="px-3 py-1.5 bg-surface-container rounded-lg text-xs font-semibold text-on-surface hover:bg-surface-variant transition-colors" onclick="resetToSampleData()">Reset Sample Data</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Manual Work Order Modal -->
+  <div id="manual-order-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-surface rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-surface-container-highest relative animate-scaleUp">
+      <button onclick="closeManualOrderModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-on-surface p-2 rounded-full hover:bg-surface-container">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
+
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-xl bg-primary text-primary-fixed flex items-center justify-center">
+          <span class="material-symbols-outlined">add_task</span>
+        </div>
+        <div>
+          <h3 class="font-headline text-lg font-bold text-on-surface">Create Manual Work Order</h3>
+          <p class="text-xs text-on-surface-variant">Log internal dispatch or phone consultation</p>
+        </div>
+      </div>
+
+      <form id="manual-order-form" class="space-y-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-on-surface mb-1">Client Name *</label>
+            <input type="text" id="manual-client" required placeholder="Holloway Estate" class="w-full px-3 py-2 bg-surface-container rounded-lg text-xs text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary"/>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-on-surface mb-1">Phone / Contact *</label>
+            <input type="text" id="manual-contact" required placeholder="(555) 392-1102" class="w-full px-3 py-2 bg-surface-container rounded-lg text-xs text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary"/>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-on-surface mb-1">Property Address *</label>
+          <input type="text" id="manual-location" required placeholder="742 Evergreen Terrace" class="w-full px-3 py-2 bg-surface-container rounded-lg text-xs text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary"/>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-on-surface mb-1">Service</label>
+            <input type="text" id="manual-service" required placeholder="Hazard Tree Removal" class="w-full px-3 py-2 bg-surface-container rounded-lg text-xs text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary"/>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-on-surface mb-1">Assigned Crew</label>
+            <select id="manual-crew" class="w-full px-3 py-2 bg-surface-container rounded-lg text-xs text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary">
+              <option value="Crew Alpha (Lead: J. Miller)">Crew Alpha (Lead: J. Miller)</option>
+              <option value="Crew Bravo (Lead: S. Vance)">Crew Bravo (Lead: S. Vance)</option>
+              <option value="Crew Delta (Lead: M. Ross)">Crew Delta (Lead: M. Ross)</option>
+              <option value="Unassigned (Standby)">Unassigned (Standby)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-on-surface mb-1">Priority</label>
+            <select id="manual-priority" class="w-full px-3 py-2 bg-surface-container rounded-lg text-xs text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary">
+              <option value="Emergency">Emergency</option>
+              <option value="Medium" selected>Medium</option>
+              <option value="Low">Low</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-on-surface mb-1">Status</label>
+            <select id="manual-status" class="w-full px-3 py-2 bg-surface-container rounded-lg text-xs text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary">
+              <option value="In Progress">In Progress</option>
+              <option value="Scheduled" selected>Scheduled</option>
+              <option value="Pending Review">Pending Review</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-on-surface mb-1">Amount ($)</label>
+            <input type="number" id="manual-amount" value="850" class="w-full px-3 py-2 bg-surface-container rounded-lg text-xs text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary"/>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-on-surface mb-1">Notes</label>
+          <textarea id="manual-notes" rows="2" placeholder="Site constraints, power lines, equipment needed..." class="w-full px-3 py-2 bg-surface-container rounded-lg text-xs text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+        </div>
+
+        <div class="flex items-center justify-end gap-2 pt-3 border-t border-surface-container-highest">
+          <button type="button" onclick="closeManualOrderModal()" class="px-4 py-2 rounded-lg text-xs font-semibold text-on-surface hover:bg-surface-container transition-colors">Cancel</button>
+          <button type="submit" class="px-5 py-2 rounded-lg bg-primary text-on-primary text-xs font-bold hover:bg-primary-container transition-colors shadow-md">Create Order</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="/src/js/store.js"></script>
+  <script type="module" src="/src/js/nav.js"></script>
+  <script type="module">
+    import { ArborStore } from '/src/js/store.js';
+    import { showToast } from '/src/js/nav.js';
+
+    const tbody = document.getElementById('work-orders-tbody');
+    const recordsCount = document.getElementById('table-records-count');
+    const searchInput = document.getElementById('table-search-input');
+    const statusFilter = document.getElementById('table-status-filter');
+
+    const kpiActive = document.getElementById('kpi-active-orders');
+    const kpiPending = document.getElementById('kpi-pending-assessments');
+    const kpiRevenue = document.getElementById('kpi-monthly-revenue');
+    const kpiUrgent = document.getElementById('kpi-urgent-note');
+
+    let currentSearch = '';
+    let currentStatus = 'ALL';
+
+    function renderDashboard() {
+      const orders = ArborStore.getOrders();
+      const metrics = ArborStore.getMetrics();
+
+      // Update KPI counts
+      kpiActive.textContent = metrics.activeOrders;
+      kpiPending.textContent = metrics.pendingAssessments;
+      kpiRevenue.textContent = '$' + metrics.monthlyRevenue;
+      kpiUrgent.textContent = `${metrics.emergencyCount} emergency requests`;
+
+      // Filter rows
+      const filtered = orders.filter(o => {
+        const matchesStatus = currentStatus === 'ALL' || o.status === currentStatus;
+        const text = `${o.client} ${o.location} ${o.service} ${o.crew}`.toLowerCase();
+        const matchesSearch = !currentSearch || text.includes(currentSearch);
+        return matchesStatus && matchesSearch;
+      });
+
+      recordsCount.textContent = `Showing ${filtered.length} of ${orders.length} active records`;
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="6" class="py-8 text-center text-on-surface-variant text-xs">
+              No matching work orders found.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(order => {
+        let statusBadge = '';
+        if (order.status === 'In Progress') {
+          statusBadge = `
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed text-[11px] font-bold">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+              In Progress
+            </span>
+          `;
+        } else if (order.status === 'Scheduled') {
+          statusBadge = `
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold">
+              <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              Scheduled
+            </span>
+          `;
+        } else if (order.status === 'Completed') {
+          statusBadge = `
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary text-on-primary text-[11px] font-bold">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>
+              Completed
+            </span>
+          `;
+        } else {
+          statusBadge = `
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-variant text-on-surface-variant text-[11px] font-bold">
+              <span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+              Pending Review
+            </span>
+          `;
+        }
+
+        let priorityBadge = '';
+        if (order.priority === 'Emergency') {
+          priorityBadge = `
+            <span class="text-error font-bold text-xs flex items-center gap-1">
+              <span class="material-symbols-outlined text-[15px]">emergency</span> High
+            </span>
+          `;
+        } else {
+          priorityBadge = `
+            <span class="text-on-surface-variant text-xs font-semibold">${order.priority}</span>
+          `;
+        }
+
+        return `
+          <tr class="hover:bg-surface-container transition-colors group">
+            <td class="py-3.5 px-4">
+              <div class="font-bold text-on-surface">${order.client}</div>
+              <div class="text-on-surface-variant text-[11px]">${order.location}</div>
+            </td>
+            <td class="py-3.5 px-4">
+              <span class="px-2.5 py-1 rounded-lg bg-surface-container-highest text-on-surface text-[11px] font-medium inline-block">
+                ${order.service}
+              </span>
+            </td>
+            <td class="py-3.5 px-4 text-xs text-on-surface-variant">
+              ${order.crew}
+            </td>
+            <td class="py-3.5 px-4">
+              ${statusBadge}
+            </td>
+            <td class="py-3.5 px-4">
+              ${priorityBadge}
+            </td>
+            <td class="py-3.5 px-4 text-right">
+              <div class="flex items-center justify-end gap-1">
+                ${order.status !== 'Completed' ? `
+                  <button onclick="handleStatusAction('${order.id}', 'Completed')" class="px-2 py-1 rounded bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary text-[11px] font-bold transition-colors">
+                    Complete
+                  </button>
+                ` : ''}
+                ${order.status === 'Pending Review' ? `
+                  <button onclick="handleStatusAction('${order.id}', 'In Progress')" class="px-2 py-1 rounded bg-secondary text-on-secondary hover:bg-secondary/90 text-[11px] font-bold transition-colors">
+                    Dispatch
+                  </button>
+                ` : ''}
+                <button onclick="deleteWorkOrder('${order.id}')" title="Delete" class="p-1 text-on-surface-variant hover:text-error rounded hover:bg-surface-container-highest transition-colors">
+                  <span class="material-symbols-outlined text-[18px]">delete</span>
+                </button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    window.handleStatusAction = function(id, nextStatus) {
+      ArborStore.updateStatus(id, nextStatus);
+      showToast('Status Updated', `Work order ${id} set to ${nextStatus}`, 'success');
+      renderDashboard();
+    };
+
+    window.deleteWorkOrder = function(id) {
+      if (confirm(`Are you sure you want to delete ${id}?`)) {
+        ArborStore.deleteOrder(id);
+        showToast('Order Removed', `Order ${id} has been removed.`, 'success');
+        renderDashboard();
+      }
+    };
+
+    window.quickDispatchHighest = function() {
+      const orders = ArborStore.getOrders();
+      const pending = orders.find(o => o.status === 'Pending Review' || o.priority === 'Emergency');
+      if (pending) {
+        ArborStore.updateStatus(pending.id, 'In Progress');
+        showToast('Priority Crew Dispatched!', `Crew Alpha dispatched to ${pending.client} at ${pending.location}.`, 'success');
+        renderDashboard();
+      } else {
+        showToast('All Crews Deployed', 'No pending jobs require immediate dispatch.', 'info');
+      }
+    };
+
+    window.resetToSampleData = function() {
+      localStorage.removeItem('arborpro_work_orders_v1');
+      ArborStore.getOrders();
+      renderDashboard();
+      showToast('Data Reset', 'Sample work orders reloaded.', 'success');
+    };
+
+    // Modal controls
+    const modal = document.getElementById('manual-order-modal');
+    window.openManualOrderModal = () => modal?.classList.remove('hidden');
+    window.closeManualOrderModal = () => modal?.classList.add('hidden');
+
+    document.getElementById('open-new-order-modal-btn')?.addEventListener('click', window.openManualOrderModal);
+
+    document.getElementById('manual-order-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const client = document.getElementById('manual-client').value.trim();
+      const contact = document.getElementById('manual-contact').value.trim();
+      const location = document.getElementById('manual-location').value.trim();
+      const service = document.getElementById('manual-service').value.trim();
+      const crew = document.getElementById('manual-crew').value;
+      const priority = document.getElementById('manual-priority').value;
+      const status = document.getElementById('manual-status').value;
+      const amount = parseFloat(document.getElementById('manual-amount').value) || 500;
+      const notes = document.getElementById('manual-notes').value.trim();
+
+      const order = ArborStore.addOrder({
+        client,
+        contact,
+        location,
+        service,
+        crew,
+        priority,
+        status,
+        amount,
+        notes
+      });
+
+      closeManualOrderModal();
+      document.getElementById('manual-order-form').reset();
+      showToast('New Work Order Created', `Order ${order.id} for ${client} created.`, 'success');
+      renderDashboard();
+    });
+
+    searchInput?.addEventListener('input', (e) => {
+      currentSearch = e.target.value.toLowerCase().trim();
+      renderDashboard();
+    });
+
+    statusFilter?.addEventListener('change', (e) => {
+      currentStatus = e.target.value;
+      renderDashboard();
+    });
+
+    // Chart toggle week vs month
+    window.setChartMode = function(mode) {
+      const weekBtn = document.getElementById('chart-week-btn');
+      const monthBtn = document.getElementById('chart-month-btn');
+      const container = document.getElementById('chart-bars-container');
+
+      if (mode === 'month') {
+        weekBtn.className = 'px-3 py-1 rounded-lg text-xs font-semibold text-on-surface-variant hover:text-on-surface transition-all';
+        monthBtn.className = 'px-3 py-1 rounded-lg text-xs font-bold transition-all bg-primary text-on-primary shadow-sm';
+        container.innerHTML = `
+          <div class="w-full bg-surface-container-highest rounded-t-xl h-[55%] relative group flex flex-col items-center">
+            <div class="absolute -top-7 bg-inverse-surface text-inverse-on-surface text-[11px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">$92k</div>
+            <div class="w-full bg-primary-container rounded-t-xl h-[80%] mt-auto transition-all"></div>
+            <span class="text-xs text-on-surface-variant mt-2 font-medium">Jul</span>
+          </div>
+          <div class="w-full bg-surface-container-highest rounded-t-xl h-[70%] relative group flex flex-col items-center">
+            <div class="absolute -top-7 bg-inverse-surface text-inverse-on-surface text-[11px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">$115k</div>
+            <div class="w-full bg-primary-container rounded-t-xl h-[85%] mt-auto transition-all"></div>
+            <span class="text-xs text-on-surface-variant mt-2 font-medium">Aug</span>
+          </div>
+          <div class="w-full bg-surface-container-highest rounded-t-xl h-[85%] relative group flex flex-col items-center">
+            <div class="absolute -top-7 bg-inverse-surface text-inverse-on-surface text-[11px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">$124k</div>
+            <div class="w-full bg-primary-container rounded-t-xl h-[90%] mt-auto transition-all"></div>
+            <span class="text-xs text-on-surface-variant mt-2 font-medium">Sep</span>
+          </div>
+          <div class="w-full bg-surface-container-highest rounded-t-xl h-[95%] relative group flex flex-col items-center">
+            <div class="absolute -top-7 bg-inverse-surface text-inverse-on-surface text-[11px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">$128k</div>
+            <div class="w-full bg-primary-container rounded-t-xl h-[95%] mt-auto transition-all"></div>
+            <span class="text-xs text-on-surface-variant mt-2 font-medium">Oct (Current)</span>
+          </div>
+        `;
+      } else {
+        weekBtn.className = 'px-3 py-1 rounded-lg text-xs font-bold transition-all bg-primary text-on-primary shadow-sm';
+        monthBtn.className = 'px-3 py-1 rounded-lg text-xs font-semibold text-on-surface-variant hover:text-on-surface transition-all';
+        container.innerHTML = `
+          <div class="w-full bg-surface-container-highest rounded-t-xl h-[40%] relative group flex flex-col items-center">
+            <div class="absolute -top-7 bg-inverse-surface text-inverse-on-surface text-[11px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">$18k</div>
+            <div class="w-full bg-primary-container rounded-t-xl h-[75%] mt-auto transition-all"></div>
+            <span class="text-xs text-on-surface-variant mt-2 font-medium">W1</span>
+          </div>
+          <div class="w-full bg-surface-container-highest rounded-t-xl h-[65%] relative group flex flex-col items-center">
+            <div class="absolute -top-7 bg-inverse-surface text-inverse-on-surface text-[11px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">$28k</div>
+            <div class="w-full bg-primary-container rounded-t-xl h-[85%] mt-auto transition-all"></div>
+            <span class="text-xs text-on-surface-variant mt-2 font-medium">W2</span>
+          </div>
+          <div class="w-full bg-surface-container-highest rounded-t-xl h-[80%] relative group flex flex-col items-center">
+            <div class="absolute -top-7 bg-inverse-surface text-inverse-on-surface text-[11px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">$34k</div>
+            <div class="w-full bg-primary-container rounded-t-xl h-[95%] mt-auto transition-all"></div>
+            <span class="text-xs text-on-surface-variant mt-2 font-medium">W3</span>
+          </div>
+          <div class="w-full bg-surface-container-highest rounded-t-xl h-[95%] relative group flex flex-col items-center">
+            <div class="absolute -top-7 bg-inverse-surface text-inverse-on-surface text-[11px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">$48k</div>
+            <div class="w-full bg-primary-container rounded-t-xl h-[90%] mt-auto transition-all"></div>
+            <span class="text-xs text-on-surface-variant mt-2 font-medium">W4</span>
+          </div>
+        `;
+      }
+    };
+
+    // Subscribe to cross-page store updates in real-time
+    ArborStore.subscribe(() => {
+      renderDashboard();
+    });
+
+    window.refreshFleetTelemetry = function() {
+      showToast('Telemetry Refreshed', '8 Active Transponders online. All GPS fixes synced within 3 seconds.', 'success');
+    };
+
+    // Initial render
+    renderDashboard();
+  </script>
+</body>
+</html>
