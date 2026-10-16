@@ -341,11 +341,9 @@ export function initViewPreferences() {
     if (newIsDark) {
       root.classList.add('dark');
       localStorage.setItem('arbor_theme', 'dark');
-      showToast('Theme Changed', 'Dark mode activated for enhanced night visibility.', 'success');
     } else {
       root.classList.remove('dark');
       localStorage.setItem('arbor_theme', 'light');
-      showToast('Theme Changed', 'Light mode restored.', 'success');
     }
     syncUI();
   }
