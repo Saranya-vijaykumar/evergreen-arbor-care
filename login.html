@@ -35,17 +35,30 @@
     .logo-container {
       display: flex;
       justify-content: center;
-      margin-bottom: 1rem;
+      margin-bottom: 1.15rem;
+    }
+    .brand-logo-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: transform 0.2s ease, filter 0.2s ease;
+      cursor: pointer;
+    }
+    .brand-logo-link:hover {
+      transform: scale(1.06);
+      filter: drop-shadow(0 6px 16px rgba(27, 109, 36, 0.45));
     }
     .logo-circle {
-      width: 60px;
-      height: 60px;
+      width: 64px;
+      height: 64px;
       background: linear-gradient(135deg, #1b6d24 0%, #22c55e 100%);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 20px rgba(27, 109, 36, 0.35);
+      box-shadow: 0 8px 24px rgba(27, 109, 36, 0.35);
+      border: 2px solid rgba(255, 255, 255, 0.9);
     }
     .auth-title {
       font-size: 1.65rem;
@@ -161,9 +174,17 @@
       border: 1px solid #bbf7d0;
       border-radius: 0.5rem;
       padding: 0.65rem 0.85rem;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: #166534;
       text-align: center;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    .demo-box:hover {
+      background: #dcfce7;
+      border-color: #86efac;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(22, 101, 52, 0.15);
     }
     .auth-footer {
       text-align: center;
@@ -199,19 +220,19 @@
 </head>
 <body>
   <div class="auth-card">
+    <!-- Clickable Official Brand Logo -->
     <div class="logo-container">
-      <div class="logo-circle">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M17 8C8 10 5.9 16.17 3.82 19.82A2 2 0 0 0 5.6 22.5h12.8a2 2 0 0 0 1.78-2.68C18.1 16.17 16 10 17 8z"/>
-          <path d="M12 22V10"/>
-        </svg>
-      </div>
+      <a href="index.html" class="brand-logo-link" title="Click to Return to ArborPro Home">
+        <div class="logo-circle">
+          <span class="material-symbols-outlined text-[32px] text-white">forest</span>
+        </div>
+      </a>
     </div>
 
     <h1 class="auth-title">Evergreen Arbor Care</h1>
     <p class="auth-subtitle">Admin Dashboard — Sign In</p>
 
-    <div id="error-msg" class="error-banner">Invalid credentials. Please check your username and password.</div>
+    <div id="error-msg" class="error-banner"></div>
 
     <form id="login-form" novalidate>
       <div class="form-group">
@@ -234,8 +255,11 @@
       <button type="submit" class="btn-submit" id="login-btn">Sign In</button>
     </form>
 
-    <div class="demo-box">
-      <strong>Demo Credentials:</strong> admin &nbsp;|&nbsp; arbor2024
+    <!-- Clickable Demo Credentials with Auto-fill -->
+    <div class="demo-box" id="demo-box" style="cursor: pointer;" title="Click to auto-fill demo credentials">
+      <span class="material-symbols-outlined text-[16px]" style="vertical-align: -3px; margin-right: 4px;">key</span>
+      <strong>Demo:</strong> <span style="text-decoration: underline;">admin / arbor2024</span>
+      <span style="display: block; font-size: 0.72rem; color: #15803d; margin-top: 2px;">(Click here to auto-fill)</span>
     </div>
 
     <div class="footer-center">
@@ -250,14 +274,29 @@
     const DUMMY_USERS = [
       { username: 'admin', password: 'arbor2024', role: 'admin', name: 'Tyler Vance' }
     ];
-    if (localStorage.getItem('arborpro_auth')) { window.location.href = 'admin.html'; }
+
+    // If already logged in, redirect to admin dashboard
+    if (localStorage.getItem('arborpro_auth')) {
+      window.location.href = 'admin.html';
+    }
 
     const form = document.getElementById('login-form');
     const errorMsg = document.getElementById('error-msg');
     const loginBtn = document.getElementById('login-btn');
     const eyeBtn = document.getElementById('eye-btn');
     const passwordInput = document.getElementById('password');
+    const usernameInput = document.getElementById('username');
+    const demoBox = document.getElementById('demo-box');
 
+    // Auto-fill demo credentials on click
+    demoBox?.addEventListener('click', () => {
+      usernameInput.value = 'admin';
+      passwordInput.value = 'arbor2024';
+      errorMsg.style.display = 'none';
+      usernameInput.focus();
+    });
+
+    // Toggle password visibility
     eyeBtn.addEventListener('click', () => {
       const isPassword = passwordInput.type === 'password';
       passwordInput.type = isPassword ? 'text' : 'password';
@@ -266,26 +305,50 @@
         : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
     });
 
+    // Handle Login submission
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const username = document.getElementById('username').value.trim();
-      const password = document.getElementById('password').value;
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value;
+
+      if (!username || !password) {
+        errorMsg.textContent = 'Please enter both username and password.';
+        errorMsg.style.display = 'block';
+        return;
+      }
+
+      // Check default admin + registered users in localStorage
       const registeredRaw = localStorage.getItem('arborpro_users');
       const registered = registeredRaw ? JSON.parse(registeredRaw) : [];
       const allUsers = [...DUMMY_USERS, ...registered];
-      const user = allUsers.find(u => (u.username.toLowerCase() === username.toLowerCase() || (u.email && u.email.toLowerCase() === username.toLowerCase())) && u.password === password);
+
+      const user = allUsers.find(u => 
+        (u.username.toLowerCase() === username.toLowerCase() || (u.email && u.email.toLowerCase() === username.toLowerCase())) && 
+        u.password === password
+      );
 
       if (user) {
         loginBtn.textContent = 'Signing in…';
         loginBtn.disabled = true;
         errorMsg.style.display = 'none';
-        const authPayload = { user: user.username || user.email, name: user.name, role: user.role, loginTime: Date.now() };
+
+        // Store authentication session
+        const authPayload = { 
+          user: user.username || user.email, 
+          name: user.name || 'Tyler Vance', 
+          role: user.role || 'dispatcher', 
+          loginTime: Date.now() 
+        };
         localStorage.setItem('arborpro_auth', JSON.stringify(authPayload));
-        setTimeout(() => { window.location.href = 'admin.html'; }, 600);
+
+        setTimeout(() => {
+          window.location.href = 'admin.html';
+        }, 500);
       } else {
+        errorMsg.textContent = 'Invalid credentials. Please check your username and password.';
         errorMsg.style.display = 'block';
-        document.getElementById('password').value = '';
-        document.getElementById('password').focus();
+        passwordInput.value = '';
+        passwordInput.focus();
       }
     });
   </script>

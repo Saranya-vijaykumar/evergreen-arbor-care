@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -35,17 +35,30 @@
     .logo-container {
       display: flex;
       justify-content: center;
-      margin-bottom: 1rem;
+      margin-bottom: 1.15rem;
+    }
+    .brand-logo-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: transform 0.2s ease, filter 0.2s ease;
+      cursor: pointer;
+    }
+    .brand-logo-link:hover {
+      transform: scale(1.06);
+      filter: drop-shadow(0 6px 16px rgba(27, 109, 36, 0.45));
     }
     .logo-circle {
-      width: 60px;
-      height: 60px;
+      width: 64px;
+      height: 64px;
       background: linear-gradient(135deg, #1b6d24 0%, #22c55e 100%);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 20px rgba(27, 109, 36, 0.35);
+      box-shadow: 0 8px 24px rgba(27, 109, 36, 0.35);
+      border: 2px solid rgba(255, 255, 255, 0.9);
     }
     .auth-title {
       font-size: 1.65rem;
@@ -222,13 +235,13 @@
 </head>
 <body>
   <div class="auth-card">
+    <!-- Clickable Official Brand Logo -->
     <div class="logo-container">
-      <div class="logo-circle">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M17 8C8 10 5.9 16.17 3.82 19.82A2 2 0 0 0 5.6 22.5h12.8a2 2 0 0 0 1.78-2.68C18.1 16.17 16 10 17 8z"/>
-          <path d="M12 22V10"/>
-        </svg>
-      </div>
+      <a href="index.html" class="brand-logo-link" title="Click to Return to ArborPro Home">
+        <div class="logo-circle">
+          <span class="material-symbols-outlined text-[32px] text-white">forest</span>
+        </div>
+      </a>
     </div>
 
     <h1 class="auth-title">Create Account</h1>
