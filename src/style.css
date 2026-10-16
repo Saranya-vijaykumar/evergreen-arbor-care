@@ -908,3 +908,61 @@ html.dark .service-card:hover, html.dark .hover-card-lift:hover {
     display: none !important;
   }
 }
+
+
+/* =========================================================
+   FOREST EMERALD & AMBER GOLD PALETTE HARMONY
+   ========================================================= */
+
+/* Warm Amber Gold Accent Elements (Light Mode) */
+.text-secondary {
+  color: #b45309 !important;
+}
+
+.bg-secondary {
+  background-color: #d97706 !important;
+  color: #ffffff !important;
+}
+
+.bg-secondary:hover {
+  background-color: #b45309 !important;
+}
+
+.border-secondary {
+  border-color: #d97706 !important;
+}
+
+/* Radiant Emerald & Amber Gold (Dark Mode) */
+html.dark .text-primary {
+  color: #4ade80 !important;
+}
+
+html.dark .text-secondary {
+  color: #fbbf24 !important;
+}
+
+html.dark .bg-secondary {
+  background-color: #d97706 !important;
+  color: #ffffff !important;
+}
+
+html.dark .bg-secondary:hover {
+  background-color: #f59e0b !important;
+}
+
+html.dark .border-secondary {
+  border-color: rgba(251, 191, 36, 0.4) !important;
+}
+
+/* Amber Gold badge accents */
+.badge-gold {
+  background-color: rgba(245, 158, 11, 0.12) !important;
+  color: #b45309 !important;
+  border: 1px solid rgba(245, 158, 11, 0.25) !important;
+}
+
+html.dark .badge-gold {
+  background-color: rgba(251, 191, 36, 0.15) !important;
+  color: #fbbf24 !important;
+  border: 1px solid rgba(251, 191, 36, 0.3) !important;
+}
