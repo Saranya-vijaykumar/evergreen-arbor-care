@@ -234,6 +234,18 @@
 
     <div id="error-msg" class="error-banner"></div>
 
+    <!-- Direct Access Button (No Password Required) -->
+    <a href="admin.html" id="quick-enter-btn" class="btn-submit" style="display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; margin-bottom: 1.25rem; background: linear-gradient(135deg, #012d1d 0%, #1b6d24 100%);">
+      <span class="material-symbols-outlined text-[20px]">dashboard</span>
+      Enter Dashboard Directly (No Password)
+    </a>
+
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 1.25rem;">
+      <div style="flex: 1; height: 1px; background: #e5e7eb;"></div>
+      <span style="font-size: 0.75rem; color: #9ca3af; text-transform: uppercase; font-weight: 600;">or sign in</span>
+      <div style="flex: 1; height: 1px; background: #e5e7eb;"></div>
+    </div>
+
     <form id="login-form" novalidate>
       <div class="form-group">
         <label for="username" class="form-label">Username or Email</label>
@@ -305,51 +317,35 @@
         : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
     });
 
-    // Handle Login submission
+    // Handle Login submission - Always allow entry without password
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const username = usernameInput.value.trim();
-      const password = passwordInput.value;
+      loginBtn.textContent = 'Opening Dashboard…';
+      loginBtn.disabled = true;
 
-      if (!username || !password) {
-        errorMsg.textContent = 'Please enter both username and password.';
-        errorMsg.style.display = 'block';
-        return;
-      }
+      // Auto-set authentication session
+      const authPayload = { 
+        user: usernameInput.value.trim() || 'admin', 
+        name: 'Tyler Vance', 
+        role: 'admin', 
+        loginTime: Date.now() 
+      };
+      localStorage.setItem('arborpro_auth', JSON.stringify(authPayload));
 
-      // Check default admin + registered users in localStorage
-      const registeredRaw = localStorage.getItem('arborpro_users');
-      const registered = registeredRaw ? JSON.parse(registeredRaw) : [];
-      const allUsers = [...DUMMY_USERS, ...registered];
+      setTimeout(() => {
+        window.location.href = 'admin.html';
+      }, 300);
+    });
 
-      const user = allUsers.find(u => 
-        (u.username.toLowerCase() === username.toLowerCase() || (u.email && u.email.toLowerCase() === username.toLowerCase())) && 
-        u.password === password
-      );
-
-      if (user) {
-        loginBtn.textContent = 'Signing in…';
-        loginBtn.disabled = true;
-        errorMsg.style.display = 'none';
-
-        // Store authentication session
-        const authPayload = { 
-          user: user.username || user.email, 
-          name: user.name || 'Tyler Vance', 
-          role: user.role || 'dispatcher', 
-          loginTime: Date.now() 
-        };
-        localStorage.setItem('arborpro_auth', JSON.stringify(authPayload));
-
-        setTimeout(() => {
-          window.location.href = 'admin.html';
-        }, 500);
-      } else {
-        errorMsg.textContent = 'Invalid credentials. Please check your username and password.';
-        errorMsg.style.display = 'block';
-        passwordInput.value = '';
-        passwordInput.focus();
-      }
+    // Make demo box click immediately log in and go to admin.html
+    demoBox?.addEventListener('click', () => {
+      localStorage.setItem('arborpro_auth', JSON.stringify({
+        user: 'admin',
+        name: 'Tyler Vance',
+        role: 'admin',
+        loginTime: Date.now()
+      }));
+      window.location.href = 'admin.html';
     });
   </script>
 </body>
