@@ -49,9 +49,34 @@ export function setupNavigation() {
   // Mobile menu toggle
   const mobileToggle = document.getElementById('mobile-menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu-drawer');
-  if (mobileToggle && mobileMenu) {
-    mobileToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+  if (mobileToggle && mobileMenu && !mobileToggle.dataset.bound) {
+    mobileToggle.dataset.bound = 'true';
+    const toggleIcon = mobileToggle.querySelector('.material-symbols-outlined');
+
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isClosed = mobileMenu.classList.toggle('hidden');
+      if (toggleIcon) {
+        toggleIcon.textContent = isClosed ? 'menu' : 'close';
+      }
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mobileToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+        if (!mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          if (toggleIcon) toggleIcon.textContent = 'menu';
+        }
+      }
+    });
+
+    // Close when clicking any link inside the mobile drawer
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        if (toggleIcon) toggleIcon.textContent = 'menu';
+      });
     });
   }
 
