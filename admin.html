@@ -89,37 +89,53 @@
     </div>
     
     <nav class="flex-1 px-4 space-y-1.5 overflow-y-auto" id="admin-nav">
-      <a class="flex items-center px-4 py-2.5 rounded-xl transition-all bg-primary-container text-on-primary-container font-bold text-xs" href="admin.html">
+      <button type="button" data-tab="overview" onclick="switchAdminTab('overview')" class="admin-tab-btn active w-full flex items-center px-4 py-2.5 rounded-xl transition-all bg-primary-container text-on-primary-container font-bold text-xs text-left">
         <span class="material-symbols-outlined mr-3 text-[20px]">dashboard</span>
-        Dashboard
-      </a>
-      <a class="flex items-center px-4 py-2.5 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="services.html">
+        Dashboard Overview
+      </button>
+      <button type="button" data-tab="orders" onclick="switchAdminTab('orders')" class="admin-tab-btn w-full flex items-center px-4 py-2.5 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-left">
+        <span class="material-symbols-outlined mr-3 text-[20px]">assignment</span>
+        Work Orders &amp; Dispatch
+        <span class="ml-auto bg-primary/10 text-primary px-2 py-0.5 rounded-full text-[10px] font-bold" id="badge-tab-orders">3</span>
+      </button>
+      <button type="button" data-tab="services" onclick="switchAdminTab('services')" class="admin-tab-btn w-full flex items-center px-4 py-2.5 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-left">
         <span class="material-symbols-outlined mr-3 text-[20px]">handyman</span>
         Service Catalog
-      </a>
-      <a class="flex items-center px-4 py-2.5 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="pricing.html">
+        <span class="ml-auto bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded-full text-[10px] font-bold">13</span>
+      </button>
+      <button type="button" data-tab="fleet" onclick="switchAdminTab('fleet')" class="admin-tab-btn w-full flex items-center px-4 py-2.5 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-left">
+        <span class="material-symbols-outlined mr-3 text-[20px]">local_shipping</span>
+        Fleet &amp; Equipment GPS
+        <span class="ml-auto bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded-full text-[10px] font-bold">8 Active</span>
+      </button>
+      <button type="button" data-tab="rates" onclick="switchAdminTab('rates')" class="admin-tab-btn w-full flex items-center px-4 py-2.5 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-left">
         <span class="material-symbols-outlined mr-3 text-[20px]">payments</span>
-        Rate Schedules
-      </a>
-      <div class="pt-4 pb-2 px-3 text-[10px] font-bold text-outline uppercase tracking-wider">Public Website</div>
+        Rate Schedules &amp; Pricing
+      </button>
+
+      <div class="pt-4 pb-2 px-3 text-[10px] font-bold text-outline uppercase tracking-wider">Public Website Links</div>
       <div class="space-y-1 bg-surface-container/50 p-1.5 rounded-xl border border-surface-container mb-1">
         <span class="text-[9px] font-bold text-surface-tint uppercase px-2 block">Home Pages</span>
-        <a class="flex items-center px-3 py-1.5 rounded-lg text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="index.html">
+        <a class="flex items-center px-3 py-1.5 rounded-lg text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="index.html" target="_blank">
           <span class="material-symbols-outlined mr-2 text-[16px] text-primary">home</span>
           Residential
+          <span class="material-symbols-outlined text-[13px] ml-auto text-outline">open_in_new</span>
         </a>
-        <a class="flex items-center px-3 py-1.5 rounded-lg text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="home-2.html">
+        <a class="flex items-center px-3 py-1.5 rounded-lg text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="home-2.html" target="_blank">
           <span class="material-symbols-outlined mr-2 text-[16px] text-secondary">precision_manufacturing</span>
           Commercial
+          <span class="material-symbols-outlined text-[13px] ml-auto text-outline">open_in_new</span>
         </a>
       </div>
-      <a class="flex items-center px-4 py-2 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="about.html">
+      <a class="flex items-center px-4 py-2 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="about.html" target="_blank">
         <span class="material-symbols-outlined mr-3 text-[18px]">info</span>
         About Us &amp; Team
+        <span class="material-symbols-outlined text-[13px] ml-auto text-outline">open_in_new</span>
       </a>
-      <a class="flex items-center px-4 py-2 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="blog.html">
+      <a class="flex items-center px-4 py-2 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="blog.html" target="_blank">
         <span class="material-symbols-outlined mr-3 text-[18px]">article</span>
         Blog &amp; Knowledge Base
+        <span class="material-symbols-outlined text-[13px] ml-auto text-outline">open_in_new</span>
       </a>
     </nav>
 
@@ -234,7 +250,8 @@
     </header>
 
     <main class="relative pt-20 bg-surface p-gutter">
-      <div class="flex flex-col w-full pb-16">
+      <!-- TAB SECTION 1: DASHBOARD OVERVIEW -->
+      <div id="tab-section-overview" class="flex flex-col w-full pb-16">
         <!-- 4 KPI Cards -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <!-- KPI 1 -->
@@ -627,6 +644,206 @@
           </div>
         </div>
       </div>
+    
+      <!-- TAB SECTION 2: WORK ORDERS & DISPATCH QUEUE -->
+      <div id="tab-section-orders" class="hidden flex-col w-full pb-16">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+          <div>
+            <h2 class="font-headline text-2xl font-bold text-on-surface">Work Orders &amp; Dispatch Queue</h2>
+            <p class="text-xs text-on-surface-variant mt-0.5">Real-time scheduling, client dispatch tracking, and field crew execution</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button onclick="exportOrdersCSV()" class="px-3.5 py-2 bg-surface text-on-surface border border-outline-variant hover:bg-surface-container rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all">
+              <span class="material-symbols-outlined text-[16px]">download</span> Export CSV
+            </button>
+            <button onclick="openManualOrderModal()" class="px-4 py-2 bg-primary text-on-primary rounded-xl text-xs font-bold flex items-center gap-1.5 hover:bg-primary-container transition-all shadow-md">
+              <span class="material-symbols-outlined text-[16px]">add</span> + New Work Order
+            </button>
+          </div>
+        </div>
+
+        <!-- Orders Table Card -->
+        <div class="bg-surface-container-low rounded-2xl p-6 shadow-sm border border-surface-container">
+          <!-- Filters & Search Toolbar -->
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+            <div class="flex flex-wrap items-center gap-2" id="orders-status-tabs">
+              <button onclick="setOrdersFilter('ALL')" class="order-filter-pill active px-3 py-1.5 rounded-lg text-xs font-bold bg-primary text-on-primary transition-all">All Orders</button>
+              <button onclick="setOrdersFilter('In Progress')" class="order-filter-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface hover:bg-surface-container text-on-surface transition-all">In Progress</button>
+              <button onclick="setOrdersFilter('Scheduled')" class="order-filter-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface hover:bg-surface-container text-on-surface transition-all">Scheduled</button>
+              <button onclick="setOrdersFilter('Pending Review')" class="order-filter-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface hover:bg-surface-container text-on-surface transition-all">Pending Review</button>
+              <button onclick="setOrdersFilter('Completed')" class="order-filter-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface hover:bg-surface-container text-on-surface transition-all">Completed</button>
+            </div>
+            <div class="relative w-full md:w-72">
+              <span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">search</span>
+              <input id="orders-full-search" class="w-full bg-surface pl-9 pr-4 py-2 rounded-xl text-xs text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Search orders..." type="text"/>
+            </div>
+          </div>
+
+          <!-- Orders Table Container -->
+          <div class="overflow-x-auto rounded-xl border border-surface-container bg-surface">
+            <table class="w-full text-left border-collapse text-xs">
+              <thead>
+                <tr class="border-b border-surface-container-high bg-surface-container-low text-[11px] font-bold text-on-surface-variant uppercase tracking-wider">
+                  <th class="py-3 px-4">Order &amp; Client</th>
+                  <th class="py-3 px-4">Service</th>
+                  <th class="py-3 px-4">Location</th>
+                  <th class="py-3 px-4">Crew</th>
+                  <th class="py-3 px-4">Amount</th>
+                  <th class="py-3 px-4">Priority</th>
+                  <th class="py-3 px-4">Status</th>
+                  <th class="py-3 px-4 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="orders-full-tbody" class="divide-y divide-surface-container">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB SECTION 3: SERVICE CATALOG MANAGEMENT -->
+      <div id="tab-section-services" class="hidden flex-col w-full pb-16">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+          <div>
+            <h2 class="font-headline text-2xl font-bold text-on-surface">Service Catalog Management</h2>
+            <p class="text-xs text-on-surface-variant mt-0.5">Manage operational scopes, pricing tiers, and arborist service availability</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="openNewServiceModal()" class="px-4 py-2 bg-primary text-on-primary rounded-xl text-xs font-bold flex items-center gap-1.5 hover:bg-primary-container transition-all shadow-md">
+              <span class="material-symbols-outlined text-[16px]">add</span> + Add Service
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="admin-services-grid">
+          <!-- Dynamically populated from SERVICES_DATA -->
+        </div>
+      </div>
+
+      <!-- TAB SECTION 4: FLEET & EQUIPMENT TELEMETRY -->
+      <div id="tab-section-fleet" class="hidden flex-col w-full pb-16">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+          <div>
+            <h2 class="font-headline text-2xl font-bold text-on-surface">Live Fleet GPS Telemetry &amp; Machinery</h2>
+            <p class="text-xs text-on-surface-variant mt-0.5">Real-time heavy machinery tracking, hydraulic pressure diagnostics, and crew readiness</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="refreshFleetTelemetry()" class="px-3.5 py-2 bg-primary text-on-primary rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-md">
+              <span class="material-symbols-outlined text-[16px]">refresh</span> Ping All Transponders
+            </button>
+          </div>
+        </div>
+
+        <!-- 8 Fleet Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div class="bg-surface-container-low rounded-2xl p-5 border border-surface-container flex flex-col justify-between shadow-sm">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-bold">Unit C-01</span>
+              <span class="flex items-center gap-1 text-[11px] text-emerald-600 font-bold"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Live GPS</span>
+            </div>
+            <h4 class="font-headline font-bold text-base text-on-surface">60-Ton Knuckle Crane</h4>
+            <p class="text-xs text-on-surface-variant mt-1">Magnolia Bluff Site • En Route</p>
+            <div class="mt-4 pt-3 border-t border-surface-container text-xs text-on-surface-variant flex justify-between">
+              <span>Crew: Alpha</span><span class="font-bold text-primary">Hydraulics 100%</span>
+            </div>
+            <button onclick="showToast('Transponder Pinged', 'Unit C-01 GPS: 47.6062° N, 122.3321° W. Speed: 32 mph.', 'success')" class="mt-3 w-full py-1.5 bg-surface rounded-lg text-xs font-bold hover:bg-surface-container text-on-surface border border-outline-variant transition-colors">Ping Transponder</button>
+          </div>
+
+          <div class="bg-surface-container-low rounded-2xl p-5 border border-surface-container flex flex-col justify-between shadow-sm">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-0.5 rounded-full bg-secondary/10 text-secondary text-[10px] font-bold">Unit B-03</span>
+              <span class="flex items-center gap-1 text-[11px] text-emerald-600 font-bold"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Active</span>
+            </div>
+            <h4 class="font-headline font-bold text-base text-on-surface">Altec 75ft Bucket Truck</h4>
+            <p class="text-xs text-on-surface-variant mt-1">Bellevue Way NE • High Reach Ops</p>
+            <div class="mt-4 pt-3 border-t border-surface-container text-xs text-on-surface-variant flex justify-between">
+              <span>Crew: Bravo</span><span class="font-bold text-secondary">Cat C Dielectric OK</span>
+            </div>
+            <button onclick="showToast('Transponder Pinged', 'Unit B-03 GPS: 47.6101° N, 122.2015° W. PTO engaged.', 'success')" class="mt-3 w-full py-1.5 bg-surface rounded-lg text-xs font-bold hover:bg-surface-container text-on-surface border border-outline-variant transition-colors">Ping Transponder</button>
+          </div>
+
+          <div class="bg-surface-container-low rounded-2xl p-5 border border-surface-container flex flex-col justify-between shadow-sm">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-bold">Unit G-02</span>
+              <span class="flex items-center gap-1 text-[11px] text-emerald-600 font-bold"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Milling</span>
+            </div>
+            <h4 class="font-headline font-bold text-base text-on-surface">Vermeer SC852 Grinder</h4>
+            <p class="text-xs text-on-surface-variant mt-1">Kirkland Waterfront • Stump Milling</p>
+            <div class="mt-4 pt-3 border-t border-surface-container text-xs text-on-surface-variant flex justify-between">
+              <span>Crew: Delta</span><span class="font-bold text-primary">Carbide Teeth 94%</span>
+            </div>
+            <button onclick="showToast('Transponder Pinged', 'Unit G-02 GPS: 47.6815° N, 122.2087° W. Operating at 2,400 RPM.', 'success')" class="mt-3 w-full py-1.5 bg-surface rounded-lg text-xs font-bold hover:bg-surface-container text-on-surface border border-outline-variant transition-colors">Ping Transponder</button>
+          </div>
+
+          <div class="bg-surface-container-low rounded-2xl p-5 border border-surface-container flex flex-col justify-between shadow-sm">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-0.5 rounded-full bg-surface-variant text-on-surface-variant text-[10px] font-bold">Unit P-01</span>
+              <span class="flex items-center gap-1 text-[11px] text-on-surface-variant font-bold">Standby</span>
+            </div>
+            <h4 class="font-headline font-bold text-base text-on-surface">AirSpade 2000 Pneumatic</h4>
+            <p class="text-xs text-on-surface-variant mt-1">Central Yard Depot • Ready</p>
+            <div class="mt-4 pt-3 border-t border-surface-container text-xs text-on-surface-variant flex justify-between">
+              <span>Crew: Standby</span><span class="font-bold text-on-surface-variant">Mach 2 Ready</span>
+            </div>
+            <button onclick="showToast('Unit Ready', 'AirSpade compressor prepped for next root excavation ticket.', 'info')" class="mt-3 w-full py-1.5 bg-surface rounded-lg text-xs font-bold hover:bg-surface-container text-on-surface border border-outline-variant transition-colors">Check Status</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB SECTION 5: RATE SCHEDULES & PRICING -->
+      <div id="tab-section-rates" class="hidden flex-col w-full pb-16">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+          <div>
+            <h2 class="font-headline text-2xl font-bold text-on-surface">Rate Schedules &amp; Pricing Configuration</h2>
+            <p class="text-xs text-on-surface-variant mt-0.5">Control pricing calculator parameters, hourly crew rates, and commercial multipliers</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="saveRateSchedules()" class="px-4 py-2 bg-primary text-on-primary rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-md">
+              <span class="material-symbols-outlined text-[16px]">save</span> Save Changes
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="bg-surface-container-low rounded-2xl p-6 border border-surface-container shadow-sm flex flex-col gap-4">
+            <h3 class="font-headline font-bold text-base text-on-surface">Base Hourly &amp; Crew Rates</h3>
+            <div class="space-y-3">
+              <div>
+                <label class="block text-xs font-semibold text-on-surface mb-1">Standard 3-Person Climbing Crew ($/hr)</label>
+                <input type="number" id="rate-climbing" value="185" class="w-full px-3 py-2 bg-surface rounded-lg text-xs text-on-surface border border-outline-variant focus:ring-2 focus:ring-primary"/>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-on-surface mb-1">60-Ton Crane + Certified Operator ($/hr)</label>
+                <input type="number" id="rate-crane" value="325" class="w-full px-3 py-2 bg-surface rounded-lg text-xs text-on-surface border border-outline-variant focus:ring-2 focus:ring-primary"/>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-on-surface mb-1">Pneumatic AirSpade Diagnostic Crew ($/hr)</label>
+                <input type="number" id="rate-airspade" value="220" class="w-full px-3 py-2 bg-surface rounded-lg text-xs text-on-surface border border-outline-variant focus:ring-2 focus:ring-primary"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-surface-container-low rounded-2xl p-6 border border-surface-container shadow-sm flex flex-col gap-4">
+            <h3 class="font-headline font-bold text-base text-on-surface">Multiplier Adjustments</h3>
+            <div class="space-y-3">
+              <div>
+                <label class="block text-xs font-semibold text-on-surface mb-1">Emergency 24/7 Rapid Surcharge (%)</label>
+                <input type="number" id="multiplier-emergency" value="45" class="w-full px-3 py-2 bg-surface rounded-lg text-xs text-on-surface border border-outline-variant focus:ring-2 focus:ring-primary"/>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-on-surface mb-1">Commercial Annual Contract Discount (%)</label>
+                <input type="number" id="discount-annual" value="15" class="w-full px-3 py-2 bg-surface rounded-lg text-xs text-on-surface border border-outline-variant focus:ring-2 focus:ring-primary"/>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-on-surface mb-1">Stump Grinding Add-on Fee ($)</label>
+                <input type="number" id="addon-stump" value="250" class="w-full px-3 py-2 bg-surface rounded-lg text-xs text-on-surface border border-outline-variant focus:ring-2 focus:ring-primary"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </main>
   </div>
 
@@ -717,12 +934,19 @@
     </div>
   </div>
 
-  <script type="module" src="/src/js/store.js"></script>
+    <script type="module" src="/src/js/store.js"></script>
   <script type="module" src="/src/js/nav.js"></script>
   <script type="module">
     import { ArborStore } from '/src/js/store.js';
     import { showToast } from '/src/js/nav.js';
+    import { SERVICES_DATA } from '/src/js/services-data.js';
 
+    // Expose globally for inline event handlers
+    window.ArborStore = ArborStore;
+    window.showToast = showToast;
+    window.SERVICES_DATA = SERVICES_DATA;
+
+    // Overview Tab Elements
     const tbody = document.getElementById('work-orders-tbody');
     const recordsCount = document.getElementById('table-records-count');
     const searchInput = document.getElementById('table-search-input');
@@ -736,115 +960,290 @@
     let currentSearch = '';
     let currentStatus = 'ALL';
 
+    // Work Orders Tab Elements
+    let currentFullOrdersStatus = 'ALL';
+    let currentFullOrdersSearch = '';
+
+    // ==========================================
+    // 1. TAB SWITCHING FUNCTIONALITY
+    // ==========================================
+    const tabSections = {
+      overview: document.getElementById('tab-section-overview'),
+      orders: document.getElementById('tab-section-orders'),
+      services: document.getElementById('tab-section-services'),
+      fleet: document.getElementById('tab-section-fleet'),
+      rates: document.getElementById('tab-section-rates')
+    };
+
+    window.switchAdminTab = function(tabName) {
+      if (!tabSections[tabName]) tabName = 'overview';
+
+      // Update sidebar nav button active classes
+      document.querySelectorAll('.admin-tab-btn').forEach(btn => {
+        const isTarget = btn.getAttribute('data-tab') === tabName;
+        if (isTarget) {
+          btn.className = 'admin-tab-btn active w-full flex items-center px-4 py-2.5 rounded-xl transition-all bg-primary text-on-primary font-bold text-xs text-left shadow-sm';
+        } else {
+          btn.className = 'admin-tab-btn w-full flex items-center px-4 py-2.5 rounded-xl text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-left';
+        }
+      });
+
+      // Show target tab, hide others
+      Object.entries(tabSections).forEach(([name, el]) => {
+        if (!el) return;
+        if (name === tabName) {
+          el.classList.remove('hidden');
+          el.classList.add('flex');
+        } else {
+          el.classList.add('hidden');
+          el.classList.remove('flex');
+        }
+      });
+
+      // Close mobile drawer if open
+      toggleAdminSidebar(false);
+
+      // Retain hash for page bookmarks/refresh
+      try {
+        history.replaceState(null, '', '#' + tabName);
+      } catch(e) {}
+
+      // Render tab content on view
+      if (tabName === 'overview') {
+        renderDashboard();
+      } else if (tabName === 'orders') {
+        renderOrdersFullTable();
+      } else if (tabName === 'services') {
+        renderAdminServices();
+      } else if (tabName === 'rates') {
+        loadRateSchedules();
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    // ==========================================
+    // 2. DASHBOARD OVERVIEW RENDERING
+    // ==========================================
     function renderDashboard() {
       const orders = ArborStore.getOrders();
       const metrics = ArborStore.getMetrics();
 
       // Update KPI counts
-      kpiActive.textContent = metrics.activeOrders;
-      kpiPending.textContent = metrics.pendingAssessments;
-      kpiRevenue.textContent = '$' + metrics.monthlyRevenue;
-      kpiUrgent.textContent = `${metrics.emergencyCount} emergency requests`;
+      if (kpiActive) kpiActive.textContent = metrics.activeOrders;
+      if (kpiPending) kpiPending.textContent = metrics.pendingAssessments;
+      if (kpiRevenue) kpiRevenue.textContent = '$' + metrics.monthlyRevenue;
+      if (kpiUrgent) kpiUrgent.textContent = `${metrics.emergencyCount} emergency requests`;
 
-      // Filter rows
+      // Update sidebar order count badge
+      const ordersBadge = document.getElementById('badge-tab-orders');
+      if (ordersBadge) ordersBadge.textContent = metrics.activeOrders;
+
+      // Filter rows for Overview table
+      if (tbody) {
+        const filtered = orders.filter(o => {
+          const matchesStatus = currentStatus === 'ALL' || o.status === currentStatus;
+          const text = `${o.client} ${o.location} ${o.service} ${o.crew}`.toLowerCase();
+          const matchesSearch = !currentSearch || text.includes(currentSearch);
+          return matchesStatus && matchesSearch;
+        });
+
+        if (recordsCount) {
+          recordsCount.textContent = `Showing ${filtered.length} of ${orders.length} active records`;
+        }
+
+        if (filtered.length === 0) {
+          tbody.innerHTML = `
+            <tr>
+              <td colspan="6" class="py-8 text-center text-on-surface-variant text-xs">
+                No matching work orders found.
+              </td>
+            </tr>
+          `;
+        } else {
+          tbody.innerHTML = filtered.map(order => {
+            let statusBadge = '';
+            if (order.status === 'In Progress') {
+              statusBadge = `
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed text-[11px] font-bold">
+                  <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                  In Progress
+                </span>
+              `;
+            } else if (order.status === 'Scheduled') {
+              statusBadge = `
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold">
+                  <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Scheduled
+                </span>
+              `;
+            } else if (order.status === 'Completed') {
+              statusBadge = `
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary text-on-primary text-[11px] font-bold">
+                  <span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>
+                  Completed
+                </span>
+              `;
+            } else {
+              statusBadge = `
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-highest text-on-surface-variant text-[11px] font-bold">
+                  <span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                  Pending Review
+                </span>
+              `;
+            }
+
+            let priorityBadge = '';
+            if (order.priority === 'Emergency') {
+              priorityBadge = `
+                <span class="text-error font-bold text-xs flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[15px]">emergency</span> High
+                </span>
+              `;
+            } else {
+              priorityBadge = `
+                <span class="text-on-surface-variant text-xs font-semibold">${order.priority}</span>
+              `;
+            }
+
+            return `
+              <tr class="hover:bg-surface-container transition-colors group">
+                <td class="py-3.5 px-4">
+                  <div class="font-bold text-on-surface">${order.client}</div>
+                  <div class="text-on-surface-variant text-[11px]">${order.location}</div>
+                </td>
+                <td class="py-3.5 px-4">
+                  <span class="px-2.5 py-1 rounded-lg bg-surface-container-highest text-on-surface text-[11px] font-medium inline-block">
+                    ${order.service}
+                  </span>
+                </td>
+                <td class="py-3.5 px-4 text-xs text-on-surface-variant">
+                  ${order.crew}
+                </td>
+                <td class="py-3.5 px-4">
+                  ${statusBadge}
+                </td>
+                <td class="py-3.5 px-4">
+                  ${priorityBadge}
+                </td>
+                <td class="py-3.5 px-4 text-right">
+                  <div class="flex items-center justify-end gap-1">
+                    ${order.status !== 'Completed' ? `
+                      <button onclick="handleStatusAction('${order.id}', 'Completed')" class="px-2 py-1 rounded bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary text-[11px] font-bold transition-colors">
+                        Complete
+                      </button>
+                    ` : ''}
+                    ${order.status === 'Pending Review' ? `
+                      <button onclick="handleStatusAction('${order.id}', 'In Progress')" class="px-2 py-1 rounded bg-secondary text-on-secondary hover:bg-secondary/90 text-[11px] font-bold transition-colors">
+                        Dispatch
+                      </button>
+                    ` : ''}
+                    <button onclick="deleteWorkOrder('${order.id}')" title="Delete" class="p-1 text-on-surface-variant hover:text-error rounded hover:bg-surface-container-highest transition-colors">
+                      <span class="material-symbols-outlined text-[18px]">delete</span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            `;
+          }).join('');
+        }
+      }
+    }
+
+    // ==========================================
+    // 3. WORK ORDERS TAB FULL TABLE & ACTIONS
+    // ==========================================
+    window.setOrdersFilter = function(status) {
+      currentFullOrdersStatus = status;
+      document.querySelectorAll('.order-filter-pill').forEach(pill => {
+        if (pill.textContent.trim().toLowerCase().includes(status.toLowerCase()) || (status === 'ALL' && pill.textContent.includes('All'))) {
+          pill.className = 'order-filter-pill active px-3 py-1.5 rounded-lg text-xs font-bold bg-primary text-on-primary transition-all shadow-sm';
+        } else {
+          pill.className = 'order-filter-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface hover:bg-surface-container text-on-surface transition-all';
+        }
+      });
+      renderOrdersFullTable();
+    };
+
+    window.renderOrdersFullTable = function() {
+      const tbodyFull = document.getElementById('orders-full-tbody');
+      if (!tbodyFull) return;
+
+      const orders = ArborStore.getOrders();
       const filtered = orders.filter(o => {
-        const matchesStatus = currentStatus === 'ALL' || o.status === currentStatus;
-        const text = `${o.client} ${o.location} ${o.service} ${o.crew}`.toLowerCase();
-        const matchesSearch = !currentSearch || text.includes(currentSearch);
+        const matchesStatus = currentFullOrdersStatus === 'ALL' || o.status === currentFullOrdersStatus;
+        const text = `${o.id} ${o.client} ${o.location} ${o.service} ${o.crew} ${o.contact || ''}`.toLowerCase();
+        const matchesSearch = !currentFullOrdersSearch || text.includes(currentFullOrdersSearch);
         return matchesStatus && matchesSearch;
       });
 
-      recordsCount.textContent = `Showing ${filtered.length} of ${orders.length} active records`;
-
       if (filtered.length === 0) {
-        tbody.innerHTML = `
+        tbodyFull.innerHTML = `
           <tr>
-            <td colspan="6" class="py-8 text-center text-on-surface-variant text-xs">
-              No matching work orders found.
+            <td colspan="8" class="py-10 text-center text-on-surface-variant text-xs">
+              No work orders match the current criteria.
             </td>
           </tr>
         `;
         return;
       }
 
-      tbody.innerHTML = filtered.map(order => {
+      tbodyFull.innerHTML = filtered.map(order => {
         let statusBadge = '';
         if (order.status === 'In Progress') {
-          statusBadge = `
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed text-[11px] font-bold">
-              <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-              In Progress
-            </span>
-          `;
+          statusBadge = '<span class="px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed text-[11px] font-bold inline-flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> In Progress</span>';
         } else if (order.status === 'Scheduled') {
-          statusBadge = `
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold">
-              <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-              Scheduled
-            </span>
-          `;
+          statusBadge = '<span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold">Scheduled</span>';
         } else if (order.status === 'Completed') {
-          statusBadge = `
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary text-on-primary text-[11px] font-bold">
-              <span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>
-              Completed
-            </span>
-          `;
+          statusBadge = '<span class="px-2.5 py-1 rounded-full bg-primary text-on-primary text-[11px] font-bold">Completed</span>';
         } else {
-          statusBadge = `
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-variant text-on-surface-variant text-[11px] font-bold">
-              <span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
-              Pending Review
-            </span>
-          `;
+          statusBadge = '<span class="px-2.5 py-1 rounded-full bg-surface-container-highest text-on-surface-variant text-[11px] font-bold">Pending Review</span>';
         }
 
-        let priorityBadge = '';
-        if (order.priority === 'Emergency') {
-          priorityBadge = `
-            <span class="text-error font-bold text-xs flex items-center gap-1">
-              <span class="material-symbols-outlined text-[15px]">emergency</span> High
-            </span>
-          `;
-        } else {
-          priorityBadge = `
-            <span class="text-on-surface-variant text-xs font-semibold">${order.priority}</span>
-          `;
-        }
+        let priorityBadge = order.priority === 'Emergency'
+          ? '<span class="px-2 py-0.5 rounded bg-error/15 text-error font-bold text-[10px] uppercase tracking-wider inline-flex items-center gap-0.5"><span class="material-symbols-outlined text-[13px]">bolt</span> Emergency</span>'
+          : `<span class="text-on-surface-variant text-xs font-semibold">${order.priority}</span>`;
 
         return `
-          <tr class="hover:bg-surface-container transition-colors group">
+          <tr class="hover:bg-surface-container/60 transition-colors border-b border-surface-container">
             <td class="py-3.5 px-4">
-              <div class="font-bold text-on-surface">${order.client}</div>
-              <div class="text-on-surface-variant text-[11px]">${order.location}</div>
+              <span class="text-[10px] font-mono font-bold text-primary block">${order.id}</span>
+              <span class="font-bold text-on-surface text-xs">${order.client}</span>
+              <span class="text-[11px] text-on-surface-variant block">${order.contact || 'No phone'}</span>
             </td>
             <td class="py-3.5 px-4">
-              <span class="px-2.5 py-1 rounded-lg bg-surface-container-highest text-on-surface text-[11px] font-medium inline-block">
+              <span class="px-2 py-0.5 rounded-md bg-surface-container-highest text-on-surface text-[11px] font-medium">
                 ${order.service}
               </span>
             </td>
             <td class="py-3.5 px-4 text-xs text-on-surface-variant">
+              ${order.location}
+            </td>
+            <td class="py-3.5 px-4 text-xs font-medium text-on-surface">
               ${order.crew}
             </td>
-            <td class="py-3.5 px-4">
-              ${statusBadge}
+            <td class="py-3.5 px-4 font-mono font-bold text-xs text-primary">
+              $${order.amount || 750}
             </td>
             <td class="py-3.5 px-4">
               ${priorityBadge}
             </td>
+            <td class="py-3.5 px-4">
+              ${statusBadge}
+            </td>
             <td class="py-3.5 px-4 text-right">
-              <div class="flex items-center justify-end gap-1">
+              <div class="flex items-center justify-end gap-1.5">
                 ${order.status !== 'Completed' ? `
-                  <button onclick="handleStatusAction('${order.id}', 'Completed')" class="px-2 py-1 rounded bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary text-[11px] font-bold transition-colors">
+                  <button onclick="handleStatusAction('${order.id}', 'Completed')" class="px-2.5 py-1 rounded-lg bg-primary text-on-primary hover:bg-primary-container text-[11px] font-bold transition-all shadow-sm">
                     Complete
                   </button>
                 ` : ''}
                 ${order.status === 'Pending Review' ? `
-                  <button onclick="handleStatusAction('${order.id}', 'In Progress')" class="px-2 py-1 rounded bg-secondary text-on-secondary hover:bg-secondary/90 text-[11px] font-bold transition-colors">
+                  <button onclick="handleStatusAction('${order.id}', 'In Progress')" class="px-2.5 py-1 rounded-lg bg-secondary text-on-secondary hover:bg-secondary/90 text-[11px] font-bold transition-all shadow-sm">
                     Dispatch
                   </button>
                 ` : ''}
-                <button onclick="deleteWorkOrder('${order.id}')" title="Delete" class="p-1 text-on-surface-variant hover:text-error rounded hover:bg-surface-container-highest transition-colors">
+                <button onclick="deleteWorkOrder('${order.id}')" title="Delete Work Order" class="p-1 text-on-surface-variant hover:text-error hover:bg-surface-container rounded-lg transition-colors">
                   <span class="material-symbols-outlined text-[18px]">delete</span>
                 </button>
               </div>
@@ -852,19 +1251,230 @@
           </tr>
         `;
       }).join('');
+    };
+
+    const ordersFullSearch = document.getElementById('orders-full-search');
+    if (ordersFullSearch) {
+      ordersFullSearch.addEventListener('input', (e) => {
+        currentFullOrdersSearch = e.target.value.toLowerCase().trim();
+        renderOrdersFullTable();
+      });
     }
 
+    // Export Work Orders to CSV
+    window.exportOrdersCSV = function() {
+      const orders = ArborStore.getOrders();
+      if (!orders || orders.length === 0) {
+        showToast('No Orders', 'No work orders to export.', 'info');
+        return;
+      }
+
+      const headers = ['Order ID', 'Client', 'Contact', 'Location', 'Service', 'Crew', 'Priority', 'Status', 'Amount ($)'];
+      const rows = orders.map(o => [
+        o.id,
+        `"${(o.client || '').replace(/"/g, '""')}"`,
+        `"${(o.contact || '').replace(/"/g, '""')}"`,
+        `"${(o.location || '').replace(/"/g, '""')}"`,
+        `"${(o.service || '').replace(/"/g, '""')}"`,
+        `"${(o.crew || '').replace(/"/g, '""')}"`,
+        o.priority,
+        o.status,
+        o.amount || 750
+      ]);
+
+      const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map(e => e.join(','))].join('\n');
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement('a');
+      link.setAttribute('href', encodedUri);
+      link.setAttribute('download', `arborpro_work_orders_${new Date().toISOString().slice(0,10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      showToast('Export Successful', `Exported ${orders.length} orders to CSV.`, 'success');
+    };
+
+    // ==========================================
+    // 4. SERVICE CATALOG MANAGEMENT
+    // ==========================================
+    function getAdminServices() {
+      try {
+        const stored = localStorage.getItem('arborpro_admin_services');
+        if (stored) return JSON.parse(stored);
+      } catch(e) {}
+
+      // Seed from SERVICES_DATA
+      const list = Object.values(SERVICES_DATA).map(s => ({
+        id: s.id,
+        title: s.title,
+        category: s.category || 'General',
+        basePrice: s.basePrice || 450,
+        tier: s.tier || 'Standard Tier',
+        summary: s.summary || '',
+        image: s.image || 'https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=600&q=80',
+        active: true
+      }));
+
+      localStorage.setItem('arborpro_admin_services', JSON.stringify(list));
+      return list;
+    }
+
+    function saveAdminServices(services) {
+      localStorage.setItem('arborpro_admin_services', JSON.stringify(services));
+    }
+
+    window.renderAdminServices = function() {
+      const grid = document.getElementById('admin-services-grid');
+      if (!grid) return;
+
+      const services = getAdminServices();
+
+      grid.innerHTML = services.map(s => `
+        <div class="bg-surface-container-low rounded-2xl p-5 border border-surface-container shadow-sm flex flex-col justify-between hover:shadow-md transition-all group ${!s.active ? 'opacity-60 bg-surface-container' : ''}">
+          <div>
+            <div class="relative h-36 rounded-xl overflow-hidden mb-4 bg-surface-container-highest">
+              <img src="${s.image}" alt="${s.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=600&q=80'"/>
+              <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-surface/90 backdrop-blur-md text-[10px] font-bold text-on-surface shadow-sm">
+                ${s.category}
+              </span>
+              <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full text-[10px] font-bold shadow-sm ${s.active ? 'bg-primary text-on-primary' : 'bg-surface-container-highest text-on-surface-variant'}">
+                ${s.active ? 'Active' : 'Inactive'}
+              </span>
+            </div>
+
+            <div class="flex items-start justify-between gap-2 mb-2">
+              <h3 class="font-headline font-bold text-sm text-on-surface leading-snug">${s.title}</h3>
+            </div>
+            <p class="text-xs text-on-surface-variant line-clamp-2 mb-4 leading-relaxed">${s.summary}</p>
+          </div>
+
+          <div class="pt-4 border-t border-surface-container flex flex-col gap-3">
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-on-surface-variant font-medium">Starting Base Rate:</span>
+              <div class="flex items-center gap-1.5">
+                <span class="font-headline font-bold text-base text-primary">$${s.basePrice}</span>
+                <button onclick="editServiceRate('${s.id}')" title="Edit Price" class="p-1 text-on-surface-variant hover:text-primary rounded hover:bg-surface-container transition-colors">
+                  <span class="material-symbols-outlined text-[15px]">edit</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <button onclick="toggleServiceStatus('${s.id}')" class="flex-1 py-1.5 rounded-xl text-xs font-bold transition-all ${s.active ? 'bg-surface-container text-on-surface hover:bg-error/10 hover:text-error' : 'bg-primary text-on-primary hover:bg-primary-container'}">
+                ${s.active ? 'Deactivate' : 'Activate'}
+              </button>
+              <a href="services.html#service-${s.id}" target="_blank" class="px-3 py-1.5 rounded-xl bg-surface border border-outline-variant hover:bg-surface-container text-on-surface text-xs font-semibold transition-colors flex items-center gap-1 shadow-sm" title="Preview public service page">
+                <span class="material-symbols-outlined text-[14px]">open_in_new</span> View Page
+              </a>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    };
+
+    window.editServiceRate = function(id) {
+      const services = getAdminServices();
+      const s = services.find(item => item.id === id);
+      if (!s) return;
+
+      const input = prompt(`Enter updated base price for ${s.title}:`, s.basePrice);
+      if (input !== null) {
+        const newPrice = parseFloat(input);
+        if (!isNaN(newPrice) && newPrice > 0) {
+          s.basePrice = newPrice;
+          saveAdminServices(services);
+          renderAdminServices();
+          showToast('Service Rate Updated', `${s.title} base price set to $${newPrice}.`, 'success');
+        } else {
+          showToast('Invalid Rate', 'Please enter a valid dollar amount.', 'error');
+        }
+      }
+    };
+
+    window.toggleServiceStatus = function(id) {
+      const services = getAdminServices();
+      const s = services.find(item => item.id === id);
+      if (!s) return;
+
+      s.active = !s.active;
+      saveAdminServices(services);
+      renderAdminServices();
+      showToast('Catalog Updated', `${s.title} is now ${s.active ? 'Active' : 'Inactive'}.`, 'success');
+    };
+
+    window.openNewServiceModal = function() {
+      const title = prompt('Enter new service title:');
+      if (!title) return;
+      const category = prompt('Enter service category (e.g., Pruning, Removal, Diagnostics, Emergency):', 'Pruning');
+      const basePrice = parseFloat(prompt('Enter starting base rate ($):', '500')) || 500;
+
+      const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      const services = getAdminServices();
+
+      services.unshift({
+        id,
+        title,
+        category: category || 'Custom Service',
+        basePrice,
+        tier: '$$ Moderate Tier',
+        summary: 'Commercial and residential certified arborist service scope.',
+        image: 'https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=600&q=80',
+        active: true
+      });
+
+      saveAdminServices(services);
+      renderAdminServices();
+      showToast('New Service Created', `${title} has been added to the catalog.`, 'success');
+    };
+
+    // ==========================================
+    // 5. RATE SCHEDULES CONFIGURATION
+    // ==========================================
+    window.saveRateSchedules = function() {
+      const rates = {
+        climbing: document.getElementById('rate-climbing')?.value || 185,
+        crane: document.getElementById('rate-crane')?.value || 325,
+        airspade: document.getElementById('rate-airspade')?.value || 220,
+        emergency: document.getElementById('multiplier-emergency')?.value || 45,
+        annualDiscount: document.getElementById('discount-annual')?.value || 15,
+        stumpAddon: document.getElementById('addon-stump')?.value || 250
+      };
+
+      localStorage.setItem('arborpro_rates', JSON.stringify(rates));
+      showToast('Rate Schedules Saved', 'Operational crew billing rules updated across all dispatch estimates.', 'success');
+    };
+
+    window.loadRateSchedules = function() {
+      try {
+        const stored = localStorage.getItem('arborpro_rates');
+        if (stored) {
+          const rates = JSON.parse(stored);
+          if (rates.climbing && document.getElementById('rate-climbing')) document.getElementById('rate-climbing').value = rates.climbing;
+          if (rates.crane && document.getElementById('rate-crane')) document.getElementById('rate-crane').value = rates.crane;
+          if (rates.airspade && document.getElementById('rate-airspade')) document.getElementById('rate-airspade').value = rates.airspade;
+          if (rates.emergency && document.getElementById('multiplier-emergency')) document.getElementById('multiplier-emergency').value = rates.emergency;
+          if (rates.annualDiscount && document.getElementById('discount-annual')) document.getElementById('discount-annual').value = rates.annualDiscount;
+          if (rates.stumpAddon && document.getElementById('addon-stump')) document.getElementById('addon-stump').value = rates.stumpAddon;
+        }
+      } catch(e) {}
+    };
+
+    // ==========================================
+    // 6. STORE ACTIONS & MODAL CONTROLS
+    // ==========================================
     window.handleStatusAction = function(id, nextStatus) {
       ArborStore.updateStatus(id, nextStatus);
       showToast('Status Updated', `Work order ${id} set to ${nextStatus}`, 'success');
       renderDashboard();
+      renderOrdersFullTable();
     };
 
     window.deleteWorkOrder = function(id) {
-      if (confirm(`Are you sure you want to delete ${id}?`)) {
+      if (confirm(`Are you sure you want to delete work order ${id}?`)) {
         ArborStore.deleteOrder(id);
-        showToast('Order Removed', `Order ${id} has been removed.`, 'success');
+        showToast('Order Removed', `Work order ${id} has been deleted.`, 'success');
         renderDashboard();
+        renderOrdersFullTable();
       }
     };
 
@@ -875,6 +1485,7 @@
         ArborStore.updateStatus(pending.id, 'In Progress');
         showToast('Priority Crew Dispatched!', `Crew Alpha dispatched to ${pending.client} at ${pending.location}.`, 'success');
         renderDashboard();
+        renderOrdersFullTable();
       } else {
         showToast('All Crews Deployed', 'No pending jobs require immediate dispatch.', 'info');
       }
@@ -884,7 +1495,12 @@
       localStorage.removeItem('arborpro_work_orders_v1');
       ArborStore.getOrders();
       renderDashboard();
+      renderOrdersFullTable();
       showToast('Data Reset', 'Sample work orders reloaded.', 'success');
+    };
+
+    window.refreshFleetTelemetry = function() {
+      showToast('Telemetry Refreshed', '8 Active Transponders online. All GPS fixes synced within 3 seconds.', 'success');
     };
 
     // Modal controls
@@ -922,85 +1538,88 @@
       document.getElementById('manual-order-form').reset();
       showToast('New Work Order Created', `Order ${order.id} for ${client} created.`, 'success');
       renderDashboard();
+      renderOrdersFullTable();
     });
 
-    searchInput?.addEventListener('input', (e) => {
-      currentSearch = e.target.value.toLowerCase().trim();
-      renderDashboard();
-    });
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        currentSearch = e.target.value.toLowerCase().trim();
+        renderDashboard();
+      });
+    }
 
-    statusFilter?.addEventListener('change', (e) => {
-      currentStatus = e.target.value;
-      renderDashboard();
-    });
+    if (statusFilter) {
+      statusFilter.addEventListener('change', (e) => {
+        currentStatus = e.target.value;
+        renderDashboard();
+      });
+    }
 
     // Chart toggle week vs month
     window.setChartMode = function(mode) {
       const weekBtn = document.getElementById('chart-week-btn');
       const monthBtn = document.getElementById('chart-month-btn');
       const container = document.getElementById('chart-bars-container');
+      if (!container) return;
 
       if (mode === 'month') {
-        weekBtn.className = 'px-3 py-1 rounded-lg text-xs font-semibold text-on-surface-variant hover:text-on-surface transition-all';
-        monthBtn.className = 'px-3 py-1 rounded-lg text-xs font-bold transition-all bg-primary text-on-primary shadow-sm';
+        if (weekBtn) weekBtn.className = 'px-3 py-1 rounded-lg text-xs font-semibold text-on-surface-variant hover:text-on-surface transition-all';
+        if (monthBtn) monthBtn.className = 'px-3 py-1 rounded-lg text-xs font-bold transition-all bg-primary text-on-primary shadow-sm';
         container.innerHTML = `
           <div class="w-full bg-surface-container-highest rounded-t-xl h-[55%] relative group flex flex-col items-center">
             <div class="absolute -top-7 bg-inverse-surface text-inverse-on-surface text-[11px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">$92k</div>
-            <div class="w-full bg-primary-container rounded-t-xl h-[80%] mt-auto transition-all"></div>
+            <div class="w-full bg-primary rounded-t-xl h-[80%] mt-auto transition-all"></div>
             <span class="text-xs text-on-surface-variant mt-2 font-medium">Jul</span>
           </div>
           <div class="w-full bg-surface-container-highest rounded-t-xl h-[70%] relative group flex flex-col items-center">
             <div class="absolute -top-7 bg-inverse-surface text-inverse-on-surface text-[11px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">$115k</div>
-            <div class="w-full bg-primary-container rounded-t-xl h-[85%] mt-auto transition-all"></div>
+            <div class="w-full bg-primary rounded-t-xl h-[85%] mt-auto transition-all"></div>
             <span class="text-xs text-on-surface-variant mt-2 font-medium">Aug</span>
           </div>
           <div class="w-full bg-surface-container-highest rounded-t-xl h-[85%] relative group flex flex-col items-center">
             <div class="absolute -top-7 bg-inverse-surface text-inverse-on-surface text-[11px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">$124k</div>
-            <div class="w-full bg-primary-container rounded-t-xl h-[90%] mt-auto transition-all"></div>
+            <div class="w-full bg-primary rounded-t-xl h-[90%] mt-auto transition-all"></div>
             <span class="text-xs text-on-surface-variant mt-2 font-medium">Sep</span>
           </div>
           <div class="w-full bg-surface-container-highest rounded-t-xl h-[95%] relative group flex flex-col items-center">
             <div class="absolute -top-7 bg-inverse-surface text-inverse-on-surface text-[11px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">$128k</div>
-            <div class="w-full bg-primary-container rounded-t-xl h-[95%] mt-auto transition-all"></div>
+            <div class="w-full bg-primary rounded-t-xl h-[95%] mt-auto transition-all"></div>
             <span class="text-xs text-on-surface-variant mt-2 font-medium">Oct (Current)</span>
           </div>
         `;
       } else {
-        weekBtn.className = 'px-3 py-1 rounded-lg text-xs font-bold transition-all bg-primary text-on-primary shadow-sm';
-        monthBtn.className = 'px-3 py-1 rounded-lg text-xs font-semibold text-on-surface-variant hover:text-on-surface transition-all';
+        if (weekBtn) weekBtn.className = 'px-3 py-1 rounded-lg text-xs font-bold transition-all bg-primary text-on-primary shadow-sm';
+        if (monthBtn) monthBtn.className = 'px-3 py-1 rounded-lg text-xs font-semibold text-on-surface-variant hover:text-on-surface transition-all';
         container.innerHTML = `
           <div class="w-full bg-surface-container-highest rounded-t-xl h-[40%] relative group flex flex-col items-center">
             <div class="absolute -top-7 bg-inverse-surface text-inverse-on-surface text-[11px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">$18k</div>
-            <div class="w-full bg-primary-container rounded-t-xl h-[75%] mt-auto transition-all"></div>
+            <div class="w-full bg-primary rounded-t-xl h-[75%] mt-auto transition-all"></div>
             <span class="text-xs text-on-surface-variant mt-2 font-medium">W1</span>
           </div>
           <div class="w-full bg-surface-container-highest rounded-t-xl h-[65%] relative group flex flex-col items-center">
             <div class="absolute -top-7 bg-inverse-surface text-inverse-on-surface text-[11px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">$28k</div>
-            <div class="w-full bg-primary-container rounded-t-xl h-[85%] mt-auto transition-all"></div>
+            <div class="w-full bg-primary rounded-t-xl h-[85%] mt-auto transition-all"></div>
             <span class="text-xs text-on-surface-variant mt-2 font-medium">W2</span>
           </div>
           <div class="w-full bg-surface-container-highest rounded-t-xl h-[80%] relative group flex flex-col items-center">
             <div class="absolute -top-7 bg-inverse-surface text-inverse-on-surface text-[11px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">$34k</div>
-            <div class="w-full bg-primary-container rounded-t-xl h-[95%] mt-auto transition-all"></div>
+            <div class="w-full bg-primary rounded-t-xl h-[95%] mt-auto transition-all"></div>
             <span class="text-xs text-on-surface-variant mt-2 font-medium">W3</span>
           </div>
           <div class="w-full bg-surface-container-highest rounded-t-xl h-[95%] relative group flex flex-col items-center">
             <div class="absolute -top-7 bg-inverse-surface text-inverse-on-surface text-[11px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">$48k</div>
-            <div class="w-full bg-primary-container rounded-t-xl h-[90%] mt-auto transition-all"></div>
+            <div class="w-full bg-primary rounded-t-xl h-[90%] mt-auto transition-all"></div>
             <span class="text-xs text-on-surface-variant mt-2 font-medium">W4</span>
           </div>
         `;
       }
     };
 
-    // Subscribe to cross-page store updates in real-time
+    // Real-time store listener across all tabs
     ArborStore.subscribe(() => {
       renderDashboard();
+      renderOrdersFullTable();
     });
-
-    window.refreshFleetTelemetry = function() {
-      showToast('Telemetry Refreshed', '8 Active Transponders online. All GPS fixes synced within 3 seconds.', 'success');
-    };
 
     // Mobile Admin Sidebar Toggle Handler
     const sidebarToggle = document.getElementById('admin-sidebar-toggle');
@@ -1089,8 +1708,13 @@
       window.location.href = 'index.html';
     });
 
-    // Initial render
-    renderDashboard();
+    // Check URL hash on page load for deep-linking into specific tabs
+    const initialHash = window.location.hash.replace('#', '');
+    if (initialHash && ['overview', 'orders', 'services', 'fleet', 'rates'].includes(initialHash)) {
+      switchAdminTab(initialHash);
+    } else {
+      switchAdminTab('overview');
+    }
   </script>
 </body>
 </html>
