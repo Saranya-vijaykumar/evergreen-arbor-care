@@ -72,35 +72,53 @@ export function setupNavigation() {
   // Mobile menu toggle
   const mobileToggle = document.getElementById('mobile-menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu-drawer');
-  if (mobileToggle && mobileMenu && !mobileToggle.dataset.bound) {
-    mobileToggle.dataset.bound = 'true';
-    const toggleIcon = mobileToggle.querySelector('.material-symbols-outlined');
+  if (mobileToggle && mobileMenu) {
+    mobileToggle.setAttribute('type', 'button');
+    mobileToggle.style.cursor = 'pointer';
+    mobileToggle.style.touchAction = 'manipulation';
 
-    mobileToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isClosed = mobileMenu.classList.toggle('hidden');
-      if (toggleIcon) {
-        toggleIcon.textContent = isClosed ? 'menu' : 'close';
-      }
-    });
+    if (!mobileToggle.dataset.bound) {
+      mobileToggle.dataset.bound = 'true';
+      const toggleIcon = mobileToggle.querySelector('.material-symbols-outlined');
 
-    // Close when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!mobileToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
-        if (!mobileMenu.classList.contains('hidden')) {
+      const setMenuOpen = (open) => {
+        if (open) {
+          mobileMenu.classList.remove('hidden');
+          mobileToggle.setAttribute('aria-expanded', 'true');
+          if (toggleIcon) toggleIcon.textContent = 'close';
+        } else {
           mobileMenu.classList.add('hidden');
+          mobileToggle.setAttribute('aria-expanded', 'false');
           if (toggleIcon) toggleIcon.textContent = 'menu';
         }
-      }
-    });
+      };
 
-    // Close when clicking any link inside the mobile drawer
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        if (toggleIcon) toggleIcon.textContent = 'menu';
+      mobileToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const willOpen = mobileMenu.classList.contains('hidden');
+        setMenuOpen(willOpen);
       });
-    });
+
+      // Close when clicking or tapping outside
+      const handleOutsideClick = (e) => {
+        if (!mobileMenu.classList.contains('hidden')) {
+          if (!mobileToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+            setMenuOpen(false);
+          }
+        }
+      };
+
+      document.addEventListener('click', handleOutsideClick);
+      document.addEventListener('touchstart', handleOutsideClick, { passive: true });
+
+      // Close when clicking any link inside the mobile drawer
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          setMenuOpen(false);
+        });
+      });
+    }
   }
 
   // Click & hover toggle for Home dropdown
@@ -376,8 +394,27 @@ try {
   console.warn('Preferences early init error:', e);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  setupNavigation();
-  initViewPreferences();
-});
+// Robust DOM lifecycle execution
+function runNavInit() {
+  try {
+    setupNavigation();
+  } catch (e) {
+    console.error('setupNavigation error:', e);
+  }
+  try {
+    initViewPreferences();
+  } catch (e) {
+    console.warn('initViewPreferences error:', e);
+  }
+}
+
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', runNavInit);
+  } else {
+    // DOM is already parsed (interactive or complete)
+    runNavInit();
+  }
+  window.addEventListener('load', runNavInit);
+}
 
