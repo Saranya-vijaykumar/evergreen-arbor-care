@@ -1,7 +1,9 @@
+import { initGlobalAnimations } from './animations.js';
 // ArborPro Operations - Shared Navigation, Mobile Drawer & Modal Helpers
 import { ArborStore } from './store.js';
 
 export function setupNavigation() {
+  try { initGlobalAnimations(); } catch (e) { console.warn('Animations init error:', e); }
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
   const isHome1 = currentPath === '' || currentPath === 'index.html';
   const isHome2 = currentPath.includes('home-2');
@@ -366,6 +368,7 @@ if (typeof window !== 'undefined') {
   window.showToast = showToast;
   window.setupNavigation = setupNavigation;
   window.initViewPreferences = initViewPreferences;
+  window.initGlobalAnimations = initGlobalAnimations;
 }
 
 // Immediately run view preferences init
