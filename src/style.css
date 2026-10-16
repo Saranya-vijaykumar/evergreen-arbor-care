@@ -188,17 +188,38 @@ html.dark .hover\:bg-surface-container-highest:hover {
 }
 
 /* Form Inputs, Selects & Textareas */
+input::placeholder,
+textarea::placeholder {
+  color: #64748b;
+  opacity: 0.95;
+}
+
 html.dark input:not([type="checkbox"]):not([type="radio"]),
 html.dark select,
 html.dark textarea {
   background-color: #17201b !important;
-  color: #e2e8e3 !important;
-  border-color: #2a382f !important;
+  color: #ffffff !important;
+  border-color: #35493c !important;
 }
 
 html.dark input::placeholder,
 html.dark textarea::placeholder {
-  color: #6c7c70 !important;
+  color: #a4b8ab !important;
+  opacity: 1;
+}
+
+/* Newsletter & Footer Form Inputs */
+footer input[type="email"],
+div[class*="bg-surface-container"] input[type="email"] {
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+html.dark footer input[type="email"],
+html.dark div[class*="bg-surface-container"] input[type="email"] {
+  background-color: #1a251f !important;
+  color: #ffffff !important;
+  border-color: #3c5244 !important;
 }
 
 /* Tables in Admin Dashboard */
@@ -481,10 +502,38 @@ nav a.bg-primary-container,
   color: #ffffff !important;
 }
 
+nav a.bg-primary-container *,
+#mobile-menu-drawer a.bg-primary-container *,
+nav a[aria-current="page"] *,
+#mobile-menu-drawer a[aria-current="page"] * {
+  color: #ffffff !important;
+}
+
+nav a.bg-primary-container p,
+#mobile-menu-drawer a.bg-primary-container p,
+nav a[aria-current="page"] p,
+#mobile-menu-drawer a[aria-current="page"] p {
+  color: #c0d8c8 !important;
+}
+
 html.dark nav a.bg-primary-container,
 html.dark #mobile-menu-drawer a.bg-primary-container {
   background-color: #1b6d24 !important;
   color: #ffffff !important;
+}
+
+html.dark nav a.bg-primary-container *,
+html.dark #mobile-menu-drawer a.bg-primary-container *,
+html.dark nav a[aria-current="page"] *,
+html.dark #mobile-menu-drawer a[aria-current="page"] * {
+  color: #ffffff !important;
+}
+
+html.dark nav a.bg-primary-container p,
+html.dark #mobile-menu-drawer a.bg-primary-container p,
+html.dark nav a[aria-current="page"] p,
+html.dark #mobile-menu-drawer a[aria-current="page"] p {
+  color: #d1fae5 !important;
 }
 
 /* 7. Pricing Calculator Option Selection */

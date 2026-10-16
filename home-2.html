@@ -194,7 +194,7 @@
       <div class="max-w-7xl mx-auto px-gutter grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div class="lg:col-span-7 flex flex-col gap-6">
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary text-primary-fixed text-xs font-semibold w-max shadow-sm">
-            <span class="material-symbols-outlined text-[16px]">crane</span>
+            <span class="material-symbols-outlined text-[16px]">precision_manufacturing</span>
             Commercial &amp; Heavy Crane Rigging Division
           </div>
 
@@ -207,6 +207,10 @@
           </p>
 
           <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="#quote" class="px-6 py-3.5 bg-secondary text-on-secondary rounded-xl text-xs font-bold hover:bg-secondary/90 transition-all shadow-lg flex items-center gap-2">
+              <span class="material-symbols-outlined text-[18px]">calculate</span>
+              Get Instant Estimate
+            </a>
             <button onclick="openBookingModal('Commercial Crane Operation', 1200)" class="px-6 py-3.5 bg-primary text-on-primary rounded-xl text-xs font-bold hover:bg-primary-container transition-all shadow-lg flex items-center gap-2">
               <span class="material-symbols-outlined text-[18px]">engineering</span>
               Request Engineering Review
@@ -234,70 +238,64 @@
           </div>
         </div>
 
-        <div class="lg:col-span-5 relative">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-            <!-- Card 1: Top-Left Crane Rigging -->
-            <a href="service-detail.html?id=crane-rigging" class="h-48 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-2 border-surface group relative block">
-              <div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDWjZ-4pgS9bFdpCH9nBVaw6CfY9Kr2MBF_saAv-5AsYpa9O8A2s75GHH2J4ycBLMsoQzLg46XA6O-c8oTZhxV5G1NiN_nWdVDAbZqKPzM5dvT5vSGMXrd6QRQ4YhuDBvclRKuHEmADKR6ci4g9bUDc7P65ezh28EjuL8HE8nIjdwiQXlgV92Xw-gkVIGRf-6EI946kLa3kSOkedbDcyh-o76nsPdvX9y5dRDomqD54ySSq818bufWa')"></div>
-              <div class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/90 backdrop-blur-md text-primary-fixed text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-md">
-                <span class="material-symbols-outlined text-[13px]">crane</span> Heavy Rigging
+        <!-- Instant Quote Calculator Widget (Relocated from Home 1) -->
+        <div class="lg:col-span-5" id="quote">
+          <div class="bg-surface text-on-surface p-7 sm:p-8 rounded-2xl shadow-2xl border border-surface-container-high flex flex-col gap-4 relative">
+            <div class="flex items-center justify-between border-b border-surface-container-high pb-4">
+              <div>
+                <h3 class="text-xl font-bold font-headline text-on-surface">Instant Quote Calculator</h3>
+                <p class="text-xs text-on-surface-variant mt-0.5">Real-time commercial &amp; heavy rigging estimate</p>
               </div>
-              <div class="absolute bottom-2.5 left-2.5 right-2.5 bg-surface/90 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md border border-surface-container flex items-center justify-between">
-                <div>
-                  <p class="text-[11px] font-bold text-on-surface leading-tight">60-Ton Crane Pick</p>
-                  <p class="text-[9px] text-on-surface-variant">Zero turf compaction</p>
-                </div>
-                <span class="material-symbols-outlined text-[16px] text-primary group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+              <div class="w-10 h-10 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center">
+                <span class="material-symbols-outlined">bolt</span>
               </div>
-            </a>
+            </div>
 
-            <!-- Card 2: Top-Right Organic Mulch Piles & Bobcat -->
-            <a href="service-detail.html?id=stump-grinding" class="h-48 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-2 border-surface group relative block">
-              <div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCBpD5sqjacgUuxoUJTF4YWRphcRBogyFBBoGt7Qbpw5mc8bMROoO5nLdVWrgxCqMDGzZ03KzXrlaCYv_pT1VJ0iC7MHTdumpFumnYMMhPx574PjPgLv2QDn3iJa3V1uWt_78fxIshWsSoXrgExFblAykLIgPWzp_JqgcTRjU9fmPSjKiVmSJImokcfgjcMQ1GJmSmelKCBDEztl9OUw6W3ePj6trm-9mC3QrXileHZve2e8fCabjjm')"></div>
-              <div class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary-container/90 backdrop-blur-md text-on-primary-container text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-md">
-                <span class="material-symbols-outlined text-[13px]">recycling</span> 100% Recycled
+            <div class="flex flex-col gap-4 pt-1">
+              <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-semibold uppercase tracking-wider text-on-surface" for="calc-service">Select Service Type</label>
+                <select class="w-full px-3 py-2.5 bg-surface-container rounded-lg text-sm text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer" id="calc-service">
+                  <option value="150" data-name="Tree Trimming & Pruning" selected>Tree Trimming &amp; Pruning</option>
+                  <option value="350" data-name="Hazardous Tree Removal">Hazardous Tree Removal</option>
+                  <option value="120" data-name="Stump Grinding">Stump Grinding &amp; Root Milling</option>
+                  <option value="200" data-name="Tree Health Assessment">Tree Health Assessment</option>
+                  <option value="450" data-name="Emergency Storm Response">Emergency Storm Response</option>
+                  <option value="1200" data-name="Liebherr 60-Ton Crane Dismantling">Liebherr 60-Ton Knuckle Crane Rigging</option>
+                  <option value="650" data-name="Altec 75-Ft Aerial Bucket Pruning">Altec 75-Ft Aerial Bucket Operations</option>
+                </select>
               </div>
-              <div class="absolute bottom-2.5 left-2.5 right-2.5 bg-surface/90 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md border border-surface-container flex items-center justify-between">
-                <div>
-                  <p class="text-[11px] font-bold text-on-surface leading-tight">Biomass Processing</p>
-                  <p class="text-[9px] text-on-surface-variant">Zero landfill footprint</p>
-                </div>
-                <span class="material-symbols-outlined text-[16px] text-primary group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
-              </div>
-            </a>
 
-            <!-- Card 3: Bottom-Left Arborist Diagnostic -->
-            <a href="service-detail.html?id=sonic-tomography" class="h-48 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-2 border-surface group relative block">
-              <div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAmfcIE4BM3ZC5Z6VVA9g_aaT5CT_8JBb8RvAsGIgYDGZw1ajSsc9VrNHmnPkXGcd3BIH4YUSzU-knmfji5cTyO2jHDYC2OYQuuY_emzCYIAA-PI7fYKK1jSwJ4H28avti-kBg_x1jeJRmf3gS46sKH_OZ_3cGT1hmrJaQf_qPBAUSDrLeYwFsnmphse8b-4NQqpv8ayA7eERThDhiwk5cB4dUlvRe6qNlZ1CT8nHCIZ2os1S1N4y7L')"></div>
-              <div class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-secondary/90 backdrop-blur-md text-on-secondary text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-md">
-                <span class="material-symbols-outlined text-[13px]">biotech</span> Pathology Lab
+              <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-semibold uppercase tracking-wider text-on-surface" for="calc-size">Tree Size / Project Scope</label>
+                <select class="w-full px-3 py-2.5 bg-surface-container rounded-lg text-sm text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer" id="calc-size">
+                  <option value="1">Small (Under 25 ft / Single Unit)</option>
+                  <option value="1.5" selected>Medium (25 - 50 ft / Standard Scope)</option>
+                  <option value="2.2">Large (50+ ft / Complex Heavy Rigging)</option>
+                </select>
               </div>
-              <div class="absolute bottom-2.5 left-2.5 right-2.5 bg-surface/90 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md border border-surface-container flex items-center justify-between">
-                <div>
-                  <p class="text-[11px] font-bold text-on-surface leading-tight">ISA Core Testing</p>
-                  <p class="text-[9px] text-on-surface-variant">Internal sonic diagnostics</p>
-                </div>
-                <span class="material-symbols-outlined text-[16px] text-primary group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
-              </div>
-            </a>
 
-            <!-- Card 4: Bottom-Right Team of 5 Uniformed Arborists -->
-            <a href="service-detail.html?id=commercial-fleet" class="h-48 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-2 border-surface group relative block">
-              <div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCKAHOcfy3kOKW7hcwjuf6ghDkRO2Kz-y7FjPTfP-wxk1_8THKJNGIAKrF9FxzcsnrJShYgUO-XgRCTzkK1HCBsfjrAkPYiVaQD_QOHwm6of4SQOcOGVlAEXyQ5erCZtNU8KpHy0kZCKu9hsrhC07mp5Kbr22J1h63cWul9P57-zzQijHUnYKPY5UujQQVQwIAl99OH7v-ynIUIOyVXLBzccN-3sA9vs2rm8KL_OvKHSMFsqbmAI_ad')"></div>
-              <div class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary text-on-primary text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-md">
-                <span class="material-symbols-outlined text-[13px]">groups</span> Certified Field Crew
+              <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-semibold uppercase tracking-wider text-on-surface" for="calc-urgency">Urgency Level</label>
+                <select class="w-full px-3 py-2.5 bg-surface-container rounded-lg text-sm text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer" id="calc-urgency">
+                  <option value="1">Standard Scheduling (Within 5-7 days)</option>
+                  <option value="1.35">Priority Scheduling (Within 48 hours)</option>
+                  <option value="1.75">Emergency Immediate Dispatch (Today / 24-7)</option>
+                </select>
               </div>
-              <div class="absolute bottom-2.5 left-2.5 right-2.5 bg-surface/90 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md border border-surface-container flex items-center justify-between">
+
+              <div class="bg-surface-container-low p-4 rounded-xl flex items-center justify-between mt-2 border border-surface-container">
                 <div>
-                  <p class="text-[11px] font-bold text-on-surface leading-tight">Elite Crew Dispatch</p>
-                  <p class="text-[9px] text-on-surface-variant">Fully bonded &amp; insured</p>
+                  <p class="text-xs text-on-surface-variant font-medium">Estimated Investment</p>
+                  <p class="text-3xl font-extrabold text-primary font-headline" id="calc-result">$225</p>
                 </div>
-                <span class="material-symbols-outlined text-[16px] text-primary group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+                <button id="book-quote-btn" class="px-5 py-2.5 bg-primary text-on-primary rounded-lg text-sm font-semibold hover:bg-primary-container transition-all flex items-center gap-2 shadow-md">
+                  <span>Lock In Rate</span>
+                  <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                </button>
               </div>
-            </a>
+            </div>
           </div>
         </div>
-      </div>
     </section>
 
     <!-- Interactive Feature: Tree Hazard & Risk Assessment Tool -->
@@ -621,7 +619,7 @@
                 <td class="py-4 px-5">
                   <div class="flex items-center gap-3">
                     <span class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                      <span class="material-symbols-outlined text-[18px]">crane</span>
+                      <span class="material-symbols-outlined text-[18px]">precision_manufacturing</span>
                     </span>
                     <div>
                       <div class="font-bold text-on-surface">Liebherr LTM 1060-3.1</div>
@@ -1406,6 +1404,36 @@
       const total = Math.round(baseRate * durationMul * urgencyMul);
       openBookingModal(serviceName, total);
     });
+
+    
+    // Instant Quote Calculator Handler (Home 2)
+    const quoteService = document.getElementById('calc-service');
+    const quoteSize = document.getElementById('calc-size');
+    const quoteUrgency = document.getElementById('calc-urgency');
+    const quoteResult = document.getElementById('calc-result');
+    const bookQuoteBtn = document.getElementById('book-quote-btn');
+
+    function calculateInstantQuote() {
+      if (!quoteService || !quoteSize || !quoteUrgency || !quoteResult) return 225;
+      const base = parseFloat(quoteService.value) || 150;
+      const sizeMul = parseFloat(quoteSize.value) || 1.5;
+      const urgencyMul = parseFloat(quoteUrgency.value) || 1;
+      const total = Math.round(base * sizeMul * urgencyMul);
+      quoteResult.textContent = '$' + total.toLocaleString();
+      return total;
+    }
+
+    quoteService?.addEventListener('change', calculateInstantQuote);
+    quoteSize?.addEventListener('change', calculateInstantQuote);
+    quoteUrgency?.addEventListener('change', calculateInstantQuote);
+
+    bookQuoteBtn?.addEventListener('click', () => {
+      const total = calculateInstantQuote();
+      const serviceName = quoteService.options[quoteService.selectedIndex]?.getAttribute('data-name') || quoteService.options[quoteService.selectedIndex]?.text || 'Tree Care Service';
+      openBookingModal(serviceName, total);
+    });
+
+    calculateInstantQuote();
 
     // Commercial FAQ Accordion Toggle
     document.querySelectorAll('.comm-faq-btn').forEach(btn => {
