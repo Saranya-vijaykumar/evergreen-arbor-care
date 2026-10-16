@@ -536,6 +536,114 @@ html.dark #mobile-menu-drawer a[aria-current="page"] p {
   color: #d1fae5 !important;
 }
 
+/* 6b. Header Navigation Dropdown Items (Flawless Contrast) */
+.group\/item,
+nav .absolute a[data-path] {
+  transition: all 0.2s ease-in-out;
+}
+
+.group\/item .text-on-surface,
+nav .absolute a[data-path] .text-on-surface {
+  color: #1a201c !important;
+}
+
+.group\/item .text-on-surface-variant,
+nav .absolute a[data-path] .text-on-surface-variant {
+  color: #4b5563 !important;
+}
+
+/* Active Dropdown Item */
+.group\/item[aria-current="page"],
+nav .absolute a[aria-current="page"] {
+  background-color: rgba(27, 109, 36, 0.1) !important;
+  border-left: 4px solid #1b6d24 !important;
+}
+
+.group\/item[aria-current="page"] .text-on-surface,
+.group\/item[aria-current="page"] .text-primary,
+nav .absolute a[aria-current="page"] .text-on-surface,
+nav .absolute a[aria-current="page"] .text-primary {
+  color: #1b6d24 !important;
+  font-weight: 700 !important;
+}
+
+.group\/item[aria-current="page"] .text-on-surface-variant,
+nav .absolute a[aria-current="page"] .text-on-surface-variant {
+  color: #2e4a36 !important;
+  font-weight: 500 !important;
+}
+
+.group\/item[aria-current="page"] .material-symbols-outlined,
+nav .absolute a[aria-current="page"] .material-symbols-outlined {
+  color: #1b6d24 !important;
+}
+
+/* Hover Dropdown Item */
+.group\/item:hover,
+nav .absolute a[data-path]:hover {
+  background-color: #f1f5f2 !important;
+}
+
+.group\/item:hover .text-on-surface,
+nav .absolute a[data-path]:hover .text-on-surface {
+  color: #0f172a !important;
+}
+
+.group\/item:hover .text-on-surface-variant,
+nav .absolute a[data-path]:hover .text-on-surface-variant {
+  color: #334155 !important;
+}
+
+/* Dark Mode Dropdown Items */
+html.dark .group\/item .text-on-surface,
+html.dark nav .absolute a[data-path] .text-on-surface {
+  color: #ffffff !important;
+}
+
+html.dark .group\/item .text-on-surface-variant,
+html.dark nav .absolute a[data-path] .text-on-surface-variant {
+  color: #94a3b8 !important;
+}
+
+html.dark .group\/item[aria-current="page"],
+html.dark nav .absolute a[aria-current="page"] {
+  background-color: rgba(74, 222, 128, 0.16) !important;
+  border-left: 4px solid #4ade80 !important;
+}
+
+html.dark .group\/item[aria-current="page"] .text-on-surface,
+html.dark .group\/item[aria-current="page"] .text-primary,
+html.dark nav .absolute a[aria-current="page"] .text-on-surface,
+html.dark nav .absolute a[aria-current="page"] .text-primary {
+  color: #4ade80 !important;
+  font-weight: 700 !important;
+}
+
+html.dark .group\/item[aria-current="page"] .text-on-surface-variant,
+html.dark nav .absolute a[aria-current="page"] .text-on-surface-variant {
+  color: #cbd5e1 !important;
+}
+
+html.dark .group\/item[aria-current="page"] .material-symbols-outlined,
+html.dark nav .absolute a[aria-current="page"] .material-symbols-outlined {
+  color: #4ade80 !important;
+}
+
+html.dark .group\/item:hover,
+html.dark nav .absolute a[data-path]:hover {
+  background-color: #1f2b24 !important;
+}
+
+html.dark .group\/item:hover .text-on-surface,
+html.dark nav .absolute a[data-path]:hover .text-on-surface {
+  color: #ffffff !important;
+}
+
+html.dark .group\/item:hover .text-on-surface-variant,
+html.dark nav .absolute a[data-path]:hover .text-on-surface-variant {
+  color: #cbd5e1 !important;
+}
+
 /* 7. Pricing Calculator Option Selection */
 .estimator-service-btn.border-primary,
 .estimator-height-btn.border-primary {

@@ -33,16 +33,37 @@ export function setupNavigation() {
       ((path === 'admin' || path === 'admin-dashboard') && currentPath.includes('admin')) ||
       (path === 'login' && (currentPath.includes('login') || currentPath.includes('signup')));
 
+    const isDropdownSubitem = link.classList.contains('group/item') || !!link.closest('.min-w-[260px]');
+
     if (isCurrent) {
-      link.classList.add('bg-primary-container', 'text-on-primary-container', 'font-bold');
-      link.classList.remove('text-on-surface-variant');
       link.setAttribute('aria-current', 'page');
-    } else {
-      link.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-bold');
-      if (!link.classList.contains('bg-secondary') && !link.classList.contains('bg-primary')) {
-        link.classList.add('text-on-surface-variant');
+      if (isDropdownSubitem) {
+        link.classList.add('bg-primary/10', 'border-l-4', 'border-primary', 'font-bold');
+        link.classList.remove('bg-primary-container', 'text-on-primary-container');
+        const titleEl = link.querySelector('.text-on-surface, div.font-bold');
+        if (titleEl) {
+          titleEl.classList.remove('text-on-surface');
+          titleEl.classList.add('text-primary');
+        }
+      } else {
+        link.classList.add('bg-primary-container', 'text-on-primary-container', 'font-bold');
+        link.classList.remove('text-on-surface-variant');
       }
+    } else {
       link.removeAttribute('aria-current');
+      if (isDropdownSubitem) {
+        link.classList.remove('bg-primary/10', 'border-l-4', 'border-primary', 'font-bold', 'bg-primary-container', 'text-on-primary-container');
+        const titleEl = link.querySelector('.text-primary');
+        if (titleEl) {
+          titleEl.classList.remove('text-primary');
+          titleEl.classList.add('text-on-surface');
+        }
+      } else {
+        link.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-bold');
+        if (!link.classList.contains('bg-secondary') && !link.classList.contains('bg-primary')) {
+          link.classList.add('text-on-surface-variant');
+        }
+      }
     }
   });
 
