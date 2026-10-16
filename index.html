@@ -1263,36 +1263,5 @@
 
   <script type="module" src="/src/js/store.js"></script>
   <script type="module" src="/src/js/nav.js"></script>
-  <script type="module">
-    import { ArborStore } from '/src/js/store.js';
-    import { openBookingModal } from '/src/js/nav.js';
-
-    const serviceSelect = document.getElementById('calc-service');
-    const sizeSelect = document.getElementById('calc-size');
-    const urgencySelect = document.getElementById('calc-urgency');
-    const resultDisplay = document.getElementById('calc-result');
-    const bookQuoteBtn = document.getElementById('book-quote-btn');
-
-    function calculateEstimate() {
-      const base = parseFloat(serviceSelect.value);
-      const sizeMul = parseFloat(sizeSelect.value);
-      const urgencyMul = parseFloat(urgencySelect.value);
-      const total = Math.round(base * sizeMul * urgencyMul);
-      resultDisplay.textContent = '$' + total;
-      return total;
-    }
-
-    serviceSelect?.addEventListener('change', calculateEstimate);
-    sizeSelect?.addEventListener('change', calculateEstimate);
-    urgencySelect?.addEventListener('change', calculateEstimate);
-
-    bookQuoteBtn?.addEventListener('click', () => {
-      const total = calculateEstimate();
-      const serviceName = serviceSelect.options[serviceSelect.selectedIndex].getAttribute('data-name') || serviceSelect.options[serviceSelect.selectedIndex].text;
-      openBookingModal(serviceName, total);
-    });
-
-    calculateEstimate();
-  </script>
 </body>
 </html>

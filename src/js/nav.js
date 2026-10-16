@@ -35,7 +35,7 @@ export function setupNavigation() {
       ((path === 'admin' || path === 'admin-dashboard') && currentPath.includes('admin')) ||
       (path === 'login' && (currentPath.includes('login') || currentPath.includes('signup')));
 
-    const isDropdownSubitem = link.classList.contains('group/item') || !!link.closest('.min-w-[260px]');
+    const isDropdownSubitem = link.classList.contains('group/item') || !!link.closest('#home-dropdown-group');
 
     if (isCurrent) {
       link.setAttribute('aria-current', 'page');
