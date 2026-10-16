@@ -320,13 +320,23 @@ html.dark footer {
   border-top-color: #1e2822 !important;
 }
 
-/* Shadows adjustment */
+/* Shadows removal in Dark Mode - clean flat modern aesthetic with zero murky halos */
 html.dark .shadow-sm,
 html.dark .shadow-md,
 html.dark .shadow-lg,
 html.dark .shadow-xl,
-html.dark .shadow-2xl {
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45) !important;
+html.dark .shadow-2xl,
+html.dark .shadow,
+html.dark [class*="shadow"] {
+  box-shadow: none !important;
+}
+
+html.dark .hover\:shadow-sm:hover,
+html.dark .hover\:shadow-md:hover,
+html.dark .hover\:shadow-lg:hover,
+html.dark .hover\:shadow-xl:hover,
+html.dark .hover\:shadow-2xl:hover {
+  box-shadow: none !important;
 }
 
 /* Modals */
@@ -569,7 +579,7 @@ html.dark .service-tab[data-active="true"] {
   background-color: #1b6d24 !important;
   color: #ffffff !important;
   border-color: #4ade80 !important;
-  box-shadow: 0 2px 14px rgba(74, 222, 128, 0.4) !important;
+  box-shadow: none !important;
 }
 
 /* 6. Active Navigation Links */
@@ -735,5 +745,5 @@ html.dark .estimator-height-btn.border-primary {
   background-color: #1b6d24 !important;
   color: #ffffff !important;
   border-color: #4ade80 !important;
-  box-shadow: 0 2px 12px rgba(74, 222, 128, 0.35) !important;
+  box-shadow: none !important;
 }
