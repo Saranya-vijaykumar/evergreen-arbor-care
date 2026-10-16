@@ -245,7 +245,7 @@
     </div>
 
     <h1 class="auth-title">Create Account</h1>
-    <p class="auth-subtitle">Join Evergreen Arbor Care Admin</p>
+    <p class="auth-subtitle">Customer & Member Portal — Join Evergreen</p>
 
     <div id="alert-box" class="alert-banner"></div>
 
@@ -310,7 +310,7 @@
   </div>
 
   <script>
-    if (localStorage.getItem('arborpro_auth')) { window.location.href = 'admin.html'; }
+    // Standalone customer sign up
 
     function setupPasswordToggle(btnId, inputId) {
       const btn = document.getElementById(btnId);
@@ -399,14 +399,11 @@
       users.push(newUser);
       localStorage.setItem('arborpro_users', JSON.stringify(users));
 
-      const authPayload = { user: username, name, role: 'dispatcher', loginTime: Date.now() };
-      localStorage.setItem('arborpro_auth', JSON.stringify(authPayload));
-
       const btn = document.getElementById('signup-btn');
       btn.textContent = 'Account created! Redirecting…';
       btn.disabled = true;
-      showBanner('Account created successfully! Redirecting to dashboard…', 'success');
-      setTimeout(() => { window.location.href = 'admin.html'; }, 1000);
+      showBanner('Account created successfully! Redirecting to sign in…', 'success');
+      setTimeout(() => { window.location.href = 'login.html'; }, 900);
     });
   </script>
 </body>

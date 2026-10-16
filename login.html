@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Login — Evergreen Arbor Care</title>
+  <title>Customer Login — Evergreen Arbor Care</title>
   <link rel="stylesheet" href="/src/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -129,16 +129,24 @@
     .eye-btn:hover {
       color: #374151;
     }
-    .error-banner {
-      background-color: #fef2f2;
-      border: 1px solid #fecaca;
-      color: #b91c1c;
+    .status-banner {
       padding: 0.7rem 1rem;
       border-radius: 0.5rem;
       font-size: 0.85rem;
       margin-bottom: 1.25rem;
       display: none;
       text-align: center;
+      font-weight: 500;
+    }
+    .status-banner.error {
+      background-color: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #b91c1c;
+    }
+    .status-banner.success {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #15803d;
     }
     .btn-submit {
       width: 100%;
@@ -216,40 +224,47 @@
     .footer-center {
       text-align: center;
     }
+    .logged-in-card {
+      display: none;
+      text-align: center;
+      padding: 1rem 0;
+    }
   </style>
 </head>
 <body>
   <div class="auth-card">
     <!-- Clickable Official Brand Logo -->
     <div class="logo-container">
-      <a href="index.html" class="brand-logo-link" title="Click to Return to ArborPro Home">
+      <a href="index.html" class="brand-logo-link" title="Click to Return to Evergreen Home">
         <div class="logo-circle">
           <span class="material-symbols-outlined text-[32px] text-white">forest</span>
         </div>
       </a>
     </div>
 
-    <h1 class="auth-title">Evergreen Arbor Care</h1>
-    <p class="auth-subtitle">Admin Dashboard — Sign In</p>
+    <h1 class="auth-title">Welcome Back</h1>
+    <p class="auth-subtitle">Customer & Member Portal — Sign In</p>
 
-    <div id="error-msg" class="error-banner"></div>
+    <div id="status-msg" class="status-banner"></div>
 
-    <!-- Direct Access Button (No Password Required) -->
-    <a href="admin.html" id="quick-enter-btn" class="btn-submit" style="display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; margin-bottom: 1.25rem; background: linear-gradient(135deg, #012d1d 0%, #1b6d24 100%);">
-      <span class="material-symbols-outlined text-[20px]">dashboard</span>
-      Enter Dashboard Directly (No Password)
-    </a>
-
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 1.25rem;">
-      <div style="flex: 1; height: 1px; background: #e5e7eb;"></div>
-      <span style="font-size: 0.75rem; color: #9ca3af; text-transform: uppercase; font-weight: 600;">or sign in</span>
-      <div style="flex: 1; height: 1px; background: #e5e7eb;"></div>
+    <!-- Active Logged In View if already signed in as client -->
+    <div id="logged-in-view" class="logged-in-card">
+      <div style="width: 56px; height: 56px; border-radius: 50%; background: #dcfce7; color: #15803d; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+        <span class="material-symbols-outlined text-[32px]">check_circle</span>
+      </div>
+      <h3 style="font-size: 1.15rem; font-weight: 700; color: #111827; margin-bottom: 0.25rem;">You are Signed In</h3>
+      <p id="logged-in-username" style="font-size: 0.875rem; color: #4b5563; margin-bottom: 1.25rem;">Logged in as demo user</p>
+      <a href="index.html" class="btn-submit" style="display: block; text-decoration: none; margin-bottom: 0.75rem;">Return to Home Page</a>
+      <button type="button" id="signout-btn" style="background: none; border: 1px solid #d1d5db; color: #4b5563; padding: 0.65rem 1rem; border-radius: 0.5rem; font-size: 0.875rem; font-weight: 600; cursor: pointer; width: 100%; transition: all 0.2s;">
+        Sign Out (Demo Session)
+      </button>
     </div>
 
+    <!-- Login Form -->
     <form id="login-form" novalidate>
       <div class="form-group">
         <label for="username" class="form-label">Username or Email</label>
-        <input id="username" type="text" class="input-field" placeholder="admin" autocomplete="username" />
+        <input id="username" type="text" class="input-field" placeholder="client@evergreen.com or demo" autocomplete="username" />
       </div>
 
       <div class="form-group">
@@ -264,14 +279,22 @@
         </div>
       </div>
 
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; font-size: 0.825rem;">
+        <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; color: #4b5563;">
+          <input type="checkbox" id="remember-me" checked style="accent-color: #1b6d24; cursor: pointer;" />
+          Remember me
+        </label>
+        <a href="#" id="forgot-pw-link" style="color: #1b6d24; text-decoration: none; font-weight: 500;">Forgot password?</a>
+      </div>
+
       <button type="submit" class="btn-submit" id="login-btn">Sign In</button>
     </form>
 
     <!-- Clickable Demo Credentials with Auto-fill -->
     <div class="demo-box" id="demo-box" style="cursor: pointer;" title="Click to auto-fill demo credentials">
       <span class="material-symbols-outlined text-[16px]" style="vertical-align: -3px; margin-right: 4px;">key</span>
-      <strong>Demo:</strong> <span style="text-decoration: underline;">admin / arbor2024</span>
-      <span style="display: block; font-size: 0.72rem; color: #15803d; margin-top: 2px;">(Click here to auto-fill)</span>
+      <strong>Demo Client:</strong> <span style="text-decoration: underline;">client@evergreen.com / demo123</span>
+      <span style="display: block; font-size: 0.72rem; color: #15803d; margin-top: 2px;">(Click here to auto-fill dummy credentials)</span>
     </div>
 
     <div class="footer-center">
@@ -283,33 +306,64 @@
   </div>
 
   <script>
-    const DUMMY_USERS = [
-      { username: 'admin', password: 'arbor2024', role: 'admin', name: 'Tyler Vance' }
-    ];
-
-    // If already logged in, redirect to admin dashboard
-    if (localStorage.getItem('arborpro_auth')) {
-      window.location.href = 'admin.html';
-    }
-
     const form = document.getElementById('login-form');
-    const errorMsg = document.getElementById('error-msg');
+    const statusMsg = document.getElementById('status-msg');
     const loginBtn = document.getElementById('login-btn');
     const eyeBtn = document.getElementById('eye-btn');
     const passwordInput = document.getElementById('password');
     const usernameInput = document.getElementById('username');
     const demoBox = document.getElementById('demo-box');
+    const loggedInView = document.getElementById('logged-in-view');
+    const loggedInUsername = document.getElementById('logged-in-username');
+    const signoutBtn = document.getElementById('signout-btn');
+    const forgotPwLink = document.getElementById('forgot-pw-link');
+
+    function showStatus(text, type = 'error') {
+      statusMsg.className = 'status-banner ' + type;
+      statusMsg.textContent = text;
+      statusMsg.style.display = 'block';
+    }
+
+    // Check existing dummy client session
+    const existingSession = localStorage.getItem('evergreen_client_session');
+    if (existingSession) {
+      try {
+        const data = JSON.parse(existingSession);
+        if (data.loggedIn && data.user) {
+          form.style.display = 'none';
+          demoBox.style.display = 'none';
+          loggedInUsername.textContent = 'Signed in as: ' + data.user;
+          loggedInView.style.display = 'block';
+        }
+      } catch(e) {}
+    }
+
+    // Sign out demo session
+    signoutBtn?.addEventListener('click', () => {
+      localStorage.removeItem('evergreen_client_session');
+      loggedInView.style.display = 'none';
+      form.style.display = 'block';
+      demoBox.style.display = 'block';
+      showStatus('Demo session signed out.', 'success');
+      setTimeout(() => { statusMsg.style.display = 'none'; }, 2000);
+    });
 
     // Auto-fill demo credentials on click
     demoBox?.addEventListener('click', () => {
-      usernameInput.value = 'admin';
-      passwordInput.value = 'arbor2024';
-      errorMsg.style.display = 'none';
+      usernameInput.value = 'client@evergreen.com';
+      passwordInput.value = 'demo123';
+      showStatus('Demo credentials loaded! Click "Sign In" to continue.', 'success');
       usernameInput.focus();
     });
 
+    // Forgot password dummy helper
+    forgotPwLink?.addEventListener('click', (e) => {
+      e.preventDefault();
+      showStatus('Password reset link sent to demo email address.', 'success');
+    });
+
     // Toggle password visibility
-    eyeBtn.addEventListener('click', () => {
+    eyeBtn?.addEventListener('click', () => {
       const isPassword = passwordInput.type === 'password';
       passwordInput.type = isPassword ? 'text' : 'password';
       eyeBtn.innerHTML = isPassword
@@ -317,35 +371,35 @@
         : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
     });
 
-    // Handle Login submission - Always allow entry without password
+    // Handle Dummy Login submission - Redirects to Home (index.html), NEVER admin dashboard
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      loginBtn.textContent = 'Opening Dashboard…';
+      const userVal = usernameInput.value.trim() || 'client@evergreen.com';
+      const pwVal = passwordInput.value;
+
+      if (!pwVal && !usernameInput.value.trim()) {
+        showStatus('Please enter username / email and password (or click Demo Credentials below).', 'error');
+        return;
+      }
+
+      loginBtn.textContent = 'Signing in…';
       loginBtn.disabled = true;
 
-      // Auto-set authentication session
-      const authPayload = { 
-        user: usernameInput.value.trim() || 'admin', 
-        name: 'Tyler Vance', 
-        role: 'admin', 
-        loginTime: Date.now() 
-      };
-      localStorage.setItem('arborpro_auth', JSON.stringify(authPayload));
-
-      setTimeout(() => {
-        window.location.href = 'admin.html';
-      }, 300);
-    });
-
-    // Make demo box click immediately log in and go to admin.html
-    demoBox?.addEventListener('click', () => {
-      localStorage.setItem('arborpro_auth', JSON.stringify({
-        user: 'admin',
-        name: 'Tyler Vance',
-        role: 'admin',
+      // Save dummy client session
+      const clientSession = {
+        user: userVal,
+        name: userVal.split('@')[0],
+        loggedIn: true,
         loginTime: Date.now()
-      }));
-      window.location.href = 'admin.html';
+      };
+      localStorage.setItem('evergreen_client_session', JSON.stringify(clientSession));
+
+      showStatus('✓ Signed in successfully! Returning to home page…', 'success');
+
+      // Redirect to index.html (NEVER admin.html)
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 800);
     });
   </script>
 </body>
