@@ -142,6 +142,11 @@
           <span class="material-symbols-outlined text-[20px] theme-icon">dark_mode</span>
         </button>
 
+        <!-- Quick 1-Click RTL / LTR Direction Toggle Button -->
+        <button type="button" class="dir-toggle-btn p-2 rounded-lg border border-surface-container-high bg-surface-container-low hover:bg-surface-container text-on-surface transition-colors shadow-sm" aria-label="Toggle RTL / LTR Layout" title="Toggle RTL / LTR Layout">
+          <span class="material-symbols-outlined text-[20px] dir-icon">format_textdirection_l_to_r</span>
+        </button>
+
         <a class="hidden lg:inline-flex items-center justify-center px-4 py-2 bg-secondary text-on-secondary rounded-lg text-sm font-semibold hover:bg-secondary/90 transition-all shadow-sm gap-2 shrink-0" data-path="admin-dashboard" href="admin.html">
           <span class="material-symbols-outlined text-[18px]">dashboard</span>
           Dashboard
@@ -154,6 +159,23 @@
 
     <!-- Mobile Drawer -->
     <div id="mobile-menu-drawer" class="hidden lg:hidden border-t border-surface-container-high bg-surface px-6 py-4 flex flex-col gap-2 shadow-lg">
+      <!-- Mobile Preferences Bar: Theme & RTL -->
+      <div class="flex items-center justify-between p-2 rounded-xl bg-surface-container-low border border-surface-container mt-1">
+        <span class="text-[11px] font-semibold text-on-surface-variant flex items-center gap-1 px-1">
+          <span class="material-symbols-outlined text-[15px] text-primary">tune</span>
+          Display
+        </span>
+        <div class="flex items-center gap-1.5">
+          <button type="button" class="theme-toggle-btn flex items-center gap-1 px-2.5 py-1 bg-surface-container text-on-surface rounded-lg text-xs font-semibold hover:bg-surface-container-high transition-colors">
+            <span class="material-symbols-outlined text-[14px] theme-icon">dark_mode</span>
+            <span class="theme-text text-[11px]">Theme</span>
+          </button>
+          <button type="button" class="dir-toggle-btn flex items-center gap-1 px-2.5 py-1 bg-surface-container text-on-surface rounded-lg text-xs font-semibold hover:bg-surface-container-high transition-colors">
+            <span class="material-symbols-outlined text-[14px] dir-icon">swap_horiz</span>
+            <span class="dir-text text-[11px]">LTR</span>
+          </button>
+        </div>
+      </div>
       <div class="flex flex-col gap-1 bg-surface-container-low p-2 rounded-xl border border-surface-container">
         <span class="text-[10px] font-bold text-surface-tint uppercase tracking-wider px-2">Home Pages</span>
         <a class="px-3 py-2 rounded-lg text-xs font-medium flex items-center gap-2 hover:bg-surface-container" data-path="home" href="index.html">

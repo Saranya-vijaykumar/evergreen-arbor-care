@@ -315,24 +315,30 @@ export function openBookingModal(defaultService = 'Tree Pruning & Care', default
   });
 }
 
-// Global Theme Management (Light / Dark Mode)
+// Global View Preferences (Theme & Direction RTL/LTR)
 export function initViewPreferences() {
   const root = document.documentElement;
-
-  // Clear any residual RTL direction setting
-  localStorage.removeItem('arbor_dir');
-  root.removeAttribute('dir');
 
   // Read saved theme preferences or system defaults
   const savedTheme = localStorage.getItem('arbor_theme');
   const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
 
+  // Read saved RTL direction preference
+  const savedDir = localStorage.getItem('arbor_dir');
+  const isRtl = savedDir === 'rtl';
+
   // Apply to DOM
   if (isDark) {
     root.classList.add('dark');
   } else {
     root.classList.remove('dark');
+  }
+
+  if (isRtl) {
+    root.setAttribute('dir', 'rtl');
+  } else {
+    root.setAttribute('dir', 'ltr');
   }
 
   // Update UI representations across all buttons
@@ -350,6 +356,24 @@ export function initViewPreferences() {
       btn.setAttribute('title', currentIsDark ? 'Switch to Light Mode' : 'Switch to Dark Mode');
       btn.setAttribute('aria-label', currentIsDark ? 'Switch to Light Mode' : 'Switch to Dark Mode');
     });
+
+    // Update all direction toggle elements
+    const currentIsRtl = root.getAttribute('dir') === 'rtl';
+    document.querySelectorAll('.dir-text, #dir-text').forEach(el => {
+      el.textContent = currentIsRtl ? 'RTL' : 'LTR';
+    });
+    document.querySelectorAll('.dir-icon, #dir-icon').forEach(icon => {
+      icon.textContent = currentIsRtl ? 'format_textdirection_r_to_l' : 'format_textdirection_l_to_r';
+    });
+    document.querySelectorAll('.dir-toggle-btn, #dir-toggle').forEach(btn => {
+      btn.setAttribute('title', currentIsRtl ? 'Switch to LTR Layout' : 'Switch to RTL Layout');
+      btn.setAttribute('aria-label', currentIsRtl ? 'Switch to LTR Layout' : 'Switch to RTL Layout');
+      if (currentIsRtl) {
+        btn.classList.add('border-primary', 'bg-primary-container', 'text-on-primary-container');
+      } else {
+        btn.classList.remove('border-primary', 'bg-primary-container', 'text-on-primary-container');
+      }
+    });
   }
 
   // Toggle Theme Handler
@@ -366,11 +390,34 @@ export function initViewPreferences() {
     syncUI();
   }
 
+  // Toggle Direction Handler (LTR / RTL)
+  function toggleDirection(e) {
+    if (e) e.stopPropagation();
+    const currentIsRtl = root.getAttribute('dir') === 'rtl';
+    const newIsRtl = !currentIsRtl;
+    if (newIsRtl) {
+      root.setAttribute('dir', 'rtl');
+      localStorage.setItem('arbor_dir', 'rtl');
+    } else {
+      root.setAttribute('dir', 'ltr');
+      localStorage.setItem('arbor_dir', 'ltr');
+    }
+    syncUI();
+  }
+
   // Bind click handlers to all theme buttons
   document.querySelectorAll('.theme-toggle-btn, #theme-toggle').forEach(btn => {
     if (!btn.dataset.themeBound) {
       btn.dataset.themeBound = 'true';
       btn.addEventListener('click', toggleTheme);
+    }
+  });
+
+  // Bind click handlers to all direction buttons
+  document.querySelectorAll('.dir-toggle-btn, #dir-toggle').forEach(btn => {
+    if (!btn.dataset.dirBound) {
+      btn.dataset.dirBound = 'true';
+      btn.addEventListener('click', toggleDirection);
     }
   });
 

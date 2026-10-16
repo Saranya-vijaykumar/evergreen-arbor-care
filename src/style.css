@@ -1089,3 +1089,43 @@ html.dark .badge-gold {
   color: #fbbf24 !important;
   border: 1px solid rgba(251, 191, 36, 0.3) !important;
 }
+
+
+/* =========================================================
+   RTL NAVIGATION BAR & HEADER ENHANCEMENTS
+   ========================================================= */
+html[dir="rtl"] header {
+  direction: rtl;
+}
+
+html[dir="rtl"] header nav {
+  direction: rtl;
+}
+
+html[dir="rtl"] #home-dropdown-group > div {
+  left: auto !important;
+  right: 0 !important;
+}
+
+html[dir="rtl"] #home-dropdown-group .border-l-4 {
+  border-left-width: 0 !important;
+  border-right-width: 4px !important;
+}
+
+html[dir="rtl"] #mobile-menu-drawer {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] #mobile-menu-drawer a {
+  text-align: right;
+}
+
+html[dir="rtl"] #mobile-menu-drawer a span.material-symbols-outlined {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+html[dir="rtl"] .dir-icon {
+  transform: scaleX(-1);
+}
