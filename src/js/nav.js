@@ -243,17 +243,18 @@ export function openBookingModal(defaultService = 'Tree Pruning & Care', default
   });
 }
 
-// Global View Preferences (Theme Mode & Layout Direction)
+// Global Theme Management (Light / Dark Mode)
 export function initViewPreferences() {
   const root = document.documentElement;
 
-  // Read saved preferences or system defaults
+  // Clear any residual RTL direction setting
+  localStorage.removeItem('arbor_dir');
+  root.removeAttribute('dir');
+
+  // Read saved theme preferences or system defaults
   const savedTheme = localStorage.getItem('arbor_theme');
   const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
-
-  const savedDir = localStorage.getItem('arbor_dir');
-  const isRtl = savedDir === 'rtl';
 
   // Apply to DOM
   if (isDark) {
@@ -262,16 +263,9 @@ export function initViewPreferences() {
     root.classList.remove('dark');
   }
 
-  if (isRtl) {
-    root.setAttribute('dir', 'rtl');
-  } else {
-    root.setAttribute('dir', 'ltr');
-  }
-
   // Update UI representations across all buttons
   function syncUI() {
     const currentIsDark = root.classList.contains('dark');
-    const currentIsRtl = root.getAttribute('dir') === 'rtl';
 
     // Update all theme toggle elements
     document.querySelectorAll('.theme-icon, #theme-icon').forEach(icon => {
@@ -283,15 +277,6 @@ export function initViewPreferences() {
     document.querySelectorAll('.theme-toggle-btn, #theme-toggle').forEach(btn => {
       btn.setAttribute('title', currentIsDark ? 'Switch to Light Mode' : 'Switch to Dark Mode');
       btn.setAttribute('aria-label', currentIsDark ? 'Switch to Light Mode' : 'Switch to Dark Mode');
-    });
-
-    // Update all direction toggle elements
-    document.querySelectorAll('.dir-text, #dir-text').forEach(el => {
-      el.textContent = currentIsRtl ? 'RTL Active' : 'LTR / RTL';
-    });
-    document.querySelectorAll('.dir-toggle-btn, #dir-toggle').forEach(btn => {
-      btn.setAttribute('title', currentIsRtl ? 'Switch to LTR Layout' : 'Switch to RTL Layout');
-      btn.setAttribute('aria-label', currentIsRtl ? 'Switch to LTR Layout' : 'Switch to RTL Layout');
     });
   }
 
@@ -311,23 +296,6 @@ export function initViewPreferences() {
     syncUI();
   }
 
-  // Toggle Direction Handler
-  function toggleDirection(e) {
-    if (e) e.stopPropagation();
-    const currentDir = root.getAttribute('dir');
-    const newIsRtl = currentDir !== 'rtl';
-    if (newIsRtl) {
-      root.setAttribute('dir', 'rtl');
-      localStorage.setItem('arbor_dir', 'rtl');
-      showToast('Layout Direction', 'Right-to-Left (RTL) mode activated.', 'success');
-    } else {
-      root.setAttribute('dir', 'ltr');
-      localStorage.setItem('arbor_dir', 'ltr');
-      showToast('Layout Direction', 'Left-to-Right (LTR) mode restored.', 'success');
-    }
-    syncUI();
-  }
-
   // Bind click handlers to all theme buttons
   document.querySelectorAll('.theme-toggle-btn, #theme-toggle').forEach(btn => {
     if (!btn.dataset.themeBound) {
@@ -335,41 +303,6 @@ export function initViewPreferences() {
       btn.addEventListener('click', toggleTheme);
     }
   });
-
-  // Bind click handlers to all direction buttons
-  document.querySelectorAll('.dir-toggle-btn, #dir-toggle').forEach(btn => {
-    if (!btn.dataset.dirBound) {
-      btn.dataset.dirBound = 'true';
-      btn.addEventListener('click', toggleDirection);
-    }
-  });
-
-  // Nav Preferences dropdown toggle
-  const prefsBtn = document.getElementById('nav-preferences-toggle-btn');
-  const prefsMenu = document.getElementById('nav-preferences-menu');
-  const prefsChevron = document.getElementById('nav-prefs-chevron');
-
-  if (prefsBtn && prefsMenu) {
-    if (!prefsBtn.dataset.bound) {
-      prefsBtn.dataset.bound = 'true';
-      prefsBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        prefsMenu.classList.toggle('hidden');
-        if (prefsChevron) {
-          prefsChevron.classList.toggle('rotate-180');
-        }
-      });
-
-      document.addEventListener('click', (e) => {
-        if (!prefsBtn.contains(e.target) && !prefsMenu.contains(e.target)) {
-          prefsMenu.classList.add('hidden');
-          if (prefsChevron) {
-            prefsChevron.classList.remove('rotate-180');
-          }
-        }
-      });
-    }
-  }
 
   // Sync initial UI states
   syncUI();
