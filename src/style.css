@@ -113,27 +113,72 @@ html.dark body {
   color: #e1e3df !important;
 }
 
-/* Background surfaces */
+/* Background surfaces - full support for all Tailwind opacity variants */
 html.dark .bg-surface,
-html.dark .bg-surface-container-lowest {
+html.dark .bg-surface-container-lowest,
+html.dark [class*="bg-surface\\/"],
+html.dark [class*="bg-surface/"],
+html.dark [class*="bg-surface-container-lowest\\/"],
+html.dark [class*="bg-surface-container-lowest/"] {
   background-color: #121815 !important;
   color: #e1e3df !important;
 }
 
-html.dark .bg-surface-container-low {
+html.dark .bg-surface-container-low,
+html.dark [class*="bg-surface-container-low\\/"],
+html.dark [class*="bg-surface-container-low/"] {
   background-color: #17201b !important;
 }
 
-html.dark .bg-surface-container {
+html.dark .bg-surface-container,
+html.dark [class*="bg-surface-container\\/"],
+html.dark [class*="bg-surface-container/"] {
   background-color: #1b2520 !important;
 }
 
-html.dark .bg-surface-container-high {
+html.dark .bg-surface-container-high,
+html.dark [class*="bg-surface-container-high\\/"],
+html.dark [class*="bg-surface-container-high/"] {
   background-color: #222e28 !important;
 }
 
-html.dark .bg-surface-container-highest {
+html.dark .bg-surface-container-highest,
+html.dark [class*="bg-surface-container-highest\\/"],
+html.dark [class*="bg-surface-container-highest/"] {
   background-color: #293831 !important;
+}
+
+/* Semi-transparent headers and navigation in Dark Mode */
+html.dark header[class*="bg-surface"],
+html.dark nav[class*="bg-surface"] {
+  background-color: rgba(18, 24, 21, 0.92) !important;
+}
+
+/* Semi-transparent chips and floating badges on images / maps */
+html.dark span[class*="bg-surface/"],
+html.dark span[class*="bg-surface\\/"],
+html.dark div[class*="bg-surface/"][class*="backdrop-blur"],
+html.dark div[class*="bg-surface\\/"][class*="backdrop-blur"] {
+  background-color: rgba(23, 32, 27, 0.94) !important;
+  color: #f8fafc !important;
+}
+
+/* Transparent ghost button overlays in Dark Mode (e.g., /10, /15, /20) */
+html.dark [class*="bg-surface/5"],
+html.dark [class*="bg-surface\\/5"],
+html.dark [class*="bg-surface/10"],
+html.dark [class*="bg-surface\\/10"] {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+html.dark [class*="bg-surface/15"],
+html.dark [class*="bg-surface\\/15"] {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+}
+html.dark [class*="bg-surface/20"],
+html.dark [class*="bg-surface\\/20"],
+html.dark [class*="bg-surface/25"],
+html.dark [class*="bg-surface\\/25"] {
+  background-color: rgba(255, 255, 255, 0.18) !important;
 }
 
 /* Text colors - High-Contrast Dark Mode Suite */
