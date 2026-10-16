@@ -363,7 +363,7 @@ export function initViewPreferences() {
       el.textContent = currentIsRtl ? 'RTL' : 'LTR';
     });
     document.querySelectorAll('.dir-icon, #dir-icon').forEach(icon => {
-      icon.textContent = currentIsRtl ? 'format_textdirection_r_to_l' : 'format_textdirection_l_to_r';
+      icon.textContent = 'swap_horiz';
     });
     document.querySelectorAll('.dir-toggle-btn, #dir-toggle').forEach(btn => {
       btn.setAttribute('title', currentIsRtl ? 'Switch to LTR Layout' : 'Switch to RTL Layout');
