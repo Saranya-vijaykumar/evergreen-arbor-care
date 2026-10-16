@@ -150,7 +150,12 @@ export function showToast(title, message, type = 'success') {
 
 // Global Booking Modal
 export function openBookingModal(defaultService = 'Tree Pruning & Care', defaultAmount = 450) {
-  const modalRoot = document.getElementById('arbor-modal-root') || document.body;
+  let modalRoot = document.getElementById('arbor-modal-root');
+  if (!modalRoot) {
+    modalRoot = document.createElement('div');
+    modalRoot.id = 'arbor-modal-root';
+    document.body.appendChild(modalRoot);
+  }
 
   const modalHtml = `
     <div id="booking-modal-backdrop" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">

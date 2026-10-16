@@ -357,7 +357,7 @@
           <p class="text-xs md:text-sm text-surface-container-high">Our ISA arborists will inspect your tree canopy, evaluate soil vitality, and provide an itemized written care plan.</p>
         </div>
         <div class="flex flex-wrap items-center gap-3 relative z-10 shrink-0">
-          <button onclick="openBookingModal('General Arborist Health Assessment', 200)" class="px-6 py-3 bg-secondary text-on-secondary rounded-xl text-xs font-bold hover:bg-secondary/90 transition-all shadow-md flex items-center gap-2">
+          <button id="bottom-cta-book-btn" class="px-6 py-3 bg-secondary text-on-secondary rounded-xl text-xs font-bold hover:bg-secondary/90 transition-all shadow-md flex items-center gap-2">
             <span class="material-symbols-outlined text-[16px]">assignment_turned_in</span>
             Book Diagnostic Audit
           </button>
@@ -495,6 +495,10 @@
         <a href="service-detail.html?id=crane-rigging" class="hover:text-primary transition-colors flex items-center gap-1.5 py-0.5">
           <span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
           <span>60-Ton Crane Precision Rigging</span>
+        </a>
+        <a href="service-detail.html?id=bucket-truck" class="hover:text-primary transition-colors flex items-center gap-1.5 py-0.5">
+          <span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+          <span>75ft Aerial Bucket Operations</span>
         </a>
       </div>
 
@@ -652,28 +656,44 @@
       </div>
     `).join('');
 
-    // FAQ Accordion
+    // FAQ Accordion (1st item open by default for rich instant visibility)
     const faqContainer = document.getElementById('detail-faq-container');
-    faqContainer.innerHTML = service.faqs.map((faq, idx) => `
-      <div class="bg-surface rounded-xl border border-surface-container overflow-hidden">
-        <button class="w-full p-4 text-left flex justify-between items-center gap-4 hover:bg-surface-container-high transition-colors faq-toggle-btn" data-idx="${idx}">
-          <span class="text-xs sm:text-sm font-bold font-headline text-on-surface">${faq.q}</span>
-          <span class="material-symbols-outlined text-outline transition-transform duration-200">expand_more</span>
-        </button>
-        <div class="px-4 pb-4 text-xs text-on-surface-variant leading-relaxed hidden faq-answer-box">
-          ${faq.a}
+    faqContainer.innerHTML = service.faqs.map((faq, idx) => {
+      const isOpen = idx === 0;
+      return `
+        <div class="bg-surface rounded-xl border border-surface-container overflow-hidden transition-all shadow-xs">
+          <button class="w-full p-4 text-left flex justify-between items-center gap-4 hover:bg-surface-container-high transition-colors faq-toggle-btn" data-idx="${idx}" aria-expanded="${isOpen}">
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs shrink-0">${idx + 1}</span>
+              <span class="text-xs sm:text-sm font-bold font-headline text-on-surface">${faq.q}</span>
+            </div>
+            <span class="material-symbols-outlined text-outline transition-transform duration-200" style="transform: ${isOpen ? 'rotate(180deg)' : 'rotate(0deg)'}">expand_more</span>
+          </button>
+          <div class="px-5 pb-4 text-xs text-on-surface-variant leading-relaxed ${isOpen ? '' : 'hidden'} faq-answer-box border-t border-surface-container/40 pt-2.5">
+            ${faq.a}
+          </div>
         </div>
-      </div>
-    `).join('');
+      `;
+    }).join('');
 
     // FAQ toggle listeners
     document.querySelectorAll('.faq-toggle-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
         const answer = btn.nextElementSibling;
         const icon = btn.querySelector('.material-symbols-outlined');
-        const isHidden = answer.classList.contains('hidden');
-        answer.classList.toggle('hidden');
-        icon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+        const isCurrentlyHidden = answer.classList.contains('hidden');
+
+        // Toggle current
+        if (isCurrentlyHidden) {
+          answer.classList.remove('hidden');
+          icon.style.transform = 'rotate(180deg)';
+          btn.setAttribute('aria-expanded', 'true');
+        } else {
+          answer.classList.add('hidden');
+          icon.style.transform = 'rotate(0deg)';
+          btn.setAttribute('aria-expanded', 'false');
+        }
       });
     });
 
@@ -695,6 +715,7 @@
 
     document.getElementById('hero-book-btn').addEventListener('click', handleBook);
     document.getElementById('sidebar-book-btn').addEventListener('click', handleBook);
+    document.getElementById('bottom-cta-book-btn')?.addEventListener('click', handleBook);
 
     // Expose openBookingModal globally for header/footer inline onclicks
     window.openBookingModal = openBookingModal;

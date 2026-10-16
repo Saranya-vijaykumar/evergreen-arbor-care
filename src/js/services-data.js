@@ -184,7 +184,8 @@ We ensure compliance with local building codes, fire department clearance requir
     ],
     faqs: [
       { q: 'Do you offer emergency storm response guarantees?', a: 'Yes. Commercial SLA contract holders receive guaranteed 2-hour emergency dispatch priority during regional wind, snow, and thunderstorm events.' },
-      { q: 'Can you work during off-peak hours to avoid parking lot disruptions?', a: 'Absolutely. We routinely schedule commercial pruning on weekends or early morning hours before corporate offices and retail centers open.' }
+      { q: 'Can you work during off-peak hours to avoid parking lot disruptions?', a: 'Absolutely. We routinely schedule commercial pruning on weekends or early morning hours before corporate offices and retail centers open.' },
+      { q: 'Can you provide multi-year tree inventory and capital expense budgeting?', a: 'Yes. We deliver digital GIS-tagged tree canopy inventories with condition ratings and 3-to-5 year rolling capital budget projections for board review and HOA reserve studies.' }
     ]
   },
 
@@ -221,7 +222,8 @@ Whether you need a formal tree condition report for municipal construction permi
     ],
     faqs: [
       { q: 'Will this report be accepted by my city for a tree removal permit?', a: 'Yes. Our reports are authored by ISA-certified arborists with TRAQ (Tree Risk Assessment Qualification) credentials, meeting all municipal requirements.' },
-      { q: 'Can sick trees usually be saved?', a: 'In over 70% of cases, early detection of pest or fungal stress allows us to nurse the tree back to vigorous health without removal.' }
+      { q: 'Can sick trees usually be saved?', a: 'In over 70% of cases, early detection of pest or fungal stress allows us to nurse the tree back to vigorous health without removal.' },
+      { q: 'How often should heritage and specimen trees be evaluated?', a: 'We recommend baseline scientific health evaluations every 2 to 3 years, or immediately following severe storm events, foundation excavation, or utility trenching.' }
     ]
   },
 
@@ -258,7 +260,8 @@ By placing a calibrated ring of 10 to 12 acoustic sensors around the trunk, soun
     ],
     faqs: [
       { q: 'Does this test harm the tree?', a: 'No! The sensor pins are only 2mm in diameter and barely penetrate beyond the outer bark into the non-living outer xylem. Trees seal these tiny prick marks within hours.' },
-      { q: 'When is sonic tomography recommended?', a: 'Whenever a valuable specimen tree shows fungal conks, cavities, cracks, or is situated near high-value targets like homes, schools, or historical buildings.' }
+      { q: 'When is sonic tomography recommended?', a: 'Whenever a valuable specimen tree shows fungal conks, cavities, cracks, or is situated near high-value targets like homes, schools, or historical buildings.' },
+      { q: 'Can sonic tomography differentiate between active decay and hollow voids?', a: 'Yes. PiCUS sound sensors calculate microsecond velocities across dozens of angles, clearly distinguishing solid heartwood, soft incipient fungal decay, and complete hollow cavities in distinct color grades.' }
     ]
   },
 
@@ -295,7 +298,8 @@ These UV-stabilized hollow-braid synthetic ropes wrap gently around limbs with w
     ],
     faqs: [
       { q: 'Will the cable strangle the tree branch as it grows?', a: 'No! The Cobra system features expanding loops and flexible collars specifically engineered to expand as the branch adds annual rings.' },
-      { q: 'How long do dynamic synthetic cables last?', a: 'Cobra cables have an expected lifespan of 10 to 12 years. We provide routine 3-year inspections to check tension and collar seating.' }
+      { q: 'How long do dynamic synthetic cables last?', a: 'Cobra cables have an expected lifespan of 10 to 12 years. We provide routine 3-year inspections to check tension and collar seating.' },
+      { q: 'When is dynamic synthetic cabling chosen over rigid steel rods?', a: 'Dynamic synthetic cabling is the modern ANSI A300 standard for upper canopy shock absorption. Rigid through-bolts are reserved only for low trunk splits where zero movement is required.' }
     ]
   },
 
@@ -332,7 +336,8 @@ Our certified crane operators work in constant two-way radio headset communicati
     ],
     faqs: [
       { q: 'Will the heavy crane crack my driveway?', a: 'No. We deploy oversized 4x8 ft heavy-duty composite outrigger pads that distribute thousands of pounds of pressure over wide surface areas, preventing concrete and asphalt damage.' },
-      { q: 'How windy is too windy for crane operations?', a: 'We adhere to OSHA guidelines: crane operations halt if sustained wind speeds exceed 25 mph or gust patterns create unsafe pendulum sway.' }
+      { q: 'How windy is too windy for crane operations?', a: 'We adhere to OSHA guidelines: crane operations halt if sustained wind speeds exceed 25 mph or gust patterns create unsafe pendulum sway.' },
+      { q: 'How does crane-assisted tree removal compare to manual piecemeal roping?', a: 'Crane removals are typically 3x faster, drastically safer for ground crews, and eliminate heavy limb drop impact on landscaped lawns, septic tanks, and roof structures.' }
     ]
   },
 
@@ -344,7 +349,7 @@ Our certified crane operators work in constant two-way radio headset communicati
     tier: '$$ High Reach Tier',
     priceEstimate: '$600 - $1,600',
     basePrice: 600,
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCKAHOcfy3kOKW7hcwjuf6ghDkRO2Kz-y7FjPTfP-wxk1_8THKJNGIAKrF9FxzcsnrJShYgUO-XgRCTzkK1HCBsfjrAkPYiVaQD_QOHwm6of4SQOcOGVlAEXyQ5erCZtNU8KpHy0kZCKu9hsrhC07mp5Kbr22J1h63cWul9P57-zzQijHUnYKPY5UujQQVQwIAl99OH7v-ynIUIOyVXLBzccN-3sA9vs2rm8KL_OvKHSMFsqbmAI_ad',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAHYrZXr9Fx77Virass_1ToKcUSoFH8hbUl2QMt1xYFw9LKmkFFvtRvy73cHtWgFcJJvAHKfwgvI8ZjPreRimWb9c-S7Ek_oQee8hAhlI7k-evZHoULitaMYZpLCQFKb9UcbXY16csqAhwohe8YL_12pILSZmn--0S9f3t7IsuwsBxMB5gU50p1JUz_JmN1KudQ0-kZ7ykduHSNHx3xw5IKmst6adoRmIAAxUFJPy4ibjE4LpKVNdrk',
     summary: 'High-reach dielectric insulated aerial platforms providing secure positioning for rapid clearance pruning, utility right-of-way clearing, and tall canopy surgery.',
     description: `For tall street trees, commercial parking corridors, and trees entangled in high-voltage power lines, climbing on brittle dead limbs poses unacceptable human risk. Evergreen Arbor Care operates 75-foot articulated forestry bucket trucks featuring Category C 46kV dielectric insulation.
 
@@ -369,7 +374,8 @@ Our operators position themselves directly above complex canopies with ergonomic
     ],
     faqs: [
       { q: 'Can your bucket truck reach trees in my backyard?', a: 'If your driveway or side yard has a 10-foot wide paved access, our truck can reach over fences up to 45 feet horizontally. For tighter spaces, we deploy certified rope climbers.' },
-      { q: 'Are your operators certified for electrical hazards?', a: 'Yes. All operators carry Electrical Hazards Awareness Program (EHAP) certifications and comply with OSHA line-clearance standards.' }
+      { q: 'Are your operators certified for electrical hazards?', a: 'Yes. All operators carry Electrical Hazards Awareness Program (EHAP) certifications and comply with OSHA line-clearance standards.' },
+      { q: 'What is dielectric insulation and why is it essential near power lines?', a: 'Dielectric insulation uses specialized non-conductive fiberglass boom inserts rated up to 46,000 volts, preventing electrical arcing between live power lines and the vehicle chassis.' }
     ]
   }
 };
