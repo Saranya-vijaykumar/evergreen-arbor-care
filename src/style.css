@@ -164,6 +164,27 @@ html.dark .text-outline-variant {
   color: #64748b !important;
 }
 
+/* Radiant Theme Accents in Dark Mode */
+html.dark .text-primary {
+  color: #4ade80 !important; /* Radiant Emerald Green - 100% visible on dark obsidian */
+}
+
+html.dark .text-secondary {
+  color: #fbbf24 !important; /* Radiant Warm Golden Amber */
+}
+
+html.dark .text-tertiary {
+  color: #f87171 !important; /* Radiant Coral Rose */
+}
+
+html.dark .text-primary-container {
+  color: #86efac !important;
+}
+
+html.dark .text-secondary-container {
+  color: #fde68a !important;
+}
+
 html.dark .text-primary-fixed {
   color: #86efac !important;
 }
