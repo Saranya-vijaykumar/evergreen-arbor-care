@@ -183,30 +183,32 @@
 
     <main class="w-full pt-20 bg-surface">
     <!-- Live Dispatch & Storm Response Emergency Hero Banner -->
-    <div class="w-full bg-primary-container text-on-primary-container py-2.5 px-gutter flex items-center justify-between text-xs border-b border-primary-fixed/20 overflow-x-auto shadow-inner">
-      <div class="flex items-center gap-3 shrink-0">
-        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary text-primary-fixed text-[10px] font-bold uppercase tracking-wider shadow-sm">
-          <span class="w-2 h-2 rounded-full bg-primary-fixed animate-ping"></span>
-          24/7 Field Dispatch
+    <div class="w-full bg-primary-container text-on-primary-container py-2 sm:py-2.5 px-3 sm:px-gutter flex items-center justify-between text-[11px] sm:text-xs border-b border-primary-fixed/20 shadow-inner">
+      <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+        <span class="inline-flex items-center gap-1 sm:gap-1.5 px-2 py-0.5 rounded-full bg-primary text-primary-fixed text-[9px] sm:text-[10px] font-bold uppercase tracking-wider shrink-0 shadow-sm">
+          <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-primary-fixed animate-ping"></span>
+          24/7 Dispatch
         </span>
-        <span class="font-medium text-on-primary">Storm Season Readiness: <strong>Emergency Crane &amp; Hazard Tree Removal Crews</strong> on Standby Across Greater Seattle</span>
+        <span class="font-medium text-on-primary truncate sm:whitespace-normal">
+          Storm Season: <strong>Emergency Crews on Standby</strong> Across Greater Seattle
+        </span>
       </div>
-      <div class="hidden md:flex items-center gap-4 text-primary-fixed-dim shrink-0">
-        <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px] text-primary-fixed">schedule</span> Avg. Response Time: <strong>&lt; 30 Mins</strong></span>
-        <span>•</span>
-        <a href="tel:18005558733" class="text-primary-fixed hover:text-white font-bold flex items-center gap-1 transition-colors">
-          <span class="material-symbols-outlined text-[15px]">call</span> 1-800-555-TREE
+      <div class="flex items-center gap-2 sm:gap-4 text-primary-fixed-dim shrink-0 ml-2">
+        <span class="hidden md:flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> Avg. Response: <strong>&lt; 30 Mins</strong></span>
+        <span class="hidden md:inline">•</span>
+        <a href="tel:18005558733" class="text-primary-fixed hover:text-white font-bold flex items-center gap-1 transition-colors px-2 py-0.5 rounded bg-primary/40 sm:bg-transparent text-[11px] sm:text-xs">
+          <span class="material-symbols-outlined text-[13px] sm:text-[15px]">call</span> 1-800-555-TREE
         </a>
       </div>
     </div>
 
     <div class="flex flex-col w-full">
       <!-- Hero Section -->
-      <section class="relative w-full min-h-[780px] bg-primary text-on-primary flex flex-col justify-between overflow-hidden">
+      <section class="relative w-full min-h-[500px] lg:min-h-[760px] bg-primary text-on-primary flex flex-col justify-between overflow-hidden">
         <div class="absolute inset-0 z-0 opacity-60 bg-cover bg-center transition-transform duration-1000 scale-100 hover:scale-105" style="background-image: url('/hero_arborpro_canopy.jpg')"></div>
         <div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-primary/30 z-10"></div>
         
-        <div class="max-w-7xl mx-auto px-gutter w-full relative z-20 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="max-w-7xl mx-auto px-gutter w-full relative z-20 py-8 sm:py-12 lg:py-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <div class="lg:col-span-7 flex flex-col gap-6">
             <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-surface-container-lowest/15 backdrop-blur-md rounded-full w-max text-primary-fixed text-sm font-semibold">
               <span class="material-symbols-outlined text-[18px]">verified</span>
@@ -323,27 +325,27 @@
           </div>
         </div>
         <!-- Hero Trust & Accreditation Banner Bar -->
-        <div class="w-full relative z-20 border-t border-white/10 bg-black/35 backdrop-blur-md py-4 px-gutter">
-          <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4 text-xs text-primary-fixed">
-            <div class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-[18px] text-secondary">verified</span>
-              <span class="font-bold text-white">ISA Board Certified</span>
-              <span class="text-primary-fixed-dim hidden sm:inline">• Master Arborists on Staff</span>
+        <div class="w-full relative z-20 border-t border-white/10 bg-black/40 backdrop-blur-md py-2.5 sm:py-3.5 px-3 sm:px-gutter">
+          <div class="max-w-7xl mx-auto grid grid-cols-2 md:flex md:flex-wrap items-center justify-between gap-2.5 sm:gap-4 text-[11px] sm:text-xs text-primary-fixed">
+            <div class="flex items-center gap-1.5 sm:gap-2">
+              <span class="material-symbols-outlined text-[15px] sm:text-[18px] text-secondary shrink-0">verified</span>
+              <span class="font-bold text-white truncate">ISA Certified</span>
+              <span class="text-primary-fixed-dim hidden lg:inline">• Master Arborists</span>
             </div>
-            <div class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-[18px] text-secondary">shield</span>
-              <span class="font-bold text-white">TCIA Accredited</span>
-              <span class="text-primary-fixed-dim hidden sm:inline">• Commercial Safety Standard</span>
+            <div class="flex items-center gap-1.5 sm:gap-2">
+              <span class="material-symbols-outlined text-[15px] sm:text-[18px] text-secondary shrink-0">shield</span>
+              <span class="font-bold text-white truncate">TCIA Accredited</span>
+              <span class="text-primary-fixed-dim hidden lg:inline">• Safety Standard</span>
             </div>
-            <div class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-[18px] text-secondary">precision_manufacturing</span>
-              <span class="font-bold text-white">60-Ton Knuckle Crane</span>
-              <span class="text-primary-fixed-dim hidden sm:inline">• Zero-Impact Turf Rigging</span>
+            <div class="flex items-center gap-1.5 sm:gap-2">
+              <span class="material-symbols-outlined text-[15px] sm:text-[18px] text-secondary shrink-0">precision_manufacturing</span>
+              <span class="font-bold text-white truncate">60-Ton Crane</span>
+              <span class="text-primary-fixed-dim hidden lg:inline">• Zero-Impact</span>
             </div>
-            <div class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-[18px] text-secondary">security</span>
-              <span class="font-bold text-white">$5,000,000 Insured</span>
-              <span class="text-primary-fixed-dim hidden sm:inline">• Complete Property Bond</span>
+            <div class="flex items-center gap-1.5 sm:gap-2">
+              <span class="material-symbols-outlined text-[15px] sm:text-[18px] text-secondary shrink-0">security</span>
+              <span class="font-bold text-white truncate">$5M Insured</span>
+              <span class="text-primary-fixed-dim hidden lg:inline">• Property Bond</span>
             </div>
           </div>
         </div>
@@ -1000,16 +1002,16 @@
       <!-- Banner CTA -->
       <section class="w-full py-16 bg-surface">
         <div class="max-w-7xl mx-auto px-gutter">
-          <div class="bg-primary-container text-on-primary-container rounded-3xl p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-10 relative overflow-hidden shadow-2xl">
+          <div class="bg-primary-container text-on-primary-container rounded-3xl p-6 sm:p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 relative overflow-hidden shadow-2xl">
             <div class="flex flex-col gap-3 max-w-xl z-10">
               <span class="text-xs font-bold text-primary-fixed uppercase tracking-wider">Ready for Professional Care?</span>
-              <h2 class="text-3xl font-bold font-headline text-on-primary">Schedule Your Free On-Site Consultation</h2>
+              <h2 class="text-2xl sm:text-3xl font-bold font-headline text-on-primary">Schedule Your Free On-Site Consultation</h2>
               <p class="text-sm text-primary-fixed-dim leading-relaxed">
                 Get an accurate, no-obligation quote from an ISA Certified Arborist with digital canopy assessment.
               </p>
             </div>
             <div class="flex flex-col sm:flex-row gap-3 z-10 w-full md:w-auto">
-              <button onclick="openBookingModal('General Property Tree Audit', 0)" class="px-6 py-3.5 bg-secondary text-on-secondary rounded-lg text-sm font-semibold hover:bg-secondary/90 transition-all text-center shadow-lg">
+              <button onclick="openBookingModal('General Property Tree Audit', 0)" class="px-5 py-3 sm:px-6 sm:py-3.5 bg-secondary text-on-secondary rounded-lg text-xs sm:text-sm font-semibold hover:bg-secondary/90 transition-all text-center shadow-lg">
                 Book Consultation
               </button>
               <a class="px-6 py-3.5 bg-surface/10 backdrop-blur-md text-on-primary rounded-lg text-sm font-semibold hover:bg-surface/20 transition-all text-center flex items-center justify-center gap-2 border border-white/20" href="tel:18005558733">

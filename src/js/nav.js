@@ -199,68 +199,68 @@ export function openBookingModal(defaultService = 'Tree Pruning & Care', default
   }
 
   const modalHtml = `
-    <div id="booking-modal-backdrop" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-      <div class="bg-surface rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-surface-container-highest relative transform transition-all animate-scaleUp">
-        <button id="close-modal-btn" class="absolute top-4 right-4 text-on-surface-variant hover:text-on-surface p-2 rounded-full hover:bg-surface-container">
-          <span class="material-symbols-outlined text-[20px]">close</span>
+    <div id="booking-modal-backdrop" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+      <div class="bg-surface rounded-2xl sm:rounded-3xl max-w-lg w-full p-4 sm:p-6 shadow-2xl border border-surface-container-highest relative transform transition-all animate-scaleUp max-h-[92vh] overflow-y-auto">
+        <button id="close-modal-btn" class="absolute top-3 right-3 sm:top-4 sm:right-4 text-on-surface-variant hover:text-on-surface p-1.5 sm:p-2 rounded-full hover:bg-surface-container" aria-label="Close booking modal">
+          <span class="material-symbols-outlined text-[18px] sm:text-[20px]">close</span>
         </button>
 
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center">
-            <span class="material-symbols-outlined">calendar_month</span>
+        <div class="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4 pr-8">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-[20px] sm:text-[22px]">calendar_month</span>
           </div>
           <div>
-            <h3 class="font-headline-sm text-lg text-on-surface">Book On-Site Consultation</h3>
-            <p class="text-body-sm text-on-surface-variant text-xs">Certified ISA arborists directly to your property</p>
+            <h3 class="font-headline font-bold text-base sm:text-lg text-on-surface leading-tight">Book On-Site Consultation</h3>
+            <p class="text-[11px] sm:text-xs text-on-surface-variant">Certified ISA arborists directly to your property</p>
           </div>
         </div>
 
-        <form id="arbor-booking-form" class="space-y-3">
+        <form id="arbor-booking-form" class="space-y-2.5 sm:space-y-3">
           <div>
-            <label class="block text-label-sm text-on-surface mb-1">Selected Service</label>
-            <input type="text" id="modal-service" value="${defaultService}" required class="w-full px-3 py-2 bg-surface-container rounded-lg text-body-md text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary" />
+            <label class="block text-[11px] sm:text-xs font-semibold text-on-surface mb-1">Selected Service</label>
+            <input type="text" id="modal-service" value="${defaultService}" required class="w-full px-3 py-1.5 sm:py-2 bg-surface-container rounded-lg text-xs sm:text-sm text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary" />
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
             <div>
-              <label class="block text-label-sm text-on-surface mb-1">Your Full Name *</label>
-              <input type="text" id="modal-client" required placeholder="Jane Doe" class="w-full px-3 py-2 bg-surface-container rounded-lg text-body-md text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary" />
+              <label class="block text-[11px] sm:text-xs font-semibold text-on-surface mb-1">Your Full Name *</label>
+              <input type="text" id="modal-client" required placeholder="Jane Doe" class="w-full px-3 py-1.5 sm:py-2 bg-surface-container rounded-lg text-xs sm:text-sm text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary" />
             </div>
             <div>
-              <label class="block text-label-sm text-on-surface mb-1">Phone Number *</label>
-              <input type="tel" id="modal-phone" required placeholder="(555) 000-0000" class="w-full px-3 py-2 bg-surface-container rounded-lg text-body-md text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary" />
+              <label class="block text-[11px] sm:text-xs font-semibold text-on-surface mb-1">Phone Number *</label>
+              <input type="tel" id="modal-phone" required placeholder="(555) 000-0000" class="w-full px-3 py-1.5 sm:py-2 bg-surface-container rounded-lg text-xs sm:text-sm text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary" />
             </div>
           </div>
 
           <div>
-            <label class="block text-label-sm text-on-surface mb-1">Property Street Address *</label>
-            <input type="text" id="modal-location" required placeholder="742 Evergreen Terrace, Springfield" class="w-full px-3 py-2 bg-surface-container rounded-lg text-body-md text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary" />
+            <label class="block text-[11px] sm:text-xs font-semibold text-on-surface mb-1">Property Street Address *</label>
+            <input type="text" id="modal-location" required placeholder="742 Evergreen Terrace, Springfield" class="w-full px-3 py-1.5 sm:py-2 bg-surface-container rounded-lg text-xs sm:text-sm text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary" />
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
             <div>
-              <label class="block text-label-sm text-on-surface mb-1">Urgency Priority</label>
-              <select id="modal-priority" class="w-full px-3 py-2 bg-surface-container rounded-lg text-body-md text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary">
+              <label class="block text-[11px] sm:text-xs font-semibold text-on-surface mb-1">Urgency Priority</label>
+              <select id="modal-priority" class="w-full px-3 py-1.5 sm:py-2 bg-surface-container rounded-lg text-xs sm:text-sm text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary">
                 <option value="Medium">Standard (Within 5 days)</option>
                 <option value="Urgent">Priority (Within 48 hrs)</option>
                 <option value="Emergency">Emergency (Immediate Dispatch)</option>
               </select>
             </div>
             <div>
-              <label class="block text-label-sm text-on-surface mb-1">Estimated Budget</label>
-              <input type="number" id="modal-amount" value="${defaultAmount}" class="w-full px-3 py-2 bg-surface-container rounded-lg text-body-md text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary" />
+              <label class="block text-[11px] sm:text-xs font-semibold text-on-surface mb-1">Estimated Budget</label>
+              <input type="number" id="modal-amount" value="${defaultAmount}" class="w-full px-3 py-1.5 sm:py-2 bg-surface-container rounded-lg text-xs sm:text-sm text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary" />
             </div>
           </div>
 
           <div>
-            <label class="block text-label-sm text-on-surface mb-1">Tree Details / Property Access Notes</label>
-            <textarea id="modal-notes" rows="2" placeholder="e.g. 50ft oak near power lines; side-gate code #4321..." class="w-full px-3 py-2 bg-surface-container rounded-lg text-body-md text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+            <label class="block text-[11px] sm:text-xs font-semibold text-on-surface mb-1">Tree Details / Property Access Notes</label>
+            <textarea id="modal-notes" rows="2" placeholder="e.g. 50ft oak near power lines; side-gate code #4321..." class="w-full px-3 py-1.5 sm:py-2 bg-surface-container rounded-lg text-xs sm:text-sm text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
           </div>
 
-          <div class="flex items-center justify-end gap-3 pt-3 border-t border-surface-container-highest">
-            <button type="button" id="cancel-booking-btn" class="px-4 py-2 rounded-lg text-label-md text-on-surface hover:bg-surface-container transition-colors">Cancel</button>
-            <button type="submit" class="px-5 py-2 rounded-lg bg-primary text-on-primary font-label-md hover:bg-primary-container transition-colors flex items-center gap-2 shadow-md">
-              <span class="material-symbols-outlined text-[18px]">send</span>
+          <div class="flex items-center justify-end gap-2.5 sm:gap-3 pt-2.5 sm:pt-3 border-t border-surface-container-highest">
+            <button type="button" id="cancel-booking-btn" class="px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm text-on-surface hover:bg-surface-container transition-colors">Cancel</button>
+            <button type="submit" class="px-4 py-1.5 sm:px-5 sm:py-2 rounded-lg bg-primary text-on-primary font-semibold text-xs sm:text-sm hover:bg-primary-container transition-colors flex items-center gap-1.5 sm:gap-2 shadow-md">
+              <span class="material-symbols-outlined text-[16px] sm:text-[18px]">send</span>
               Confirm & Dispatch
             </button>
           </div>
