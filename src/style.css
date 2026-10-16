@@ -340,3 +340,166 @@ html[dir="rtl"] .mr-3 {
 }
 
 
+
+
+/* =========================================================
+   TEXT SELECTION & INPUT/SELECT VISIBILITY FIXES
+   ========================================================= */
+
+/* 1. Global Text Selection (Highlighting with mouse) */
+::selection {
+  background-color: #1b4332 !important;
+  color: #ffffff !important;
+}
+::-moz-selection {
+  background-color: #1b4332 !important;
+  color: #ffffff !important;
+}
+
+html.dark ::selection {
+  background-color: #278e32 !important;
+  color: #ffffff !important;
+}
+html.dark ::-moz-selection {
+  background-color: #278e32 !important;
+  color: #ffffff !important;
+}
+
+/* 2. Select Dropdowns & Options (Fixes Windows/Chrome invisible text) */
+select {
+  cursor: pointer;
+  color: #1a1c1a;
+  background-color: #ffffff;
+}
+
+select option,
+select optgroup {
+  background-color: #ffffff !important;
+  color: #1a1c1a !important;
+  padding: 10px 14px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
+
+select option:checked,
+select option:hover {
+  background-color: #1b4332 !important;
+  color: #ffffff !important;
+}
+
+html.dark select {
+  background-color: #17201b !important;
+  color: #e2e8e3 !important;
+  border-color: #2a382f !important;
+}
+
+html.dark select option,
+html.dark select optgroup {
+  background-color: #17201b !important;
+  color: #e2e8e3 !important;
+  padding: 10px 14px !important;
+}
+
+html.dark select option:checked,
+html.dark select option:hover {
+  background-color: #1b6d24 !important;
+  color: #ffffff !important;
+}
+
+/* 3. Form Focus Rings (High Visibility on Click / Select) */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none !important;
+  border-color: #1b4332 !important;
+  box-shadow: 0 0 0 3px rgba(27, 67, 50, 0.25) !important;
+}
+
+html.dark input:focus,
+html.dark select:focus,
+html.dark textarea:focus {
+  outline: none !important;
+  border-color: #4ade80 !important;
+  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.35) !important;
+}
+
+/* 4. Checkboxes and Radios */
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: #1b4332;
+  cursor: pointer;
+}
+
+html.dark input[type="checkbox"],
+html.dark input[type="radio"] {
+  accent-color: #4ade80 !important;
+  cursor: pointer;
+}
+
+/* 5. Service Filter Tabs (Services.html) */
+.service-tab {
+  border: 1px solid rgba(113, 121, 115, 0.25) !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.service-tab:hover {
+  border-color: #1b4332 !important;
+}
+
+.service-tab.active,
+.service-tab[data-active="true"] {
+  background-color: #012d1d !important;
+  color: #ffffff !important;
+  border-color: #012d1d !important;
+  box-shadow: 0 2px 10px rgba(1, 45, 29, 0.35) !important;
+}
+
+html.dark .service-tab {
+  background-color: #17201b !important;
+  color: #e2e8e3 !important;
+  border-color: #2a382f !important;
+}
+
+html.dark .service-tab:hover {
+  border-color: #4ade80 !important;
+  background-color: #1f2b24 !important;
+}
+
+html.dark .service-tab.active,
+html.dark .service-tab[data-active="true"] {
+  background-color: #1b6d24 !important;
+  color: #ffffff !important;
+  border-color: #4ade80 !important;
+  box-shadow: 0 2px 14px rgba(74, 222, 128, 0.4) !important;
+}
+
+/* 6. Active Navigation Links */
+nav a.bg-primary-container,
+#mobile-menu-drawer a.bg-primary-container {
+  background-color: #1b4332 !important;
+  color: #ffffff !important;
+}
+
+html.dark nav a.bg-primary-container,
+html.dark #mobile-menu-drawer a.bg-primary-container {
+  background-color: #1b6d24 !important;
+  color: #ffffff !important;
+}
+
+/* 7. Pricing Calculator Option Selection */
+.estimator-service-btn.border-primary,
+.estimator-height-btn.border-primary {
+  background-color: #012d1d !important;
+  color: #ffffff !important;
+  border-color: #012d1d !important;
+  box-shadow: 0 2px 10px rgba(1, 45, 29, 0.3) !important;
+}
+
+html.dark .estimator-service-btn.border-primary,
+html.dark .estimator-height-btn.border-primary {
+  background-color: #1b6d24 !important;
+  color: #ffffff !important;
+  border-color: #4ade80 !important;
+  box-shadow: 0 2px 12px rgba(74, 222, 128, 0.35) !important;
+}
