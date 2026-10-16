@@ -377,5 +377,120 @@ Our operators position themselves directly above complex canopies with ergonomic
       { q: 'Are your operators certified for electrical hazards?', a: 'Yes. All operators carry Electrical Hazards Awareness Program (EHAP) certifications and comply with OSHA line-clearance standards.' },
       { q: 'What is dielectric insulation and why is it essential near power lines?', a: 'Dielectric insulation uses specialized non-conductive fiberglass boom inserts rated up to 46,000 volts, preventing electrical arcing between live power lines and the vehicle chassis.' }
     ]
+  },
+
+  'dormant-pruning': {
+    id: 'dormant-pruning',
+    title: 'Architectural & Dormant Canopy Pruning',
+    category: 'Pruning & Care',
+    categorySlug: 'pruning',
+    tier: '$$ Moderate Tier',
+    priceEstimate: '$350 - $950',
+    basePrice: 350,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAmfcIE4BM3ZC5Z6VVA9g_aaT5CT_8JBb8RvAsGIgYDGZw1ajSsc9VrNHmnPkXGcd3BIH4YUSzU-knmfji5cTyO2jHDYC2OYQuuY_emzCYIAA-PI7fYKK1jSwJ4H28avti-kBg_x1jeJRmf3gS46sKH_OZ_3cGT1hmrJaQf_qPBAUSDrLeYwFsnmphse8b-4NQqpv8ayA7eERThDhiwk5cB4dUlvRe6qNlZ1CT8nHCIZ2os1S1N4y7L',
+    summary: 'Winter dormant structural shaping and architectural vista pruning to promote balanced scaffold branches, optimize solar penetration, and prevent spring disease vectoring.',
+    description: `Dormant pruning is performed in late autumn and winter while trees are biochemically inactive and bare of leaves. This critical timing affords arborists an unobstructed view of the tree's entire scaffolding architecture, revealing latent structural defects, branch crossing, and tight V-crotches that are hidden during full leaf canopy.
+
+By executing precise cuts during dormancy, trees experience minimal physiological stress and zero sap bleeding. In the spring, the tree directs all accumulated root energy into vigorous, healthy growth along newly balanced, architecturally sound limbs.`,
+    scopeOfWork: [
+      'Branch collar inspection & structural scaffolding alignment',
+      'Dormant season disease prevention for ornamental hardwoods and fruit trees',
+      'Selective crown elevation and architectural vista clearance',
+      'Precision hand-saw cuts with sterile, disinfected blades',
+      'On-site branch chipping and nutrient-rich wood mulch redistribution'
+    ],
+    methodology: [
+      { step: '1', title: 'Winter Architecture Audit', detail: 'Evaluate bare branch framework to identify codominant leaders, crossing friction, and deadwood.' },
+      { step: '2', title: 'Disinfected Surgical Pruning', detail: 'Execute precise cuts outside the branch collar using medical-grade disinfected saw blades to prevent pathogen transfer.' },
+      { step: '3', title: 'Crown Balancing & Spacing', detail: 'Thin competing interior shoots to open the central canopy for optimal solar and wind distribution.' },
+      { step: '4', title: 'Ground Cleanup & Chipping', detail: 'All clippings are fed through clean industrial chippers and converted to disease-free organic ground cover.' }
+    ],
+    equipment: [
+      { name: 'Silky Katanaboy 500 Professional Hand Saw', spec: 'Precision Japanese impulse-hardened pull saw for surgical branch cuts' },
+      { name: 'Stihl HTA 86 Cordless Pole Pruner', spec: 'Zero-emission quiet telescopic cutting tool with 13-foot reach' },
+      { name: 'Bandit 12X Disc Chipper', spec: 'Compact clean-running wood chipping with immediate mulch recycling' }
+    ],
+    faqs: [
+      { q: 'Why is winter dormant pruning better than summer pruning?', a: 'During winter dormancy, deciduous trees have lost their leaves, giving arborists a completely clear view of the branch structure. Pathogens and wood-boring insects are also inactive, minimizing infection risk.' },
+      { q: 'Will dormant pruning prevent spring fungal diseases?', a: 'Yes! Opening the canopy structure in winter ensures maximum sunlight penetration and airflow when spring rains arrive, drastically reducing spore germination for powdery mildew, scab, and blight.' },
+      { q: 'Can flowering trees be pruned during dormancy?', a: 'Summer-flowering trees benefit enormously from dormant pruning. Spring-flowering varieties (like cherries and magnolias) can be pruned right after their bloom flush to preserve the flower bud set.' }
+    ]
+  },
+
+  'storm-triage': {
+    id: 'storm-triage',
+    title: 'Storm Hazard Triage & Deadwood Rigging',
+    category: 'Removal & Safety',
+    categorySlug: 'removal',
+    tier: '$$$ Complex Tier',
+    priceEstimate: '$650 - $2,200',
+    basePrice: 650,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD-JOUq87oXjr1jQZB94ny82rtZNzz7AtVuKv03hYuouLBtLMqNUU2TQsBF2hgFgbXBLmuLj4iwC46gSDdjig67lqpyqGv6pcAVFqC_jqS0gMEttPqO577apcPjdAQVEucQgn7KtKx2FnxuOpq_JPMqO0187vzd3xp3qXSBG4iE1yyc_6UAkiAf7DvHzkhDT_cqFDklv_RgTjdRUejmf6qL8693YrOp2qUt39aWz6EycZtpqwRYwAk3',
+    summary: 'High-consequence extraction of fractured widow-makers, storm-snapped hanging boughs, and wind-compromised tree canopies hanging precariously over roofs or utility lines.',
+    description: `Severe gale winds and heavy winter snow accumulation often snap massive upper canopy limbs, leaving hundreds of pounds of wood trapped in suspension—commonly termed "widow-makers." These hung limbs are under tremendous unpredictable kinetic tension and represent the single highest safety hazard on residential properties.
+
+Evergreen Arbor Care deploys emergency rapid-response rigging units. Using directional friction winches, SRT ascending lines, and high-tensile speedlines, our climbers isolate and extract severed boughs smoothly without allowing falling debris to touch roof tiles, gutters, or power drops.`,
+    scopeOfWork: [
+      'Emergency 24/7 aerial stabilization of hung-up and split limbs',
+      'Non-impact speedline rigging over fences, patios, and delicate flower beds',
+      'Canopy weight rebalancing to arrest immediate structural split progression',
+      'Comprehensive post-gale tree structural stability inspection',
+      'Complete timber clearing, chipping, and lawn sweep'
+    ],
+    methodology: [
+      { step: '1', title: 'Tension & Physics Assessment', detail: 'Inspect directional compression zones to calculate how the trapped limb will release when severed.' },
+      { step: '2', title: 'Speedline & Tag-Line Setup', detail: 'Rig high-angle synthetic tracking cables from the canopy to a ground anchor clear of all property structures.' },
+      { step: '3', title: 'Controlled Release Cutting', detail: 'Execute step-cuts under friction line hold, allowing the hung branch to slide down the speedline away from the home.' },
+      { step: '4', title: 'Wound Dressing & Stability Audit', detail: 'Smooth jagged tear wounds to promote clean cambium callusing and inspect remaining trunk integrity.' }
+    ],
+    equipment: [
+      { name: 'GRCS Friction Lowering System', spec: 'Winch-assisted dynamic load control rated to 3,000 lbs' },
+      { name: 'Teufelberger Platinum 11.5mm Rigging Lines', spec: 'Mechanical interlock core-sheath technology for high-abrasion storm work' },
+      { name: 'DMM High-Tension Rigging Pulleys & Carabiners', spec: 'CE-certified 50kN hot-forged aluminum heavy rigging hardware' }
+    ],
+    faqs: [
+      { q: 'What is a "widow-maker" branch and why is it urgent?', a: 'A widow-maker is a large detached branch caught high in the crown. Sudden wind gusts or thermal expansion can dislodge it at any moment, creating fatal impacts on pedestrians or massive roof punctures.' },
+      { q: 'Will homeowner insurance cover emergency storm triage?', a: 'In most policies, if a limb has fallen on a covered structure (house, garage, fence) or poses an immediate peril, emergency extraction and hazard mitigation costs are reimbursable. We provide complete itemized photographic documentation.' },
+      { q: 'Can a tree survive after losing a major limb in a storm?', a: 'Often yes! Our certified arborists evaluate the percentage of remaining canopy, trim ragged tear wounds smoothly to prevent rot, and apply structural bracing to support the tree while it recovers.' }
+    ]
+  },
+
+  'commercial-clearing': {
+    id: 'commercial-clearing',
+    title: 'Commercial Site Clearing & Biomass Recycling',
+    category: 'Commercial Grounds',
+    categorySlug: 'commercial',
+    tier: '$$$ Enterprise Tier',
+    priceEstimate: '$1,500 - $5,500',
+    basePrice: 1500,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBSIdzyM9UPia1NrzwSz7GHUWc750xhnA-Dy0idRLRW2MEEXjO5TidBW9Obp5wzwk_lhJkvoktWkRkLJj67L37UrN8iBEts73YApm0HOGa-b-FB36kfVXqHJSseGCIHAuXCSDzRYM27-x603JUbNtPhqCkew2PvqQbsLnhNMYJL4PRUGWa5H-Zu4eG2GSDi5UYe9SN67cr8kH3S2kHtLhU-8di8sON9AkCDV78mHzt49VLz3Bwohmif',
+    summary: 'Industrial land preparation, right-of-way clearing, and whole-tree mastication for commercial development, municipal infrastructure, and corporate campus safety zones.',
+    description: `Expanding commercial properties, corporate office campuses, and municipal utility corridors require rapid, environmentally responsible vegetation management. Evergreen Arbor Care delivers full-scale commercial site clearing services utilizing heavy forestry mulchers and tracked horizontal grinders.
+
+We prioritize specimen tree preservation by erecting tree protection zones (TPZ) under ANSI A300 Part 5 guidelines before clearing invasive vegetation, hazardous scrub, and unwanted brush. 100% of organic wood fiber is processed into certified commercial playground mulch, soil amendments, or sustainable biofuel.`,
+    scopeOfWork: [
+      'High-capacity horizontal forestry mastication and brush clearing',
+      'Tree preservation fence demarcation for specimen boundary trees',
+      'Commercial root flare grubbing and deep subsoil grading preparation',
+      '100% biomass diversion through municipal mulch and biofuel recycling',
+      'Phase-by-phase site safety management and environmental compliance documentation'
+    ],
+    methodology: [
+      { step: '1', title: 'Civil Site Survey & TPZ Flagging', detail: 'Map site boundaries, flag protected municipal canopy trees, and establish protective root buffer zones.' },
+      { step: '2', title: 'Mechanical Brush Mastication', detail: 'Deploy high-torque skid steer mulchers to pulverize undergrowth flush to grade without topsoil gouging.' },
+      { step: '3', title: 'Selective Timber Felling', detail: 'Fell non-viable trees safely using directional felling wedges and skidder grapple winches.' },
+      { step: '4', title: 'Grade Stabilization & Mulch Layering', detail: 'Spread an even organic mulch erosion blanket across exposed soil surfaces to prevent stormwater runoff.' }
+    ],
+    equipment: [
+      { name: 'Fecon FTX128 Tracked Forestry Mulcher', spec: '128 HP high-torque low-ground-pressure masticator' },
+      { name: 'Cat 299D3 Heavy Mini-Skid Steer with Timber Grapple', spec: 'Picks and stacks up to 5,000 lb logs with surgical precision' },
+      { name: 'Bandit 20XP Whole-Tree Disc Chipper', spec: 'Directly loads 40-yard walking-floor transport trailers in 25 minutes' }
+    ],
+    faqs: [
+      { q: 'How does forestry mulching compare to traditional bulldozing?', a: 'Forestry mulching avoids stripping valuable topsoil, eliminates costly debris hauling fees, leaves no brush burn piles, and creates an immediate erosion-controlling mulch carpet.' },
+      { q: 'Can you help our project comply with local municipal tree protection codes?', a: 'Yes. Our ISA Certified Arborists prepare official Tree Preservation Plans (TPP), inventory specimen trees, and sign off on city arborist clearance permits.' },
+      { q: 'What is done with the chipped wood volume?', a: 'All wood fiber is recycled locally. It is processed into certified park mulch, organic composting media, or supplied to local biomass energy facilities, achieving a 100% landfill diversion rate.' }
+    ]
   }
 };
+
