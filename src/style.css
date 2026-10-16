@@ -523,6 +523,31 @@ html.dark ::-moz-selection {
   color: #ffffff !important;
 }
 
+/* Prevent accidental text selection / glitch highlight on all buttons, tabs and links */
+button,
+button *,
+a,
+a *,
+.service-tab,
+.service-tab *,
+.admin-tab-btn,
+.order-filter-pill,
+[role="button"],
+[role="tab"] {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+button::selection,
+button *::selection,
+.service-tab::selection,
+.service-tab *::selection,
+a::selection,
+a *::selection {
+  background: transparent !important;
+  color: inherit !important;
+}
+
 /* 2. Select Dropdowns & Options (Fixes Windows/Chrome invisible text) */
 select {
   cursor: pointer;
@@ -598,6 +623,9 @@ html.dark input[type="radio"] {
 .service-tab {
   border: 1px solid rgba(113, 121, 115, 0.25) !important;
   cursor: pointer;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  white-space: nowrap !important;
   transition: all 0.2s ease;
 }
 
