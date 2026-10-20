@@ -439,6 +439,48 @@ export function initViewPreferences() {
   syncUI();
 }
 
+// =========================================================
+// INTERACTIVE BEFORE & AFTER COMPARISON SLIDERS
+// =========================================================
+export function initBeforeAfterSliders() {
+  document.querySelectorAll('.before-after-slider').forEach(slider => {
+    const range = slider.querySelector('.slider-range');
+    const beforeLayer = slider.querySelector('.before-layer');
+    const divider = slider.querySelector('.slider-divider');
+    const dragHint = slider.querySelector('.drag-hint');
+
+    if (!range || !beforeLayer || !divider) return;
+
+    const updateSlider = (val) => {
+      beforeLayer.style.clipPath = `polygon(0 0, ${val}% 0, ${val}% 100%, 0 100%)`;
+      divider.style.left = `${val}%`;
+    };
+
+    // Update on range input (drag & touch)
+    range.addEventListener('input', (e) => {
+      updateSlider(e.target.value);
+      if (dragHint) dragHint.style.opacity = '0';
+    });
+
+    // Initial sync
+    updateSlider(range.value || 50);
+  });
+}
+
+export function setSliderPercent(sliderId, percent) {
+  const slider = document.getElementById(sliderId);
+  if (!slider) return;
+  const range = slider.querySelector('.slider-range');
+  const beforeLayer = slider.querySelector('.before-layer');
+  const divider = slider.querySelector('.slider-divider');
+  const dragHint = slider.querySelector('.drag-hint');
+
+  if (range) range.value = percent;
+  if (beforeLayer) beforeLayer.style.clipPath = `polygon(0 0, ${percent}% 0, ${percent}% 100%, 0 100%)`;
+  if (divider) divider.style.left = `${percent}%`;
+  if (dragHint) dragHint.style.opacity = '0';
+}
+
 // Attach helpers to global window object
 if (typeof window !== 'undefined') {
   window.openBookingModal = openBookingModal;
@@ -446,6 +488,8 @@ if (typeof window !== 'undefined') {
   window.setupNavigation = setupNavigation;
   window.initViewPreferences = initViewPreferences;
   window.initGlobalAnimations = initGlobalAnimations;
+  window.initBeforeAfterSliders = initBeforeAfterSliders;
+  window.setSliderPercent = setSliderPercent;
 }
 
 // Immediately run view preferences init
@@ -466,6 +510,11 @@ function runNavInit() {
     initViewPreferences();
   } catch (e) {
     console.warn('initViewPreferences error:', e);
+  }
+  try {
+    initBeforeAfterSliders();
+  } catch (e) {
+    console.warn('initBeforeAfterSliders error:', e);
   }
 }
 

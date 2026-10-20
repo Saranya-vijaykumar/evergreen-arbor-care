@@ -537,8 +537,8 @@
         </div>
       </section>
 
-      <!-- Before & After Tree Restoration Gallery (Stitch Update) -->
-      <section class="w-full py-16 bg-surface">
+      <!-- Before & After Tree Restoration Gallery (Interactive Sliders) -->
+      <section class="w-full py-16 bg-surface" id="before-after-gallery">
         <div class="max-w-7xl mx-auto px-gutter flex flex-col gap-10">
           <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
@@ -546,25 +546,133 @@
               <h2 class="text-3xl font-bold font-headline text-on-surface mt-1">Before &amp; After Tree Restoration Gallery</h2>
             </div>
             <p class="text-sm text-on-surface-variant max-w-md">
-              Witness our expert crews transform overgrown, hazardous canopies into safe, stunning landmarks using state-of-the-art rigging and bucket trucks.
+              Witness our expert crews transform overgrown, hazardous canopies into safe, stunning landmarks using state-of-the-art rigging and bucket trucks. Drag the slider or click buttons to compare.
             </p>
           </div>
+
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="bg-surface-container-low rounded-xl p-6 flex flex-col gap-4 shadow-md border border-surface-container">
-              <div class="relative h-80 rounded-lg overflow-hidden shadow-inner group">
-                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAHYrZXr9Fx77Virass_1ToKcUSoFH8hbUl2QMt1xYFw9LKmkFFvtRvy73cHtWgFcJJvAHKfwgvI8ZjPreRimWb9c-S7Ek_oQee8hAhlI7k-evZHoULitaMYZpLCQFKb9UcbXY16csqAhwohe8YL_12pILSZmn--0S9f3t7IsuwsBxMB5gU50p1JUz_JmN1KudQ0-kZ7ykduHSNHx3xw5IKmst6adoRmIAAxUFJPy4ibjE4LpKVNdrk')"></div>
-                <span class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase shadow-sm">Restoration Project A</span>
+            <!-- Restoration Project A -->
+            <div class="bg-surface-container-low rounded-2xl p-6 flex flex-col gap-5 shadow-md border border-surface-container">
+              <!-- Interactive Before/After Comparison Card -->
+              <div class="relative h-80 rounded-xl overflow-hidden shadow-inner select-none before-after-slider group" id="slider-project-a">
+                <!-- After Image (Base Layer) -->
+                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAHYrZXr9Fx77Virass_1ToKcUSoFH8hbUl2QMt1xYFw9LKmkFFvtRvy73cHtWgFcJJvAHKfwgvI8ZjPreRimWb9c-S7Ek_oQee8hAhlI7k-evZHoULitaMYZpLCQFKb9UcbXY16csqAhwohe8YL_12pILSZmn--0S9f3t7IsuwsBxMB5gU50p1JUz_JmN1KudQ0-kZ7ykduHSNHx3xw5IKmst6adoRmIAAxUFJPy4ibjE4LpKVNdrk')"></div>
+
+                <!-- Before Image (Clipped Layer) -->
+                <div class="absolute inset-0 bg-cover bg-center before-layer pointer-events-none transition-none" style="background-image: url('/project_a_before.jpg'); clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);"></div>
+
+                <!-- Divider Bar & Handle -->
+                <div class="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_12px_rgba(0,0,0,0.6)] pointer-events-none slider-divider" style="left: 50%; transform: translateX(-50%);">
+                  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white text-emerald-800 shadow-xl border-2 border-emerald-600 flex items-center justify-center font-bold">
+                    <span class="material-symbols-outlined text-[18px]">swap_horiz</span>
+                  </div>
+                </div>
+
+                <!-- Badges -->
+                <div class="absolute top-3 left-3 bg-amber-600/90 text-white backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-extrabold tracking-wider uppercase shadow-md pointer-events-none flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-300 animate-pulse"></span>
+                  BEFORE
+                </div>
+                <div class="absolute top-3 right-3 bg-emerald-600/90 text-white backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-extrabold tracking-wider uppercase shadow-md pointer-events-none flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-300"></span>
+                  AFTER
+                </div>
+
+                <!-- Drag Hint Overlay -->
+                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/70 backdrop-blur-md text-white text-[10px] font-semibold px-3 py-1 rounded-full pointer-events-none flex items-center gap-1.5 shadow-md drag-hint transition-opacity duration-300">
+                  <span class="material-symbols-outlined text-[13px]">drag_indicator</span>
+                  Drag slider to compare
+                </div>
+
+                <!-- Invisible Range Input covering entire card for mouse & touch drag -->
+                <input type="range" min="0" max="100" value="50" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20 slider-range" aria-label="Slide to compare before and after canopy restoration" />
               </div>
-              <h3 class="font-headline text-xl font-bold text-on-surface">Urban Canopy Clearance &amp; Bucket Truck Deployment</h3>
-              <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">Complex urban pruning removing deadwood over public thoroughfares, utilizing our heavy-duty Altec crane and chipper setup for zero-impact street clearance.</p>
+
+              <!-- Quick Toggle Control Bar -->
+              <div class="flex items-center justify-between gap-2 pt-1 border-b border-surface-container pb-3">
+                <div class="flex items-center gap-1.5">
+                  <button type="button" onclick="setSliderPercent('slider-project-a', 100)" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-amber-500/15 text-amber-700 dark:text-amber-400 hover:bg-amber-500/25 transition-colors flex items-center gap-1">
+                    <span>◀ Before</span>
+                  </button>
+                  <button type="button" onclick="setSliderPercent('slider-project-a', 50)" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-surface-container hover:bg-surface-container-high transition-colors text-on-surface">
+                    <span>50/50 Split</span>
+                  </button>
+                  <button type="button" onclick="setSliderPercent('slider-project-a', 0)" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-500/25 transition-colors flex items-center gap-1">
+                    <span>After ▶</span>
+                  </button>
+                </div>
+                <span class="text-[11px] font-bold text-surface-tint uppercase tracking-wider hidden sm:inline">Restoration Project A</span>
+              </div>
+
+              <div>
+                <h3 class="font-headline text-xl font-bold text-on-surface">Urban Canopy Clearance &amp; Bucket Truck Deployment</h3>
+                <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed mt-1">
+                  <strong class="text-amber-700 dark:text-amber-400">Before:</strong> Heavy tangled storm deadwood encroaching into roadway lanes and powerline easements.<br/>
+                  <strong class="text-emerald-700 dark:text-emerald-400">After:</strong> Crown lifted to 18ft ANSI standard clearance utilizing our 65ft Altec bucket truck with zero traffic disruption.
+                </p>
+              </div>
             </div>
-            <div class="bg-surface-container-low rounded-xl p-6 flex flex-col gap-4 shadow-md border border-surface-container">
-              <div class="relative h-80 rounded-lg overflow-hidden shadow-inner group">
-                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJy8cPeJRUcW-EKrlDTaBf6HfJrMPushrPRYIC7M9mGj6nVRUBa0S90ZgjWSzoS-PHVURKAhnviYYHmUO0LPWpIM4GMoeIleNKTTwbIxCW2mO5AT-HFVQvrRqlbYDh9r5K7G9jFZUQKTs2GUfube7MwL2_4xW2_vVOxYg3jw97mvX1HglckGrFhHWJbEEKJH-Kg6OOHCtIMIK1zMn9glBdHHB8YOa1fzobW4Py2QYwFvUkQtXZcyVR')"></div>
-                <span class="absolute top-4 left-4 bg-secondary text-on-secondary px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase shadow-sm">Restoration Project B</span>
+
+            <!-- Restoration Project B -->
+            <div class="bg-surface-container-low rounded-2xl p-6 flex flex-col gap-5 shadow-md border border-surface-container">
+              <!-- Interactive Before/After Comparison Card -->
+              <div class="relative h-80 rounded-xl overflow-hidden shadow-inner select-none before-after-slider group" id="slider-project-b">
+                <!-- After Image (Base Layer) -->
+                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJy8cPeJRUcW-EKrlDTaBf6HfJrMPushrPRYIC7M9mGj6nVRUBa0S90ZgjWSzoS-PHVURKAhnviYYHmUO0LPWpIM4GMoeIleNKTTwbIxCW2mO5AT-HFVQvrRqlbYDh9r5K7G9jFZUQKTs2GUfube7MwL2_4xW2_vVOxYg3jw97mvX1HglckGrFhHWJbEEKJH-Kg6OOHCtIMIK1zMn9glBdHHB8YOa1fzobW4Py2QYwFvUkQtXZcyVR')"></div>
+
+                <!-- Before Image (Clipped Layer) -->
+                <div class="absolute inset-0 bg-cover bg-center before-layer pointer-events-none transition-none" style="background-image: url('/project_b_before.jpg'); clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);"></div>
+
+                <!-- Divider Bar & Handle -->
+                <div class="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_12px_rgba(0,0,0,0.6)] pointer-events-none slider-divider" style="left: 50%; transform: translateX(-50%);">
+                  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white text-emerald-800 shadow-xl border-2 border-emerald-600 flex items-center justify-center font-bold">
+                    <span class="material-symbols-outlined text-[18px]">swap_horiz</span>
+                  </div>
+                </div>
+
+                <!-- Badges -->
+                <div class="absolute top-3 left-3 bg-amber-600/90 text-white backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-extrabold tracking-wider uppercase shadow-md pointer-events-none flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-300 animate-pulse"></span>
+                  BEFORE
+                </div>
+                <div class="absolute top-3 right-3 bg-emerald-600/90 text-white backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-extrabold tracking-wider uppercase shadow-md pointer-events-none flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-300"></span>
+                  AFTER
+                </div>
+
+                <!-- Drag Hint Overlay -->
+                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/70 backdrop-blur-md text-white text-[10px] font-semibold px-3 py-1 rounded-full pointer-events-none flex items-center gap-1.5 shadow-md drag-hint transition-opacity duration-300">
+                  <span class="material-symbols-outlined text-[13px]">drag_indicator</span>
+                  Drag slider to compare
+                </div>
+
+                <!-- Invisible Range Input covering entire card for mouse & touch drag -->
+                <input type="range" min="0" max="100" value="50" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20 slider-range" aria-label="Slide to compare before and after backyard tree restoration" />
               </div>
-              <h3 class="font-headline text-xl font-bold text-on-surface">Precision Backyard Pruning &amp; Structural Rigging</h3>
-              <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">Delicate crown thinning in tight residential quarters. Our ISA certified climbers safely lower heavy limbs over prized landscaping with zero property disruption.</p>
+
+              <!-- Quick Toggle Control Bar -->
+              <div class="flex items-center justify-between gap-2 pt-1 border-b border-surface-container pb-3">
+                <div class="flex items-center gap-1.5">
+                  <button type="button" onclick="setSliderPercent('slider-project-b', 100)" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-amber-500/15 text-amber-700 dark:text-amber-400 hover:bg-amber-500/25 transition-colors flex items-center gap-1">
+                    <span>◀ Before</span>
+                  </button>
+                  <button type="button" onclick="setSliderPercent('slider-project-b', 50)" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-surface-container hover:bg-surface-container-high transition-colors text-on-surface">
+                    <span>50/50 Split</span>
+                  </button>
+                  <button type="button" onclick="setSliderPercent('slider-project-b', 0)" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-500/25 transition-colors flex items-center gap-1">
+                    <span>After ▶</span>
+                  </button>
+                </div>
+                <span class="text-[11px] font-bold text-surface-tint uppercase tracking-wider hidden sm:inline">Restoration Project B</span>
+              </div>
+
+              <div>
+                <h3 class="font-headline text-xl font-bold text-on-surface">Precision Backyard Pruning &amp; Structural Rigging</h3>
+                <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed mt-1">
+                  <strong class="text-amber-700 dark:text-amber-400">Before:</strong> Heavy overgrown canopy leaning over residential tile roof and fence line with severe split hazard.<br/>
+                  <strong class="text-emerald-700 dark:text-emerald-400">After:</strong> Master climbers delicately rigged and lowered 3,500 lbs of limb weight with zero turf indentation.
+                </p>
+              </div>
             </div>
           </div>
         </div>
