@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>Operations Dashboard | ArborPro Admin</title>
+  <title>Operations Dashboard | ArborPro Operations</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -74,15 +74,15 @@
   <!-- Desktop & Mobile Left Sidebar -->
   <aside id="admin-sidebar" class="fixed left-0 top-0 h-full w-64 bg-surface-container-low border-r border-surface-container-high z-50 flex flex-col pt-6 pb-6 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 shadow-xl lg:shadow-none">
     <div class="px-6 mb-6 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-xl bg-primary text-primary-fixed flex items-center justify-center shrink-0">
+      <a href="index.html" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+        <div class="w-9 h-9 rounded-xl bg-primary text-primary-fixed flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-xs">
           <span class="material-symbols-outlined text-[22px]">forest</span>
         </div>
-        <div>
-          <span class="font-headline text-base font-bold text-primary block leading-tight">Arbor Admin</span>
-          <span class="text-[10px] text-surface-tint font-semibold uppercase tracking-wider">Field Ops Portal</span>
+        <div class="flex flex-col">
+          <span class="font-headline text-base font-bold text-on-surface tracking-tight leading-tight">ArborPro</span>
+          <span class="text-[10px] text-surface-tint font-semibold uppercase tracking-wider">Operations Portal</span>
         </div>
-      </div>
+      </a>
       <button id="admin-sidebar-close" class="lg:hidden p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container" aria-label="Close Sidebar">
         <span class="material-symbols-outlined text-[20px]">close</span>
       </button>
