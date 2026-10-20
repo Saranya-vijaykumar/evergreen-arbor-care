@@ -74,20 +74,26 @@
   <!-- Desktop & Mobile Left Sidebar -->
   <aside id="admin-sidebar" class="fixed left-0 top-0 h-full w-64 bg-surface-container-low border-r border-surface-container-high z-50 flex flex-col pt-6 pb-6 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 shadow-xl lg:shadow-none">
     <div class="px-6 mb-6 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+      <a href="index.html" class="flex items-center gap-2.5 sm:gap-3 group shrink-0 hover:opacity-90 transition-opacity cursor-pointer" title="Return to ArborPro Public Website">
         <div class="w-9 h-9 rounded-xl bg-primary text-primary-fixed flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-xs">
           <span class="material-symbols-outlined text-[22px]">forest</span>
         </div>
         <div class="flex flex-col">
           <span class="font-headline text-base font-bold text-on-surface tracking-tight leading-tight">ArborPro</span>
-          <span class="text-[10px] text-surface-tint font-semibold uppercase tracking-wider">Operations Portal</span>
+          <span class="text-[10px] text-surface-tint font-bold uppercase tracking-wider">FIELD OPS PORTAL</span>
         </div>
       </a>
-      <button id="admin-sidebar-close" class="lg:hidden p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container" aria-label="Close Sidebar">
+      <button id="admin-sidebar-close" onclick="toggleAdminSidebar(false)" class="lg:hidden p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container cursor-pointer" aria-label="Close Sidebar">
         <span class="material-symbols-outlined text-[20px]">close</span>
       </button>
     </div>
     
+    <div class="px-4 mb-3 shrink-0">
+      <a href="index.html" class="w-full flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl text-xs font-bold text-primary bg-primary/10 hover:bg-primary hover:text-on-primary transition-all border border-primary/20 shadow-xs group cursor-pointer" title="Return to Public Website">
+        <span class="material-symbols-outlined text-[18px] group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
+        <span>Back to Public Site</span>
+      </a>
+    </div>
     <nav class="flex-1 px-4 space-y-1.5 overflow-y-auto" id="admin-nav">
       <button type="button" data-tab="overview" onclick="switchAdminTab('overview')" class="admin-tab-btn active w-full flex items-center px-4 py-2.5 rounded-xl transition-all bg-primary-container text-on-primary-container font-bold text-xs text-left">
         <span class="material-symbols-outlined mr-3 text-[20px]">dashboard</span>
@@ -153,7 +159,7 @@
   </aside>
 
   <!-- Mobile Sidebar Backdrop -->
-  <div id="admin-sidebar-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden lg:hidden"></div>
+  <div id="admin-sidebar-backdrop" onclick="toggleAdminSidebar(false)" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden lg:hidden cursor-pointer"></div>
 
   <!-- Main Content Container with responsive sidebar offset -->
   <div class="pl-0 lg:pl-64 min-h-screen flex flex-col transition-all">
@@ -161,7 +167,7 @@
     <header class="fixed top-0 left-0 lg:left-64 right-0 h-16 bg-surface/85 backdrop-blur-xl border-b border-surface-container-high shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-30 flex items-center justify-between px-3 sm:px-gutter">
       <div class="flex items-center gap-2 sm:gap-3 min-w-0">
         <!-- Mobile Sidebar Toggle -->
-        <button id="admin-sidebar-toggle" class="lg:hidden p-2 rounded-lg text-on-surface hover:bg-surface-container shrink-0" aria-label="Toggle Navigation Menu">
+        <button id="admin-sidebar-toggle" onclick="toggleAdminSidebar(true)" class="lg:hidden p-2 rounded-lg text-on-surface hover:bg-surface-container shrink-0 cursor-pointer" aria-label="Toggle Navigation Menu">
           <span class="material-symbols-outlined text-[22px]">menu</span>
         </button>
         <span class="font-headline text-base sm:text-lg font-bold text-on-surface truncate">Operations Dashboard</span>
@@ -170,7 +176,12 @@
           Live Sync Active
         </span>
       </div>
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Return to Public Website Link in Top Bar -->
+        <a href="index.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-outline-variant hover:border-primary text-xs font-semibold text-on-surface hover:text-primary hover:bg-surface-container transition-all cursor-pointer shadow-xs" title="Return to ArborPro Public Website">
+          <span class="material-symbols-outlined text-[16px] text-primary">public</span>
+          <span class="hidden sm:inline">Public Site</span>
+        </a>
 
 
         <!-- Quick 1-Click Theme Toggle Button -->
@@ -1632,11 +1643,14 @@
       if (open) {
         adminSidebar.classList.remove('-translate-x-full');
         if (adminBackdrop) adminBackdrop.classList.remove('hidden');
+        document.body.style.overflow = window.innerWidth < 1024 ? 'hidden' : '';
       } else {
         adminSidebar.classList.add('-translate-x-full');
         if (adminBackdrop) adminBackdrop.classList.add('hidden');
+        document.body.style.overflow = '';
       }
     }
+    window.toggleAdminSidebar = toggleAdminSidebar;
 
     sidebarToggle?.addEventListener('click', () => toggleAdminSidebar(true));
     sidebarClose?.addEventListener('click', () => toggleAdminSidebar(false));
