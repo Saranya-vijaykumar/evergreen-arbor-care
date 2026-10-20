@@ -152,6 +152,26 @@ export function setupNavigation() {
     }
   }
 
+  // Automatically bind any "Get Instant Estimate" buttons or links across all pages
+  document.querySelectorAll('a, button').forEach(btn => {
+    const text = (btn.textContent || '').trim().toLowerCase();
+    const href = btn.getAttribute('href') || '';
+    if (
+      text.includes('get instant estimate') ||
+      href === 'home-2.html#quote' ||
+      (href === '#quote' && !btn.closest('#quote'))
+    ) {
+      if (!btn.dataset.estimateBound) {
+        btn.dataset.estimateBound = 'true';
+        btn.style.cursor = 'pointer';
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          openEstimateModal();
+        });
+      }
+    }
+  });
+
   // Inject modal container if not present
   if (!document.getElementById('arbor-modal-root')) {
     const modalRoot = document.createElement('div');
@@ -329,6 +349,184 @@ export function openBookingModal(defaultService = 'Tree Pruning & Care', default
   });
 }
 
+// =========================================================
+// GLOBAL INSTANT ESTIMATE CALCULATOR POPUP MODAL
+// =========================================================
+export function openEstimateModal(initialService = 'Tree Trimming & Pruning', initialBasePrice = 150) {
+  let modalRoot = document.getElementById('arbor-modal-root');
+  if (!modalRoot) {
+    modalRoot = document.createElement('div');
+    modalRoot.id = 'arbor-modal-root';
+    document.body.appendChild(modalRoot);
+  }
+
+  const modalHtml = `
+    <div id="estimate-modal-backdrop" class="fixed inset-0 z-50 bg-black/65 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+      <div class="bg-surface rounded-2xl sm:rounded-3xl max-w-lg w-full p-5 sm:p-7 shadow-2xl border border-surface-container-highest relative transform transition-all animate-scaleUp max-h-[94vh] overflow-y-auto">
+        <button id="close-estimate-btn" class="absolute top-3 right-3 sm:top-4 sm:right-4 text-on-surface-variant hover:text-on-surface p-1.5 sm:p-2 rounded-full hover:bg-surface-container" aria-label="Close estimate modal">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+
+        <div class="flex items-center gap-3 mb-4 pr-8 border-b border-surface-container pb-3">
+          <div class="w-10 h-10 rounded-xl bg-secondary/15 text-secondary flex items-center justify-center shrink-0 shadow-xs">
+            <span class="material-symbols-outlined text-[22px]">calculate</span>
+          </div>
+          <div>
+            <h3 class="font-headline font-bold text-lg text-on-surface leading-tight">Instant Tree Care Estimate</h3>
+            <p class="text-xs text-on-surface-variant mt-0.5">Real-time ISA ANSI A300 certified pricing calculator</p>
+          </div>
+        </div>
+
+        <form id="arbor-estimate-form" class="space-y-4">
+          <!-- Service Selector -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-on-surface mb-1.5" for="estimate-service">1. Select Tree Care Service</label>
+            <select id="estimate-service" class="w-full px-3.5 py-2.5 bg-surface-container rounded-xl text-xs sm:text-sm text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer font-medium">
+              <option value="150" data-name="Tree Trimming & Pruning" ${initialService.includes('Trimming') ? 'selected' : ''}>Tree Trimming &amp; Crown Thinning — Base $150</option>
+              <option value="350" data-name="Hazardous Tree Removal" ${initialService.includes('Removal') ? 'selected' : ''}>Hazardous Tree Removal &amp; Extraction — Base $350</option>
+              <option value="120" data-name="Precision Stump Grinding" ${initialService.includes('Stump') ? 'selected' : ''}>Precision Stump Grinding &amp; Root Milling — Base $120</option>
+              <option value="200" data-name="Tree Health & Risk Assessment" ${initialService.includes('Health') ? 'selected' : ''}>Diagnostic Tree Health &amp; Sonic Tomography — Base $200</option>
+              <option value="450" data-name="24/7 Emergency Storm Dispatch" ${initialService.includes('Emergency') ? 'selected' : ''}>24/7 Emergency Storm Hazard Clearing — Base $450</option>
+              <option value="1200" data-name="60-Ton Knuckle Crane Rigging">Liebherr 60-Ton Heavy Rigging Crane — Base $1,200</option>
+              <option value="650" data-name="75-Ft Aerial Bucket Truck Pruning">Altec 75-Ft Aerial Bucket Truck Service — Base $650</option>
+            </select>
+          </div>
+
+          <!-- Scope / Size Selector -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-on-surface mb-1.5" for="estimate-size">2. Tree Height &amp; Scope</label>
+            <select id="estimate-size" class="w-full px-3.5 py-2.5 bg-surface-container rounded-xl text-xs sm:text-sm text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer font-medium">
+              <option value="1.0">Small Tree (&lt; 25 ft / Ornamental / Routine)</option>
+              <option value="1.5" selected>Medium Tree (25 – 50 ft / Standard Canopy)</option>
+              <option value="2.2">Large Tree (50 – 80 ft / Complex Rigging)</option>
+              <option value="3.0">Massive / Heritage (&gt; 80 ft / High Voltage Easement)</option>
+            </select>
+          </div>
+
+          <!-- Scheduling & Urgency -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-on-surface mb-1.5" for="estimate-urgency">3. Scheduling Urgency</label>
+              <select id="estimate-urgency" class="w-full px-3 py-2.5 bg-surface-container rounded-xl text-xs text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer font-medium">
+                <option value="1.0" selected>Standard (Within 5–7 days)</option>
+                <option value="1.35">Priority (Within 48 hours)</option>
+                <option value="1.75">Emergency (Immediate / Today)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-on-surface mb-1.5" for="estimate-count">4. Number of Trees</label>
+              <select id="estimate-count" class="w-full px-3 py-2.5 bg-surface-container rounded-xl text-xs text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer font-medium">
+                <option value="1" selected>1 Tree / Stump</option>
+                <option value="2">2 Trees (10% multi-tree discount)</option>
+                <option value="3">3 Trees (15% multi-tree discount)</option>
+                <option value="5">4–5 Trees (20% estate discount)</option>
+                <option value="10">6+ Trees (Commercial / Acreage)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Live Price Display Box -->
+          <div class="bg-surface-container-low rounded-2xl p-4 sm:p-5 border border-surface-container flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider">Estimated Total</span>
+                <div class="text-3xl sm:text-4xl font-extrabold font-headline text-primary" id="estimate-result-price">$225</div>
+              </div>
+              <div class="text-right">
+                <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-500/15 px-2.5 py-1 rounded-full border border-emerald-500/30">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  Fixed Rate Lock
+                </span>
+                <p class="text-[10px] text-on-surface-variant mt-1" id="estimate-breakdown-text">Base $150 × 1.5 scope</p>
+              </div>
+            </div>
+
+            <div class="text-[11px] text-on-surface-variant bg-surface p-2.5 rounded-xl border border-surface-container flex items-center gap-2">
+              <span class="material-symbols-outlined text-[16px] text-secondary shrink-0">shield</span>
+              <span>Includes site cleanup, 100% biomass chipping, and $5M liability coverage.</span>
+            </div>
+          </div>
+
+          <!-- Lock in & Book Action -->
+          <div class="flex flex-col sm:flex-row items-center gap-2 pt-1">
+            <button type="submit" class="w-full sm:flex-1 py-3 px-4 bg-secondary text-on-secondary rounded-xl font-bold text-sm hover:bg-secondary/90 transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer">
+              <span class="material-symbols-outlined text-[18px]">lock</span>
+              <span>Lock In Rate &amp; Book Free Consultation</span>
+            </button>
+            <button type="button" id="cancel-estimate-btn" class="w-full sm:w-auto py-3 px-4 rounded-xl text-xs font-semibold text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer">
+              Close
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  `;
+
+  modalRoot.innerHTML = modalHtml;
+
+  const backdrop = document.getElementById('estimate-modal-backdrop');
+  const closeBtn = document.getElementById('close-estimate-btn');
+  const cancelBtn = document.getElementById('cancel-estimate-btn');
+  const form = document.getElementById('arbor-estimate-form');
+
+  const serviceSelect = document.getElementById('estimate-service');
+  const sizeSelect = document.getElementById('estimate-size');
+  const urgencySelect = document.getElementById('estimate-urgency');
+  const countSelect = document.getElementById('estimate-count');
+  const priceDisplay = document.getElementById('estimate-result-price');
+  const breakdownText = document.getElementById('estimate-breakdown-text');
+
+  function calculateEstimate() {
+    const base = parseFloat(serviceSelect.value) || 150;
+    const size = parseFloat(sizeSelect.value) || 1.5;
+    const urgency = parseFloat(urgencySelect.value) || 1.0;
+    const countVal = parseInt(countSelect.value) || 1;
+
+    let countMultiplier = countVal;
+    if (countVal === 2) countMultiplier = 2 * 0.90;
+    else if (countVal === 3) countMultiplier = 3 * 0.85;
+    else if (countVal === 5) countMultiplier = 5 * 0.80;
+    else if (countVal === 10) countMultiplier = 10 * 0.75;
+
+    const total = Math.round(base * size * urgency * countMultiplier);
+    priceDisplay.textContent = `$${total.toLocaleString()}`;
+
+    const selectedOpt = serviceSelect.options[serviceSelect.selectedIndex];
+    const serviceName = selectedOpt.getAttribute('data-name') || selectedOpt.text;
+    breakdownText.textContent = `${serviceName} • Base $${base} × ${size}x scope`;
+    return { total, serviceName };
+  }
+
+  [serviceSelect, sizeSelect, urgencySelect, countSelect].forEach(el => {
+    el?.addEventListener('change', calculateEstimate);
+    el?.addEventListener('input', calculateEstimate);
+  });
+
+  calculateEstimate();
+
+  const closeModal = () => {
+    if (backdrop) backdrop.remove();
+  };
+
+  closeBtn?.addEventListener('click', closeModal);
+  cancelBtn?.addEventListener('click', closeModal);
+  backdrop?.addEventListener('click', (e) => {
+    if (e.target === backdrop) closeModal();
+  });
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const { total, serviceName } = calculateEstimate();
+    closeModal();
+    openBookingModal(`Instant Estimate: ${serviceName}`, total);
+    showToast(
+      'Estimate Locked!',
+      `Locked in rate of $${total.toLocaleString()} for ${serviceName}. Please complete your consultation contact details.`,
+      'success'
+    );
+  });
+}
+
 // Global View Preferences (Theme & Direction RTL/LTR)
 export function initViewPreferences() {
   const root = document.documentElement;
@@ -484,6 +682,7 @@ export function setSliderPercent(sliderId, percent) {
 // Attach helpers to global window object
 if (typeof window !== 'undefined') {
   window.openBookingModal = openBookingModal;
+  window.openEstimateModal = openEstimateModal;
   window.showToast = showToast;
   window.setupNavigation = setupNavigation;
   window.initViewPreferences = initViewPreferences;
