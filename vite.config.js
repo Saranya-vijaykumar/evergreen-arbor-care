@@ -14,7 +14,9 @@ export default defineConfig({
         contact: resolve(__dirname, 'contact.html'),
         admin: resolve(__dirname, 'admin.html'),
         serviceDetail: resolve(__dirname, 'service-detail.html'),
-        blogDetail: resolve(__dirname, 'blog-detail.html')
+        blogDetail: resolve(__dirname, 'blog-detail.html'),
+        login: resolve(__dirname, 'login.html'),
+        signup: resolve(__dirname, 'signup.html')
       }
     }
   }
