@@ -201,8 +201,8 @@
 
       <!-- Billing toggle micro-interaction -->
       <div class="flex items-center gap-2 bg-surface-container-high p-1.5 rounded-xl border border-surface-container-highest shadow-inner">
-        <button id="billing-standard-btn" class="px-4 py-2 rounded-lg bg-surface text-on-surface text-xs font-bold shadow-sm transition-all" onclick="setBilling('standard')">Standard Project Rates</button>
-        <button id="billing-annual-btn" class="px-4 py-2 rounded-lg text-on-surface-variant text-xs font-semibold hover:text-on-surface transition-all flex items-center gap-1.5" onclick="setBilling('annual')">
+        <button id="billing-standard-btn" class="px-4 py-2 rounded-lg bg-primary text-on-primary text-xs font-bold shadow-md transition-all flex items-center gap-1.5 cursor-pointer" onclick="setBilling('standard')">Standard Project Rates</button>
+        <button id="billing-annual-btn" class="px-4 py-2 rounded-lg text-on-surface-variant hover:text-on-surface text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer" onclick="setBilling('annual')">
           <span>Annual Maintenance Contracts</span>
           <span class="bg-secondary text-on-secondary px-1.5 py-0.5 rounded text-[10px] font-bold">-15%</span>
         </button>
@@ -277,7 +277,10 @@
         <!-- Output Box -->
         <div class="bg-primary text-on-primary rounded-xl p-6 flex flex-col justify-between h-full shadow-lg">
           <div>
-            <span class="text-[11px] font-bold text-secondary-fixed uppercase tracking-wider block mb-1">Estimated Cost Range</span>
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-[11px] font-bold text-secondary-fixed uppercase tracking-wider block">Estimated Cost Range</span>
+              <span id="annual-discount-badge" class="hidden bg-secondary text-on-secondary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider shadow-sm">-15% Annual Contract</span>
+            </div>
             <div class="my-3">
               <span class="font-headline text-3xl font-extrabold text-white" id="est-price-min">$900</span>
               <span class="text-sm text-primary-fixed-dim block mt-0.5" id="est-price-max">to $2,400</span>
@@ -287,6 +290,7 @@
             </p>
             <ul class="flex flex-col gap-2 text-xs text-white/90 border-t border-white/15 pt-4 mb-6">
               <li class="flex justify-between"><span>Base Tier:</span><span class="font-bold" id="summary-tier">Canopy Care</span></li>
+              <li class="flex justify-between"><span>Billing Plan:</span><span class="font-bold text-secondary-fixed" id="summary-billing">Standard Project</span></li>
               <li class="flex justify-between"><span>Tree Count:</span><span class="font-bold" id="summary-trees">2 Trees</span></li>
               <li class="flex justify-between"><span>Add-ons Selected:</span><span class="font-bold" id="summary-addons">0</span></li>
             </ul>
@@ -346,7 +350,7 @@
           </div>
           
           <div class="space-y-2 mt-auto pt-4 border-t border-surface-container-highest/60">
-            <button onclick="openBookingModal('Residential Canopy Care', 450)" class="w-full py-3 bg-secondary text-on-secondary rounded-xl text-xs font-bold hover:bg-secondary/90 transition-colors shadow-md">
+            <button id="tier1-booking-btn" onclick="openBookingModal('Residential Canopy Care', 450)" class="w-full py-3 bg-secondary text-on-secondary rounded-xl text-xs font-bold hover:bg-secondary/90 transition-colors shadow-md">
               Select Canopy Care
             </button>
             <a href="service-detail.html?id=crown-reduction" class="w-full py-1.5 text-xs font-semibold text-primary hover:underline flex items-center justify-center gap-1">
@@ -401,7 +405,7 @@
           </div>
           
           <div class="space-y-2 mt-auto pt-4 border-t border-white/10">
-            <button onclick="openBookingModal('Estate & Municipal Care Package', 1200)" class="w-full py-3 bg-secondary text-on-secondary rounded-xl text-xs font-bold hover:bg-secondary/90 transition-colors shadow-lg">
+            <button id="tier2-booking-btn" onclick="openBookingModal('Estate & Municipal Care Package', 1200)" class="w-full py-3 bg-secondary text-on-secondary rounded-xl text-xs font-bold hover:bg-secondary/90 transition-colors shadow-lg">
               Request Custom Estimate
             </button>
             <a href="service-detail.html?id=commercial-fleet" class="w-full py-1.5 text-xs font-semibold text-white/90 hover:text-white hover:underline flex items-center justify-center gap-1">
@@ -455,7 +459,7 @@
           </div>
           
           <div class="space-y-2 mt-auto pt-4 border-t border-surface-container-highest/60">
-            <button onclick="openBookingModal('Hazard Mitigation Emergency Dispatch', 800)" class="w-full py-3 bg-primary text-on-primary rounded-xl text-xs font-bold hover:bg-primary/90 transition-colors shadow-md">
+            <button id="tier3-booking-btn" onclick="openBookingModal('Hazard Mitigation Emergency Dispatch', 800)" class="w-full py-3 bg-primary text-on-primary rounded-xl text-xs font-bold hover:bg-primary/90 transition-colors shadow-md">
               Emergency Dispatch
             </button>
             <a href="service-detail.html?id=tree-removal" class="w-full py-1.5 text-xs font-semibold text-primary hover:underline flex items-center justify-center gap-1">
@@ -957,29 +961,64 @@
   <script type="module" src="/src/js/store.js"></script>
   <script type="module" src="/src/js/nav.js"></script>
   <script>
+    window.currentBillingMode = 'standard';
+
     function setBilling(mode) {
+      window.currentBillingMode = mode;
       const standardBtn = document.getElementById('billing-standard-btn');
       const annualBtn = document.getElementById('billing-annual-btn');
       const t1 = document.getElementById('tier1-price');
       const t1Sub = document.getElementById('tier1-sub');
+      const t2 = document.getElementById('tier2-price');
+      const t2Sub = document.getElementById('tier2-sub');
       const t3 = document.getElementById('tier3-price');
       const t3Sub = document.getElementById('tier3-sub');
+      const t1Btn = document.getElementById('tier1-booking-btn');
+      const t2Btn = document.getElementById('tier2-booking-btn');
+      const t3Btn = document.getElementById('tier3-booking-btn');
+      const annualBadge = document.getElementById('annual-discount-badge');
+      const summaryBilling = document.getElementById('summary-billing');
+
+      const activeClass = 'px-4 py-2 rounded-lg bg-primary text-on-primary text-xs font-bold shadow-md transition-all flex items-center gap-1.5 cursor-pointer';
+      const inactiveClass = 'px-4 py-2 rounded-lg text-on-surface-variant hover:text-on-surface text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer';
 
       if (mode === 'annual') {
-        standardBtn.className = 'px-4 py-2 rounded-lg text-on-surface-variant text-xs font-semibold hover:text-on-surface transition-all';
-        annualBtn.className = 'px-4 py-2 rounded-lg bg-surface text-on-surface text-xs font-bold shadow-sm transition-all flex items-center gap-1.5';
-        t1.textContent = '$382';
-        t1Sub.textContent = ' / mo (annual contract)';
-        t3.textContent = '$680';
-        t3Sub.textContent = ' priority member dispatch';
+        if (standardBtn) standardBtn.className = inactiveClass;
+        if (annualBtn) annualBtn.className = activeClass;
+        
+        if (t1) t1.textContent = '$382';
+        if (t1Sub) t1Sub.textContent = ' / mo (annual contract -15%)';
+        if (t2) t2.textContent = '$1,020';
+        if (t2Sub) t2Sub.textContent = ' / mo (billed annually -15%)';
+        if (t3) t3.textContent = '$680';
+        if (t3Sub) t3Sub.textContent = ' priority member dispatch (-15%)';
+
+        if (t1Btn) t1Btn.setAttribute('onclick', "openBookingModal('Residential Canopy Care (Annual Contract)', 382)");
+        if (t2Btn) t2Btn.setAttribute('onclick', "openBookingModal('Estate & Municipal Care Package (Annual Contract)', 1020)");
+        if (t3Btn) t3Btn.setAttribute('onclick', "openBookingModal('Hazard Mitigation (Annual Contract Member)', 680)");
+
+        if (annualBadge) annualBadge.classList.remove('hidden');
+        if (summaryBilling) summaryBilling.textContent = 'Annual Contract (-15%)';
       } else {
-        standardBtn.className = 'px-4 py-2 rounded-lg bg-surface text-on-surface text-xs font-bold shadow-sm transition-all';
-        annualBtn.className = 'px-4 py-2 rounded-lg text-on-surface-variant text-xs font-semibold hover:text-on-surface transition-all flex items-center gap-1.5';
-        t1.textContent = '$450';
-        t1Sub.textContent = ' - $1,200 per project';
-        t3.textContent = '$800';
-        t3Sub.textContent = ' standard deployment';
+        if (standardBtn) standardBtn.className = activeClass;
+        if (annualBtn) annualBtn.className = inactiveClass;
+
+        if (t1) t1.textContent = '$450';
+        if (t1Sub) t1Sub.textContent = ' - $1,200 per project';
+        if (t2) t2.textContent = 'Custom';
+        if (t2Sub) t2Sub.textContent = 'Quote-based scale or $1,200/mo retainer';
+        if (t3) t3.textContent = '$800';
+        if (t3Sub) t3Sub.textContent = ' standard deployment';
+
+        if (t1Btn) t1Btn.setAttribute('onclick', "openBookingModal('Residential Canopy Care', 450)");
+        if (t2Btn) t2Btn.setAttribute('onclick', "openBookingModal('Estate & Municipal Care Package', 1200)");
+        if (t3Btn) t3Btn.setAttribute('onclick', "openBookingModal('Hazard Mitigation Emergency Dispatch', 800)");
+
+        if (annualBadge) annualBadge.classList.add('hidden');
+        if (summaryBilling) summaryBilling.textContent = 'Standard Project';
       }
+
+      updateEstimator();
     }
 
     function toggleFaq(el) {
@@ -1050,9 +1089,12 @@
       });
       if (sumAddons) sumAddons.innerText = checkboxes.length;
 
+      const isAnnual = window.currentBillingMode === 'annual';
+      const billingMultiplier = isAnnual ? 0.85 : 1.0;
+
       const scaleMultiplier = (1 + (trees - 1) * 0.45) * currentHeightMultiplier;
-      const finalMin = Math.round(currentBaseMin * scaleMultiplier + addonsTotal);
-      const finalMax = Math.round(currentBaseMax * scaleMultiplier + addonsTotal);
+      const finalMin = Math.round((currentBaseMin * scaleMultiplier + addonsTotal) * billingMultiplier);
+      const finalMax = Math.round((currentBaseMax * scaleMultiplier + addonsTotal) * billingMultiplier);
 
       if (estMin) estMin.innerText = '$' + finalMin.toLocaleString();
       if (estMax) estMax.innerText = 'to $' + finalMax.toLocaleString();
@@ -1067,9 +1109,12 @@
         addonsTotal += parseInt(cb.value) || 0;
         addonNames.push(cb.getAttribute('data-name'));
       });
+      const isAnnual = window.currentBillingMode === 'annual';
+      const billingMultiplier = isAnnual ? 0.85 : 1.0;
       const scaleMultiplier = (1 + (trees - 1) * 0.45) * currentHeightMultiplier;
-      const avgEstimate = Math.round(((currentBaseMin + currentBaseMax) / 2) * scaleMultiplier + addonsTotal);
-      const serviceTitle = `${currentTierName} (${trees} ${trees === 1 ? 'tree' : 'trees'}${addonNames.length ? ' + ' + addonNames.join(', ') : ''})`;
+      const avgEstimate = Math.round(((currentBaseMin + currentBaseMax) / 2 * scaleMultiplier + addonsTotal) * billingMultiplier);
+      const planSuffix = isAnnual ? ' (Annual Contract -15%)' : '';
+      const serviceTitle = `${currentTierName}${planSuffix} (${trees} ${trees === 1 ? 'tree' : 'trees'}${addonNames.length ? ' + ' + addonNames.join(', ') : ''})`;
 
       if (window.openBookingModal) {
         window.openBookingModal(serviceTitle, avgEstimate);
@@ -1088,6 +1133,33 @@
         }
       }
     }
+
+    // Explicit window attachments
+    window.setBilling = setBilling;
+    window.toggleFaq = toggleFaq;
+    window.selectService = selectService;
+    window.setHeight = setHeight;
+    window.updateEstimator = updateEstimator;
+    window.bookCalculatedEstimate = bookCalculatedEstimate;
+    window.toggleCompliance = toggleCompliance;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const stdBtn = document.getElementById('billing-standard-btn');
+      const annBtn = document.getElementById('billing-annual-btn');
+      if (stdBtn) {
+        stdBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          setBilling('standard');
+        });
+      }
+      if (annBtn) {
+        annBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          setBilling('annual');
+        });
+      }
+      updateEstimator();
+    });
   </script>
 </body>
 </html>
