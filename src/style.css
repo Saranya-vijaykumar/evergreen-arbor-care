@@ -323,14 +323,13 @@ html.dark #mobile-menu-drawer {
   border-top-color: #233027 !important;
 }
 
-/* Mobile Menu Drawer Styling & State Enforcement */
+/* Mobile Menu Drawer Styling & State Enforcement - Strictly Mobile-Only */
 #mobile-menu-toggle {
   touch-action: manipulation;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   user-select: none !important;
   -webkit-user-select: none !important;
-  display: inline-flex;
   align-items: center;
   justify-content: center;
   min-width: 44px;
@@ -341,6 +340,26 @@ html.dark #mobile-menu-drawer {
 }
 #mobile-menu-toggle span {
   pointer-events: none !important;
+}
+
+/* Strictly ONLY display hamburger on mobile / tablet screens (< 1024px) */
+@media (max-width: 1023px) {
+  #mobile-menu-toggle {
+    display: inline-flex !important;
+  }
+}
+
+/* Strictly hide all mobile toggles and drawers on desktop (>= 1024px) */
+@media (min-width: 1024px) {
+  #mobile-menu-toggle {
+    display: none !important;
+  }
+  #mobile-menu-drawer {
+    display: none !important;
+  }
+  #admin-sidebar-toggle {
+    display: none !important;
+  }
 }
 
 #mobile-menu-drawer {

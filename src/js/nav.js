@@ -132,6 +132,13 @@ export function setupNavigation() {
           setMenuOpen(false);
         });
       });
+
+      // Auto-close mobile menu if viewport resized to desktop (>= 1024px)
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1024) {
+          setMenuOpen(false);
+        }
+      }, { passive: true });
     }
   }
 
