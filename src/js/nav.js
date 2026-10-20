@@ -93,15 +93,25 @@ export function setupNavigation() {
         }
       };
 
-      mobileToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
+      // Unified debounced toggle for both touch and click
+      let lastToggleTime = 0;
+      const handleToggle = (e) => {
+        const now = Date.now();
+        if (now - lastToggleTime < 300) return; // Ignore synthetic double-fires
+        lastToggleTime = now;
+        if (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
         const willOpen = mobileMenu.classList.contains('hidden');
         setMenuOpen(willOpen);
-      });
+      };
+
+      mobileToggle.addEventListener('click', handleToggle);
+      mobileToggle.addEventListener('touchend', handleToggle);
 
       // Close when clicking or tapping outside
-      const handleOutsideClick = (e) => {
+      const handleOutsideClose = (e) => {
         if (!mobileMenu.classList.contains('hidden')) {
           if (!mobileToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
             setMenuOpen(false);
@@ -109,8 +119,12 @@ export function setupNavigation() {
         }
       };
 
-      document.addEventListener('click', handleOutsideClick);
-      document.addEventListener('touchstart', handleOutsideClick, { passive: true });
+      document.addEventListener('click', handleOutsideClose);
+      document.addEventListener('touchend', (e) => {
+        if (!mobileToggle.contains(e.target)) {
+          handleOutsideClose(e);
+        }
+      }, { passive: true });
 
       // Close when clicking any link inside the mobile drawer
       mobileMenu.querySelectorAll('a').forEach(link => {
