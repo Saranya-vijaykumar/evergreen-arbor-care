@@ -126,7 +126,7 @@ export const BLOG_DATA = {
 
       <h2 class="text-2xl font-bold font-headline text-on-surface mt-8 mb-4">3. Direct Trunk Micro-Injection Therapy</h2>
       <p class="text-sm md:text-base text-on-surface-variant leading-relaxed mb-4">
-        Evergreen Arbor Care does not spray toxic chemical clouds into the air. Instead, we utilize closed-system Arborjet TREE I.V. micro-infusion technology. Emamectin Benzoate is injected directly into active xylem sap channels at the root flare, sealing inside the tree and providing <strong>two full years of 99%+ protection</strong> against wood borers with zero off-target environmental drift.
+        ArborPro does not spray toxic chemical clouds into the air. Instead, we utilize closed-system Arborjet TREE I.V. micro-infusion technology. Emamectin Benzoate is injected directly into active xylem sap channels at the root flare, sealing inside the tree and providing <strong>two full years of 99%+ protection</strong> against wood borers with zero off-target environmental drift.
       </p>
     `,
     relatedService: { id: 'health-assessment', title: 'Certified ISA Arborist Health Assessment' }
@@ -194,7 +194,7 @@ export const BLOG_DATA = {
 
       <h2 class="text-2xl font-bold font-headline text-on-surface mt-8 mb-4">The 10:1 Arborist Safety Factor</h2>
       <p class="text-sm md:text-base text-on-surface-variant leading-relaxed mb-4">
-        Industrial lifting standards require a minimum 5:1 safety factor; Evergreen Arbor Care enforces a strict <strong>10:1 safety ratio</strong> on all dynamic lowering lines. Our 3/4-inch Samson Stable Braid rigging lines boast a minimum breaking strength of 20,400 lbs, paired with Good Rigging Control System (GRCS) friction cylinders for feather-soft descents.
+        Industrial lifting standards require a minimum 5:1 safety factor; ArborPro enforces a strict <strong>10:1 safety ratio</strong> on all dynamic lowering lines. Our 3/4-inch Samson Stable Braid rigging lines boast a minimum breaking strength of 20,400 lbs, paired with Good Rigging Control System (GRCS) friction cylinders for feather-soft descents.
       </p>
     `,
     relatedService: { id: 'crane-rigging', title: '60-Ton Crane Precision Pick & Heavy Rigging' }
@@ -262,7 +262,7 @@ export const BLOG_DATA = {
 
       <h2 class="text-2xl font-bold font-headline text-on-surface mt-8 mb-4">The TRAQ Tree Risk Report</h2>
       <p class="text-sm md:text-base text-on-surface-variant leading-relaxed mb-4">
-        City arborists will only approve removal permits if the tree presents an unacceptable risk rating under the ISA Tree Risk Assessment Qualification (TRAQ) standard. Evergreen Arbor Care prepares comprehensive permit packets, including sonic tomography cross-sections, decay measurements, and photographic evidence, ensuring smooth permit approval.
+        City arborists will only approve removal permits if the tree presents an unacceptable risk rating under the ISA Tree Risk Assessment Qualification (TRAQ) standard. ArborPro prepares comprehensive permit packets, including sonic tomography cross-sections, decay measurements, and photographic evidence, ensuring smooth permit approval.
       </p>
     `,
     relatedService: { id: 'sonic-tomography', title: 'Sonic Tomography Acoustic Decay Mapping' }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Create Account — Evergreen Arbor Care</title>
+  <title>Create Account | ArborPro</title>
   <link rel="stylesheet" href="/src/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -59,6 +59,16 @@
       justify-content: center;
       box-shadow: 0 8px 24px rgba(27, 109, 36, 0.35);
       border: 2px solid rgba(255, 255, 255, 0.9);
+    }
+    .brand-logo-text {
+      color: #111827;
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1;
+    }
+    html.dark .brand-logo-text {
+      color: #f9fafb !important;
     }
     .auth-title {
       font-size: 1.65rem;
@@ -237,14 +247,11 @@
   <div class="auth-card">
     <!-- Clickable Official Brand Logo -->
     <div class="logo-container">
-      <a href="index.html" class="brand-logo-link" title="Click to Return to ArborPro Operations Home" style="display: flex; flex-direction: column; align-items: center; text-decoration: none; gap: 8px;">
-        <div class="logo-circle">
-          <span class="material-symbols-outlined text-[32px] text-white">forest</span>
+      <a href="index.html" class="brand-logo-link" title="Click to Return to ArborPro Home" style="display: inline-flex; align-items: center; text-decoration: none; gap: 10px; margin-bottom: 0.5rem;">
+        <div style="width: 44px; height: 44px; border-radius: 12px; background: #1b6d24; display: flex; align-items: center; justify-content: center; color: #ffffff; box-shadow: 0 4px 14px rgba(27, 109, 36, 0.35);">
+          <span class="material-symbols-outlined text-[26px]">forest</span>
         </div>
-        <div style="display: flex; flex-direction: column; align-items: center;">
-          <span style="font-size: 1.35rem; font-weight: 800; color: #111827; letter-spacing: -0.025em; line-height: 1.1;">ArborPro</span>
-          <span style="font-size: 0.72rem; font-weight: 700; color: #1b6d24; text-transform: uppercase; letter-spacing: 0.12em;">Operations</span>
-        </div>
+        <span class="brand-logo-text">ArborPro</span>
       </a>
     </div>
 

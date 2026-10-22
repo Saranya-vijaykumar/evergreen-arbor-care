@@ -48,7 +48,7 @@ By selectively thinning dense inner foliage and redistributing structural weight
     basePrice: 950,
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDcQoko-mDZKVsMyfKTsRoZ5PVLWjLIjZC6yjb5QDd0jeCQA6wxsoskdEmH07ZS6xrom5CjCakHfsdzgKkdPuw3o5skAWC82Fli6LyDK6LXXRqlG9_ZKL1JuAxEL-YuPuSR92WIR4egjFlg3fklxqBVVa5_FZSC3DkXEBgxac7ve69FQM2zmszc_AykWlo6b3aNryF_6dBjYC534oZ6AKqvscXMI445qpDYbSuM5rwcCQVQicUty4Eb',
     summary: 'High-risk surgical dismantling and extraction of storm-shattered, structurally hazardous, or root-compromised trees utilizing 60-ton cranes and positive-rigging techniques.',
-    description: `When a mature tree suffers critical trunk shear, root plate uplift, or internal rot near structures, standard felling is out of the question. Evergreen Arbor Care specializes in high-consequence sectional dismantling in tight residential yards and commercial campuses.
+    description: `When a mature tree suffers critical trunk shear, root plate uplift, or internal rot near structures, standard felling is out of the question. ArborPro specializes in high-consequence sectional dismantling in tight residential yards and commercial campuses.
 
 Our crews deploy 60-ton articulating cranes and high-tensile friction brake systems. Each massive trunk section is strapped, tensioned, cut, and floated horizontally across rooftops and fences with zero impact to lawns, landscaping, or adjacent properties.`,
     scopeOfWork: [
@@ -161,7 +161,7 @@ We grind down 12 to 16 inches below the turf line, severing root flares and back
     basePrice: 1500,
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDDoQgaTaC4c-CcoW0M0CZCm8PoB2Gj3prcwar2npLUFl7tFMXjQcoDv_AlBSL738TI17L5aXU4k1YoauxqYZIrxdXQtH6G_Za_wOA2JK0nOa-9O_3KoP0Qpvw0gFitlb3u-RSFXEio7EuhFSwPnM3jgmnpdlHJXdZ017sLLpHR5Oi8tJRxJYnDN_bDiqawp8H8NVLDhOYYphl8kOF4DS6Ck_evOnW2BGcCI0toMZzbC6d53nP6FOor',
     summary: 'Turnkey urban forestry contracts for corporate campuses, HOA communities, municipal parks, and retail centers with guaranteed emergency response times.',
-    description: `Commercial property managers and municipalities face serious legal liability from unmaintained trees falling across parking stalls, walkways, and entrance roads. Evergreen Arbor Care provides multi-year urban canopy management plans, digital GIS inventory mapping, and dedicated emergency fleet dispatch.
+    description: `Commercial property managers and municipalities face serious legal liability from unmaintained trees falling across parking stalls, walkways, and entrance roads. ArborPro provides multi-year urban canopy management plans, digital GIS inventory mapping, and dedicated emergency fleet dispatch.
 
 We ensure compliance with local building codes, fire department clearance requirements (14 ft roadway clearance), and ADA visibility standards, while keeping your property immaculate and hazard-free.`,
     scopeOfWork: [
@@ -275,7 +275,7 @@ By placing a calibrated ring of 10 to 12 acoustic sensors around the trunk, soun
     basePrice: 650,
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCKAHOcfy3kOKW7hcwjuf6ghDkRO2Kz-y7FjPTfP-wxk1_8THKJNGIAKrF9FxzcsnrJShYgUO-XgRCTzkK1HCBsfjrAkPYiVaQD_QOHwm6of4SQOcOGVlAEXyQ5erCZtNU8KpHy0kZCKu9hsrhC07mp5Kbr22J1h63cWul9P57-zzQijHUnYKPY5UujQQVQwIAl99OH7v-ynIUIOyVXLBzccN-3sA9vs2rm8KL_OvKHSMFsqbmAI_ad',
     summary: 'Non-invasive, flexible synthetic shock-absorbing support cabling that stabilizes codominant stems, prevents storm splits, and preserves mature canopy architecture.',
-    description: `Many mature trees develop V-shaped codominant stems with included bark—a severe structural flaw that can cause massive trunks to split catastrophic in high winds. Rather than cutting down a prized shade tree or using invasive through-bolt steel rods that wound the wood, Evergreen Arbor Care installs modern Cobra Dynamic Cabling systems.
+    description: `Many mature trees develop V-shaped codominant stems with included bark—a severe structural flaw that can cause massive trunks to split catastrophic in high winds. Rather than cutting down a prized shade tree or using invasive through-bolt steel rods that wound the wood, ArborPro installs modern Cobra Dynamic Cabling systems.
 
 These UV-stabilized hollow-braid synthetic ropes wrap gently around limbs with wide anti-abrasion bark sleeves. They allow the tree natural sway in light winds—maintaining essential wood-strengthening cambial response—while engaging an integrated rubber shock absorber during gale-force storms to prevent trunk fracture.`,
     scopeOfWork: [
@@ -313,7 +313,7 @@ These UV-stabilized hollow-braid synthetic ropes wrap gently around limbs with w
     basePrice: 1200,
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDWjZ-4pgS9bFdpCH9nBVaw6CfY9Kr2MBF_saAv-5AsYpa9O8A2s75GHH2J4ycBLMsoQzLg46XA6O-c8oTZhxV5G1NiN_nWdVDAbZqKPzM5dvT5vSGMXrd6QRQ4YhuDBvclRKuHEmADKR6ci4g9bUDc7P65ezh28EjuL8HE8nIjdwiQXlgV92Xw-gkVIGRf-6EI946kLa3kSOkedbDcyh-o76nsPdvX9y5dRDomqD54ySSq818bufWa',
     summary: 'High-reach industrial crane hoisting capable of lifting multi-ton tree segments over houses, fences, and swimming pools with zero ground turf compaction.',
-    description: `When massive oak, pine, or eucalyptus trees grow between swimming pools, steep embankments, or zero-lot-line residential rooftops, conventional tree work risks catastrophic property damage. Evergreen Arbor Care deploys dedicated 60-ton hydraulic all-terrain crane rigs.
+    description: `When massive oak, pine, or eucalyptus trees grow between swimming pools, steep embankments, or zero-lot-line residential rooftops, conventional tree work risks catastrophic property damage. ArborPro deploys dedicated 60-ton hydraulic all-terrain crane rigs.
 
 Our certified crane operators work in constant two-way radio headset communication with aerial climbers. Heavy trunk sections up to 6,000 lbs are rigged, cut under balanced tension, and smoothly floated hundreds of feet over homes directly into the street chipper zone. What would take 3 days of manual labor is executed safely in hours with zero impact on lawns.`,
     scopeOfWork: [
@@ -351,7 +351,7 @@ Our certified crane operators work in constant two-way radio headset communicati
     basePrice: 600,
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAHYrZXr9Fx77Virass_1ToKcUSoFH8hbUl2QMt1xYFw9LKmkFFvtRvy73cHtWgFcJJvAHKfwgvI8ZjPreRimWb9c-S7Ek_oQee8hAhlI7k-evZHoULitaMYZpLCQFKb9UcbXY16csqAhwohe8YL_12pILSZmn--0S9f3t7IsuwsBxMB5gU50p1JUz_JmN1KudQ0-kZ7ykduHSNHx3xw5IKmst6adoRmIAAxUFJPy4ibjE4LpKVNdrk',
     summary: 'High-reach dielectric insulated aerial platforms providing secure positioning for rapid clearance pruning, utility right-of-way clearing, and tall canopy surgery.',
-    description: `For tall street trees, commercial parking corridors, and trees entangled in high-voltage power lines, climbing on brittle dead limbs poses unacceptable human risk. Evergreen Arbor Care operates 75-foot articulated forestry bucket trucks featuring Category C 46kV dielectric insulation.
+    description: `For tall street trees, commercial parking corridors, and trees entangled in high-voltage power lines, climbing on brittle dead limbs poses unacceptable human risk. ArborPro operates 75-foot articulated forestry bucket trucks featuring Category C 46kV dielectric insulation.
 
 Our operators position themselves directly above complex canopies with ergonomic precision, completing extensive roadway clearance, structural thinning, and storm-damage extractions in a fraction of traditional climbing time.`,
     scopeOfWork: [
@@ -429,7 +429,7 @@ By executing precise cuts during dormancy, trees experience minimal physiologica
     summary: 'High-consequence extraction of fractured widow-makers, storm-snapped hanging boughs, and wind-compromised tree canopies hanging precariously over roofs or utility lines.',
     description: `Severe gale winds and heavy winter snow accumulation often snap massive upper canopy limbs, leaving hundreds of pounds of wood trapped in suspension—commonly termed "widow-makers." These hung limbs are under tremendous unpredictable kinetic tension and represent the single highest safety hazard on residential properties.
 
-Evergreen Arbor Care deploys emergency rapid-response rigging units. Using directional friction winches, SRT ascending lines, and high-tensile speedlines, our climbers isolate and extract severed boughs smoothly without allowing falling debris to touch roof tiles, gutters, or power drops.`,
+ArborPro deploys emergency rapid-response rigging units. Using directional friction winches, SRT ascending lines, and high-tensile speedlines, our climbers isolate and extract severed boughs smoothly without allowing falling debris to touch roof tiles, gutters, or power drops.`,
     scopeOfWork: [
       'Emergency 24/7 aerial stabilization of hung-up and split limbs',
       'Non-impact speedline rigging over fences, patios, and delicate flower beds',
@@ -465,7 +465,7 @@ Evergreen Arbor Care deploys emergency rapid-response rigging units. Using direc
     basePrice: 1500,
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBSIdzyM9UPia1NrzwSz7GHUWc750xhnA-Dy0idRLRW2MEEXjO5TidBW9Obp5wzwk_lhJkvoktWkRkLJj67L37UrN8iBEts73YApm0HOGa-b-FB36kfVXqHJSseGCIHAuXCSDzRYM27-x603JUbNtPhqCkew2PvqQbsLnhNMYJL4PRUGWa5H-Zu4eG2GSDi5UYe9SN67cr8kH3S2kHtLhU-8di8sON9AkCDV78mHzt49VLz3Bwohmif',
     summary: 'Industrial land preparation, right-of-way clearing, and whole-tree mastication for commercial development, municipal infrastructure, and corporate campus safety zones.',
-    description: `Expanding commercial properties, corporate office campuses, and municipal utility corridors require rapid, environmentally responsible vegetation management. Evergreen Arbor Care delivers full-scale commercial site clearing services utilizing heavy forestry mulchers and tracked horizontal grinders.
+    description: `Expanding commercial properties, corporate office campuses, and municipal utility corridors require rapid, environmentally responsible vegetation management. ArborPro delivers full-scale commercial site clearing services utilizing heavy forestry mulchers and tracked horizontal grinders.
 
 We prioritize specimen tree preservation by erecting tree protection zones (TPZ) under ANSI A300 Part 5 guidelines before clearing invasive vegetation, hazardous scrub, and unwanted brush. 100% of organic wood fiber is processed into certified commercial playground mulch, soil amendments, or sustainable biofuel.`,
     scopeOfWork: [
