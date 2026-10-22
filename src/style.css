@@ -1248,3 +1248,105 @@ html.dark .text-on-surface-variant * {
 html.dark [class*="text-on-surface-variant/"] {
   color: #cbd5e1 !important;
 }
+
+/* ========================================================
+   STATUS BADGES & TAGS - HIGH CONTRAST SUITE (LIGHT & DARK)
+   ======================================================== */
+
+/* 1. In Progress Status Badge */
+.badge-in-progress,
+.bg-primary-fixed.text-on-primary-fixed,
+[class*="bg-primary-fixed"][class*="text-on-primary-fixed"] {
+  background-color: #dcfce7 !important;
+  color: #14532d !important;
+  border: 1px solid #86efac !important;
+}
+
+html.dark .badge-in-progress,
+html.dark .bg-primary-fixed.text-on-primary-fixed,
+html.dark [class*="bg-primary-fixed"][class*="text-on-primary-fixed"] {
+  background-color: rgba(20, 83, 45, 0.45) !important;
+  color: #4ade80 !important;
+  border: 1px solid rgba(74, 222, 128, 0.4) !important;
+}
+
+html.dark .badge-in-progress *,
+html.dark .bg-primary-fixed.text-on-primary-fixed *,
+html.dark [class*="bg-primary-fixed"][class*="text-on-primary-fixed"] * {
+  color: #4ade80 !important;
+}
+
+/* 2. Scheduled Status Badge */
+.badge-scheduled,
+.bg-secondary-container.text-on-secondary-container,
+[class*="bg-secondary-container"][class*="text-on-secondary-container"] {
+  background-color: #fef3c7 !important;
+  color: #78350f !important;
+  border: 1px solid #fcd34d !important;
+}
+
+html.dark .badge-scheduled,
+html.dark .bg-secondary-container.text-on-secondary-container,
+html.dark [class*="bg-secondary-container"][class*="text-on-secondary-container"] {
+  background-color: rgba(120, 53, 15, 0.4) !important;
+  color: #fbbf24 !important;
+  border: 1px solid rgba(251, 191, 36, 0.4) !important;
+}
+
+html.dark .badge-scheduled *,
+html.dark .bg-secondary-container.text-on-secondary-container *,
+html.dark [class*="bg-secondary-container"][class*="text-on-secondary-container"] * {
+  color: #fbbf24 !important;
+}
+
+/* 3. Completed Status Badge */
+.badge-completed {
+  background-color: #ecfdf5 !important;
+  color: #065f46 !important;
+  border: 1px solid #a7f3d0 !important;
+}
+
+html.dark .badge-completed {
+  background-color: rgba(6, 78, 59, 0.45) !important;
+  color: #34d399 !important;
+  border: 1px solid rgba(52, 211, 153, 0.4) !important;
+}
+
+html.dark .badge-completed * {
+  color: #34d399 !important;
+}
+
+/* 4. Pending Review Status Badge */
+.badge-pending,
+.bg-surface-container-highest.text-on-surface-variant {
+  background-color: #f1f5f9 !important;
+  color: #334155 !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+html.dark .badge-pending,
+html.dark .bg-surface-container-highest.text-on-surface-variant {
+  background-color: rgba(51, 65, 85, 0.4) !important;
+  color: #cbd5e1 !important;
+  border: 1px solid rgba(148, 163, 184, 0.35) !important;
+}
+
+html.dark .badge-pending * {
+  color: #cbd5e1 !important;
+}
+
+/* High Contrast Table Cell Overrides in Dark Mode */
+html.dark table td {
+  color: #cbd5e1;
+}
+
+html.dark table td .text-on-surface,
+html.dark table td.text-on-surface {
+  color: #f8fafc !important;
+}
+
+html.dark table td .text-on-surface-variant,
+html.dark table td.text-on-surface-variant {
+  color: #cbd5e1 !important;
+}
+

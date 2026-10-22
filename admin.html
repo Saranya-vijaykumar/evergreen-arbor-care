@@ -1073,29 +1073,29 @@
             let statusBadge = '';
             if (order.status === 'In Progress') {
               statusBadge = `
-                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed text-[11px] font-bold">
-                  <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                <span class="badge-in-progress inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                   In Progress
                 </span>
               `;
             } else if (order.status === 'Scheduled') {
               statusBadge = `
-                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold">
-                  <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                <span class="badge-scheduled inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
                   Scheduled
                 </span>
               `;
             } else if (order.status === 'Completed') {
               statusBadge = `
-                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary text-on-primary text-[11px] font-bold">
-                  <span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>
+                <span class="badge-completed inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                   Completed
                 </span>
               `;
             } else {
               statusBadge = `
-                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-highest text-on-surface-variant text-[11px] font-bold">
-                  <span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                <span class="badge-pending inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold">
+                  <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
                   Pending Review
                 </span>
               `;
@@ -1125,7 +1125,7 @@
                     ${order.service}
                   </span>
                 </td>
-                <td class="py-3.5 px-4 text-xs text-on-surface-variant">
+                <td class="py-3.5 px-4 text-xs font-medium text-on-surface">
                   ${order.crew}
                 </td>
                 <td class="py-3.5 px-4">
@@ -1199,13 +1199,13 @@
       tbodyFull.innerHTML = filtered.map(order => {
         let statusBadge = '';
         if (order.status === 'In Progress') {
-          statusBadge = '<span class="px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed text-[11px] font-bold inline-flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> In Progress</span>';
+          statusBadge = '<span class="badge-in-progress px-2.5 py-1 rounded-full text-[11px] font-bold inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> In Progress</span>';
         } else if (order.status === 'Scheduled') {
-          statusBadge = '<span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold">Scheduled</span>';
+          statusBadge = '<span class="badge-scheduled px-2.5 py-1 rounded-full text-[11px] font-bold inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Scheduled</span>';
         } else if (order.status === 'Completed') {
-          statusBadge = '<span class="px-2.5 py-1 rounded-full bg-primary text-on-primary text-[11px] font-bold">Completed</span>';
+          statusBadge = '<span class="badge-completed px-2.5 py-1 rounded-full text-[11px] font-bold inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Completed</span>';
         } else {
-          statusBadge = '<span class="px-2.5 py-1 rounded-full bg-surface-container-highest text-on-surface-variant text-[11px] font-bold">Pending Review</span>';
+          statusBadge = '<span class="badge-pending px-2.5 py-1 rounded-full text-[11px] font-bold inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span> Pending Review</span>';
         }
 
         let priorityBadge = order.priority === 'Emergency'
