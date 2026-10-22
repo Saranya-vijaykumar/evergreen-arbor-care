@@ -187,25 +187,28 @@
 
   <main class="w-full pt-20 bg-surface">
     <!-- Hero Section -->
-    <section class="relative px-gutter py-16 max-w-7xl mx-auto w-full flex flex-col items-center text-center">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-high text-primary mb-4 text-xs font-semibold uppercase tracking-wider">
-        <span class="material-symbols-outlined text-[16px]">verified</span>
-        <span>Certified Professional Arboriculture</span>
-      </div>
-      <h1 class="font-headline text-3xl md:text-5xl font-bold text-on-surface max-w-3xl mb-4 tracking-tight">
-        Transparent Arboriculture Pricing
-      </h1>
-      <p class="text-sm md:text-base text-on-surface-variant max-w-2xl mb-8 leading-relaxed">
-        Predictable investment tiers for residential canopy care, emergency storm mitigation, and ongoing estate property maintenance.
-      </p>
+    <section class="relative w-full bg-primary text-on-primary py-16 lg:py-20 overflow-hidden">
+      <div class="absolute inset-0 opacity-20 bg-cover bg-center pointer-events-none" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCKAHOcfy3kOKW7hcwjuf6ghDkRO2Kz-y7FjPTfP-wxk1_8THKJNGIAKrF9FxzcsnrJShYgUO-XgRCTzkK1HCBsfjrAkPYiVaQD_QOHwm6of4SQOcOGVlAEXyQ5erCZtNU8KpHy0kZCKu9hsrhC07mp5Kbr22J1h63cWul9P57-zzQijHUnYKPY5UujQQVQwIAl99OH7v-ynIUIOyVXLBzccN-3sA9vs2rm8KL_OvKHSMFsqbmAI_ad')"></div>
+      <div class="relative z-10 max-w-4xl mx-auto px-gutter w-full flex flex-col items-center text-center">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface/10 backdrop-blur-md text-surface text-xs font-semibold uppercase tracking-wider mb-4 border border-white/10">
+          <span class="material-symbols-outlined text-[16px]">verified</span>
+          <span>Certified Professional Arboriculture</span>
+        </div>
+        <h1 class="font-headline text-3xl md:text-5xl font-bold text-on-primary max-w-3xl mb-4 tracking-tight">
+          Transparent Arboriculture Pricing
+        </h1>
+        <p class="text-sm md:text-base text-surface-container-high max-w-2xl mb-8 leading-relaxed">
+          Predictable investment tiers for residential canopy care, emergency storm mitigation, and ongoing estate property maintenance.
+        </p>
 
-      <!-- Billing toggle micro-interaction -->
-      <div class="flex items-center gap-2 bg-surface-container-high p-1.5 rounded-xl border border-surface-container-highest shadow-inner">
-        <button id="billing-standard-btn" class="px-4 py-2 rounded-lg bg-primary text-on-primary text-xs font-bold shadow-md transition-all flex items-center gap-1.5 cursor-pointer" onclick="setBilling('standard')">Standard Project Rates</button>
-        <button id="billing-annual-btn" class="px-4 py-2 rounded-lg text-on-surface-variant hover:text-on-surface text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer" onclick="setBilling('annual')">
-          <span>Annual Maintenance Contracts</span>
-          <span class="bg-secondary text-on-secondary px-1.5 py-0.5 rounded text-[10px] font-bold">-15%</span>
-        </button>
+        <!-- Billing toggle micro-interaction -->
+        <div class="flex items-center gap-2 bg-surface/15 backdrop-blur-md p-1.5 rounded-xl border border-white/20 shadow-xl">
+          <button id="billing-standard-btn" class="px-4 py-2 rounded-lg bg-surface text-primary text-xs font-bold shadow-md transition-all flex items-center gap-1.5 cursor-pointer" onclick="setBilling('standard')">Standard Project Rates</button>
+          <button id="billing-annual-btn" class="px-4 py-2 rounded-lg text-surface hover:text-white text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer" onclick="setBilling('annual')">
+            <span>Annual Maintenance Contracts</span>
+            <span class="bg-secondary text-on-secondary px-1.5 py-0.5 rounded text-[10px] font-bold">-15%</span>
+          </button>
+        </div>
       </div>
     </section>
 
@@ -979,8 +982,8 @@
       const annualBadge = document.getElementById('annual-discount-badge');
       const summaryBilling = document.getElementById('summary-billing');
 
-      const activeClass = 'px-4 py-2 rounded-lg bg-primary text-on-primary text-xs font-bold shadow-md transition-all flex items-center gap-1.5 cursor-pointer';
-      const inactiveClass = 'px-4 py-2 rounded-lg text-on-surface-variant hover:text-on-surface text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer';
+      const activeClass = 'px-4 py-2 rounded-lg bg-surface text-primary text-xs font-bold shadow-md transition-all flex items-center gap-1.5 cursor-pointer';
+      const inactiveClass = 'px-4 py-2 rounded-lg text-surface hover:text-white text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer';
 
       if (mode === 'annual') {
         if (standardBtn) standardBtn.className = inactiveClass;

@@ -75,7 +75,6 @@ export function setupNavigation() {
   if (mobileToggle && mobileMenu) {
     mobileToggle.setAttribute('type', 'button');
     mobileToggle.style.cursor = 'pointer';
-    mobileToggle.style.touchAction = 'manipulation';
 
     if (!mobileToggle.dataset.bound) {
       mobileToggle.dataset.bound = 'true';
@@ -93,44 +92,33 @@ export function setupNavigation() {
         }
       };
 
-      // Unified debounced toggle for both touch and click
-      let lastToggleTime = 0;
-      const handleToggle = (e) => {
-        const now = Date.now();
-        if (now - lastToggleTime < 300) return; // Ignore synthetic double-fires
-        lastToggleTime = now;
-        if (e) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
+      // Direct click handler with stopPropagation to avoid outside close race conditions
+      mobileToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         const willOpen = mobileMenu.classList.contains('hidden');
         setMenuOpen(willOpen);
-      };
+      });
 
-      mobileToggle.addEventListener('click', handleToggle);
-      mobileToggle.addEventListener('touchend', handleToggle);
-
-      // Close when clicking or tapping outside
-      const handleOutsideClose = (e) => {
-        if (!mobileMenu.classList.contains('hidden')) {
-          if (!mobileToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
-            setMenuOpen(false);
-          }
-        }
-      };
-
-      document.addEventListener('click', handleOutsideClose);
-      document.addEventListener('touchend', (e) => {
-        if (!mobileToggle.contains(e.target)) {
-          handleOutsideClose(e);
-        }
-      }, { passive: true });
+      // Prevent clicks inside drawer from bubbling and closing the drawer
+      mobileMenu.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
 
       // Close when clicking any link inside the mobile drawer
       mobileMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           setMenuOpen(false);
         });
+      });
+
+      // Close when clicking outside mobile toggle and drawer
+      document.addEventListener('click', (e) => {
+        if (!mobileMenu.classList.contains('hidden')) {
+          if (!mobileToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+            setMenuOpen(false);
+          }
+        }
       });
 
       // Auto-close mobile menu if viewport resized to desktop (>= 1024px)
