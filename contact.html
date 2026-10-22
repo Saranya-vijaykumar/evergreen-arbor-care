@@ -224,18 +224,21 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label class="block text-xs font-semibold text-on-surface mb-1.5" for="full-name">Full Name *</label>
-                <input class="w-full px-3.5 py-2.5 rounded-xl bg-surface border border-outline-variant text-xs text-on-surface focus:outline-none focus:border-primary transition-colors" id="full-name" placeholder="John Doe" required type="text"/>
+                <input class="w-full px-3.5 py-2.5 rounded-xl bg-surface border border-outline-variant text-xs text-on-surface focus:outline-none focus:border-primary transition-colors" id="full-name" placeholder="John Doe" required type="text" minlength="2" autocomplete="name"/>
+                <span id="err-full-name" class="hidden text-[11px] text-error font-medium mt-1">Full name must contain at least 2 letters (no numbers).</span>
               </div>
               <div>
                 <label class="block text-xs font-semibold text-on-surface mb-1.5" for="email">Email Address *</label>
-                <input class="w-full px-3.5 py-2.5 rounded-xl bg-surface border border-outline-variant text-xs text-on-surface focus:outline-none focus:border-primary transition-colors" id="email" placeholder="john@example.com" required type="email"/>
+                <input class="w-full px-3.5 py-2.5 rounded-xl bg-surface border border-outline-variant text-xs text-on-surface focus:outline-none focus:border-primary transition-colors" id="email" placeholder="john@example.com" required type="email" autocomplete="email"/>
+                <span id="err-email" class="hidden text-[11px] text-error font-medium mt-1">Please enter a valid email address with a domain (e.g. name@domain.com).</span>
               </div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label class="block text-xs font-semibold text-on-surface mb-1.5" for="phone">Phone Number *</label>
-                <input class="w-full px-3.5 py-2.5 rounded-xl bg-surface border border-outline-variant text-xs text-on-surface focus:outline-none focus:border-primary transition-colors" id="phone" placeholder="(555) 000-0000" required type="tel"/>
+                <input class="w-full px-3.5 py-2.5 rounded-xl bg-surface border border-outline-variant text-xs text-on-surface focus:outline-none focus:border-primary transition-colors" id="phone" placeholder="(555) 000-0000" required type="tel" autocomplete="tel"/>
+                <span id="err-phone" class="hidden text-[11px] text-error font-medium mt-1">Please enter a valid phone number (digits only, no letters).</span>
               </div>
               <div>
                 <label class="block text-xs font-semibold text-on-surface mb-1.5" for="service-type">Service Type *</label>
@@ -796,16 +799,70 @@
     const successBox = document.getElementById('contact-success-box');
     const successMsg = document.getElementById('contact-success-msg');
 
+    // Auto-strip alphabets on phone input
+    const phoneInput = document.getElementById('phone');
+    if (phoneInput) {
+      phoneInput.addEventListener('input', function() {
+        this.value = this.value.replace(/[a-zA-Z]/g, '');
+      });
+    }
+
     form?.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const name = document.getElementById('full-name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const phone = document.getElementById('phone').value.trim();
+      const nameInput = document.getElementById('full-name');
+      const emailInput = document.getElementById('email');
+      const phoneInput = document.getElementById('phone');
+
+      const errName = document.getElementById('err-full-name');
+      const errEmail = document.getElementById('err-email');
+      const errPhone = document.getElementById('err-phone');
+
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const phone = phoneInput.value.trim();
       const service = document.getElementById('service-type').value;
       const address = document.getElementById('address').value.trim();
       const priority = document.getElementById('urgency').value;
       const notes = document.getElementById('message').value.trim();
+
+      let isValid = true;
+
+      // 1. Validate Name: at least 2 chars, letters and spaces only, no numbers
+      const nameRegex = /^[A-Za-z\s'\-]{2,60}$/;
+      if (!nameRegex.test(name)) {
+        errName?.classList.remove('hidden');
+        nameInput.classList.add('border-error');
+        isValid = false;
+      } else {
+        errName?.classList.add('hidden');
+        nameInput.classList.remove('border-error');
+      }
+
+      // 2. Validate Email: must have valid domain and TLD (rejects ice@g)
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailRegex.test(email)) {
+        errEmail?.classList.remove('hidden');
+        emailInput.classList.add('border-error');
+        isValid = false;
+      } else {
+        errEmail?.classList.add('hidden');
+        emailInput.classList.remove('border-error');
+      }
+
+      // 3. Validate Phone: no letters, minimum 7 digits
+      const digitsOnly = phone.replace(/\D/g, '');
+      const hasAlphabets = /[a-zA-Z]/.test(phone);
+      if (hasAlphabets || digitsOnly.length < 7) {
+        errPhone?.classList.remove('hidden');
+        phoneInput.classList.add('border-error');
+        isValid = false;
+      } else {
+        errPhone?.classList.add('hidden');
+        phoneInput.classList.remove('border-error');
+      }
+
+      if (!isValid) return;
 
       const order = ArborStore.addOrder({
         client: name,

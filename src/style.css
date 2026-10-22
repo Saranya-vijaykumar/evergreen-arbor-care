@@ -1228,3 +1228,23 @@ html[dir="rtl"] .mx-auto {
 }
 
 
+
+/* Additional Dark Mode High Contrast Overrides */
+html.dark .text-on-primary-fixed-variant,
+html.dark .text-on-primary-fixed-variant * {
+  color: #4ade80 !important;
+}
+
+html.dark .text-on-secondary-container,
+html.dark .text-on-secondary-container * {
+  color: #fde68a !important;
+}
+
+html.dark .text-on-surface-variant,
+html.dark .text-on-surface-variant * {
+  color: #cbd5e1 !important;
+}
+
+html.dark [class*="text-on-surface-variant/"] {
+  color: #cbd5e1 !important;
+}

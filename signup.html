@@ -383,8 +383,8 @@
       const password = document.getElementById('new-password').value;
       const confirm = document.getElementById('confirm-password').value;
 
-      if (!name) { setFieldError('err-name', true); isValid = false; } else { setFieldError('err-name', false); }
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setFieldError('err-email', true); isValid = false; } else { setFieldError('err-email', false); }
+      if (!name || !/^[A-Za-z\s'\-]{2,60}$/.test(name)) { setFieldError('err-name', true); isValid = false; } else { setFieldError('err-name', false); }
+      if (!email || !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) { setFieldError('err-email', true); isValid = false; } else { setFieldError('err-email', false); }
       if (username.length < 3) { setFieldError('err-username', true); isValid = false; } else { setFieldError('err-username', false); }
       if (password.length < 6) { setFieldError('err-password', true); isValid = false; } else { setFieldError('err-password', false); }
       if (password !== confirm) { setFieldError('err-confirm', true); isValid = false; } else { setFieldError('err-confirm', false); }

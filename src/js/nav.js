@@ -265,11 +265,13 @@ export function openBookingModal(defaultService = 'Tree Pruning & Care', default
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
             <div>
               <label class="block text-[11px] sm:text-xs font-semibold text-on-surface mb-1">Your Full Name *</label>
-              <input type="text" id="modal-client" required placeholder="Jane Doe" class="w-full px-3 py-1.5 sm:py-2 bg-surface-container rounded-lg text-xs sm:text-sm text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary" />
+              <input type="text" id="modal-client" required placeholder="Jane Doe" minlength="2" class="w-full px-3 py-1.5 sm:py-2 bg-surface-container rounded-lg text-xs sm:text-sm text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary" />
+              <span id="modal-err-client" class="hidden text-[10px] text-error font-medium mt-0.5">At least 2 letters (no numbers).</span>
             </div>
             <div>
               <label class="block text-[11px] sm:text-xs font-semibold text-on-surface mb-1">Phone Number *</label>
               <input type="tel" id="modal-phone" required placeholder="(555) 000-0000" class="w-full px-3 py-1.5 sm:py-2 bg-surface-container rounded-lg text-xs sm:text-sm text-on-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary" />
+              <span id="modal-err-phone" class="hidden text-[10px] text-error font-medium mt-0.5">Digits only, min 7 digits (no letters).</span>
             </div>
           </div>
 
@@ -327,15 +329,50 @@ export function openBookingModal(defaultService = 'Tree Pruning & Care', default
     if (e.target === backdrop) closeModal();
   });
 
+  // Prevent letters in phone field
+  const phoneEl = document.getElementById('modal-phone');
+  if (phoneEl) {
+    phoneEl.addEventListener('input', function() {
+      this.value = this.value.replace(/[a-zA-Z]/g, '');
+    });
+  }
+
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
-    const client = document.getElementById('modal-client').value.trim();
-    const phone = document.getElementById('modal-phone').value.trim();
+    const clientInput = document.getElementById('modal-client');
+    const phoneInput = document.getElementById('modal-phone');
+    const errClient = document.getElementById('modal-err-client');
+    const errPhone = document.getElementById('modal-err-phone');
+
+    const client = clientInput.value.trim();
+    const phone = phoneInput.value.trim();
     const location = document.getElementById('modal-location').value.trim();
     const service = document.getElementById('modal-service').value.trim();
     const priority = document.getElementById('modal-priority').value;
     const amount = parseFloat(document.getElementById('modal-amount').value) || defaultAmount;
     const notes = document.getElementById('modal-notes').value.trim();
+
+    let isValid = true;
+    if (!/^[A-Za-z\s'\-]{2,60}$/.test(client)) {
+      errClient?.classList.remove('hidden');
+      clientInput.classList.add('border-error');
+      isValid = false;
+    } else {
+      errClient?.classList.add('hidden');
+      clientInput.classList.remove('border-error');
+    }
+
+    const digits = phone.replace(/\D/g, '');
+    if (/[a-zA-Z]/.test(phone) || digits.length < 7) {
+      errPhone?.classList.remove('hidden');
+      phoneInput.classList.add('border-error');
+      isValid = false;
+    } else {
+      errPhone?.classList.add('hidden');
+      phoneInput.classList.remove('border-error');
+    }
+
+    if (!isValid) return;
 
     const order = ArborStore.addOrder({
       client,
