@@ -70,10 +70,10 @@ header, main, footer, section {
   box-sizing: border-box;
 }
 
-/* Ensure containers stay perfectly centered and aligned on all screens */
-.max-w-7xl, .max-w-5xl, .max-w-4xl, .max-w-3xl, .max-w-2xl, .max-w-xl, .mx-auto {
-  margin-left: auto !important;
-  margin-right: auto !important;
+/* Ensure centered wrapper containers stay centered on all screens */
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 img, video, canvas, svg {
