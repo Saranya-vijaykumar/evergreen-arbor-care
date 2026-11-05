@@ -360,7 +360,7 @@
     </div>
 
     <h1 class="auth-title">Welcome Back</h1>
-    <p class="auth-subtitle">Dummy Client Portal — Sign In (Not connected to Operations Dashboard)</p>
+    <p class="auth-subtitle">Sign in to your ArborPro Client &amp; Operations Portal</p>
 
     <div id="status-msg" class="status-banner"></div>
 
@@ -371,7 +371,10 @@
       </div>
       <h3 class="text-lg font-bold text-on-surface mb-1">You are Signed In</h3>
       <p id="logged-in-username" class="text-xs text-on-surface-variant mb-5">Logged in as demo user</p>
-      <a href="index.html" class="btn-submit block text-center no-underline mb-3">Return to Home Page</a>
+      <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px;">
+        <a href="admin.html" class="btn-submit" style="display: block; text-align: center; text-decoration: none;">Go to Operations Dashboard</a>
+        <a href="index.html" class="btn-submit" style="display: block; text-align: center; text-decoration: none; background: #233027; color: #fff;">Return to Home Page</a>
+      </div>
       <button type="button" id="signout-btn" class="w-full py-2.5 px-4 rounded-lg border border-outline-variant text-xs font-semibold text-on-surface hover:bg-surface-container transition-all cursor-pointer">
         Sign Out (Demo Session)
       </button>
@@ -511,7 +514,7 @@
         : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
     });
 
-    // Handle Dummy Login submission - Redirects to Home (index.html)
+    // Handle Login submission - Redirects to Operations Dashboard (admin.html)
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const userVal = usernameInput.value.trim() || 'client@arborpro.com';
@@ -531,10 +534,10 @@
       };
       localStorage.setItem('evergreen_client_session', JSON.stringify(clientSession));
 
-      showStatus('✓ Dummy login successful! Returning to home page (client session active)…', 'success');
+      showStatus('✓ Login successful! Redirecting to Operations Dashboard…', 'success');
 
       setTimeout(() => {
-        window.location.href = 'index.html';
+        window.location.href = 'admin.html';
       }, 700);
     });
   </script>
