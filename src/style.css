@@ -1383,3 +1383,27 @@ html.dark [class*="text-on-surface-variant"] {
 .text-outline {
   font-weight: 500;
 }
+
+/* =========================================================
+   UNIFORM INNER PAGE HERO HEIGHT
+   About, Services, Pricing, Blog, Contact, Service Detail
+   ========================================================= */
+.page-hero {
+  min-height: 460px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+}
+
+@media (min-width: 768px) {
+  .page-hero {
+    min-height: 480px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-hero {
+    min-height: 500px !important;
+  }
+}
