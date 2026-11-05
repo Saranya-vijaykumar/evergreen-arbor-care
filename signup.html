@@ -3,62 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Create Account | ArborPro</title>
+  <title>Create Account | ArborPro Operations</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#012d1d",
+            "primary-container": "#1b4332",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#86af99",
+            "primary-fixed": "#c1ecd4",
+            "primary-fixed-dim": "#a5d0b9",
+            "secondary": "#7d562d",
+            "surface": "#f9faf6",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f3f4f1",
+            "surface-container": "#eeeeeb"
+          }
+        }
+      }
+    };
+  </script>
+  <script>
+    (function() {
+      const theme = localStorage.getItem('arbor_theme');
+      if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="/src/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body {
-      min-height: 100%;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    }
+    * { box-sizing: border-box; }
     body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       min-height: 100vh;
-      background: linear-gradient(145deg, #0e2a1b 0%, #1a4d33 45%, #2d7a4f 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 3rem 1.25rem;
+      padding: 2.5rem 1.25rem;
+      background: linear-gradient(145deg, #071f14 0%, #0e2a1b 45%, #1b4332 100%);
       color: #1f2937;
+    }
+    html.dark body {
+      background: linear-gradient(145deg, #050d09 0%, #0a1710 50%, #0f2218 100%);
     }
     .auth-card {
       background: #ffffff;
       border-radius: 1.25rem;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.1);
       width: 100%;
       max-width: 450px;
       padding: 2.25rem 2rem;
       margin: auto;
+      position: relative;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
     }
-    .logo-container {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 1.15rem;
+    html.dark .auth-card {
+      background: #121915;
+      border: 1px solid #233328;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
     }
     .brand-logo-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      transition: transform 0.2s ease, filter 0.2s ease;
-      cursor: pointer;
+      gap: 10px;
+      transition: transform 0.2s ease;
     }
     .brand-logo-link:hover {
-      transform: scale(1.06);
-      filter: drop-shadow(0 6px 16px rgba(27, 109, 36, 0.45));
-    }
-    .logo-circle {
-      width: 64px;
-      height: 64px;
-      background: linear-gradient(135deg, #1b6d24 0%, #22c55e 100%);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 8px 24px rgba(27, 109, 36, 0.35);
-      border: 2px solid rgba(255, 255, 255, 0.9);
+      transform: scale(1.04);
     }
     .brand-logo-text {
       color: #111827;
@@ -71,18 +95,25 @@
       color: #f9fafb !important;
     }
     .auth-title {
-      font-size: 1.65rem;
+      font-size: 1.6rem;
       font-weight: 800;
       color: #111827;
       text-align: center;
       letter-spacing: -0.025em;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.35rem;
+    }
+    html.dark .auth-title {
+      color: #f9fafb;
     }
     .auth-subtitle {
       font-size: 0.875rem;
       color: #6b7280;
       text-align: center;
       margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+    html.dark .auth-subtitle {
+      color: #9ca3af;
     }
     .form-group {
       margin-bottom: 1.1rem;
@@ -93,6 +124,9 @@
       font-weight: 600;
       color: #374151;
       margin-bottom: 0.4rem;
+    }
+    html.dark .form-label {
+      color: #e5e7eb;
     }
     .input-field {
       width: 100%;
@@ -106,13 +140,20 @@
       outline: none;
       transition: all 0.2s ease;
     }
+    html.dark .input-field {
+      background-color: #19241e;
+      border-color: #2b3d31;
+      color: #f9fafb;
+    }
     .input-field:focus {
       background-color: #ffffff;
       border-color: #1b6d24;
       box-shadow: 0 0 0 3px rgba(27, 109, 36, 0.15);
     }
-    .input-field::placeholder {
-      color: #9ca3af;
+    html.dark .input-field:focus {
+      background-color: #1f2d25;
+      border-color: #4ade80;
+      box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.2);
     }
     .toggle-pw-wrapper {
       position: relative;
@@ -139,12 +180,18 @@
     .eye-btn:hover {
       color: #374151;
     }
+    html.dark .eye-btn:hover {
+      color: #e5e7eb;
+    }
     .strength-track {
       background: #e5e7eb;
       border-radius: 9999px;
       height: 4px;
       margin-top: 0.4rem;
       overflow: hidden;
+    }
+    html.dark .strength-track {
+      background: #2b3d31;
     }
     .strength-bar {
       height: 100%;
@@ -159,11 +206,18 @@
       text-align: right;
       min-height: 1rem;
     }
+    html.dark .strength-label {
+      color: #9ca3af;
+    }
     .field-error {
       font-size: 0.75rem;
       color: #dc2626;
       margin-top: 0.3rem;
       display: none;
+      font-weight: 500;
+    }
+    html.dark .field-error {
+      color: #f87171;
     }
     .alert-banner {
       padding: 0.7rem 1rem;
@@ -172,16 +226,27 @@
       margin-bottom: 1.25rem;
       display: none;
       text-align: center;
+      font-weight: 500;
     }
     .alert-banner.error {
       background-color: #fef2f2;
       border: 1px solid #fecaca;
       color: #b91c1c;
     }
+    html.dark .alert-banner.error {
+      background-color: rgba(185, 28, 28, 0.15);
+      border-color: rgba(239, 68, 68, 0.4);
+      color: #f87171;
+    }
     .alert-banner.success {
       background-color: #f0fdf4;
       border: 1px solid #bbf7d0;
       color: #15803d;
+    }
+    html.dark .alert-banner.success {
+      background-color: rgba(22, 101, 52, 0.25);
+      border-color: rgba(74, 222, 128, 0.35);
+      color: #4ade80;
     }
     .btn-submit {
       width: 100%;
@@ -216,11 +281,18 @@
       font-size: 0.875rem;
       color: #6b7280;
       margin-top: 1.5rem;
+      font-weight: 500;
+    }
+    html.dark .auth-footer {
+      color: #9ca3af;
     }
     .auth-footer a {
       color: #1b6d24;
       font-weight: 600;
       text-decoration: none;
+    }
+    html.dark .auth-footer a {
+      color: #4ade80;
     }
     .auth-footer a:hover {
       text-decoration: underline;
@@ -233,22 +305,57 @@
       text-decoration: none;
       margin-top: 0.85rem;
       transition: color 0.15s;
+      font-weight: 500;
+    }
+    html.dark .back-home {
+      color: #9ca3af;
     }
     .back-home:hover {
       color: #1b6d24;
       text-decoration: underline;
     }
-    .footer-center {
-      text-align: center;
+    html.dark .back-home:hover {
+      color: #4ade80;
+    }
+    .theme-switch-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #6b7280;
+      padding: 0.4rem;
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .theme-switch-btn:hover {
+      color: #111827;
+      background: #f3f4f1;
+    }
+    html.dark .theme-switch-btn {
+      color: #9ca3af;
+    }
+    html.dark .theme-switch-btn:hover {
+      color: #f9fafb;
+      background: #1f2d25;
     }
   </style>
 </head>
 <body>
   <div class="auth-card">
+    <!-- Quick Theme Toggle in Auth Card -->
+    <button type="button" id="auth-theme-toggle" class="theme-switch-btn" aria-label="Toggle Theme" title="Toggle Light / Dark Mode">
+      <span class="material-symbols-outlined text-[20px]" id="auth-theme-icon">dark_mode</span>
+    </button>
+
     <!-- Clickable Official Brand Logo -->
-    <div class="logo-container">
-      <a href="index.html" class="brand-logo-link" title="Click to Return to ArborPro Home" style="display: inline-flex; align-items: center; text-decoration: none; gap: 10px; margin-bottom: 0.5rem;">
-        <div style="width: 44px; height: 44px; border-radius: 12px; background: #1b6d24; display: flex; align-items: center; justify-content: center; color: #ffffff; box-shadow: 0 4px 14px rgba(27, 109, 36, 0.35);">
+    <div class="flex justify-center mb-4">
+      <a href="index.html" class="brand-logo-link" title="Click to Return to ArborPro Home">
+        <div style="width: 44px; height: 44px; border-radius: 12px; background: #012d1d; display: flex; align-items: center; justify-content: center; color: #ffffff; box-shadow: 0 4px 14px rgba(1, 45, 29, 0.35);">
           <span class="material-symbols-outlined text-[26px]">forest</span>
         </div>
         <span class="brand-logo-text">ArborPro</span>
@@ -256,7 +363,7 @@
     </div>
 
     <h1 class="auth-title">Create Account</h1>
-    <p class="auth-subtitle">Customer & Member Portal — Join ArborPro</p>
+    <p class="auth-subtitle">Customer &amp; Member Portal — Join ArborPro</p>
 
     <div id="alert-box" class="alert-banner"></div>
 
@@ -269,13 +376,13 @@
 
       <div class="form-group">
         <label for="email" class="form-label">Email Address</label>
-        <input id="email" type="email" class="input-field" placeholder="admin@evergreenarbor.com" autocomplete="email" />
+        <input id="email" type="email" class="input-field" placeholder="client@arborpro.com" autocomplete="email" />
         <span class="field-error" id="err-email">Please enter a valid email address.</span>
       </div>
 
       <div class="form-group">
         <label for="new-username" class="form-label">Username</label>
-        <input id="new-username" type="text" class="input-field" placeholder="dispatcher01" autocomplete="username" />
+        <input id="new-username" type="text" class="input-field" placeholder="client_user" autocomplete="username" />
         <span class="field-error" id="err-username">Username must be at least 3 characters.</span>
       </div>
 
@@ -302,7 +409,7 @@
           <input id="confirm-password" type="password" class="input-field" placeholder="Re-enter password" autocomplete="new-password" />
           <button type="button" class="eye-btn" id="eye-cp" aria-label="Toggle confirm visibility">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8z"/><circle cx="12" cy="12" r="3"/>
             </svg>
           </button>
         </div>
@@ -312,7 +419,7 @@
       <button type="submit" class="btn-submit" id="signup-btn">Create Account</button>
     </form>
 
-    <div class="footer-center">
+    <div class="text-center">
       <p class="auth-footer">
         Already have an account? <a href="login.html">Sign In</a>
       </p>
@@ -321,12 +428,33 @@
   </div>
 
   <script>
-    // Standalone customer sign up
+    const themeToggleBtn = document.getElementById('auth-theme-toggle');
+    const themeIcon = document.getElementById('auth-theme-icon');
+
+    function updateThemeIcon() {
+      const isDark = document.documentElement.classList.contains('dark');
+      if (themeIcon) {
+        themeIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
+      }
+    }
+    updateThemeIcon();
+
+    themeToggleBtn?.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      if (isDark) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('arbor_theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('arbor_theme', 'dark');
+      }
+      updateThemeIcon();
+    });
 
     function setupPasswordToggle(btnId, inputId) {
       const btn = document.getElementById(btnId);
       const inp = document.getElementById(inputId);
-      btn.addEventListener('click', () => {
+      btn?.addEventListener('click', () => {
         const isPw = inp.type === 'password';
         inp.type = isPw ? 'text' : 'password';
         btn.innerHTML = isPw
@@ -338,7 +466,7 @@
     setupPasswordToggle('eye-cp', 'confirm-password');
 
     // Password strength meter
-    document.getElementById('new-password').addEventListener('input', function() {
+    document.getElementById('new-password')?.addEventListener('input', function() {
       const val = this.value;
       const bar = document.getElementById('strength-bar');
       const label = document.getElementById('strength-label');
@@ -380,7 +508,7 @@
       box.style.display = 'block';
     }
 
-    document.getElementById('signup-form').addEventListener('submit', (e) => {
+    document.getElementById('signup-form')?.addEventListener('submit', (e) => {
       e.preventDefault();
       let isValid = true;
 
@@ -406,15 +534,15 @@
         return;
       }
 
-      const newUser = { username, email, password, name, role: 'dispatcher', createdAt: Date.now() };
+      const newUser = { username, email, password, name, role: 'client', createdAt: Date.now() };
       users.push(newUser);
       localStorage.setItem('arborpro_users', JSON.stringify(users));
 
       const btn = document.getElementById('signup-btn');
       btn.textContent = 'Account created! Redirecting…';
       btn.disabled = true;
-      showBanner('Account created successfully! Redirecting to sign in…', 'success');
-      setTimeout(() => { window.location.href = 'login.html'; }, 900);
+      showBanner('✓ Account created successfully! Redirecting to sign in…', 'success');
+      setTimeout(() => { window.location.href = 'login.html'; }, 800);
     });
   </script>
 </body>

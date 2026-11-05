@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="arborGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#012d1d" />
+      <stop offset="100%" stop-color="#1b4332" />
+    </linearGradient>
+  </defs>
+  <!-- Rounded Badge -->
+  <rect width="64" height="64" rx="16" fill="url(#arborGradient)" />
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="#86af99" stroke-width="1.5" stroke-opacity="0.3" />
+  
+  <!-- Stylized Evergreen / Pine Tree (Crisp Vector) -->
+  <path d="M32 10 L44 24 H37 L47 36 H39 L49 46 H15 L25 36 H17 L27 24 H20 Z" fill="#ffffff" />
+  <!-- Tree Trunk -->
+  <rect x="29" y="46" width="6" height="8" rx="1.5" fill="#c1ecd4" />
+</svg>

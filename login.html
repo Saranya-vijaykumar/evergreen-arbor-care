@@ -3,61 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Customer Login | ArborPro</title>
+  <title>Customer Login | ArborPro Operations</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#012d1d",
+            "primary-container": "#1b4332",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#86af99",
+            "primary-fixed": "#c1ecd4",
+            "primary-fixed-dim": "#a5d0b9",
+            "secondary": "#7d562d",
+            "surface": "#f9faf6",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f3f4f1",
+            "surface-container": "#eeeeeb"
+          }
+        }
+      }
+    };
+  </script>
+  <script>
+    (function() {
+      const theme = localStorage.getItem('arbor_theme');
+      if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="/src/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body {
-      min-height: 100%;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    }
+    * { box-sizing: border-box; }
     body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       min-height: 100vh;
-      background: linear-gradient(145deg, #0e2a1b 0%, #1a4d33 45%, #2d7a4f 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 3rem 1.25rem;
+      padding: 2.5rem 1.25rem;
+      background: linear-gradient(145deg, #071f14 0%, #0e2a1b 45%, #1b4332 100%);
       color: #1f2937;
+    }
+    html.dark body {
+      background: linear-gradient(145deg, #050d09 0%, #0a1710 50%, #0f2218 100%);
     }
     .auth-card {
       background: #ffffff;
       border-radius: 1.25rem;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.1);
       width: 100%;
       max-width: 440px;
       padding: 2.25rem 2rem;
       margin: auto;
+      position: relative;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
     }
-    .logo-container {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 1.15rem;
+    html.dark .auth-card {
+      background: #121915;
+      border: 1px solid #233328;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
     }
     .brand-logo-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      transition: transform 0.2s ease, filter 0.2s ease;
-      cursor: pointer;
+      gap: 10px;
+      transition: transform 0.2s ease;
     }
     .brand-logo-link:hover {
-      transform: scale(1.06);
-      filter: drop-shadow(0 6px 16px rgba(27, 109, 36, 0.45));
+      transform: scale(1.04);
     }
-    .logo-circle {
-      width: 64px;
-      height: 64px;
-      background: linear-gradient(135deg, #1b6d24 0%, #22c55e 100%);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 8px 24px rgba(27, 109, 36, 0.35);
     .brand-logo-text {
       color: #111827;
       font-size: 1.5rem;
@@ -69,18 +95,25 @@
       color: #f9fafb !important;
     }
     .auth-title {
-      font-size: 1.65rem;
+      font-size: 1.6rem;
       font-weight: 800;
       color: #111827;
       text-align: center;
       letter-spacing: -0.025em;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.35rem;
+    }
+    html.dark .auth-title {
+      color: #f9fafb;
     }
     .auth-subtitle {
       font-size: 0.875rem;
       color: #6b7280;
       text-align: center;
       margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+    html.dark .auth-subtitle {
+      color: #9ca3af;
     }
     .form-group {
       margin-bottom: 1.15rem;
@@ -91,6 +124,9 @@
       font-weight: 600;
       color: #374151;
       margin-bottom: 0.4rem;
+    }
+    html.dark .form-label {
+      color: #e5e7eb;
     }
     .input-field {
       width: 100%;
@@ -104,13 +140,20 @@
       outline: none;
       transition: all 0.2s ease;
     }
+    html.dark .input-field {
+      background-color: #19241e;
+      border-color: #2b3d31;
+      color: #f9fafb;
+    }
     .input-field:focus {
       background-color: #ffffff;
       border-color: #1b6d24;
       box-shadow: 0 0 0 3px rgba(27, 109, 36, 0.15);
     }
-    .input-field::placeholder {
-      color: #9ca3af;
+    html.dark .input-field:focus {
+      background-color: #1f2d25;
+      border-color: #4ade80;
+      box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.2);
     }
     .toggle-pw-wrapper {
       position: relative;
@@ -137,6 +180,9 @@
     .eye-btn:hover {
       color: #374151;
     }
+    html.dark .eye-btn:hover {
+      color: #e5e7eb;
+    }
     .status-banner {
       padding: 0.7rem 1rem;
       border-radius: 0.5rem;
@@ -151,10 +197,20 @@
       border: 1px solid #fecaca;
       color: #b91c1c;
     }
+    html.dark .status-banner.error {
+      background-color: rgba(185, 28, 28, 0.15);
+      border-color: rgba(239, 68, 68, 0.4);
+      color: #f87171;
+    }
     .status-banner.success {
       background-color: #f0fdf4;
       border: 1px solid #bbf7d0;
       color: #15803d;
+    }
+    html.dark .status-banner.success {
+      background-color: rgba(22, 101, 52, 0.25);
+      border-color: rgba(74, 222, 128, 0.35);
+      color: #4ade80;
     }
     .btn-submit {
       width: 100%;
@@ -195,6 +251,12 @@
       text-align: center;
       transition: all 0.2s ease;
       user-select: none;
+      cursor: pointer;
+    }
+    html.dark .demo-box {
+      background: rgba(22, 101, 52, 0.2);
+      border-color: rgba(74, 222, 128, 0.25);
+      color: #86efac;
     }
     .demo-box:hover {
       background: #dcfce7;
@@ -202,16 +264,27 @@
       transform: translateY(-1px);
       box-shadow: 0 2px 8px rgba(22, 101, 52, 0.15);
     }
+    html.dark .demo-box:hover {
+      background: rgba(22, 101, 52, 0.35);
+      border-color: rgba(74, 222, 128, 0.4);
+    }
     .auth-footer {
       text-align: center;
       font-size: 0.875rem;
       color: #6b7280;
       margin-top: 1.5rem;
+      font-weight: 500;
+    }
+    html.dark .auth-footer {
+      color: #9ca3af;
     }
     .auth-footer a {
       color: #1b6d24;
       font-weight: 600;
       text-decoration: none;
+    }
+    html.dark .auth-footer a {
+      color: #4ade80;
     }
     .auth-footer a:hover {
       text-decoration: underline;
@@ -224,13 +297,43 @@
       text-decoration: none;
       margin-top: 0.85rem;
       transition: color 0.15s;
+      font-weight: 500;
+    }
+    html.dark .back-home {
+      color: #9ca3af;
     }
     .back-home:hover {
       color: #1b6d24;
       text-decoration: underline;
     }
-    .footer-center {
-      text-align: center;
+    html.dark .back-home:hover {
+      color: #4ade80;
+    }
+    .theme-switch-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #6b7280;
+      padding: 0.4rem;
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .theme-switch-btn:hover {
+      color: #111827;
+      background: #f3f4f1;
+    }
+    html.dark .theme-switch-btn {
+      color: #9ca3af;
+    }
+    html.dark .theme-switch-btn:hover {
+      color: #f9fafb;
+      background: #1f2d25;
     }
     .logged-in-card {
       display: none;
@@ -241,10 +344,15 @@
 </head>
 <body>
   <div class="auth-card">
+    <!-- Quick Theme Toggle in Auth Card -->
+    <button type="button" id="auth-theme-toggle" class="theme-switch-btn" aria-label="Toggle Theme" title="Toggle Light / Dark Mode">
+      <span class="material-symbols-outlined text-[20px]" id="auth-theme-icon">dark_mode</span>
+    </button>
+
     <!-- Clickable Official Brand Logo -->
-    <div class="logo-container">
-      <a href="index.html" class="brand-logo-link" title="Click to Return to ArborPro Home" style="display: inline-flex; align-items: center; text-decoration: none; gap: 10px; margin-bottom: 0.5rem;">
-        <div style="width: 44px; height: 44px; border-radius: 12px; background: #1b6d24; display: flex; align-items: center; justify-content: center; color: #ffffff; box-shadow: 0 4px 14px rgba(27, 109, 36, 0.35);">
+    <div class="flex justify-center mb-4">
+      <a href="index.html" class="brand-logo-link" title="Click to Return to ArborPro Home">
+        <div style="width: 44px; height: 44px; border-radius: 12px; background: #012d1d; display: flex; align-items: center; justify-content: center; color: #ffffff; box-shadow: 0 4px 14px rgba(1, 45, 29, 0.35);">
           <span class="material-symbols-outlined text-[26px]">forest</span>
         </div>
         <span class="brand-logo-text">ArborPro</span>
@@ -252,7 +360,7 @@
     </div>
 
     <h1 class="auth-title">Welcome Back</h1>
-    <p class="auth-subtitle">Customer & Member Portal — Sign In</p>
+    <p class="auth-subtitle">Customer &amp; Member Portal — Sign In</p>
 
     <div id="status-msg" class="status-banner"></div>
 
@@ -261,10 +369,10 @@
       <div style="width: 56px; height: 56px; border-radius: 50%; background: #dcfce7; color: #15803d; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
         <span class="material-symbols-outlined text-[32px]">check_circle</span>
       </div>
-      <h3 style="font-size: 1.15rem; font-weight: 700; color: #111827; margin-bottom: 0.25rem;">You are Signed In</h3>
-      <p id="logged-in-username" style="font-size: 0.875rem; color: #4b5563; margin-bottom: 1.25rem;">Logged in as demo user</p>
-      <a href="index.html" class="btn-submit" style="display: block; text-decoration: none; margin-bottom: 0.75rem;">Return to Home Page</a>
-      <button type="button" id="signout-btn" style="background: none; border: 1px solid #d1d5db; color: #4b5563; padding: 0.65rem 1rem; border-radius: 0.5rem; font-size: 0.875rem; font-weight: 600; cursor: pointer; width: 100%; transition: all 0.2s;">
+      <h3 class="text-lg font-bold text-on-surface mb-1">You are Signed In</h3>
+      <p id="logged-in-username" class="text-xs text-on-surface-variant mb-5">Logged in as demo user</p>
+      <a href="index.html" class="btn-submit block text-center no-underline mb-3">Return to Home Page</a>
+      <button type="button" id="signout-btn" class="w-full py-2.5 px-4 rounded-lg border border-outline-variant text-xs font-semibold text-on-surface hover:bg-surface-container transition-all cursor-pointer">
         Sign Out (Demo Session)
       </button>
     </div>
@@ -289,24 +397,24 @@
       </div>
 
       <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; font-size: 0.825rem;">
-        <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; color: #4b5563;">
-          <input type="checkbox" id="remember-me" checked style="accent-color: #1b6d24; cursor: pointer;" />
+        <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;" class="text-on-surface-variant font-medium">
+          <input type="checkbox" id="remember-me" checked style="accent-color: #012d1d; cursor: pointer;" />
           Remember me
         </label>
-        <a href="#" id="forgot-pw-link" style="color: #1b6d24; text-decoration: none; font-weight: 500;">Forgot password?</a>
+        <a href="#" id="forgot-pw-link" style="color: #1b6d24; text-decoration: none; font-weight: 600;">Forgot password?</a>
       </div>
 
       <button type="submit" class="btn-submit" id="login-btn">Sign In</button>
     </form>
 
     <!-- Clickable Demo Credentials with Auto-fill -->
-    <div class="demo-box" id="demo-box" style="cursor: pointer;" title="Click to auto-fill demo credentials">
+    <div class="demo-box" id="demo-box" title="Click to auto-fill demo credentials">
       <span class="material-symbols-outlined text-[16px]" style="vertical-align: -3px; margin-right: 4px;">key</span>
       <strong>Demo Client:</strong> <span style="text-decoration: underline;">client@arborpro.com / demo123</span>
-      <span style="display: block; font-size: 0.72rem; color: #15803d; margin-top: 2px;">(Click here to auto-fill dummy credentials)</span>
+      <span style="display: block; font-size: 0.72rem; margin-top: 2px;">(Click here to auto-fill dummy credentials)</span>
     </div>
 
-    <div class="footer-center">
+    <div class="text-center">
       <p class="auth-footer">
         Don't have an account? <a href="signup.html">Create Account</a>
       </p>
@@ -326,6 +434,29 @@
     const loggedInUsername = document.getElementById('logged-in-username');
     const signoutBtn = document.getElementById('signout-btn');
     const forgotPwLink = document.getElementById('forgot-pw-link');
+    const themeToggleBtn = document.getElementById('auth-theme-toggle');
+    const themeIcon = document.getElementById('auth-theme-icon');
+
+    // Update Theme Icon
+    function updateThemeIcon() {
+      const isDark = document.documentElement.classList.contains('dark');
+      if (themeIcon) {
+        themeIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
+      }
+    }
+    updateThemeIcon();
+
+    themeToggleBtn?.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      if (isDark) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('arbor_theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('arbor_theme', 'dark');
+      }
+      updateThemeIcon();
+    });
 
     function showStatus(text, type = 'error') {
       statusMsg.className = 'status-banner ' + type;
@@ -380,7 +511,7 @@
         : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
     });
 
-    // Handle Dummy Login submission - Redirects to Home (index.html), NEVER admin dashboard
+    // Handle Dummy Login submission - Redirects to Home (index.html)
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const userVal = usernameInput.value.trim() || 'client@arborpro.com';
@@ -394,7 +525,6 @@
       loginBtn.textContent = 'Signing in…';
       loginBtn.disabled = true;
 
-      // Save dummy client session
       const clientSession = {
         user: userVal,
         name: userVal.split('@')[0],
@@ -405,10 +535,9 @@
 
       showStatus('✓ Signed in successfully! Returning to home page…', 'success');
 
-      // Redirect to index.html (NEVER admin.html)
       setTimeout(() => {
         window.location.href = 'index.html';
-      }, 800);
+      }, 700);
     });
   </script>
 </body>

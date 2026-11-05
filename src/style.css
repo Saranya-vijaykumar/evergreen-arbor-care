@@ -1350,3 +1350,32 @@ html.dark table td.text-on-surface-variant {
   color: #cbd5e1 !important;
 }
 
+/* =========================================================
+   ENHANCED SUBTEXT READABILITY & WEIGHT (SITE-WIDE)
+   ========================================================= */
+p,
+li,
+.text-on-surface-variant,
+[class*="text-on-surface-variant"],
+.text-sm,
+.text-xs {
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Light Mode: rich high-contrast slate charcoal */
+html:not(.dark) .text-on-surface-variant,
+html:not(.dark) p.text-on-surface-variant,
+html:not(.dark) span.text-on-surface-variant {
+  color: #334155 !important;
+  font-weight: 500;
+}
+
+/* Dark Mode: luminous, crisp readable slate */
+html.dark p,
+html.dark li,
+html.dark .text-on-surface-variant,
+html.dark [class*="text-on-surface-variant"] {
+  color: #cbd5e1 !important;
+  font-weight: 500;
+}

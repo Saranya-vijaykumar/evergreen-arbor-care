@@ -4,6 +4,7 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>Blog & Knowledge Base | ArborPro</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -120,25 +121,21 @@
         <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors bg-primary-container text-on-primary-container font-bold" data-path="blog" href="blog.html">Blog</a>
         <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="pricing" href="pricing.html">Pricing</a>
                 <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors" data-path="contact" href="contact.html">Contact</a>
-        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors flex items-center gap-1.5 text-on-surface-variant hover:text-on-surface" data-path="admin-dashboard" href="admin.html">
-          <span class="material-symbols-outlined text-[16px] text-primary">dashboard</span>
-          <span>Dashboard</span>
-        </a>
+        <a class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors text-on-surface-variant hover:text-on-surface" data-path="admin-dashboard" href="admin.html">Dashboard</a>
       </nav>
 
             <div class="flex items-center gap-2 sm:gap-3">
         <!-- Quick 1-Click Theme Toggle Button (Tablets & Desktops) -->
-        <button type="button" class="theme-toggle-btn hidden sm:flex items-center justify-center p-2 rounded-lg border border-surface-container-high bg-surface-container-low hover:bg-surface-container text-on-surface transition-colors shadow-sm shrink-0" aria-label="Toggle Theme Mode" title="Toggle Theme Mode">
+        <button type="button" class="theme-toggle-btn hidden sm:flex items-center justify-center h-10 w-10 rounded-lg border border-surface-container-high bg-surface-container-low hover:bg-surface-container text-on-surface transition-colors shadow-sm shrink-0" aria-label="Toggle Theme Mode" title="Toggle Theme Mode">
           <span class="material-symbols-outlined text-[20px] theme-icon pointer-events-none">dark_mode</span>
         </button>
 
         <!-- Quick 1-Click RTL / LTR Direction Toggle Button (Tablets & Desktops) -->
-        <button type="button" class="dir-toggle-btn hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-surface-container-high bg-surface-container-low hover:bg-surface-container text-on-surface transition-colors shadow-sm text-xs font-semibold shrink-0" aria-label="Toggle RTL / LTR Layout" title="Toggle RTL / LTR Layout">
-          <span class="material-symbols-outlined text-[16px] dir-icon pointer-events-none">swap_horiz</span>
+        <button type="button" class="dir-toggle-btn hidden sm:flex items-center justify-center h-10 px-3 rounded-lg border border-surface-container-high bg-surface-container-low hover:bg-surface-container text-on-surface transition-colors shadow-sm text-xs font-bold shrink-0" aria-label="Toggle RTL / LTR Layout" title="Toggle RTL / LTR Layout">
           <span class="dir-text text-xs font-bold pointer-events-none">LTR</span>
         </button>
 
-        <a class="hidden lg:inline-flex items-center justify-center px-4 py-2 bg-secondary text-on-secondary rounded-lg text-sm font-semibold hover:bg-secondary/90 transition-all shadow-sm gap-2 shrink-0" data-path="login" href="login.html">
+        <a class="hidden lg:inline-flex items-center justify-center h-10 px-4 bg-secondary text-on-secondary rounded-lg text-sm font-semibold hover:bg-secondary/90 transition-all shadow-sm gap-2 shrink-0" data-path="login" href="login.html">
           <span class="material-symbols-outlined text-[18px]">login</span>
           Login
         </a>
@@ -161,9 +158,8 @@
             <span class="material-symbols-outlined text-[14px] theme-icon">dark_mode</span>
             <span class="theme-text text-[11px]">Theme</span>
           </button>
-          <button type="button" class="dir-toggle-btn flex items-center gap-1 px-2.5 py-1 bg-surface-container text-on-surface rounded-lg text-xs font-semibold hover:bg-surface-container-high transition-colors">
-            <span class="material-symbols-outlined text-[14px] dir-icon">swap_horiz</span>
-            <span class="dir-text text-[11px]">LTR</span>
+          <button type="button" class="dir-toggle-btn flex items-center justify-center px-3 py-1 bg-surface-container text-on-surface rounded-lg text-xs font-bold hover:bg-surface-container-high transition-colors">
+            <span class="dir-text text-[11px] font-bold">LTR</span>
           </button>
         </div>
       </div>
@@ -183,10 +179,7 @@
       <a class="px-3 py-2 rounded-lg text-sm font-semibold bg-primary-container text-on-primary-container" data-path="blog" href="blog.html">Blog</a>
       <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="pricing" href="pricing.html">Pricing</a>
             <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="contact" href="contact.html">Contact</a>
-      <a class="px-3 py-2 rounded-lg text-sm font-medium flex items-center gap-2" data-path="admin-dashboard" href="admin.html">
-        <span class="material-symbols-outlined text-[16px] text-primary">dashboard</span>
-        <span>Dashboard</span>
-      </a>
+      <a class="px-3 py-2 rounded-lg text-sm font-medium" data-path="admin-dashboard" href="admin.html">Dashboard</a>
       <a class="px-3 py-2.5 rounded-xl text-sm font-semibold bg-secondary text-on-secondary flex items-center justify-center gap-2 mt-2 shadow-sm" data-path="login" href="login.html">
           <span class="material-symbols-outlined text-[18px]">login</span>
           Login
@@ -196,7 +189,7 @@
 
   <main class="w-full pt-20 bg-surface">
     <!-- Hero Section -->
-    <section class="relative w-full pt-16 pb-20 px-gutter bg-primary text-on-primary overflow-hidden">
+    <section class="relative w-full py-16 md:py-20 lg:py-24 px-gutter bg-primary text-on-primary overflow-hidden">
       <div class="absolute inset-0 opacity-15 bg-cover bg-center pointer-events-none" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCk_aDuqqrUay9q4gmuqP-MTIUxOyppQx_s6FFQhsjew6U2RJXZJPW-gdCDYhE-pt6zfCpm1zv5W2mwsAc36bnI0uKg_bYmkwYAMkecnSeI9jYiHb_xuqL3qdKNLO0PYOOtIvdPHtYUIAsMrNv6K-2QbA8b20vYvtfmyOKBOCMNWEVkzZIc77t55Y9sYd8kV9ykWE-qYkNGPjliWIbJFxNG5JOL6VDbxjEfXwmg-KCEkHabVHcoZVpI')"></div>
       
       <div class="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
