@@ -1183,9 +1183,6 @@ html[dir="rtl"] .dir-icon {
 }
 
 
-html[dir="rtl"] .max-w-7xl,
-html[dir="rtl"] .max-w-5xl,
-html[dir="rtl"] .max-w-4xl,
 html[dir="rtl"] .mx-auto {
   margin-left: auto !important;
   margin-right: auto !important;
