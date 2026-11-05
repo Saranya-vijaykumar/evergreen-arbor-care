@@ -21,9 +21,9 @@
             "secondary": "#7d562d",
             "secondary-container": "#ffca98",
             "on-secondary": "#ffffff",
-            "surface": "#f9faf6",
-            "surface-container-low": "#f3f4f1",
-            "surface-container": "#eeeeeb",
+            "surface": "#ffffff",
+            "surface-container-low": "#f4f6f4",
+            "surface-container": "#e5e9e5",
             "surface-container-high": "#e8e8e5",
             "surface-container-highest": "#e2e3e0",
             "on-surface": "#1a1c1a",
@@ -36,7 +36,7 @@
           borderRadius: {
             lg: "0.25rem",
             xl: "0.5rem",
-            full: "0.75rem"
+            
           },
           spacing: {
             gutter: "1.5rem"
@@ -206,7 +206,7 @@
     </section>
 
     <!-- Services Grid -->
-    <section class="max-w-7xl mx-auto px-gutter py-12 w-full">
+    <section class="w-full py-16 bg-surface-container-low border-t border-surface-container">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="services-container">
         <!-- Card 1: Pruning -->
         <div class="service-card flex flex-col bg-surface-container-low rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-surface-container" data-category="pruning">
@@ -656,14 +656,14 @@
         <div id="no-services-found" class="hidden col-span-full py-12 text-center flex flex-col items-center justify-center gap-3 bg-surface-container-low rounded-2xl border border-surface-container">
           <span class="material-symbols-outlined text-4xl text-outline">search_off</span>
           <p class="text-base font-bold text-on-surface">No services matching your criteria</p>
-          <p class="text-xs text-on-surface-variant">Try resetting filters or adjusting your search term.</p>
+          <p class="text-xs font-medium text-on-surface-variant text-left leading-relaxed">Try resetting filters or adjusting your search term.</p>
         </div>
       </div>
 </section>
 
     <!-- Interactive Step-by-Step Care Guide Accordion Section (Stitch Update) -->
     <section class="max-w-7xl mx-auto px-gutter py-12 w-full">
-      <div class="bg-surface-container-low rounded-2xl p-6 md:p-10 flex flex-col gap-6 shadow-sm border border-surface-container">
+      <div class="max-w-7xl mx-auto px-gutter flex flex-col gap-8">
         <div class="flex flex-col gap-1.5 text-center max-w-2xl mx-auto">
           <span class="text-xs text-secondary font-bold uppercase tracking-wider">Interactive Walkthrough</span>
           <h2 class="text-2xl md:text-3xl font-bold font-headline text-on-surface">Step-by-Step Property Care Guide</h2>
@@ -674,7 +674,7 @@
           <div class="bg-surface rounded-xl border border-surface-container overflow-hidden transition-all shadow-sm">
             <button aria-expanded="true" class="w-full p-4 text-left flex justify-between items-center gap-4 hover:bg-surface-container-high transition-colors" onclick="toggleAccordion(this)">
               <div class="flex items-center gap-3">
-                <span class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs">1</span>
+                <span class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs shrink-0 shadow-sm">1</span>
                 <span class="text-sm md:text-base font-bold font-headline text-on-surface">Initial Consultation &amp; Risk Appraisal</span>
               </div>
               <span class="material-symbols-outlined text-outline transition-transform duration-200">expand_more</span>
@@ -687,7 +687,7 @@
           <div class="bg-surface rounded-xl border border-surface-container overflow-hidden transition-all shadow-sm">
             <button aria-expanded="false" class="w-full p-4 text-left flex justify-between items-center gap-4 hover:bg-surface-container-high transition-colors" onclick="toggleAccordion(this)">
               <div class="flex items-center gap-3">
-                <span class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs">2</span>
+                <span class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs shrink-0 shadow-sm">2</span>
                 <span class="text-sm md:text-base font-bold font-headline text-on-surface">Diagnostic Testing &amp; Soil Analysis</span>
               </div>
               <span class="material-symbols-outlined text-outline transition-transform duration-200">expand_more</span>
@@ -700,7 +700,7 @@
           <div class="bg-surface rounded-xl border border-surface-container overflow-hidden transition-all shadow-sm">
             <button aria-expanded="false" class="w-full p-4 text-left flex justify-between items-center gap-4 hover:bg-surface-container-high transition-colors" onclick="toggleAccordion(this)">
               <div class="flex items-center gap-3">
-                <span class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs">3</span>
+                <span class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs shrink-0 shadow-sm">3</span>
                 <span class="text-sm md:text-base font-bold font-headline text-on-surface">Precision Execution &amp; ANSI A300 Pruning</span>
               </div>
               <span class="material-symbols-outlined text-outline transition-transform duration-200">expand_more</span>
@@ -713,7 +713,7 @@
           <div class="bg-surface rounded-xl border border-surface-container overflow-hidden transition-all shadow-sm">
             <button aria-expanded="false" class="w-full p-4 text-left flex justify-between items-center gap-4 hover:bg-surface-container-high transition-colors" onclick="toggleAccordion(this)">
               <div class="flex items-center gap-3">
-                <span class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs">4</span>
+                <span class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs shrink-0 shadow-sm">4</span>
                 <span class="text-sm md:text-base font-bold font-headline text-on-surface">Site Restoration &amp; Ongoing Maintenance</span>
               </div>
               <span class="material-symbols-outlined text-outline transition-transform duration-200">expand_more</span>
@@ -727,35 +727,35 @@
     </section>
 
     <!-- Process & Standards Section -->
-    <section class="bg-surface-container-low py-16 w-full border-t border-surface-container">
+    <section class="bg-surface py-16 w-full border-t border-surface-container">
       <div class="max-w-7xl mx-auto px-gutter flex flex-col gap-10">
-        <div class="flex flex-col md:flex-row justify-between items-end gap-6">
-          <div class="flex flex-col gap-1 max-w-xl text-left">
-            <span class="text-xs text-secondary font-bold uppercase tracking-wider">Our Methodology</span>
-            <h2 class="text-3xl font-bold font-headline text-on-surface">The ArborPro Operational Standard</h2>
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 text-left">
+          <div class="flex flex-col gap-1 max-w-xl text-left items-start">
+            <span class="text-xs text-secondary font-bold uppercase tracking-wider block text-left">Our Methodology</span>
+            <h2 class="text-3xl font-bold font-headline text-on-surface text-left">The ArborPro Operational Standard</h2>
           </div>
           <p class="text-xs text-on-surface-variant max-w-md leading-relaxed text-left">Every service engagement follows strict ANSI A300 pruning standards and ISA safety guidelines to protect your property and prolong tree vitality.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-left">
-          <div class="bg-surface p-6 rounded-2xl flex flex-col gap-3 shadow-sm border border-surface-container">
+          <div class="bg-surface-container-low p-6 rounded-2xl flex flex-col gap-3 shadow-sm border border-surface-container text-left items-start">
             <div class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center font-bold text-base font-headline">01</div>
-            <h3 class="text-base font-bold font-headline text-on-surface">Site Assessment</h3>
-            <p class="text-xs text-on-surface-variant">Certified arborists inspect tree architecture, root health, and structure clearances.</p>
+            <h3 class="text-base font-bold font-headline text-on-surface text-left">Site Assessment</h3>
+            <p class="text-xs font-medium text-on-surface-variant text-left leading-relaxed">Certified arborists inspect tree architecture, root health, and structure clearances.</p>
           </div>
-          <div class="bg-surface p-6 rounded-2xl flex flex-col gap-3 shadow-sm border border-surface-container">
+          <div class="bg-surface-container-low p-6 rounded-2xl flex flex-col gap-3 shadow-sm border border-surface-container text-left items-start">
             <div class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center font-bold text-base font-headline">02</div>
-            <h3 class="text-base font-bold font-headline text-on-surface">Transparent Quote</h3>
-            <p class="text-xs text-on-surface-variant">Itemized scope of work with clear pricing tiers and zero hidden fees before work begins.</p>
+            <h3 class="text-base font-bold font-headline text-on-surface text-left">Transparent Quote</h3>
+            <p class="text-xs font-medium text-on-surface-variant text-left leading-relaxed">Itemized scope of work with clear pricing tiers and zero hidden fees before work begins.</p>
           </div>
-          <div class="bg-surface p-6 rounded-2xl flex flex-col gap-3 shadow-sm border border-surface-container">
+          <div class="bg-surface-container-low p-6 rounded-2xl flex flex-col gap-3 shadow-sm border border-surface-container text-left items-start">
             <div class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center font-bold text-base font-headline">03</div>
-            <h3 class="text-base font-bold font-headline text-on-surface">Safe Execution</h3>
-            <p class="text-xs text-on-surface-variant">Fully insured crews utilize specialized rigging gear and modern machinery for zero-impact work.</p>
+            <h3 class="text-base font-bold font-headline text-on-surface text-left">Safe Execution</h3>
+            <p class="text-xs font-medium text-on-surface-variant text-left leading-relaxed">Fully insured crews utilize specialized rigging gear and modern machinery for zero-impact work.</p>
           </div>
-          <div class="bg-surface p-6 rounded-2xl flex flex-col gap-3 shadow-sm border border-surface-container">
+          <div class="bg-surface-container-low p-6 rounded-2xl flex flex-col gap-3 shadow-sm border border-surface-container text-left items-start">
             <div class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center font-bold text-base font-headline">04</div>
-            <h3 class="text-base font-bold font-headline text-on-surface">Site Clean-up</h3>
-            <p class="text-xs text-on-surface-variant">Complete debris chipping, blowing, and rake-out leaving your property immaculate.</p>
+            <h3 class="text-base font-bold font-headline text-on-surface text-left">Site Clean-up</h3>
+            <p class="text-xs font-medium text-on-surface-variant text-left leading-relaxed">Complete debris chipping, blowing, and rake-out leaving your property immaculate.</p>
           </div>
         </div>
       </div>
