@@ -147,6 +147,39 @@ export function setupNavigation() {
     }
   }
 
+  
+
+  // Dynamic Client Auth State for Nav Bar (Dummy Login disconnected from Dashboard)
+  function updateNavAuthState() {
+    const sessionStr = localStorage.getItem('evergreen_client_session');
+    let session = null;
+    try {
+      if (sessionStr) session = JSON.parse(sessionStr);
+    } catch(e) {}
+
+    const authLinks = document.querySelectorAll('[data-path="login"], #nav-auth-btn, #mobile-nav-auth-btn');
+    authLinks.forEach(link => {
+      if (session && session.loggedIn) {
+        const username = session.name || (session.user ? session.user.split('@')[0] : 'Client');
+        link.innerHTML = `<span class="inline-flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-primary">account_circle</span><span class="font-bold">${username}</span><span class="text-[10px] text-error hover:underline cursor-pointer ml-0.5" id="header-logout-btn" title="Sign Out of Demo">(Logout)</span></span>`;
+        link.setAttribute('href', 'login.html');
+      } else {
+        link.innerHTML = 'Login';
+        link.setAttribute('href', 'login.html');
+      }
+    });
+
+    document.querySelectorAll('#header-logout-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        localStorage.removeItem('evergreen_client_session');
+        window.location.reload();
+      });
+    });
+  }
+  updateNavAuthState();
+
   // Automatically bind any "Get Instant Estimate" buttons or links across all pages
   document.querySelectorAll('a, button').forEach(btn => {
     const text = (btn.textContent || '').trim().toLowerCase();

@@ -360,7 +360,7 @@
     </div>
 
     <h1 class="auth-title">Welcome Back</h1>
-    <p class="auth-subtitle">Customer &amp; Member Portal — Sign In</p>
+    <p class="auth-subtitle">Dummy Client Portal — Sign In (Not connected to Operations Dashboard)</p>
 
     <div id="status-msg" class="status-banner"></div>
 
@@ -517,23 +517,21 @@
       const userVal = usernameInput.value.trim() || 'client@arborpro.com';
       const pwVal = passwordInput.value;
 
-      if (!pwVal && !usernameInput.value.trim()) {
-        showStatus('Please enter username / email and password (or click Demo Credentials below).', 'error');
-        return;
-      }
+      // Accept any input or auto-fallback to demo client for smooth dummy login
+      const finalUser = userVal || 'demo_client';
 
       loginBtn.textContent = 'Signing in…';
       loginBtn.disabled = true;
 
       const clientSession = {
-        user: userVal,
-        name: userVal.split('@')[0],
+        user: finalUser,
+        name: finalUser.split('@')[0],
         loggedIn: true,
         loginTime: Date.now()
       };
       localStorage.setItem('evergreen_client_session', JSON.stringify(clientSession));
 
-      showStatus('✓ Signed in successfully! Returning to home page…', 'success');
+      showStatus('✓ Dummy login successful! Returning to home page (client session active)…', 'success');
 
       setTimeout(() => {
         window.location.href = 'index.html';
