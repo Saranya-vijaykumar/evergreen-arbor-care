@@ -1379,3 +1379,10 @@ html.dark [class*="text-on-surface-variant"] {
   color: #cbd5e1 !important;
   font-weight: 500;
 }
+
+/* Enhanced subtext readability across the website */
+.text-on-surface-variant,
+.text-primary-fixed-dim,
+.text-outline {
+  font-weight: 500;
+}
